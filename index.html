@@ -10,11 +10,11 @@
   <link rel="canonical" href="https://pastranaalex-glitch.github.io/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_ES">
-  <meta property="og:title" content="Biblioteca de herramientas | Programas gratuitos">
+  <meta property="og:title" content="Biblioteca de herramientas | Programas gratuitos para todos">
   <meta property="og:description" content="Descarga aplicaciones gratuitas, empezando por Lector Fácil para Android. Proyecto personal sin ánimo de lucro.">
   <meta property="og:url" content="https://pastranaalex-glitch.github.io/">
   <meta name="twitter:card" content="summary">
-<meta property="og:image" content="https://pastranaalex-glitch.github.io/captura-01-inicio.webp">
+
   <link rel="sitemap" type="application/xml" title="Mapa del sitio" href="/sitemap.xml">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <title>Biblioteca de herramientas | Aplicaciones gratis para Android</title>
@@ -165,6 +165,63 @@ button.button{font-family:inherit;cursor:pointer;}
 @media(max-width:430px){.hero-real{width:min(100%,285px)}.hero-real-screen{height:302px;width:185px}}
 
 @media(min-width:801px){.hero-grid{grid-template-columns:minmax(0,1.45fr) minmax(280px,.55fr);gap:38px}.hero{padding:56px 0 58px}}
+
+/* Pack 5: mejora editorial, mejor jerarquía visual y tarjeta de aplicación sin foto en portada */
+:root{--sky:#74d9ff;--mint:#91ecd0}
+.topbar{box-shadow:0 10px 30px rgba(0,0,0,.09)}
+.hero-v5{padding:72px 0 76px;background:
+ radial-gradient(ellipse at 75% 18%,rgba(68,161,219,.20),transparent 44%),
+ radial-gradient(ellipse at 16% 100%,rgba(85,223,175,.09),transparent 43%),
+ #0d1425}
+.home-hero-grid{grid-template-columns:minmax(0,1.17fr) minmax(305px,.83fr);gap:52px}
+.hero-v5 .hero-copy h1{font-size:clamp(2.65rem,5.1vw,4.55rem);line-height:1.09;letter-spacing:-.06em;margin:24px 0}
+.hero-v5 .hero-copy h1 span{background:linear-gradient(110deg,#85edff,#78c9ff,#b3f6d6);background-clip:text;-webkit-background-clip:text;color:transparent}
+.hero-v5 .lead{max-width:580px}
+.hero-actions .primary{box-shadow:0 8px 30px rgba(49,207,237,.14)}
+.hero-highlights{display:flex;flex-wrap:wrap;gap:9px 20px;margin-top:32px;color:#c9e4eb;font-size:.81rem}
+.hero-highlights span span{color:#9de6cb;font-weight:900;margin-right:4px}
+.feature-widget{position:relative;padding:27px;border:1px solid #42647d;border-radius:26px;background:linear-gradient(156deg,#1b344f,#111b31 70%);box-shadow:0 28px 70px #0006;overflow:hidden}
+.feature-widget:before{content:"";position:absolute;pointer-events:none;top:-75px;right:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#64d7e51f,transparent 70%)}
+.feature-widget-top{display:flex;align-items:center;justify-content:space-between;gap:12px;position:relative}
+.feature-overline{font-size:.68rem;letter-spacing:.14em;font-weight:900;color:#b4efde}
+.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#83eac5;margin-right:7px;box-shadow:0 0 11px #78e4b5}
+.feature-platform{color:#c0d9ec;font-size:.7rem;border:1px solid #516a82;padding:5px 9px;border-radius:6px}
+.feature-widget-identity{display:flex;align-items:center;gap:17px;margin:28px 0 15px}
+.feature-app-icon{display:grid;place-items:center;width:76px;height:76px;border-radius:22px;background:linear-gradient(135deg,#adf4fc,#94e5d5);color:#10334a;font-size:1.6rem;letter-spacing:-.08em;font-weight:900;box-shadow:0 8px 22px #0004}
+.feature-app-title{font-weight:850;letter-spacing:-.045em;font-size:1.8rem}
+.feature-app-subtitle{color:#bfd3e6;font-size:.82rem}
+.feature-widget-description{font-size:.93rem;line-height:1.65;color:#d2e2f1;margin:14px 0 18px}
+.feature-widget-tags{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 26px}
+.feature-widget-tags span{border:1px solid #49627d;padding:5px 9px;border-radius:999px;font-size:.75rem;color:#d2eaf8;background:#0c2037aa}
+.feature-widget-status{border-top:1px solid #47647a;border-bottom:1px solid #47647a;padding:14px 0;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.feature-widget-status small{display:block;color:#a9c4dc;font-size:.76rem}
+.feature-widget-status strong{display:block;color:#f4fbff;font-size:1.08rem;margin-top:3px}
+.feature-available{font-size:.75rem;color:#aef9d9;white-space:nowrap}
+.feature-widget-link{display:flex;align-items:center;justify-content:space-between;gap:10px;text-decoration:none;font-size:.85rem;color:#a0eaff;font-weight:800;margin-top:18px;text-underline-offset:4px}
+.feature-widget-link:hover{text-decoration:underline}
+.section-kicker{color:#9ae4d6;letter-spacing:.14em;font-size:.74rem;font-weight:850;margin-bottom:10px}
+.new-feature-badge{display:inline-flex;align-items:center;margin-left:7px;border-radius:20px;padding:3px 8px;color:#b3f5d9;background:#204339;border:1px solid #3e7d6e;font-size:.63rem;letter-spacing:0;vertical-align:middle}
+.quick-start{margin-top:34px;padding:22px 25px;border-radius:18px;background:#102538;border:1px solid #38576d;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.quick-start-title{display:flex;align-items:center;gap:15px}
+.quick-start-title strong{font-size:1rem}
+.quick-start-title p{margin:3px 0 0;color:#b9cede;font-size:.82rem}
+.quick-start-symbol{display:grid;place-items:center;flex-shrink:0;width:46px;height:46px;border-radius:14px;background:#1d4560;color:#a2e6fe;font-size:1.5rem}
+.quick-start-actions{display:flex;gap:13px;flex-wrap:wrap}
+.quick-start-actions a{color:#9ce9ff;font-size:.81rem;font-weight:750;text-underline-offset:3px}
+.app-preview-v5{background:linear-gradient(150deg,#1c3049,#111b2d);border:1px solid #41627e;border-radius:26px;padding:19px 17px 21px;box-shadow:0 25px 65px #0006}
+.app-preview-label{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:.69rem;color:#bfdaeb;letter-spacing:.06em;margin-bottom:18px}
+.app-preview-device{width:min(100%,240px);margin:auto;border:7px solid #303d51;border-radius:26px;overflow:hidden;background:#f7f7f7;box-shadow:0 16px 40px #0007}
+.app-preview-device img{display:block;width:100%;height:auto;aspect-ratio:691/1391;object-fit:contain}
+.app-preview-bottom{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:20px}
+.app-preview-bottom strong{display:block;font-size:.92rem}
+.app-preview-bottom span{display:block;font-size:.73rem;color:#c3d5e5;margin-top:4px}
+.app-preview-bottom a{font-size:.8rem;color:#98ebff;font-weight:800;white-space:nowrap;text-underline-offset:4px}
+#programas,#funciones,#capturas,#instalar,#versiones,#opiniones{scroll-margin-top:110px}
+@media(max-width:900px){.home-hero-grid{grid-template-columns:1fr;gap:26px}.hero-v5{padding:48px 0 56px}.feature-widget{max-width:560px}.app-preview-v5{width:min(100%,340px);margin:auto}}
+@media(max-width:550px){.hero-v5 .hero-copy h1{font-size:clamp(2.25rem,11vw,3.5rem)}.feature-widget{padding:19px;border-radius:20px}.feature-app-icon{width:63px;height:63px;border-radius:19px}.feature-app-title{font-size:1.5rem}.feature-widget-identity{margin-top:19px}.quick-start{padding:18px}.quick-start-actions{display:grid;gap:10px}.app-preview-v5{padding:14px}.app-preview-device{width:min(100%,235px)}}
+@media(prefers-reduced-motion:reduce){.feature-widget,.button{transition:none}}
+
+.hero-actions .button span{margin-left:9px}
 </style>
 </head>
 <body>
@@ -177,43 +234,52 @@ button.button{font-family:inherit;cursor:pointer;}
     </div>
   </header>
   <main id="contenido">
-    <section class="hero" id="inicio">
-      <div class="wrap hero-grid">
-        <div>
-          <span class="eyebrow">✓ Proyecto personal · Sin ánimo de lucro</span>
-          <h1>Programas útiles.<br><span>Gratis para todos.</span></h1>
-          <p class="lead">Aplicaciones útiles para móvil y ordenador, realizadas por afición. Descubre Lector Fácil para Android, con descarga gratuita y fotografías reales. Sin pagos, publicidad ni donaciones.</p>
-          <div class="actions"><a class="button primary" href="#programas">Explorar programas ↓</a><a class="button secondary" href="#proyecto">Conocer el proyecto</a></div>
-        </div>
-        <aside class="hero-real" aria-label="Captura auténtica de Lector Fácil">
-  <div class="hero-real-head"><span class="real-tag"><span aria-hidden="true">●</span> Imagen real</span><span class="real-tag-secondary">Android · Lector Fácil</span></div>
-  <a class="hero-real-screen" href="lector-facil.html#capturas" aria-label="Ver galería de fotografías reales de Lector Fácil">
-    <img src="captura-01-inicio.webp" alt="Pantalla real de Lector Fácil 1.0.1 con el botón Abrir PDF o Word y la lista de documentos recientes" width="691" height="1391" decoding="async" fetchpriority="high">
-  </a>
-  <p class="hero-real-foot">Pantalla principal · <a href="lector-facil.html#capturas">Ver las 6 capturas ↗</a></p>
-</aside>
+    <section class="hero hero-v5" id="inicio">
+  <div class="wrap hero-grid home-hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow"><span aria-hidden="true">✓</span> Proyecto personal · Sin ánimo de lucro</span>
+      <h1>Herramientas sencillas.<br><span>Ayuda de verdad.</span></h1>
+      <p class="lead">Una biblioteca de aplicaciones creadas por afición, pensadas para ser útiles en el día a día. Gratuitas, sin anuncios, sin compras y sin donaciones.</p>
+      <div class="actions hero-actions">
+        <a class="button primary" href="lector-facil.html">Descubrir Lector Fácil <span aria-hidden="true">→</span></a>
+        <a class="button secondary" href="#programas">Ver aplicaciones <span aria-hidden="true">↓</span></a>
       </div>
-    </section>
+      <div class="hero-highlights" aria-label="Ventajas de la biblioteca">
+        <span><span aria-hidden="true">✓</span> Descarga gratuita</span>
+        <span><span aria-hidden="true">✓</span> Sin registro</span>
+        <span><span aria-hidden="true">✓</span> Sin publicidad</span>
+      </div>
+    </div>
+    <aside class="feature-widget" aria-label="Aplicación destacada: Lector Fácil">
+      <div class="feature-widget-top"><span class="feature-overline"><span class="live-dot" aria-hidden="true"></span> APLICACIÓN DESTACADA</span><span class="feature-platform">ANDROID</span></div>
+      <div class="feature-widget-identity"><span class="feature-app-icon" aria-hidden="true">LF</span><div><div class="feature-app-title">Lector Fácil</div><div class="feature-app-subtitle">Leer, preparar y compartir</div></div></div>
+      <p class="feature-widget-description">Documentos PDF y Word, lectura cómoda, guía de exposición y PDF para imprimir.</p>
+      <div class="feature-widget-tags"><span>PDF + Word</span><span>Teleprompter</span><span>Sin conexión</span></div>
+      <div class="feature-widget-status"><div><small>Última versión</small><strong id="featured-version">Ver versión actual</strong></div><span class="feature-available">● Disponible</span></div>
+      <a class="feature-widget-link" href="lector-facil.html">Ver detalles y fotografías reales <span aria-hidden="true">↗</span></a>
+    </aside>
+  </div>
+</section>
     <section id="programas" class="content">
       <div class="wrap">
-        <h2 class="section-title">Aplicaciones</h2>
-        <p class="section-intro">Compartimos aplicaciones gratuitas realizadas por afición. Lector Fácil ya está disponible para Android.</p>
+        <div class="section-kicker">EXPLORA LA BIBLIOTECA</div><h2 class="section-title">Empieza por Lector Fácil</h2>
+        <p class="section-intro">Nuestra primera aplicación gratuita ya está disponible. Conoce sus funciones, ve imágenes reales y descarga la versión más reciente.</p>
         <article class="app">
           <div class="app-icon" aria-hidden="true">▤</div>
           <div>
-            <h3>Lector Fácil para Android</h3>
+            <h3>Lector Fácil para Android <span class="new-feature-badge">Disponible</span></h3>
             <p>Lee documentos PDF y Word (.docx), prepara intervenciones con teleprompter, diferencia interlocutores y comparte documentos. Incluye PDF de lectura y PDF en blanco y negro para imprimir.</p>
-            <div class="chips"><span class="chip">Android 8.0 o superior</span><span class="chip">Gratuito</span><span class="chip" id="version-chip">Disponible · v1.0.0</span></div>
+            <div class="chips"><span class="chip">Android 8.0 o superior</span><span class="chip">Gratuito</span><span class="chip" id="version-chip">Disponible · consulta la versión</span></div>
           </div>
           <div class="app-stat" aria-live="polite">
             <span class="stat-value" id="download-count">Consultando…</span>
             <span class="stat-label" id="download-caption">Descargas públicas del APK</span>
           </div>
         </article>
-        <p class="note" id="release-note">Descarga gratuita desde GitHub. Para instalar el APK, Android puede solicitar permiso para instalar aplicaciones desde tu navegador o gestor de archivos.</p>
+        <p class="note" id="release-note">Instalación mediante APK oficial desde GitHub. Para instalar el APK, Android puede solicitar permiso para instalar aplicaciones desde tu navegador o gestor de archivos.</p>
         <div class="app-actions">
-          <a id="download-link" class="button primary" href="https://github.com/pastranaalex-glitch/lector-facil/releases/download/v1.0.0/LectorFacil-v1.0.apk" target="_blank" rel="noopener noreferrer">Descargar Lector Fácil ↓</a>
-          <a class="button secondary" href="lector-facil.html">Ver características y guía de instalación →</a>
+          <a id="download-link" class="button primary" href="https://github.com/pastranaalex-glitch/lector-facil/releases/latest" target="_blank" rel="noopener noreferrer">Descargar Lector Fácil ↓</a>
+          <a class="button secondary" href="lector-facil.html">Ver la ficha completa →</a>
 <a class="button secondary" href="lector-facil.html#capturas">Ver capturas reales ↗</a>
           <button type="button" class="button secondary" data-share="site" data-share-title="Lector Fácil: aplicación gratuita para Android" data-share-url="https://pastranaalex-glitch.github.io/lector-facil.html">Compartir página ↗</button>
         </div>
@@ -230,7 +296,7 @@ button.button{font-family:inherit;cursor:pointer;}
           <div><strong>Versión más reciente</strong><p id="latest-version-label">Consulta las versiones y novedades publicadas.</p></div>
           <a href="lector-facil.html#versiones">Consultar actualizaciones →</a>
         </aside>
-        <div class="info-grid">
+        <div class="quick-start" aria-label="Cómo descargar Lector Fácil"><div class="quick-start-title"><span class="quick-start-symbol" aria-hidden="true">↘</span><div><strong>Descárgalo en tres pasos</strong><p>Sin cuentas, sin instalaciones complicadas en el ordenador.</p></div></div><div class="quick-start-actions"><a href="lector-facil.html#capturas">1. Mira las capturas</a><a href="lector-facil.html#instalar">2. Lee cómo instalar</a><a href="lector-facil.html#versiones">3. Consulta las versiones</a></div></div><div class="info-grid">
           <div class="info"><span class="info-icon" aria-hidden="true">♧</span><h3>Completamente gratuito</h3><p>No hay pagos, suscripciones, publicidad ni aportaciones económicas.</p></div>
           <div class="info"><span class="info-icon" aria-hidden="true">◈</span><h3>Hecho por afición</h3><p>Un proyecto personal para compartir herramientas que puedan ser útiles a otras personas.</p></div>
           <div class="info"><span class="info-icon" aria-hidden="true">◇</span><h3>Publicación responsable</h3><p>Cada aplicación se revisa antes de compartirla; no se garantizan asistencia ni actualizaciones.</p></div>

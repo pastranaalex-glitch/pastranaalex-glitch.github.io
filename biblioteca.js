@@ -1,4 +1,4 @@
-/* Biblioteca de herramientas · Pack 4. No requiere cuentas ni cookies de seguimiento. */
+/* Biblioteca de herramientas · Pack 5. No requiere cuentas ni cookies de seguimiento. */
 (() => {
   'use strict';
   const $ = id => document.getElementById(id);
@@ -74,6 +74,7 @@
       if(latest){
         setText('version-chip',document.body.querySelector('.detail-hero')?`Versión ${latest.tag_name}`:`Disponible · ${latest.tag_name}`);
         setText('latest-version-label',`Última versión: ${latest.tag_name}`);
+        setText('featured-version',latest.tag_name);
         setText('version-metric',latest.tag_name);
         const asset=getApks(latest).find(a => allowedGitHubUrl(a.browser_download_url));
         if(asset){
@@ -91,6 +92,7 @@
       setText('version-metric','Consultar en GitHub');
       setText('apk-size','Consultar en GitHub');
       setText('latest-version-label','Puedes consultar las últimas versiones en GitHub.');
+      setText('featured-version','Ver en GitHub');
       const box=$('releases-list');
       if(box){
         box.replaceChildren();

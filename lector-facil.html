@@ -15,7 +15,7 @@
   <meta property="og:description" content="Descarga Lector Fácil: lectura de PDF y DOCX, intervenciones resaltadas y PDF listo para imprimir. Sin publicidad ni donaciones.">
   <meta property="og:url" content="https://pastranaalex-glitch.github.io/lector-facil.html">
   <meta name="twitter:card" content="summary">
-<meta property="og:image" content="https://pastranaalex-glitch.github.io/captura-01-inicio.webp">
+<meta property="og:image" content="https://pastranaalex-glitch.github.io/lector-facil-portada-v5.webp">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <title>Lector Fácil gratis para Android | Leer PDF, Word y teleprompter</title>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Lector Fácil","description":"Aplicación gratuita para Android que permite leer PDF y DOCX, preparar intervenciones con teleprompter, diferenciar interlocutores y exportar PDF para lectura o impresión.","url":"https://pastranaalex-glitch.github.io/lector-facil.html","downloadUrl":"https://github.com/pastranaalex-glitch/lector-facil/releases/latest","softwareVersion":"1.0.1","applicationCategory":"ProductivityApplication","operatingSystem":"Android 8.0 o superior","inLanguage":"es","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","availability":"https://schema.org/InStock"}}</script>
@@ -244,6 +244,63 @@ button.button{font-family:inherit;cursor:pointer;}
  .download-fact span{font-size:.72rem}
 }
 
+
+/* Pack 5: mejora editorial, mejor jerarquía visual y tarjeta de aplicación sin foto en portada */
+:root{--sky:#74d9ff;--mint:#91ecd0}
+.topbar{box-shadow:0 10px 30px rgba(0,0,0,.09)}
+.hero-v5{padding:72px 0 76px;background:
+ radial-gradient(ellipse at 75% 18%,rgba(68,161,219,.20),transparent 44%),
+ radial-gradient(ellipse at 16% 100%,rgba(85,223,175,.09),transparent 43%),
+ #0d1425}
+.home-hero-grid{grid-template-columns:minmax(0,1.17fr) minmax(305px,.83fr);gap:52px}
+.hero-v5 .hero-copy h1{font-size:clamp(2.65rem,5.1vw,4.55rem);line-height:1.09;letter-spacing:-.06em;margin:24px 0}
+.hero-v5 .hero-copy h1 span{background:linear-gradient(110deg,#85edff,#78c9ff,#b3f6d6);background-clip:text;-webkit-background-clip:text;color:transparent}
+.hero-v5 .lead{max-width:580px}
+.hero-actions .primary{box-shadow:0 8px 30px rgba(49,207,237,.14)}
+.hero-highlights{display:flex;flex-wrap:wrap;gap:9px 20px;margin-top:32px;color:#c9e4eb;font-size:.81rem}
+.hero-highlights span span{color:#9de6cb;font-weight:900;margin-right:4px}
+.feature-widget{position:relative;padding:27px;border:1px solid #42647d;border-radius:26px;background:linear-gradient(156deg,#1b344f,#111b31 70%);box-shadow:0 28px 70px #0006;overflow:hidden}
+.feature-widget:before{content:"";position:absolute;pointer-events:none;top:-75px;right:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#64d7e51f,transparent 70%)}
+.feature-widget-top{display:flex;align-items:center;justify-content:space-between;gap:12px;position:relative}
+.feature-overline{font-size:.68rem;letter-spacing:.14em;font-weight:900;color:#b4efde}
+.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#83eac5;margin-right:7px;box-shadow:0 0 11px #78e4b5}
+.feature-platform{color:#c0d9ec;font-size:.7rem;border:1px solid #516a82;padding:5px 9px;border-radius:6px}
+.feature-widget-identity{display:flex;align-items:center;gap:17px;margin:28px 0 15px}
+.feature-app-icon{display:grid;place-items:center;width:76px;height:76px;border-radius:22px;background:linear-gradient(135deg,#adf4fc,#94e5d5);color:#10334a;font-size:1.6rem;letter-spacing:-.08em;font-weight:900;box-shadow:0 8px 22px #0004}
+.feature-app-title{font-weight:850;letter-spacing:-.045em;font-size:1.8rem}
+.feature-app-subtitle{color:#bfd3e6;font-size:.82rem}
+.feature-widget-description{font-size:.93rem;line-height:1.65;color:#d2e2f1;margin:14px 0 18px}
+.feature-widget-tags{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 26px}
+.feature-widget-tags span{border:1px solid #49627d;padding:5px 9px;border-radius:999px;font-size:.75rem;color:#d2eaf8;background:#0c2037aa}
+.feature-widget-status{border-top:1px solid #47647a;border-bottom:1px solid #47647a;padding:14px 0;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.feature-widget-status small{display:block;color:#a9c4dc;font-size:.76rem}
+.feature-widget-status strong{display:block;color:#f4fbff;font-size:1.08rem;margin-top:3px}
+.feature-available{font-size:.75rem;color:#aef9d9;white-space:nowrap}
+.feature-widget-link{display:flex;align-items:center;justify-content:space-between;gap:10px;text-decoration:none;font-size:.85rem;color:#a0eaff;font-weight:800;margin-top:18px;text-underline-offset:4px}
+.feature-widget-link:hover{text-decoration:underline}
+.section-kicker{color:#9ae4d6;letter-spacing:.14em;font-size:.74rem;font-weight:850;margin-bottom:10px}
+.new-feature-badge{display:inline-flex;align-items:center;margin-left:7px;border-radius:20px;padding:3px 8px;color:#b3f5d9;background:#204339;border:1px solid #3e7d6e;font-size:.63rem;letter-spacing:0;vertical-align:middle}
+.quick-start{margin-top:34px;padding:22px 25px;border-radius:18px;background:#102538;border:1px solid #38576d;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.quick-start-title{display:flex;align-items:center;gap:15px}
+.quick-start-title strong{font-size:1rem}
+.quick-start-title p{margin:3px 0 0;color:#b9cede;font-size:.82rem}
+.quick-start-symbol{display:grid;place-items:center;flex-shrink:0;width:46px;height:46px;border-radius:14px;background:#1d4560;color:#a2e6fe;font-size:1.5rem}
+.quick-start-actions{display:flex;gap:13px;flex-wrap:wrap}
+.quick-start-actions a{color:#9ce9ff;font-size:.81rem;font-weight:750;text-underline-offset:3px}
+.app-preview-v5{background:linear-gradient(150deg,#1c3049,#111b2d);border:1px solid #41627e;border-radius:26px;padding:19px 17px 21px;box-shadow:0 25px 65px #0006}
+.app-preview-label{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:.69rem;color:#bfdaeb;letter-spacing:.06em;margin-bottom:18px}
+.app-preview-device{width:min(100%,240px);margin:auto;border:7px solid #303d51;border-radius:26px;overflow:hidden;background:#f7f7f7;box-shadow:0 16px 40px #0007}
+.app-preview-device img{display:block;width:100%;height:auto;aspect-ratio:691/1391;object-fit:contain}
+.app-preview-bottom{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:20px}
+.app-preview-bottom strong{display:block;font-size:.92rem}
+.app-preview-bottom span{display:block;font-size:.73rem;color:#c3d5e5;margin-top:4px}
+.app-preview-bottom a{font-size:.8rem;color:#98ebff;font-weight:800;white-space:nowrap;text-underline-offset:4px}
+#programas,#funciones,#capturas,#instalar,#versiones,#opiniones{scroll-margin-top:110px}
+@media(max-width:900px){.home-hero-grid{grid-template-columns:1fr;gap:26px}.hero-v5{padding:48px 0 56px}.feature-widget{max-width:560px}.app-preview-v5{width:min(100%,340px);margin:auto}}
+@media(max-width:550px){.hero-v5 .hero-copy h1{font-size:clamp(2.25rem,11vw,3.5rem)}.feature-widget{padding:19px;border-radius:20px}.feature-app-icon{width:63px;height:63px;border-radius:19px}.feature-app-title{font-size:1.5rem}.feature-widget-identity{margin-top:19px}.quick-start{padding:18px}.quick-start-actions{display:grid;gap:10px}.app-preview-v5{padding:14px}.app-preview-device{width:min(100%,235px)}}
+@media(prefers-reduced-motion:reduce){.feature-widget,.button{transition:none}}
+
+.hero-actions .button span{margin-left:9px}
 </style>
 </head>
 <body>
@@ -274,12 +331,10 @@ button.button{font-family:inherit;cursor:pointer;}
         </div>
         <div class="actions auxiliary-actions"><a class="button secondary" href="#capturas">Ver fotos reales</a><button type="button" class="button secondary" data-share="site" data-share-title="Lector Fácil: aplicación gratuita para Android" data-share-url="https://pastranaalex-glitch.github.io/lector-facil.html">Compartir página ↗</button></div>
       </div>
-      <aside class="hero-real" aria-label="Captura auténtica de Lector Fácil">
-  <div class="hero-real-head"><span class="real-tag"><span aria-hidden="true">●</span> Imagen real</span><span class="real-tag-secondary">Android · Lector Fácil</span></div>
-  <a class="hero-real-screen" href="#capturas" aria-label="Ver galería de fotografías reales de Lector Fácil">
-    <img src="captura-01-inicio.webp" alt="Pantalla real de Lector Fácil 1.0.1 con el botón Abrir PDF o Word y la lista de documentos recientes" width="691" height="1391" decoding="async" fetchpriority="high">
-  </a>
-  <p class="hero-real-foot">Pantalla principal · <a href="#capturas">Ver las 6 capturas ↗</a></p>
+      <aside aria-label="Fotografía real de Lector Fácil" class="app-preview-v5">
+  <div class="app-preview-label"><span class="real-tag"><span aria-hidden="true">●</span> Captura real</span><span>ANDROID</span></div>
+  <div class="app-preview-device"><img src="lector-facil-portada-v5.webp" width="691" height="1391" alt="Pantalla principal real de Lector Fácil 1.0.1: botón Abrir PDF o Word y documento de ejemplo" decoding="async" fetchpriority="high"></div>
+  <div class="app-preview-bottom"><div><strong>Así es Lector Fácil</strong><span>Interfaz real, sin ilustraciones</span></div><a href="#capturas" aria-label="Ver las seis capturas reales">Ver galería ↗</a></div>
 </aside>
     </div></section>
     <section class="detail-subsection alt" id="funciones"><div class="wrap">
@@ -299,8 +354,8 @@ button.button{font-family:inherit;cursor:pointer;}
 <h2 class="section-title">Así es Lector Fácil por dentro</h2>
 <p class="section-intro gallery-intro">Seis capturas reales de la aplicación, realizadas con un diálogo ficticio entre Ana y Carlos. Toca cualquiera para verla más grande.</p>
 <div class="gallery-grid" aria-label="Galería de capturas de Lector Fácil">
-<button type="button" class="gallery-card" data-gallery-image="captura-01-inicio.webp" data-gallery-title="Pantalla principal" data-gallery-alt="Pantalla principal de Lector Fácil con botón para abrir PDF o Word y documentos recientes." aria-label="Ampliar captura 1: Pantalla principal">
- <span class="gallery-screen"><img src="captura-01-inicio.webp" alt="Pantalla principal de Lector Fácil con botón para abrir PDF o Word y documentos recientes." loading="lazy" width="691" height="1390"></span>
+<button type="button" class="gallery-card" data-gallery-image="lector-facil-portada-v5.webp" data-gallery-title="Pantalla principal" data-gallery-alt="Pantalla principal de Lector Fácil con botón para abrir PDF o Word y documentos recientes." aria-label="Ampliar captura 1: Pantalla principal">
+ <span class="gallery-screen"><img src="lector-facil-portada-v5.webp" alt="Pantalla principal de Lector Fácil con botón para abrir PDF o Word y documentos recientes." loading="lazy" width="691" height="1390"></span>
  <span class="gallery-title">Pantalla principal</span><span class="gallery-caption">Accede a tus documentos de forma sencilla.</span><span class="gallery-view">Ampliar imagen ↗</span></button>
 <button type="button" class="gallery-card" data-gallery-image="captura-02-lectura.webp" data-gallery-title="Lectura cómoda" data-gallery-alt="Documento de ejemplo con texto grande, botones de lectura y controles de Lector Fácil." aria-label="Ampliar captura 2: Lectura cómoda">
  <span class="gallery-screen"><img src="captura-02-lectura.webp" alt="Documento de ejemplo con texto grande, botones de lectura y controles de Lector Fácil." loading="lazy" width="691" height="1390"></span>
