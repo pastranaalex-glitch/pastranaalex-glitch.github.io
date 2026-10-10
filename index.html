@@ -90,7 +90,32 @@
     @media (max-width: 800px) { .hero-grid { grid-template-columns: 1fr; gap: 38px; } .hero { padding: 58px 0; } .app { grid-template-columns: 78px 1fr; } .app-stat { grid-column: 2; text-align: left; } .info-grid { grid-template-columns: 1fr; } }
     @media (max-width: 500px) { .wrap { width: min(100% - 28px, 1090px); } .nav { min-height: 62px; } nav { gap: 12px; } nav a { font-size: .78rem; } .brand { font-size: .85rem; } .brand-mark { width: 34px; height: 34px; } .hero { padding: 42px 0 50px; } .hero-art { padding: 11px; } .reader { min-height: 205px; } .app { padding: 17px; grid-template-columns: 55px 1fr; gap: 12px; } .app-icon { width: 55px; height: 55px; font-size: 29px; border-radius: 14px; } .app-stat { grid-column: 1 / -1; } section.content { padding: 45px 0; } }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  </style>
+  
+/* Valoraciones públicas: presentación, sin rastreadores ni anuncios. */
+.rating-section { border-top: 1px solid var(--line); background: #101a2d; padding: 65px 0; }
+.rating-head { display:flex; align-items:center; gap:18px; justify-content:space-between; flex-wrap:wrap; margin-bottom:25px; }
+.rating-panel { border:1px solid #35445c; background:linear-gradient(135deg,#19253e,#121c31); border-radius:19px; padding:26px; }
+.rating-summary {display:flex; align-items:center; flex-wrap:wrap; gap:12px 22px;}
+.rating-score { font-size:2.6rem; font-weight:850; letter-spacing:-.05em; line-height:1; }
+.rating-stars { font-size:1.4rem; letter-spacing: .06em; color:#ffcd65; }
+.rating-muted { color:var(--muted); font-size:.9rem; }
+.rating-note { font-size:.84rem; color:#adbed5; margin:13px 0 0; }
+.rating-cta { margin-top:22px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+.review-list { margin-top:20px; display:grid; gap:13px; }
+.review-item { background:#111b2e; padding:19px 21px; border:1px solid #31415a; border-radius:14px; }
+.review-item-header { display:flex; gap:8px 15px; align-items:center; flex-wrap:wrap; justify-content:space-between; margin-bottom:9px; }
+.review-item strong { color:#eef7ff; }
+.review-type {color:#bdd7ed; font-size:.78rem; border:1px solid #43576f; border-radius:999px; padding:3px 9px;}
+.review-item-text {white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0 0;color:#d6e3f1;line-height:1.55;}
+.rating-empty { color:#aabbd0; padding:20px 0 2px; }
+.rating-help {margin-top:24px;color:#acc0d7;font-size:.88rem;line-height:1.6;}
+.review-home {margin-top:24px;padding:18px 20px;border-radius:16px;border:1px solid #35445c;background:#141e32;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.review-home .rating-stars {font-size:1.05rem;}
+.review-home a {color:var(--blue);font-weight:700;text-underline-offset:3px;}
+[hidden] {display:none !important;}
+@media(max-width:600px){.rating-section{padding:45px 0}.rating-panel{padding:18px}.rating-score{font-size:2.15rem}.review-home{padding:16px}}
+
+</style>
 </head>
 <body>
   <header class="topbar">
@@ -136,6 +161,15 @@
           <a id="download-link" class="button primary" href="https://github.com/pastranaalex-glitch/lector-facil/releases/download/v1.0.0/LectorFacil-v1.0.apk" target="_blank" rel="noopener noreferrer">Descargar Lector Fácil ↓</a>
           <a class="button secondary" href="lector-facil.html">Ver características y guía de instalación →</a>
         </div>
+
+        <aside class="review-home" aria-label="Opiniones de Lector Fácil">
+          <div>
+            <strong>Opiniones de Lector Fácil</strong>
+            <div class="rating-muted"><span class="rating-stars" id="home-stars" aria-hidden="true">☆☆☆☆☆</span>
+              <span id="home-rating-caption">Todavía sin valoraciones publicadas</span></div>
+          </div>
+          <a href="lector-facil.html#opiniones">Leer opiniones y dejar una valoración →</a>
+        </aside>
         <div class="info-grid">
           <div class="info"><span class="info-icon" aria-hidden="true">♧</span><h3>Completamente gratuito</h3><p>No hay pagos, suscripciones, publicidad ni aportaciones económicas.</p></div>
           <div class="info"><span class="info-icon" aria-hidden="true">◈</span><h3>Hecho por afición</h3><p>Un proyecto personal para compartir herramientas que puedan ser útiles a otras personas.</p></div>
@@ -189,5 +223,6 @@
         captionElement.textContent = 'Contador temporalmente no disponible';
       });
   </script>
+  <script src="opiniones.js" defer></script>
 </body>
 </html>

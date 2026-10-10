@@ -115,12 +115,37 @@
     .inline-links a { color: var(--blue); }
     @media(max-width:850px) { .detail-columns { grid-template-columns: 1fr; } .feature-grid { grid-template-columns: repeat(2,1fr); } }
     @media(max-width:580px) { .feature-grid,.guide { grid-template-columns:1fr; } .detail-hero { padding-bottom: 48px; } nav { gap: 10px; } .nav { gap: 8px; } }
+
+/* Valoraciones públicas: presentación, sin rastreadores ni anuncios. */
+.rating-section { border-top: 1px solid var(--line); background: #101a2d; padding: 65px 0; }
+.rating-head { display:flex; align-items:center; gap:18px; justify-content:space-between; flex-wrap:wrap; margin-bottom:25px; }
+.rating-panel { border:1px solid #35445c; background:linear-gradient(135deg,#19253e,#121c31); border-radius:19px; padding:26px; }
+.rating-summary {display:flex; align-items:center; flex-wrap:wrap; gap:12px 22px;}
+.rating-score { font-size:2.6rem; font-weight:850; letter-spacing:-.05em; line-height:1; }
+.rating-stars { font-size:1.4rem; letter-spacing: .06em; color:#ffcd65; }
+.rating-muted { color:var(--muted); font-size:.9rem; }
+.rating-note { font-size:.84rem; color:#adbed5; margin:13px 0 0; }
+.rating-cta { margin-top:22px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+.review-list { margin-top:20px; display:grid; gap:13px; }
+.review-item { background:#111b2e; padding:19px 21px; border:1px solid #31415a; border-radius:14px; }
+.review-item-header { display:flex; gap:8px 15px; align-items:center; flex-wrap:wrap; justify-content:space-between; margin-bottom:9px; }
+.review-item strong { color:#eef7ff; }
+.review-type {color:#bdd7ed; font-size:.78rem; border:1px solid #43576f; border-radius:999px; padding:3px 9px;}
+.review-item-text {white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0 0;color:#d6e3f1;line-height:1.55;}
+.rating-empty { color:#aabbd0; padding:20px 0 2px; }
+.rating-help {margin-top:24px;color:#acc0d7;font-size:.88rem;line-height:1.6;}
+.review-home {margin-top:24px;padding:18px 20px;border-radius:16px;border:1px solid #35445c;background:#141e32;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.review-home .rating-stars {font-size:1.05rem;}
+.review-home a {color:var(--blue);font-weight:700;text-underline-offset:3px;}
+[hidden] {display:none !important;}
+@media(max-width:600px){.rating-section{padding:45px 0}.rating-panel{padding:18px}.rating-score{font-size:2.15rem}.review-home{padding:16px}}
+
 </style>
 </head>
 <body>
   <header class="topbar"><div class="wrap nav">
     <a class="brand" href="index.html" aria-label="Inicio de Biblioteca de herramientas"><span class="brand-mark" aria-hidden="true">⌘</span><span>Biblioteca de herramientas</span></a>
-    <nav aria-label="Navegación principal"><a href="index.html#programas">Programas</a><a href="#funciones">Funciones</a><a href="#instalar">Instalación</a></nav>
+    <nav aria-label="Navegación principal"><a href="index.html#programas">Programas</a><a href="#funciones">Funciones</a><a href="#instalar">Instalación</a><a href="#opiniones">Opiniones</a></nav>
   </div></header>
   <main>
     <div class="wrap breadcrumb"><a href="index.html">Inicio</a> › Lector Fácil</div>
@@ -164,6 +189,37 @@
       <p class="note-inline">Por seguridad, descarga el APK únicamente desde el enlace oficial de esta página o desde el repositorio del proyecto. La instalación y los avisos pueden variar según el dispositivo.</p>
       <div class="inline-links"><a href="https://github.com/pastranaalex-glitch/lector-facil/releases" target="_blank" rel="noopener noreferrer">Ver versiones y actualizaciones ↗</a><a href="https://github.com/pastranaalex-glitch/lector-facil" target="_blank" rel="noopener noreferrer">Ver proyecto en GitHub ↗</a></div>
     </div></section>
+
+    <section class="rating-section" id="opiniones"><div class="wrap">
+      <div class="rating-head">
+        <div><h2 class="section-title">Opiniones sobre Lector Fácil</h2>
+        <p class="section-intro" style="margin-bottom:0">Valora la aplicación, comparte una sugerencia o informa de un problema.</p></div>
+      </div>
+      <div class="rating-panel">
+        <div class="rating-summary" aria-live="polite">
+          <span class="rating-score" id="opinion-media">—</span>
+          <div><div class="rating-stars" id="opinion-estrellas" aria-label="Sin puntuaciones">☆☆☆☆☆</div>
+            <div class="rating-muted" id="opinion-numero">Todavía no hay valoraciones publicadas</div></div>
+        </div>
+        <p class="rating-note">La nota media se calcula sobre valoraciones aprobadas. Las sugerencias y avisos de errores no afectan a la puntuación.</p>
+        <div class="rating-cta" id="opinion-form-config" aria-live="polite">
+          <span class="rating-muted">El formulario para enviar opiniones estará disponible próximamente.</span>
+        </div>
+        <div class="rating-cta" id="opinion-form-ready" hidden>
+          <a class="button primary" id="opinion-form-link" href="#opiniones" target="_blank" rel="noopener noreferrer">★ Enviar una valoración, sugerencia o aviso</a>
+          <button class="button secondary" id="opinion-form-toggle" type="button" hidden aria-expanded="false" aria-controls="opinion-iframe-zone">Escribir aquí, sin salir de la web ↓</button>
+          <span class="rating-muted">Sin compras ni donaciones.</span>
+        </div>
+        <div id="opinion-iframe-zone" hidden style="margin-top:22px">
+          <iframe id="opinion-iframe" title="Formulario de opiniones de Lector Fácil" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="width:100%;height:990px;border:0;background:#fff;border-radius:14px" aria-label="Formulario de Google para enviar una opinión"></iframe>
+          <p class="rating-note">Si el formulario no se muestra correctamente, usa el botón «Enviar una valoración» para abrirlo en otra pestaña.</p>
+        </div>
+        <p class="rating-note">Los mensajes llegan primero al responsable de la página. Solo se publican las opiniones que se revisan y aprueban. No incluyas teléfonos, direcciones ni información privada.</p>
+      </div>
+      <h3 style="margin:32px 0 9px;font-size:1.22rem">Valoraciones y comentarios publicados</h3>
+      <div id="opinion-lista" class="review-list" aria-live="polite"><p class="rating-empty">Todavía no hay opiniones publicadas.</p></div>
+      <p class="rating-help">Las opiniones reflejan la experiencia de sus autores. Se revisan para evitar publicidad, insultos y datos personales, no para ocultar críticas. Puedes usar el formulario para solicitar la retirada de una opinión propia, indicando su alias y contenido.</p>
+    </div></section>
     <section class="detail-subsection alt" id="preguntas"><div class="wrap">
       <h2 class="section-title">Preguntas frecuentes</h2>
       <div class="faq">
@@ -206,5 +262,6 @@
       })
       .catch(() => { countElement.textContent = '—'; captionElement.textContent = 'contador temporalmente no disponible'; });
   </script>
+  <script src="opiniones.js" defer></script>
 </body>
 </html>
