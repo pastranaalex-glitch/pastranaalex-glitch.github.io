@@ -1,10 +1,11 @@
-/* Biblioteca de herramientas · Pack 2. No requiere cuentas ni cookies de seguimiento. */
+/* Biblioteca de herramientas · Pack 4. No requiere cuentas ni cookies de seguimiento. */
 (() => {
   'use strict';
   const $ = id => document.getElementById(id);
   const repo = 'pastranaalex-glitch/lector-facil';
   const githubBase = `https://github.com/${repo}/releases`;
   const esNumber = n => Number(n).toLocaleString('es-ES');
+  const formatMb = bytes => Number.isFinite(bytes) && bytes > 0 ? `${new Intl.NumberFormat('es-ES',{minimumFractionDigits:1,maximumFractionDigits:1}).format(bytes / 1e6)} MB` : 'Consultar en GitHub';
   const setText = (id, value) => { const el=$(id); if(el) el.textContent=value; };
   const getApks = release => (Array.isArray(release.assets) ? release.assets : []).filter(a => a && typeof a.name === 'string' && /\.apk$/i.test(a.name));
   const allowedGitHubUrl = url => {
@@ -68,18 +69,27 @@
       const apks=releases.flatMap(getApks);
       const total=apks.reduce((sum,asset)=>sum+Math.max(0,Number(asset.download_count)||0),0);
       setText('download-count',esNumber(total));
-      setText('download-caption',total===1?'Descarga pública del APK':'Descargas públicas del APK');
-      const latest=releases.find(r => getApks(r).length);
+      setText('download-caption',total===1?'1 descarga registrada en GitHub Releases.':'Descargas acumuladas de los APK publicados en GitHub Releases.');
+      const latest=releases.find(r => getApks(r).some(a => allowedGitHubUrl(a.browser_download_url)));
       if(latest){
         setText('version-chip',document.body.querySelector('.detail-hero')?`Versión ${latest.tag_name}`:`Disponible · ${latest.tag_name}`);
         setText('latest-version-label',`Última versión: ${latest.tag_name}`);
+        setText('version-metric',latest.tag_name);
         const asset=getApks(latest).find(a => allowedGitHubUrl(a.browser_download_url));
-        if(asset && $('download-link')) $('download-link').href=allowedGitHubUrl(asset.browser_download_url);
+        if(asset){
+          setText('apk-size',formatMb(Number(asset.size)));
+          if($('download-link')) $('download-link').href=allowedGitHubUrl(asset.browser_download_url);
+        }
+      } else {
+        setText('version-metric','Consultar en GitHub');
+        setText('apk-size','Consultar en GitHub');
       }
       renderReleases(releases);
     } catch (_){
       setText('download-count','—');
-      setText('download-caption','Contador temporalmente no disponible');
+      setText('download-caption','Estadísticas temporalmente no disponibles; puedes descargar desde GitHub.');
+      setText('version-metric','Consultar en GitHub');
+      setText('apk-size','Consultar en GitHub');
       setText('latest-version-label','Puedes consultar las últimas versiones en GitHub.');
       const box=$('releases-list');
       if(box){

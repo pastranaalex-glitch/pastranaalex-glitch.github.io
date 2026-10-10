@@ -14,6 +14,7 @@
   <meta property="og:description" content="Descarga aplicaciones gratuitas, empezando por Lector Fácil para Android. Proyecto personal sin ánimo de lucro.">
   <meta property="og:url" content="https://pastranaalex-glitch.github.io/">
   <meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://pastranaalex-glitch.github.io/captura-01-inicio.webp">
   <link rel="sitemap" type="application/xml" title="Mapa del sitio" href="/sitemap.xml">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <title>Biblioteca de herramientas | Aplicaciones gratis para Android</title>
@@ -148,6 +149,22 @@ button.button{font-family:inherit;cursor:pointer;}
 @media(max-width:750px){.nav{align-items:flex-start;justify-content:center;}.nav .brand{width:100%;justify-content:center;}.nav nav{justify-content:center;}.access-tools{margin-left:0;}}
 @media(max-width:500px){.nav{gap:8px;}.nav nav{gap:7px 12px;}.nav nav a{font-size:.82rem;}.release-card{padding:15px;}.access-tools button{min-height:38px;min-width:38px;}}
 
+
+/* Pack 4: capturas reales y presentación más compacta */
+.hero-real{width:min(100%,320px);margin-inline:auto;background:linear-gradient(145deg,#1a2d46,#121d31);border:1px solid #3e5b77;border-radius:24px;padding:15px 14px 12px;box-shadow:0 20px 46px #0005;min-width:0;text-align:center}
+.hero-real-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:13px;color:#d8e9fa;font-size:.73rem;flex-wrap:wrap;text-align:left}
+.real-tag{display:inline-flex;align-items:center;gap:6px;color:#b9f4da;font-weight:800}
+.real-tag>span{color:#8de7c8;font-size:.6rem}
+.real-tag-secondary{color:#adbed6}
+.hero-real-screen{display:block;width:clamp(175px,18vw,208px);height:320px;margin:auto;border:5px solid #2a3546;border-radius:20px;background:#efe7f6;overflow:hidden;box-shadow:0 13px 30px #0008}
+.hero-real-screen:focus-visible{outline:3px solid #8fe8ff;outline-offset:4px}
+.hero-real-screen img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+.hero-real-foot{font-size:.77rem;color:#bacde2;margin:12px 0 0}
+.hero-real-foot a{color:#a2e8ff;text-underline-offset:3px;font-weight:750}
+@media(max-width:800px){.hero-real{margin:0 auto}.hero-real-screen{width:200px}}
+@media(max-width:430px){.hero-real{width:min(100%,285px)}.hero-real-screen{height:302px;width:185px}}
+
+@media(min-width:801px){.hero-grid{grid-template-columns:minmax(0,1.45fr) minmax(280px,.55fr);gap:38px}.hero{padding:56px 0 58px}}
 </style>
 </head>
 <body>
@@ -165,14 +182,16 @@ button.button{font-family:inherit;cursor:pointer;}
         <div>
           <span class="eyebrow">✓ Proyecto personal · Sin ánimo de lucro</span>
           <h1>Programas útiles.<br><span>Gratis para todos.</span></h1>
-          <p class="lead">Un espacio para compartir aplicaciones y herramientas desarrolladas por afición. Sin compras, sin publicidad y sin donaciones.</p>
+          <p class="lead">Aplicaciones útiles para móvil y ordenador, realizadas por afición. Descubre Lector Fácil para Android, con descarga gratuita y fotografías reales. Sin pagos, publicidad ni donaciones.</p>
           <div class="actions"><a class="button primary" href="#programas">Explorar programas ↓</a><a class="button secondary" href="#proyecto">Conocer el proyecto</a></div>
         </div>
-        <div class="hero-art" role="img" aria-label="Ilustración de una aplicación de lectura con un documento y una línea resaltada">
-          <div class="mock-toolbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><strong>Lector Fácil · Vista de ejemplo</strong></div>
-          <div class="reader"><div class="reader-title">Una lectura más cómoda</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="focus-line"></div></div>
-          <div class="mock-bottom"><span>Diseño de muestra, no captura real</span><span>100 % gratuito</span></div>
-        </div>
+        <aside class="hero-real" aria-label="Captura auténtica de Lector Fácil">
+  <div class="hero-real-head"><span class="real-tag"><span aria-hidden="true">●</span> Imagen real</span><span class="real-tag-secondary">Android · Lector Fácil</span></div>
+  <a class="hero-real-screen" href="lector-facil.html#capturas" aria-label="Ver galería de fotografías reales de Lector Fácil">
+    <img src="captura-01-inicio.webp" alt="Pantalla real de Lector Fácil 1.0.1 con el botón Abrir PDF o Word y la lista de documentos recientes" width="691" height="1391" decoding="async" fetchpriority="high">
+  </a>
+  <p class="hero-real-foot">Pantalla principal · <a href="lector-facil.html#capturas">Ver las 6 capturas ↗</a></p>
+</aside>
       </div>
     </section>
     <section id="programas" class="content">
