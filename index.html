@@ -4,8 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="Biblioteca personal de aplicaciones y herramientas gratuitas, compartidas por afición y sin ánimo de lucro.">
-  <title>Biblioteca de herramientas | Software gratuito</title>
+  <meta name="description" content="Descarga Lector Fácil para Android: lectura de PDF y DOCX, teleprompter, diálogos y PDF para imprimir. Aplicaciones gratuitas, sin publicidad ni donaciones.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0b1020">
+  <link rel="canonical" href="https://pastranaalex-glitch.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Biblioteca de herramientas | Programas gratuitos">
+  <meta property="og:description" content="Descarga aplicaciones gratuitas, empezando por Lector Fácil para Android. Proyecto personal sin ánimo de lucro.">
+  <meta property="og:url" content="https://pastranaalex-glitch.github.io/">
+  <meta name="twitter:card" content="summary">
+  <link rel="sitemap" type="application/xml" title="Mapa del sitio" href="/sitemap.xml">
+  <title>Biblioteca de herramientas | Aplicaciones gratis para Android</title>
+  <script type="application/ld+json">{
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"Biblioteca de herramientas",
+    "url":"https://pastranaalex-glitch.github.io/",
+    "inLanguage":"es",
+    "description":"Aplicaciones gratuitas compartidas por afición, sin publicidad ni donaciones."
+  }</script>
   <style>
     :root { color-scheme: dark; --bg: #0b1020; --panel: #141d31; --panel-2: #19243a; --ink: #f2f6ff; --muted: #adbcd0; --line: #2d3c54; --blue: #73d5ff; --green: #9de6cb; --radius: 20px; }
     * { box-sizing: border-box; }
@@ -32,6 +50,10 @@
     .button.primary { color: #071726; background: linear-gradient(135deg,#9ce8ff,#8ddfcc); }
     .button.secondary { color: #e6f2ff; border: 1px solid #52647e; background: rgba(20,29,49,.8); }
     .button:hover { filter: brightness(1.08); }
+    .app-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+    .app-detail { margin: 16px 0 0; color: #c3d1e4; font-size: .91rem; }
+    .app-detail strong { color: #e8f7ff; }
+    @media (max-width: 500px) { nav { gap: 9px; } .nav { gap: 9px; } }
     .hero-art { padding: 18px; background: linear-gradient(135deg,#1e3049,#10192b); border: 1px solid #3b5572; border-radius: 26px; box-shadow: 0 22px 70px #0006; }
     .mock-toolbar { display: flex; gap: 7px; align-items: center; padding: 0 0 15px; }
     .dot { width: 9px; height: 9px; border-radius: 50%; background: #66829f; }
@@ -74,7 +96,7 @@
   <header class="topbar">
     <div class="wrap nav">
       <a class="brand" href="#inicio" aria-label="Inicio de Biblioteca de herramientas"><span class="brand-mark" aria-hidden="true">⌘</span><span>Biblioteca de herramientas</span></a>
-      <nav aria-label="Navegación principal"><a href="#programas">Programas</a><a href="#proyecto">El proyecto</a></nav>
+      <nav aria-label="Navegación principal"><a href="#programas">Programas</a><a href="lector-facil.html">Lector Fácil</a><a href="#proyecto">El proyecto</a></nav>
     </div>
   </header>
   <main>
@@ -96,20 +118,24 @@
     <section id="programas" class="content">
       <div class="wrap">
         <h2 class="section-title">Aplicaciones</h2>
-        <p class="section-intro">Solo publicaremos versiones suficientemente revisadas. La primera candidata es Lector Fácil.</p>
+        <p class="section-intro">Compartimos aplicaciones gratuitas realizadas por afición. Lector Fácil 1.0 ya está disponible para Android.</p>
         <article class="app">
           <div class="app-icon" aria-hidden="true">▤</div>
           <div>
-            <h3>Lector Fácil</h3>
-            <p>Aplicación para facilitar la lectura y consulta de documentos. Se publicará cuando terminemos de revisar su funcionamiento y compatibilidad.</p>
-            <div class="chips"><span class="chip">Android</span><span class="chip">Gratuito</span><span class="chip review">En revisión final</span></div>
+            <h3>Lector Fácil para Android</h3>
+            <p>Lee documentos PDF y Word (.docx), prepara intervenciones con teleprompter, diferencia interlocutores y comparte documentos. Incluye PDF de lectura y PDF en blanco y negro para imprimir.</p>
+            <div class="chips"><span class="chip">Android 8.0 o superior</span><span class="chip">Gratuito</span><span class="chip" id="version-chip">Disponible · v1.0.0</span></div>
           </div>
           <div class="app-stat" aria-live="polite">
-            <span class="stat-value" id="download-count">Próximamente</span>
-            <span class="stat-label" id="download-caption">Contador público cuando esté disponible</span>
+            <span class="stat-value" id="download-count">Consultando…</span>
+            <span class="stat-label" id="download-caption">Descargas públicas del APK</span>
           </div>
         </article>
-        <p class="note" id="release-note">Todavía no hay archivos de instalación disponibles. La página se actualizará cuando exista una versión estable.</p>
+        <p class="note" id="release-note">Descarga gratuita desde GitHub. Para instalar el APK, Android puede solicitar permiso para instalar aplicaciones desde tu navegador o gestor de archivos.</p>
+        <div class="app-actions">
+          <a id="download-link" class="button primary" href="https://github.com/pastranaalex-glitch/lector-facil/releases/download/v1.0.0/LectorFacil-v1.0.apk" target="_blank" rel="noopener noreferrer">Descargar Lector Fácil ↓</a>
+          <a class="button secondary" href="lector-facil.html">Ver características y guía de instalación →</a>
+        </div>
         <div class="info-grid">
           <div class="info"><span class="info-icon" aria-hidden="true">♧</span><h3>Completamente gratuito</h3><p>No hay pagos, suscripciones, publicidad ni aportaciones económicas.</p></div>
           <div class="info"><span class="info-icon" aria-hidden="true">◈</span><h3>Hecho por afición</h3><p>Un proyecto personal para compartir herramientas que puedan ser útiles a otras personas.</p></div>
@@ -125,36 +151,43 @@
       </div>
     </section>
   </main>
-  <footer><div class="wrap"><span>Biblioteca de herramientas · Proyecto personal sin ánimo de lucro</span><span>Sin ventas · Sin publicidad · Sin donaciones</span></div></footer>
+  <footer><div class="wrap"><span>Biblioteca de herramientas · Proyecto personal sin ánimo de lucro</span><span>Sin ventas · Sin publicidad · Sin donaciones · <a href="lector-facil.html">Lector Fácil</a></span></div></footer>
   <script>
-    // Preparado para el futuro repositorio público de versiones de Lector Fácil.
-    // No aparece un contador ni un botón de descarga hasta que exista un APK publicado.
+    // GitHub Releases ofrece la descarga. La API permite contar las descargas de los APK.
+    // El botón sigue funcionando cuando las estadísticas no estén disponibles.
     const releasesRepo = 'pastranaalex-glitch/lector-facil';
     const countElement = document.getElementById('download-count');
     const captionElement = document.getElementById('download-caption');
-    const releaseNote = document.getElementById('release-note');
-    fetch(`https://api.github.com/repos/${releasesRepo}/releases?per_page=100`, {headers:{'Accept':'application/vnd.github+json'}})
-      .then(response => { if (!response.ok) throw new Error('No hay versiones públicas'); return response.json(); })
+    const downloadLink = document.getElementById('download-link');
+    const versionChip = document.getElementById('version-chip');
+
+    fetch(`https://api.github.com/repos/${releasesRepo}/releases?per_page=100`, {
+      headers: { Accept: 'application/vnd.github+json' }
+    })
+      .then(response => {
+        if (!response.ok) throw new Error('No se pudieron consultar las versiones');
+        return response.json();
+      })
       .then(releases => {
-        const files = releases.filter(release => !release.draft && !release.prerelease).flatMap(release => release.assets || [])
+        const published = releases.filter(r => !r.draft && !r.prerelease);
+        const apkFiles = published.flatMap(r => r.assets || [])
           .filter(file => /\.apk$/i.test(file.name));
-        if (!files.length) return;
-        const total = files.reduce((sum,file) => sum + (Number(file.download_count) || 0),0);
-        const newest = [...releases].filter(r=>!r.draft && !r.prerelease).flatMap(r=>r.assets||[]).find(a=>/\.apk$/i.test(a.name));
+        const total = apkFiles.reduce((sum, file) => sum + (Number(file.download_count) || 0), 0);
+
         countElement.textContent = total.toLocaleString('es-ES');
-        captionElement.textContent = total === 1 ? 'Descarga pública registrada' : 'Descargas públicas registradas';
-        if (newest && newest.browser_download_url) {
-          const link = document.createElement('a');
-          link.href = newest.browser_download_url;
-          link.className = 'button primary';
-          link.style.marginTop = '12px';
-          link.style.display = 'inline-flex';
-          link.textContent = 'Descargar Lector Fácil ↓';
-          link.rel = 'noopener noreferrer';
-          releaseNote.textContent = 'Versión gratuita disponible. Las descargas se cuentan automáticamente desde GitHub Releases.';
-          releaseNote.insertAdjacentElement('afterend',link);
+        captionElement.textContent = total === 1 ? 'Descarga pública del APK' : 'Descargas públicas del APK';
+
+        const latest = published.find(r => (r.assets || []).some(file => /\.apk$/i.test(file.name)));
+        if (latest) {
+          const apk = latest.assets.find(file => /\.apk$/i.test(file.name));
+          if (apk.browser_download_url) downloadLink.href = apk.browser_download_url;
+          if (latest.tag_name) versionChip.textContent = `Disponible · ${latest.tag_name}`;
         }
-      }).catch(() => { /* Sin versiones públicas, mostramos correctamente «Próximamente». */ });
+      })
+      .catch(() => {
+        countElement.textContent = '—';
+        captionElement.textContent = 'Contador temporalmente no disponible';
+      });
   </script>
 </body>
 </html>
