@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="Descarga Lector Fácil para Android: lectura de PDF y DOCX, teleprompter, diálogos y PDF para imprimir. Aplicaciones gratuitas, sin publicidad ni donaciones.">
+  <meta name="description" content="Biblioteca personal de aplicaciones gratuitas, sin publicidad ni donaciones. Descubre Lector Fácil para Android y futuras herramientas para móvil y Windows.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0b1020">
   <link rel="canonical" href="https://pastranaalex-glitch.github.io/">
@@ -17,7 +17,7 @@
 
   <link rel="sitemap" type="application/xml" title="Mapa del sitio" href="/sitemap.xml">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <title>Biblioteca de herramientas | Aplicaciones gratis para Android</title>
+  <title>Biblioteca de herramientas | Programas gratuitos para Android y Windows</title>
   <script type="application/ld+json">{
     "@context":"https://schema.org",
     "@type":"WebSite",
@@ -275,6 +275,29 @@ button.button{font-family:inherit;cursor:pointer;}
 .empty-category h3{font-size:1.25rem;margin:0 0 6px}.empty-category p{color:#becde2;margin:8px 0}.empty-category a{color:#9ae8ff;text-underline-offset:3px}
 @media(max-width:600px){.catalog-switch{gap:9px}.catalog-tab{max-width:unset;flex:1 1 100%;min-height:64px}.empty-category{padding:20px;gap:12px}.empty-category-icon{flex-basis:44px;height:44px}}
 @media(prefers-reduced-motion:reduce){.catalog-tab{transition:none}.catalog-tab:hover{transform:none}}
+
+/* Pack 8: accesos rápidos, catálogo preparado y lectura cómoda, sin dependencias externas. */
+.pack8-quicknav{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:4px 0 20px;padding:14px 16px;border:1px solid #354b62;border-radius:16px;background:#111d31}
+.pack8-quicknav span{color:#bdd8e9;font-weight:800;font-size:.82rem;margin-right:3px}
+.pack8-quicknav a{display:inline-flex;min-height:38px;align-items:center;padding:7px 13px;border:1px solid #42647d;border-radius:999px;color:#daf3ff;font-weight:750;font-size:.81rem;text-decoration:none;background:#1a304b}
+.pack8-quicknav a:hover,.pack8-quicknav a:focus-visible{background:#2d5471;color:#fff}
+.pack8-back-wrap{display:flex;justify-content:flex-end;margin:8px auto 24px}
+.pack8-back{display:inline-flex;align-items:center;border:1px solid #45617b;border-radius:999px;padding:10px 16px;text-decoration:none;font-size:.85rem;font-weight:800;color:#b9e8fb;background:#16283e}
+.pack8-back:hover{background:#254564;color:#fff}
+.pack8-extra-catalog{display:grid;gap:16px;margin-top:20px}
+.pack8-extra-app{border:1px solid #3b5370;border-radius:18px;padding:22px;background:linear-gradient(140deg,#172b43,#111c2d);display:grid;grid-template-columns:58px minmax(0,1fr);gap:17px}
+.pack8-extra-symbol{width:54px;height:54px;border-radius:15px;background:linear-gradient(130deg,#87dcf5,#a2e9d1);display:grid;place-items:center;color:#11364c;font-size:1.5rem;font-weight:900}
+.pack8-extra-app h3{font-size:1.15rem;margin:0 0 5px}
+.pack8-extra-app p{color:#c4d7e8;font-size:.9rem;margin:0 0 12px}
+.pack8-extra-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.pack8-extra-meta span{font-size:.75rem;color:#bfe5f1;border:1px solid #47647d;border-radius:999px;padding:4px 9px}
+.pack8-extra-app a{font-weight:800;color:#9ce8ff;text-underline-offset:4px}
+.pack8-discovery-note{display:flex;gap:14px;align-items:flex-start;max-width:1090px;width:calc(100% - 40px);margin:0 auto 28px;padding:17px 20px;border-radius:16px;background:#11263a;border:1px solid #36546a}
+.pack8-discovery-note>span{font-size:1.4rem;color:#8fe8c8;line-height:1}
+.pack8-discovery-note p{font-size:.88rem;color:#c5dbea;margin:0}
+.pack8-discovery-note strong{color:#eef9ff}
+@media(max-width:550px){.pack8-quicknav{gap:7px;padding:12px}.pack8-quicknav a{font-size:.77rem;padding:7px 10px}.pack8-extra-app{grid-template-columns:45px minmax(0,1fr);gap:12px;padding:16px}.pack8-extra-symbol{width:44px;height:44px}.pack8-discovery-note{padding:14px 15px}}
+
 </style>
 </head>
 <body>
@@ -350,8 +373,8 @@ button.button{font-family:inherit;cursor:pointer;}
         <div class="section-kicker">EXPLORA LA BIBLIOTECA</div><h2 class="section-title">Programas para el día a día</h2>
         <p class="section-intro">Explora aplicaciones reales y gratuitas. De momento puedes descargar Lector Fácil para Android; las futuras publicaciones se organizarán aquí por sistema.</p>
         <div class="catalog-switch" role="tablist" aria-label="Filtrar aplicaciones por sistema">
-  <button class="catalog-tab is-active" id="tab-android" type="button" role="tab" aria-selected="true" aria-controls="catalog-android" data-catalog-tab="android"><span class="catalog-tab-icon" aria-hidden="true">▣</span><span><strong>Android</strong><small>1 aplicación disponible</small></span></button>
-  <button class="catalog-tab" id="tab-windows" type="button" role="tab" aria-selected="false" aria-controls="catalog-windows" data-catalog-tab="windows" tabindex="-1"><span class="catalog-tab-icon" aria-hidden="true">▤</span><span><strong>Windows</strong><small>Sin publicaciones todavía</small></span></button>
+  <button class="catalog-tab is-active" id="tab-android" type="button" role="tab" aria-selected="true" aria-controls="catalog-android" data-catalog-tab="android"><span class="catalog-tab-icon" aria-hidden="true">▣</span><span><strong>Android</strong><small id="catalog-android-count">1 aplicación disponible</small></span></button>
+  <button class="catalog-tab" id="tab-windows" type="button" role="tab" aria-selected="false" aria-controls="catalog-windows" data-catalog-tab="windows" tabindex="-1"><span class="catalog-tab-icon" aria-hidden="true">▤</span><span><strong>Windows</strong><small id="catalog-windows-count">Sin publicaciones todavía</small></span></button>
 </div>
 <div id="catalog-android" role="tabpanel" aria-labelledby="tab-android" class="catalog-content">
 <article class="app">
@@ -374,6 +397,8 @@ button.button{font-family:inherit;cursor:pointer;}
           <button type="button" class="button secondary" data-share="site" data-share-title="Lector Fácil: aplicación gratuita para Android" data-share-url="https://pastranaalex-glitch.github.io/lector-facil.html">Compartir página ↗</button>
         </div>
 
+        <!-- Pack 8: solo se añaden programas publicados desde catalogo.json. -->
+        <div id="catalog-android-extra" class="pack8-extra-catalog" aria-label="Otras aplicaciones Android publicadas"></div>
         <aside class="review-home" aria-label="Opiniones de Lector Fácil">
           <div>
             <strong>Opiniones de Lector Fácil</strong>
@@ -393,10 +418,16 @@ button.button{font-family:inherit;cursor:pointer;}
         </div>
 </div>
 <div id="catalog-windows" role="tabpanel" aria-labelledby="tab-windows" class="catalog-content" hidden>
-  <div class="empty-category"><div class="empty-category-icon" aria-hidden="true">▤</div><div><h3>Programas para Windows</h3><p>Todavía no hay ninguna aplicación de Windows publicada. Esta categoría se activará cuando tengamos una versión comprobada y lista para compartir.</p><p>Mientras tanto, puedes explorar <a href="lector-facil.html">Lector Fácil para Android</a>.</p></div></div>
+  <div id="catalog-windows-extra" class="pack8-extra-catalog" aria-label="Aplicaciones Windows publicadas"></div>
+  <div class="empty-category" id="catalog-windows-empty"><div class="empty-category-icon" aria-hidden="true">▤</div><div><h3>Programas para Windows</h3><p>Todavía no hay ninguna aplicación de Windows publicada. Esta categoría se activará cuando tengamos una versión comprobada y lista para compartir.</p><p>Mientras tanto, puedes explorar <a href="lector-facil.html">Lector Fácil para Android</a>.</p></div></div>
 </div>
 </div>
 </section>
+
+        <div class="pack8-discovery-note" aria-label="Sobre las próximas publicaciones">
+          <span aria-hidden="true">✦</span>
+          <p><strong>Una biblioteca que puede crecer.</strong> Las nuevas aplicaciones aparecerán aquí cuando estén terminadas y probadas. No mostramos descargas ficticias ni herramientas que todavía no estén disponibles.</p>
+        </div>
 <section class="about" id="proyecto">
       <div class="wrap">
         <h2 class="section-title">Sobre el proyecto</h2>
@@ -404,9 +435,11 @@ button.button{font-family:inherit;cursor:pointer;}
         <p>Los programas se ofrecerán tal como están, con una descripción clara y sus requisitos. No se realizan encargos, no se presta soporte profesional y no existe obligación de mantenimiento.</p>
       </div>
     </section>
-  </main>
+  <div class="pack8-back-wrap wrap"><a class="pack8-back" href="#inicio">Volver a la portada ↑</a></div>
+</main>
   <footer><div class="wrap"><span>Biblioteca de herramientas · Proyecto personal sin ánimo de lucro</span><span>Sin ventas · Sin publicidad · Sin donaciones · <a href="lector-facil.html">Lector Fácil</a> · <a href="privacidad.html">Privacidad</a></span></div></footer>
   <script src="biblioteca.js" defer></script>
+  <script src="catalogo.js" defer></script>
   <script src="opiniones.js" defer></script>
 <script>
 /* Pack 7: cambiar de categoría sin cargar páginas ni crear fichas inexistentes. */
