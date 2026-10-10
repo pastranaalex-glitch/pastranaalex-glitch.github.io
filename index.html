@@ -260,6 +260,21 @@ button.button{font-family:inherit;cursor:pointer;}
 @media(prefers-reduced-motion:reduce){.feature-widget,.button{transition:none}}
 
 .hero-actions .button span{margin-left:9px}
+
+/* Pack 7: catálogo escalable y selección accesible de plataforma */
+.catalog-switch{display:flex;align-items:stretch;gap:12px;margin:25px 0 22px;flex-wrap:wrap}
+.catalog-tab{display:flex;align-items:center;gap:13px;flex:1 1 220px;max-width:360px;min-height:76px;padding:13px 16px;border:1px solid #41546e;border-radius:17px;background:#142039;color:#d6e4f4;cursor:pointer;text-align:left;transition:border-color .2s,background .2s,transform .2s}
+.catalog-tab:hover{border-color:#8bdfff;background:#1a2b46;transform:translateY(-2px)}
+.catalog-tab.is-active{background:linear-gradient(125deg,#163c55,#16342f);border-color:#8fdfd8;box-shadow:0 0 0 1px #85dfcf30 inset}
+.catalog-tab:focus-visible{outline:3px solid #8ee8ff;outline-offset:3px}
+.catalog-tab-icon{display:grid;place-items:center;width:44px;height:44px;border-radius:13px;font-size:1.45rem;background:#284563;color:#a0eaff}
+.catalog-tab strong{display:block;font-size:1rem}.catalog-tab small{display:block;margin-top:4px;color:#b6cadf;font-size:.76rem}
+.catalog-content[hidden]{display:none!important}
+.empty-category{display:flex;gap:20px;align-items:flex-start;max-width:850px;padding:30px;border:1px dashed #4b6885;border-radius:20px;background:linear-gradient(140deg,#162239,#101a2c)}
+.empty-category-icon{display:grid;place-items:center;flex:0 0 55px;height:55px;border-radius:16px;background:#233b57;font-size:1.8rem;color:#b0e6ff}
+.empty-category h3{font-size:1.25rem;margin:0 0 6px}.empty-category p{color:#becde2;margin:8px 0}.empty-category a{color:#9ae8ff;text-underline-offset:3px}
+@media(max-width:600px){.catalog-switch{gap:9px}.catalog-tab{max-width:unset;flex:1 1 100%;min-height:64px}.empty-category{padding:20px;gap:12px}.empty-category-icon{flex-basis:44px;height:44px}}
+@media(prefers-reduced-motion:reduce){.catalog-tab{transition:none}.catalog-tab:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -332,9 +347,14 @@ button.button{font-family:inherit;cursor:pointer;}
 </section>
     <section id="programas" class="content">
       <div class="wrap">
-        <div class="section-kicker">EXPLORA LA BIBLIOTECA</div><h2 class="section-title">Empieza por Lector Fácil</h2>
-        <p class="section-intro">Nuestra primera aplicación gratuita ya está disponible. Conoce sus funciones, ve imágenes reales y descarga la versión más reciente.</p>
-        <article class="app">
+        <div class="section-kicker">EXPLORA LA BIBLIOTECA</div><h2 class="section-title">Programas para el día a día</h2>
+        <p class="section-intro">Explora aplicaciones reales y gratuitas. De momento puedes descargar Lector Fácil para Android; las futuras publicaciones se organizarán aquí por sistema.</p>
+        <div class="catalog-switch" role="tablist" aria-label="Filtrar aplicaciones por sistema">
+  <button class="catalog-tab is-active" id="tab-android" type="button" role="tab" aria-selected="true" aria-controls="catalog-android" data-catalog-tab="android"><span class="catalog-tab-icon" aria-hidden="true">▣</span><span><strong>Android</strong><small>1 aplicación disponible</small></span></button>
+  <button class="catalog-tab" id="tab-windows" type="button" role="tab" aria-selected="false" aria-controls="catalog-windows" data-catalog-tab="windows" tabindex="-1"><span class="catalog-tab-icon" aria-hidden="true">▤</span><span><strong>Windows</strong><small>Sin publicaciones todavía</small></span></button>
+</div>
+<div id="catalog-android" role="tabpanel" aria-labelledby="tab-android" class="catalog-content">
+<article class="app">
           <div class="app-icon" aria-hidden="true">▤</div>
           <div>
             <h3>Lector Fácil para Android <span class="new-feature-badge">Disponible</span></h3>
@@ -364,16 +384,20 @@ button.button{font-family:inherit;cursor:pointer;}
         </aside>
         <aside class="updates-home" aria-label="Actualizaciones de Lector Fácil">
           <div><strong>Versión más reciente</strong><p id="latest-version-label">Consulta las versiones y novedades publicadas.</p></div>
-          <a href="lector-facil.html#versiones">Consultar actualizaciones →</a>
+          <a href="lector-facil.html#versiones">Ver historial y novedades →</a>
         </aside>
         <div class="quick-start" aria-label="Cómo descargar Lector Fácil"><div class="quick-start-title"><span class="quick-start-symbol" aria-hidden="true">↘</span><div><strong>Descárgalo en tres pasos</strong><p>Sin cuentas, sin instalaciones complicadas en el ordenador.</p></div></div><div class="quick-start-actions"><a href="lector-facil.html#capturas">1. Mira las capturas</a><a href="lector-facil.html#instalar">2. Lee cómo instalar</a><a href="lector-facil.html#versiones">3. Consulta las versiones</a></div></div><div class="info-grid">
           <div class="info"><span class="info-icon" aria-hidden="true">♧</span><h3>Completamente gratuito</h3><p>No hay pagos, suscripciones, publicidad ni aportaciones económicas.</p></div>
           <div class="info"><span class="info-icon" aria-hidden="true">◈</span><h3>Hecho por afición</h3><p>Un proyecto personal para compartir herramientas que puedan ser útiles a otras personas.</p></div>
           <div class="info"><span class="info-icon" aria-hidden="true">◇</span><h3>Publicación responsable</h3><p>Cada aplicación se revisa antes de compartirla; no se garantizan asistencia ni actualizaciones.</p></div>
         </div>
-      </div>
-    </section>
-    <section class="about" id="proyecto">
+</div>
+<div id="catalog-windows" role="tabpanel" aria-labelledby="tab-windows" class="catalog-content" hidden>
+  <div class="empty-category"><div class="empty-category-icon" aria-hidden="true">▤</div><div><h3>Programas para Windows</h3><p>Todavía no hay ninguna aplicación de Windows publicada. Esta categoría se activará cuando tengamos una versión comprobada y lista para compartir.</p><p>Mientras tanto, puedes explorar <a href="lector-facil.html">Lector Fácil para Android</a>.</p></div></div>
+</div>
+</div>
+</section>
+<section class="about" id="proyecto">
       <div class="wrap">
         <h2 class="section-title">Sobre el proyecto</h2>
         <p>Esta biblioteca nace de una afición por la informática y la creación de programas. Su finalidad es poner herramientas a disposición de quien quiera utilizarlas, gratuitamente y sin ninguna actividad comercial.</p>
@@ -384,5 +408,35 @@ button.button{font-family:inherit;cursor:pointer;}
   <footer><div class="wrap"><span>Biblioteca de herramientas · Proyecto personal sin ánimo de lucro</span><span>Sin ventas · Sin publicidad · Sin donaciones · <a href="lector-facil.html">Lector Fácil</a> · <a href="privacidad.html">Privacidad</a></span></div></footer>
   <script src="biblioteca.js" defer></script>
   <script src="opiniones.js" defer></script>
+<script>
+/* Pack 7: cambiar de categoría sin cargar páginas ni crear fichas inexistentes. */
+(()=>{
+  'use strict';
+  const tabs=[...document.querySelectorAll('[data-catalog-tab]')];
+  if(!tabs.length)return;
+  function setPlatform(name,focus=false){
+    for(const tab of tabs){
+      const chosen=tab.dataset.catalogTab===name;
+      tab.classList.toggle('is-active',chosen);
+      tab.setAttribute('aria-selected',String(chosen));
+      tab.tabIndex=chosen?0:-1;
+      const panel=document.getElementById('catalog-'+tab.dataset.catalogTab);
+      if(panel)panel.hidden=!chosen;
+      if(chosen&&focus)tab.focus();
+    }
+  }
+  tabs.forEach((tab,index)=>{
+    tab.addEventListener('click',()=>setPlatform(tab.dataset.catalogTab));
+    tab.addEventListener('keydown',e=>{
+      if(e.key==='ArrowRight'||e.key==='ArrowLeft'||e.key==='Home'||e.key==='End'){
+        e.preventDefault();
+        const next=e.key==='Home'?0:e.key==='End'?tabs.length-1:
+          (index+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;
+        setPlatform(tabs[next].dataset.catalogTab,true);
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>

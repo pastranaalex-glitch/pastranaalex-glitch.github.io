@@ -301,6 +301,34 @@ button.button{font-family:inherit;cursor:pointer;}
 @media(prefers-reduced-motion:reduce){.feature-widget,.button{transition:none}}
 
 .hero-actions .button span{margin-left:9px}
+
+/* Pack 7 · navegación entre capturas, opinión accesible y presentación renovada */
+.section-kicker{color:#9ae4d6;letter-spacing:.14em;font-size:.73rem;font-weight:850;margin-bottom:8px}
+.gallery-quicknav{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0 10px}
+.gallery-quicknav a{display:inline-flex;align-items:center;justify-content:center;padding:9px 12px;border-radius:999px;background:#192943;border:1px solid #46617e;text-decoration:none;color:#d4edff;font-size:.81rem;font-weight:700;transition:background .2s,transform .2s}
+.gallery-quicknav a:hover{background:#254466;transform:translateY(-2px)}
+.gallery-quicknav a:focus-visible{outline:3px solid #87dafa;outline-offset:3px}
+.gallery-tip{margin:0 0 20px;color:#c7d8ea;font-size:.86rem}
+.gallery-card{scroll-margin-top:115px;transition:transform .2s,border-color .2s,box-shadow .2s}
+.gallery-card:hover{transform:translateY(-4px);border-color:#7acdeb;box-shadow:0 16px 40px #0004}
+.rating-panel-v7{position:relative;overflow:hidden;background:radial-gradient(ellipse at 80% 0,rgba(76,171,209,.15),transparent 50%),linear-gradient(135deg,#1b2a42,#101b30)}
+.opinions-overview{display:grid;grid-template-columns:1fr minmax(220px,.85fr);gap:20px;align-items:center}
+.review-kicker{display:block;color:#a4e9d2;font-size:.71rem;letter-spacing:.13em;font-weight:800;margin-bottom:11px}
+.opinions-overview-main{padding:6px 0}
+.opinions-overview-main .rating-summary{gap:10px 20px}
+.opinions-overview-main .rating-score{font-size:3.5rem;color:#f4fbff}
+.opinions-overview-main .rating-stars{font-size:1.65rem;color:#f8d06b}
+.opinions-trust{display:flex;align-items:flex-start;gap:12px;background:rgba(19,62,63,.52);border:1px solid #417d76;border-radius:17px;padding:18px}
+.opinions-trust-icon{display:grid;place-items:center;background:#276e62;color:#e1fff5;font-weight:900;flex:0 0 32px;height:32px;border-radius:50%}
+.opinions-trust strong{font-size:.93rem;color:#e2fff4}.opinions-trust p{font-size:.83rem;line-height:1.5;margin:7px 0 0;color:#bcd9d5}
+.review-reasons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0 0}
+.review-reasons>div{display:flex;flex-direction:column;gap:4px;border:1px solid #3d5675;border-radius:14px;padding:13px 15px;background:#0e1e32}
+.review-reasons span{font-size:1.2rem;color:#a6edff}.review-reasons strong{font-size:.9rem}.review-reasons small{color:#b5cae0;font-size:.76rem}
+.rating-cta a.button.primary{box-shadow:0 12px 30px rgba(48,194,212,.16)}
+.review-list{display:grid;gap:14px}
+@media(max-width:780px){.opinions-overview{grid-template-columns:1fr}.review-reasons{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:550px){.gallery-quicknav{gap:7px}.gallery-quicknav a{font-size:.77rem;padding:8px 10px}.review-reasons{grid-template-columns:1fr}.review-reasons>div{flex-direction:row;align-items:center;gap:9px}.review-reasons small{margin-left:auto}.opinions-trust{padding:14px}.opinions-overview-main .rating-score{font-size:3rem}}
+@media(prefers-reduced-motion:reduce){.gallery-quicknav a,.gallery-card{transition:none}.gallery-quicknav a:hover,.gallery-card:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -329,7 +357,7 @@ button.button{font-family:inherit;cursor:pointer;}
           <p class="download-caption" id="download-caption">Descargas contabilizadas en todas las versiones publicadas.</p>
           <p class="download-footnote">El archivo se descarga desde GitHub. No necesitas registrarte. Las actualizaciones se instalan manualmente.</p>
         </div>
-        <div class="actions auxiliary-actions"><a class="button secondary" href="#capturas">Ver fotos reales</a><button type="button" class="button secondary" data-share="site" data-share-title="Lector Fácil: aplicación gratuita para Android" data-share-url="https://pastranaalex-glitch.github.io/lector-facil.html">Compartir página ↗</button></div>
+        <div class="actions auxiliary-actions"><a class="button secondary" href="#funciones">Ver funciones</a><a class="button secondary" href="#capturas">Ver fotos reales</a><a class="button secondary" href="#opiniones">Opiniones ★</a><button type="button" class="button secondary" data-share="site" data-share-title="Lector Fácil: aplicación gratuita para Android" data-share-url="https://pastranaalex-glitch.github.io/lector-facil.html">Compartir página ↗</button></div>
       </div>
       <aside aria-label="Fotografía real de Lector Fácil" class="app-preview-v5">
   <div class="app-preview-label"><span class="real-tag"><span aria-hidden="true">●</span> Captura real</span><span>ANDROID</span></div>
@@ -338,7 +366,7 @@ button.button{font-family:inherit;cursor:pointer;}
 </aside>
     </div></section>
     <section class="detail-subsection alt" id="funciones"><div class="wrap">
-      <h2 class="section-title">Qué puedes hacer con Lector Fácil</h2>
+      <div class="section-kicker">FUNCIONES PRINCIPALES</div><h2 class="section-title">Qué puedes hacer con Lector Fácil</h2>
       <p class="section-intro">Funciones orientadas a leer documentos y preparar intervenciones sin depender de una conexión a Internet.</p>
       <div class="feature-grid">
         <article class="feature"><div class="symbol" aria-hidden="true">▤</div><h3>Leer PDF y Word</h3><p>Consulta archivos PDF y documentos Word modernos (.docx) desde tu móvil o tableta.</p></article>
@@ -351,25 +379,29 @@ button.button{font-family:inherit;cursor:pointer;}
     </div></section>
     
 <section class="detail-subsection" id="capturas"><div class="wrap">
-<h2 class="section-title">Así es Lector Fácil por dentro</h2>
+<div class="section-kicker">IMÁGENES DE LA APLICACIÓN</div><h2 class="section-title">Así es Lector Fácil por dentro</h2>
 <p class="section-intro gallery-intro">Seis capturas reales de la aplicación, realizadas con un diálogo ficticio entre Ana y Carlos. Toca cualquiera para verla más grande.</p>
+<nav class="gallery-quicknav" aria-label="Ir a una captura concreta">
+  <a href="#captura-inicio">1 · Inicio</a><a href="#captura-lectura">2 · Lectura</a><a href="#captura-guia">3 · Guía</a><a href="#captura-compartir">4 · Compartir</a><a href="#captura-pdf">5 · PDF en colores</a><a href="#captura-parte">6 · Solo su parte</a>
+</nav>
+<p class="gallery-tip">Selecciona una imagen para ampliarla. Dentro de la galería puedes usar «Anterior» y «Siguiente», o las flechas del teclado.</p>
 <div class="gallery-grid" aria-label="Galería de capturas de Lector Fácil">
-<button type="button" class="gallery-card" data-gallery-image="lector-facil-portada-v5.webp" data-gallery-title="Pantalla principal" data-gallery-alt="Pantalla principal de Lector Fácil con botón para abrir PDF o Word y documentos recientes." aria-label="Ampliar captura 1: Pantalla principal">
+<button type="button" class="gallery-card" data-gallery-image="lector-facil-portada-v5.webp" id="captura-inicio" data-gallery-title="Pantalla principal" data-gallery-alt="Pantalla principal de Lector Fácil con botón para abrir PDF o Word y documentos recientes." aria-label="Ampliar captura 1: Pantalla principal">
  <span class="gallery-screen"><img src="lector-facil-portada-v5.webp" alt="Pantalla principal de Lector Fácil con botón para abrir PDF o Word y documentos recientes." loading="lazy" width="691" height="1390"></span>
  <span class="gallery-title">Pantalla principal</span><span class="gallery-caption">Accede a tus documentos de forma sencilla.</span><span class="gallery-view">Ampliar imagen ↗</span></button>
-<button type="button" class="gallery-card" data-gallery-image="captura-02-lectura.webp" data-gallery-title="Lectura cómoda" data-gallery-alt="Documento de ejemplo con texto grande, botones de lectura y controles de Lector Fácil." aria-label="Ampliar captura 2: Lectura cómoda">
+<button type="button" class="gallery-card" data-gallery-image="captura-02-lectura.webp" id="captura-lectura" data-gallery-title="Lectura cómoda" data-gallery-alt="Documento de ejemplo con texto grande, botones de lectura y controles de Lector Fácil." aria-label="Ampliar captura 2: Lectura cómoda">
  <span class="gallery-screen"><img src="captura-02-lectura.webp" alt="Documento de ejemplo con texto grande, botones de lectura y controles de Lector Fácil." loading="lazy" width="691" height="1390"></span>
  <span class="gallery-title">Lectura cómoda</span><span class="gallery-caption">Ajusta el tamaño del texto y sigue tu lectura sin distracciones.</span><span class="gallery-view">Ampliar imagen ↗</span></button>
-<button type="button" class="gallery-card" data-gallery-image="captura-03-guia.webp" data-gallery-title="Guía de exposición" data-gallery-alt="Guía de exposición con temporizador e intervenciones de Ana y Carlos de un texto de prueba." aria-label="Ampliar captura 3: Guía de exposición">
+<button type="button" class="gallery-card" data-gallery-image="captura-03-guia.webp" id="captura-guia" data-gallery-title="Guía de exposición" data-gallery-alt="Guía de exposición con temporizador e intervenciones de Ana y Carlos de un texto de prueba." aria-label="Ampliar captura 3: Guía de exposición">
  <span class="gallery-screen"><img src="captura-03-guia.webp" alt="Guía de exposición con temporizador e intervenciones de Ana y Carlos de un texto de prueba." loading="lazy" width="691" height="1390"></span>
  <span class="gallery-title">Guía de exposición</span><span class="gallery-caption">Sigue la intervención actual y consulta la siguiente idea.</span><span class="gallery-view">Ampliar imagen ↗</span></button>
-<button type="button" class="gallery-card" data-gallery-image="captura-04-compartir.webp" data-gallery-title="Compartir con compañero" data-gallery-alt="Cuadro Preparar para compañero con nombre Carlos y opciones PDF y Word." aria-label="Ampliar captura 4: Compartir con compañero">
+<button type="button" class="gallery-card" data-gallery-image="captura-04-compartir.webp" id="captura-compartir" data-gallery-title="Compartir con compañero" data-gallery-alt="Cuadro Preparar para compañero con nombre Carlos y opciones PDF y Word." aria-label="Ampliar captura 4: Compartir con compañero">
  <span class="gallery-screen"><img src="captura-04-compartir.webp" alt="Cuadro Preparar para compañero con nombre Carlos y opciones PDF y Word." loading="lazy" width="691" height="1390"></span>
  <span class="gallery-title">Compartir con compañero</span><span class="gallery-caption">Elige la persona y prepara el documento para compartir.</span><span class="gallery-view">Ampliar imagen ↗</span></button>
-<button type="button" class="gallery-card" data-gallery-image="captura-05-colores.webp" data-gallery-title="PDF con colores" data-gallery-alt="PDF de lectura con intervenciones de Ana y Carlos diferenciadas por colores." aria-label="Ampliar captura 5: PDF con colores">
+<button type="button" class="gallery-card" data-gallery-image="captura-05-colores.webp" id="captura-pdf" data-gallery-title="PDF con colores" data-gallery-alt="PDF de lectura con intervenciones de Ana y Carlos diferenciadas por colores." aria-label="Ampliar captura 5: PDF con colores">
  <span class="gallery-screen"><img src="captura-05-colores.webp" alt="PDF de lectura con intervenciones de Ana y Carlos diferenciadas por colores." loading="lazy" width="691" height="1390"></span>
  <span class="gallery-title">PDF con colores</span><span class="gallery-caption">Diferencia visualmente a los interlocutores.</span><span class="gallery-view">Ampliar imagen ↗</span></button>
-<button type="button" class="gallery-card" data-gallery-image="captura-06-solo-parte.webp" data-gallery-title="Solo su parte" data-gallery-alt="PDF que muestra únicamente las intervenciones de Carlos, del texto de ejemplo." aria-label="Ampliar captura 6: Solo su parte">
+<button type="button" class="gallery-card" data-gallery-image="captura-06-solo-parte.webp" id="captura-parte" data-gallery-title="Solo su parte" data-gallery-alt="PDF que muestra únicamente las intervenciones de Carlos, del texto de ejemplo." aria-label="Ampliar captura 6: Solo su parte">
  <span class="gallery-screen"><img src="captura-06-solo-parte.webp" alt="PDF que muestra únicamente las intervenciones de Carlos, del texto de ejemplo." loading="lazy" width="691" height="1390"></span>
  <span class="gallery-title">Solo su parte</span><span class="gallery-caption">Crea un PDF que incluya únicamente las intervenciones del compañero.</span><span class="gallery-view">Ampliar imagen ↗</span></button>
 </div>
@@ -406,15 +438,19 @@ button.button{font-family:inherit;cursor:pointer;}
         <div><h2 class="section-title">Opiniones sobre Lector Fácil</h2>
         <p class="section-intro" style="margin-bottom:0">Valora la aplicación, comparte una sugerencia o informa de un problema.</p></div>
       </div>
-      <div class="rating-panel">
-        <div class="rating-summary" aria-live="polite">
+      <div class="rating-panel rating-panel-v7">
+        <div class="opinions-overview">
+          <div class="opinions-overview-main"><span class="review-kicker">VALORACIONES PUBLICADAS</span><div class="rating-summary" aria-live="polite">
           <span class="rating-score" id="opinion-media">—</span>
           <div><div class="rating-stars" id="opinion-estrellas" aria-label="Sin puntuaciones">☆☆☆☆☆</div>
             <div class="rating-muted" id="opinion-numero">Todavía no hay valoraciones publicadas</div></div>
+        </div></div>
+          <div class="opinions-trust"><div class="opinions-trust-icon" aria-hidden="true">✓</div><div><strong>Opiniones revisadas antes de publicarse</strong><p>Las críticas y sugerencias también son bienvenidas. No publicamos datos personales ni comentarios sin autorización.</p></div></div>
         </div>
         <p class="rating-note">La nota media se calcula únicamente con las estrellas de los mensajes autorizados y aprobados, incluidas las sugerencias y los avisos de errores que lleven valoración.</p>
         <div class="rating-cta" id="opinion-form-config" aria-live="polite">
-          <span class="rating-muted">Puedes enviar tu valoración desde el formulario de Google.</span>
+          <span class="rating-muted">Puedes enviar tu opinión, sugerencia o aviso desde el formulario de Google.</span>
+          <a class="button secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSf3Wyhp_aEpYp8kmQg4fzJ0esjjwAXSPOwjaQp1xX-adLFiwg/viewform" rel="noopener noreferrer" target="_blank">Abrir formulario de opiniones ↗</a>
         </div>
         <div class="rating-cta" id="opinion-form-ready" hidden>
           <a class="button primary" id="opinion-form-link" href="#opiniones" target="_blank" rel="noopener noreferrer">★ Enviar una valoración, sugerencia o aviso</a>
@@ -425,7 +461,12 @@ button.button{font-family:inherit;cursor:pointer;}
           <iframe id="opinion-iframe" title="Formulario de opiniones de Lector Fácil" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="width:100%;height:990px;border:0;background:#fff;border-radius:14px" aria-label="Formulario de Google para enviar una opinión"></iframe>
           <p class="rating-note">Si el formulario no se muestra correctamente, usa el botón «Enviar una valoración» para abrirlo en otra pestaña.</p>
         </div>
-        <p class="rating-note">Los mensajes llegan primero al responsable de la página. Solo se publican las opiniones que se revisan y aprueban. No incluyas teléfonos, direcciones ni información privada.</p>
+        <div class="review-reasons" aria-label="Qué puedes enviar">
+  <div><span aria-hidden="true">★</span><strong>Valoración</strong><small>De 1 a 5 estrellas</small></div>
+  <div><span aria-hidden="true">✎</span><strong>Sugerencia</strong><small>Ideas para mejorar</small></div>
+  <div><span aria-hidden="true">⚑</span><strong>Aviso de error</strong><small>Indica la versión instalada</small></div>
+</div>
+<p class="rating-note">Los mensajes llegan primero al responsable de la página. Solo se publican las opiniones que se revisan y aprueban. No incluyas teléfonos, direcciones ni información privada.</p>
       </div>
       <h3 style="margin:32px 0 9px;font-size:1.22rem">Valoraciones y comentarios publicados</h3>
       <div id="opinion-lista" class="review-list" aria-live="polite"><p class="rating-empty">Todavía no hay opiniones publicadas.</p></div>
