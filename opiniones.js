@@ -13,14 +13,14 @@
     if (!item || typeof item !== 'object') return null;
     const tipo = ['Valoración','Sugerencia','Error'].includes(item.tipo) ? item.tipo : 'Valoración';
     const estrellas = Number(item.estrellas);
-    if (tipo === 'Valoración' && (!Number.isInteger(estrellas) || estrellas < 1 || estrellas > 5)) return null;
+    if (!Number.isInteger(estrellas) || estrellas < 0 || estrellas > 5 || (tipo === 'Valoración' && estrellas === 0)) return null;
     const nombre = typeof item.nombre === 'string' ? item.nombre.slice(0,60).trim() : '';
     const mensaje = typeof item.mensaje === 'string' ? item.mensaje.slice(0,1800).trim() : '';
     const fecha = typeof item.fecha === 'string' && /^\d{4}-\d{2}$/.test(item.fecha) ? item.fecha : '';
-    return {tipo, estrellas: tipo === 'Valoración' ? estrellas : 0, nombre:nombre||'Anónimo',mensaje,fecha};
+    return {tipo, estrellas, nombre:nombre||'Anónimo',mensaje,fecha};
   };
   function showRatings(items) {
-    const vals = items.filter(x => x.tipo === 'Valoración');
+    const vals = items.filter(x => x.estrellas >= 1 && x.estrellas <= 5);
     const average = vals.length ? vals.reduce((s,v)=>s+v.estrellas,0)/vals.length : 0;
     const roundedStars = Math.round(average);
     if ($('home-stars')) $('home-stars').textContent = starText(roundedStars);
