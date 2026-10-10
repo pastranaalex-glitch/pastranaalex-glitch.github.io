@@ -15,6 +15,7 @@
   <meta property="og:url" content="https://pastranaalex-glitch.github.io/">
   <meta name="twitter:card" content="summary">
   <link rel="sitemap" type="application/xml" title="Mapa del sitio" href="/sitemap.xml">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <title>Biblioteca de herramientas | Aplicaciones gratis para Android</title>
   <script type="application/ld+json">{
     "@context":"https://schema.org",
@@ -115,16 +116,50 @@
 [hidden] {display:none !important;}
 @media(max-width:600px){.rating-section{padding:45px 0}.rating-panel{padding:18px}.rating-score{font-size:2.15rem}.review-home{padding:16px}}
 
+
+/* Pack 2: lectura accesible, navegación adaptable e historial. */
+.skip-link{position:absolute;top:-100px;left:12px;padding:10px 16px;background:#e2faff;color:#102030;z-index:60;border-radius:9px;font-weight:700;}
+.skip-link:focus{top:8px;}
+.nav{flex-wrap:wrap;padding:10px 0;}
+.nav nav{flex-wrap:wrap;gap:10px 19px;}
+.nav nav a{white-space:nowrap;}
+.access-tools{display:inline-flex;gap:5px;align-items:center;flex-shrink:0;margin-left:5px;}
+.access-tools button{font:inherit;color:#eef8ff;background:#253550;border:1px solid #53708c;border-radius:8px;min-width:39px;min-height:39px;cursor:pointer;font-weight:750;padding:5px;}
+.access-tools button:hover,.access-tools button:focus-visible{background:#345170;}
+button.button{font-family:inherit;cursor:pointer;}
+.button:focus-visible,.access-tools button:focus-visible{outline:3px solid #b6f4ff;outline-offset:3px;}
+.release-list{display:grid;gap:13px;margin-top:23px;}
+.release-card{border:1px solid #344860;background:#141f33;border-radius:15px;padding:20px;}
+.release-titleline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+.release-titleline h3{margin:0;font-size:1.1rem;}
+.release-date{font-size:.82rem;color:#b9cbe0;}
+.release-note-text{margin:12px 0 0;color:#d3e3f5;white-space:pre-wrap;overflow-wrap:anywhere;font-size:.9rem;line-height:1.55;}
+.release-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:13px;}
+.release-actions a{color:#8bdfff;font-weight:700;text-underline-offset:3px;}
+.release-empty{color:#bbcbdd;margin:10px 0;}
+.updates-home{margin-top:16px;padding:18px 20px;border:1px solid #364963;border-radius:16px;background:#131e32;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;}
+.updates-home strong{display:block;}
+.updates-home p{margin:4px 0 0;color:#b4c8df;font-size:.87rem;}
+.updates-home a{color:#8bddff;font-weight:700;text-underline-offset:3px;}
+.privacy-card{border:1px solid #3a4b65;border-radius:15px;padding:22px;background:#121d30;margin:16px 0;}
+.privacy-card h2{font-size:1.24rem;margin:0 0 10px;}
+.privacy-card p{color:#cbd8ea;margin:8px 0;}
+.privacy-card ul{color:#cbd8ea;}
+@media(max-width:750px){.nav{align-items:flex-start;justify-content:center;}.nav .brand{width:100%;justify-content:center;}.nav nav{justify-content:center;}.access-tools{margin-left:0;}}
+@media(max-width:500px){.nav{gap:8px;}.nav nav{gap:7px 12px;}.nav nav a{font-size:.82rem;}.release-card{padding:15px;}.access-tools button{min-height:38px;min-width:38px;}}
+
 </style>
 </head>
 <body>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
   <header class="topbar">
     <div class="wrap nav">
       <a class="brand" href="#inicio" aria-label="Inicio de Biblioteca de herramientas"><span class="brand-mark" aria-hidden="true">⌘</span><span>Biblioteca de herramientas</span></a>
-      <nav aria-label="Navegación principal"><a href="#programas">Programas</a><a href="lector-facil.html">Lector Fácil</a><a href="#proyecto">El proyecto</a></nav>
+      <nav aria-label="Navegación principal"><a href="#programas">Programas</a><a href="lector-facil.html#versiones">Versiones</a><a href="lector-facil.html#opiniones">Opiniones</a><a href="#proyecto">El proyecto</a></nav>
+      <div class="access-tools" role="group" aria-label="Tamaño de letra"><button type="button" data-text-size="down" aria-label="Reducir tamaño de letra" title="Reducir tamaño de letra">A−</button><button type="button" data-text-size="up" aria-label="Ampliar tamaño de letra" title="Ampliar tamaño de letra">A+</button></div>
     </div>
   </header>
-  <main>
+  <main id="contenido">
     <section class="hero" id="inicio">
       <div class="wrap hero-grid">
         <div>
@@ -143,7 +178,7 @@
     <section id="programas" class="content">
       <div class="wrap">
         <h2 class="section-title">Aplicaciones</h2>
-        <p class="section-intro">Compartimos aplicaciones gratuitas realizadas por afición. Lector Fácil 1.0 ya está disponible para Android.</p>
+        <p class="section-intro">Compartimos aplicaciones gratuitas realizadas por afición. Lector Fácil ya está disponible para Android.</p>
         <article class="app">
           <div class="app-icon" aria-hidden="true">▤</div>
           <div>
@@ -160,6 +195,7 @@
         <div class="app-actions">
           <a id="download-link" class="button primary" href="https://github.com/pastranaalex-glitch/lector-facil/releases/download/v1.0.0/LectorFacil-v1.0.apk" target="_blank" rel="noopener noreferrer">Descargar Lector Fácil ↓</a>
           <a class="button secondary" href="lector-facil.html">Ver características y guía de instalación →</a>
+          <button type="button" class="button secondary" data-share="site" data-share-title="Lector Fácil: aplicación gratuita para Android" data-share-url="https://pastranaalex-glitch.github.io/lector-facil.html">Compartir página ↗</button>
         </div>
 
         <aside class="review-home" aria-label="Opiniones de Lector Fácil">
@@ -169,6 +205,10 @@
               <span id="home-rating-caption">Todavía sin valoraciones publicadas</span></div>
           </div>
           <a href="lector-facil.html#opiniones">Leer opiniones y dejar una valoración →</a>
+        </aside>
+        <aside class="updates-home" aria-label="Actualizaciones de Lector Fácil">
+          <div><strong>Versión más reciente</strong><p id="latest-version-label">Consulta las versiones y novedades publicadas.</p></div>
+          <a href="lector-facil.html#versiones">Consultar actualizaciones →</a>
         </aside>
         <div class="info-grid">
           <div class="info"><span class="info-icon" aria-hidden="true">♧</span><h3>Completamente gratuito</h3><p>No hay pagos, suscripciones, publicidad ni aportaciones económicas.</p></div>
@@ -185,44 +225,8 @@
       </div>
     </section>
   </main>
-  <footer><div class="wrap"><span>Biblioteca de herramientas · Proyecto personal sin ánimo de lucro</span><span>Sin ventas · Sin publicidad · Sin donaciones · <a href="lector-facil.html">Lector Fácil</a></span></div></footer>
-  <script>
-    // GitHub Releases ofrece la descarga. La API permite contar las descargas de los APK.
-    // El botón sigue funcionando cuando las estadísticas no estén disponibles.
-    const releasesRepo = 'pastranaalex-glitch/lector-facil';
-    const countElement = document.getElementById('download-count');
-    const captionElement = document.getElementById('download-caption');
-    const downloadLink = document.getElementById('download-link');
-    const versionChip = document.getElementById('version-chip');
-
-    fetch(`https://api.github.com/repos/${releasesRepo}/releases?per_page=100`, {
-      headers: { Accept: 'application/vnd.github+json' }
-    })
-      .then(response => {
-        if (!response.ok) throw new Error('No se pudieron consultar las versiones');
-        return response.json();
-      })
-      .then(releases => {
-        const published = releases.filter(r => !r.draft && !r.prerelease);
-        const apkFiles = published.flatMap(r => r.assets || [])
-          .filter(file => /\.apk$/i.test(file.name));
-        const total = apkFiles.reduce((sum, file) => sum + (Number(file.download_count) || 0), 0);
-
-        countElement.textContent = total.toLocaleString('es-ES');
-        captionElement.textContent = total === 1 ? 'Descarga pública del APK' : 'Descargas públicas del APK';
-
-        const latest = published.find(r => (r.assets || []).some(file => /\.apk$/i.test(file.name)));
-        if (latest) {
-          const apk = latest.assets.find(file => /\.apk$/i.test(file.name));
-          if (apk.browser_download_url) downloadLink.href = apk.browser_download_url;
-          if (latest.tag_name) versionChip.textContent = `Disponible · ${latest.tag_name}`;
-        }
-      })
-      .catch(() => {
-        countElement.textContent = '—';
-        captionElement.textContent = 'Contador temporalmente no disponible';
-      });
-  </script>
+  <footer><div class="wrap"><span>Biblioteca de herramientas · Proyecto personal sin ánimo de lucro</span><span>Sin ventas · Sin publicidad · Sin donaciones · <a href="lector-facil.html">Lector Fácil</a> · <a href="privacidad.html">Privacidad</a></span></div></footer>
+  <script src="biblioteca.js" defer></script>
   <script src="opiniones.js" defer></script>
 </body>
 </html>
