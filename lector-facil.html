@@ -173,13 +173,38 @@ button.button{font-family:inherit;cursor:pointer;}
 @media(max-width:750px){.nav{align-items:flex-start;justify-content:center;}.nav .brand{width:100%;justify-content:center;}.nav nav{justify-content:center;}.access-tools{margin-left:0;}}
 @media(max-width:500px){.nav{gap:8px;}.nav nav{gap:7px 12px;}.nav nav a{font-size:.82rem;}.release-card{padding:15px;}.access-tools button{min-height:38px;min-width:38px;}}
 
+
+/* Pack 3: galería de capturas reales */
+.gallery-intro{max-width:780px}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:30px}
+.gallery-card{background:#172339;border:1px solid #344762;border-radius:20px;padding:16px;text-align:left;color:#f5f8ff;cursor:zoom-in;transition:transform .18s ease,border-color .18s ease;display:flex;flex-direction:column;gap:9px;font:inherit;width:100%}
+.gallery-card:hover,.gallery-card:focus-visible{transform:translateY(-3px);border-color:#78d6e3;outline-offset:3px}
+.gallery-screen{height:290px;width:100%;display:flex;justify-content:center;align-items:center;background:#0b1425;border-radius:12px;overflow:hidden}
+.gallery-screen img{display:block;height:100%;width:100%;object-fit:contain}
+.gallery-title{font-weight:800;font-size:1rem}
+.gallery-caption{color:#c8d6e8;line-height:1.45;font-size:.9rem;flex:1}
+.gallery-view{color:#8de7ee;font-size:.83rem;font-weight:700}
+.gallery-note{margin-top:15px;color:#bdd0e1;font-size:.88rem;line-height:1.5}
+.gallery-dialog{border:1px solid #465572;border-radius:18px;background:#111d31;color:#fff;max-width:min(96vw,840px);max-height:95vh;width:min(96vw,840px);padding:16px;box-shadow:0 22px 80px #000b}
+.gallery-dialog::backdrop{background:#030916d9;backdrop-filter:blur(4px)}
+.gallery-dialog-head{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:0 2px 12px}
+.gallery-dialog-title{margin:0;font-size:1rem}
+.gallery-dialog-close,.gallery-dialog-nav button{background:#263850;border:1px solid #52657e;color:white;border-radius:10px;padding:8px 13px;cursor:pointer;font:inherit}
+.gallery-dialog-body{display:flex;justify-content:center;align-items:center;min-height:180px}
+.gallery-dialog-body img{display:block;max-height:calc(95vh - 165px);width:auto;max-width:100%;object-fit:contain;border-radius:8px}
+.gallery-dialog-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px}
+.gallery-dialog-nav span{font-size:.86rem;color:#bcd0e2}
+@media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.gallery-grid{gap:10px}.gallery-card{padding:9px;border-radius:12px}.gallery-screen{height:220px}.gallery-title{font-size:.87rem}.gallery-caption{font-size:.8rem}.gallery-view{font-size:.75rem}.gallery-dialog{padding:10px}}
+@media(prefers-reduced-motion:reduce){.gallery-card{transition:none}}
+
 </style>
 </head>
 <body>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
   <header class="topbar"><div class="wrap nav">
     <a class="brand" href="index.html" aria-label="Inicio de Biblioteca de herramientas"><span class="brand-mark" aria-hidden="true">⌘</span><span>Biblioteca de herramientas</span></a>
-    <nav aria-label="Navegación principal"><a href="index.html#programas">Programas</a><a href="#funciones">Funciones</a><a href="#instalar">Instalación</a><a href="#versiones">Versiones</a><a href="#opiniones">Opiniones</a></nav>
+    <nav aria-label="Navegación principal"><a href="index.html#programas">Programas</a><a href="#funciones">Funciones</a><a href="#capturas">Capturas</a><a href="#instalar">Instalación</a><a href="#versiones">Versiones</a><a href="#opiniones">Opiniones</a></nav>
     <div class="access-tools" role="group" aria-label="Tamaño de letra"><button type="button" data-text-size="down" aria-label="Reducir tamaño de letra" title="Reducir tamaño de letra">A−</button><button type="button" data-text-size="up" aria-label="Ampliar tamaño de letra" title="Ampliar tamaño de letra">A+</button></div>
   </div></header>
   <main id="contenido">
@@ -190,7 +215,7 @@ button.button{font-family:inherit;cursor:pointer;}
         <h1>Lector Fácil: <span>lee, prepara y comparte documentos.</span></h1>
         <p class="lead">Abre documentos PDF y Word (.docx), sigue una presentación con teleprompter y distingue las intervenciones de cada interlocutor. Comparte un PDF cómodo para leer o uno optimizado para imprimir.</p>
         <div class="facts"><span class="chip">Android 8.0 o superior</span><span class="chip" id="version-chip">Versión 1.0.0</span><span class="chip">Sin publicidad ni pagos</span></div>
-        <div class="actions"><a class="button primary" id="download-link" href="https://github.com/pastranaalex-glitch/lector-facil/releases/download/v1.0.0/LectorFacil-v1.0.apk" target="_blank" rel="noopener noreferrer">↓ Descargar APK gratuito</a><a class="button secondary" href="#funciones">Ver funciones</a><button type="button" class="button secondary" data-share="site" data-share-title="Lector Fácil: aplicación gratuita para Android" data-share-url="https://pastranaalex-glitch.github.io/lector-facil.html">Compartir página ↗</button></div>
+        <div class="actions"><a class="button primary" id="download-link" href="https://github.com/pastranaalex-glitch/lector-facil/releases/download/v1.0.0/LectorFacil-v1.0.apk" target="_blank" rel="noopener noreferrer">↓ Descargar APK gratuito</a><a class="button secondary" href="#capturas">Ver fotos reales</a><button type="button" class="button secondary" data-share="site" data-share-title="Lector Fácil: aplicación gratuita para Android" data-share-url="https://pastranaalex-glitch.github.io/lector-facil.html">Compartir página ↗</button></div>
         <div class="stats-row" aria-live="polite"><strong id="download-count">Consultando…</strong><span id="download-caption">descargas del APK en GitHub</span></div>
         <p class="small-meta">Descarga alojada en GitHub Releases. No requiere registrar una cuenta para descargar el APK.</p>
       </div>
@@ -212,7 +237,39 @@ button.button{font-family:inherit;cursor:pointer;}
         <article class="feature"><div class="symbol" aria-hidden="true">▧</div><h3>PDF para imprimir</h3><p>Crea documentos A4 en blanco y negro, con distribución compacta para ahorrar papel y tinta.</p></article>
       </div>
     </div></section>
-    <section class="detail-subsection" id="instalar"><div class="wrap">
+    
+<section class="detail-subsection" id="capturas"><div class="wrap">
+<h2 class="section-title">Así es Lector Fácil por dentro</h2>
+<p class="section-intro gallery-intro">Seis capturas reales de la aplicación, realizadas con un diálogo ficticio entre Ana y Carlos. Toca cualquiera para verla más grande.</p>
+<div class="gallery-grid" aria-label="Galería de capturas de Lector Fácil">
+<button type="button" class="gallery-card" data-gallery-image="captura-01-inicio.webp" data-gallery-title="Pantalla principal" data-gallery-alt="Pantalla principal de Lector Fácil con botón para abrir PDF o Word y documentos recientes." aria-label="Ampliar captura 1: Pantalla principal">
+ <span class="gallery-screen"><img src="captura-01-inicio.webp" alt="Pantalla principal de Lector Fácil con botón para abrir PDF o Word y documentos recientes." loading="lazy" width="691" height="1390"></span>
+ <span class="gallery-title">Pantalla principal</span><span class="gallery-caption">Accede a tus documentos de forma sencilla.</span><span class="gallery-view">Ampliar imagen ↗</span></button>
+<button type="button" class="gallery-card" data-gallery-image="captura-02-lectura.webp" data-gallery-title="Lectura cómoda" data-gallery-alt="Documento de ejemplo con texto grande, botones de lectura y controles de Lector Fácil." aria-label="Ampliar captura 2: Lectura cómoda">
+ <span class="gallery-screen"><img src="captura-02-lectura.webp" alt="Documento de ejemplo con texto grande, botones de lectura y controles de Lector Fácil." loading="lazy" width="691" height="1390"></span>
+ <span class="gallery-title">Lectura cómoda</span><span class="gallery-caption">Ajusta el tamaño del texto y sigue tu lectura sin distracciones.</span><span class="gallery-view">Ampliar imagen ↗</span></button>
+<button type="button" class="gallery-card" data-gallery-image="captura-03-guia.webp" data-gallery-title="Guía de exposición" data-gallery-alt="Guía de exposición con temporizador e intervenciones de Ana y Carlos de un texto de prueba." aria-label="Ampliar captura 3: Guía de exposición">
+ <span class="gallery-screen"><img src="captura-03-guia.webp" alt="Guía de exposición con temporizador e intervenciones de Ana y Carlos de un texto de prueba." loading="lazy" width="691" height="1390"></span>
+ <span class="gallery-title">Guía de exposición</span><span class="gallery-caption">Sigue la intervención actual y consulta la siguiente idea.</span><span class="gallery-view">Ampliar imagen ↗</span></button>
+<button type="button" class="gallery-card" data-gallery-image="captura-04-compartir.webp" data-gallery-title="Compartir con compañero" data-gallery-alt="Cuadro Preparar para compañero con nombre Carlos y opciones PDF y Word." aria-label="Ampliar captura 4: Compartir con compañero">
+ <span class="gallery-screen"><img src="captura-04-compartir.webp" alt="Cuadro Preparar para compañero con nombre Carlos y opciones PDF y Word." loading="lazy" width="691" height="1390"></span>
+ <span class="gallery-title">Compartir con compañero</span><span class="gallery-caption">Elige la persona y prepara el documento para compartir.</span><span class="gallery-view">Ampliar imagen ↗</span></button>
+<button type="button" class="gallery-card" data-gallery-image="captura-05-colores.webp" data-gallery-title="PDF con colores" data-gallery-alt="PDF de lectura con intervenciones de Ana y Carlos diferenciadas por colores." aria-label="Ampliar captura 5: PDF con colores">
+ <span class="gallery-screen"><img src="captura-05-colores.webp" alt="PDF de lectura con intervenciones de Ana y Carlos diferenciadas por colores." loading="lazy" width="691" height="1390"></span>
+ <span class="gallery-title">PDF con colores</span><span class="gallery-caption">Diferencia visualmente a los interlocutores.</span><span class="gallery-view">Ampliar imagen ↗</span></button>
+<button type="button" class="gallery-card" data-gallery-image="captura-06-solo-parte.webp" data-gallery-title="Solo su parte" data-gallery-alt="PDF que muestra únicamente las intervenciones de Carlos, del texto de ejemplo." aria-label="Ampliar captura 6: Solo su parte">
+ <span class="gallery-screen"><img src="captura-06-solo-parte.webp" alt="PDF que muestra únicamente las intervenciones de Carlos, del texto de ejemplo." loading="lazy" width="691" height="1390"></span>
+ <span class="gallery-title">Solo su parte</span><span class="gallery-caption">Crea un PDF que incluya únicamente las intervenciones del compañero.</span><span class="gallery-view">Ampliar imagen ↗</span></button>
+</div>
+<p class="gallery-note">Capturas realizadas con una versión de prueba. Algunas pantallas pueden variar ligeramente respecto a la versión pública descargable. No se muestran documentos privados.</p>
+</div></section>
+<dialog id="gallery-dialog" class="gallery-dialog" aria-label="Imagen ampliada de Lector Fácil">
+ <div class="gallery-dialog-head"><h3 id="gallery-dialog-title" class="gallery-dialog-title"></h3><button type="button" id="gallery-close" class="gallery-dialog-close" aria-label="Cerrar imagen">Cerrar ✕</button></div>
+ <div class="gallery-dialog-body"><img id="gallery-dialog-image" alt=""></div>
+ <div class="gallery-dialog-nav"><button type="button" id="gallery-prev" aria-label="Captura anterior">← Anterior</button><span id="gallery-position" aria-live="polite"></span><button type="button" id="gallery-next" aria-label="Siguiente captura">Siguiente →</button></div>
+</dialog>
+
+<section class="detail-subsection" id="instalar"><div class="wrap">
       <h2 class="section-title">Cómo descargar e instalar Lector Fácil</h2>
       <p class="section-intro">El archivo es un APK de Android distribuido gratuitamente desde la página de versiones del proyecto.</p>
       <ol class="guide">
@@ -282,5 +339,41 @@ button.button{font-family:inherit;cursor:pointer;}
   <footer><div class="wrap"><span>Biblioteca de herramientas · Proyecto personal sin ánimo de lucro</span><span><a href="index.html">Volver a la biblioteca</a> · <a href="privacidad.html">Privacidad y opiniones</a> · Sin publicidad ni donaciones</span></div></footer>
   <script src="biblioteca.js" defer></script>
   <script src="opiniones.js" defer></script>
+
+<script>
+(function(){
+  'use strict';
+  const cards=Array.from(document.querySelectorAll('[data-gallery-image]'));
+  const dialog=document.getElementById('gallery-dialog');
+  const picture=document.getElementById('gallery-dialog-image');
+  const title=document.getElementById('gallery-dialog-title');
+  const position=document.getElementById('gallery-position');
+  const close=document.getElementById('gallery-close');
+  const prev=document.getElementById('gallery-prev');
+  const next=document.getElementById('gallery-next');
+  if(!cards.length||!dialog||typeof dialog.showModal!=='function')return;
+  let active=0;let trigger=null;
+  function show(index){
+    active=(index+cards.length)%cards.length;
+    const card=cards[active];
+    picture.src=card.dataset.galleryImage;
+    picture.alt=card.dataset.galleryAlt;
+    title.textContent=card.dataset.galleryTitle;
+    position.textContent=(active+1)+' de '+cards.length;
+  }
+  cards.forEach((card,index)=>card.addEventListener('click',()=>{
+    trigger=card;show(index);dialog.showModal();close.focus();
+  }));
+  close.addEventListener('click',()=>dialog.close());
+  prev.addEventListener('click',()=>show(active-1));
+  next.addEventListener('click',()=>show(active+1));
+  dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
+  dialog.addEventListener('keydown',e=>{
+    if(e.key==='ArrowLeft'){e.preventDefault();show(active-1)}
+    else if(e.key==='ArrowRight'){e.preventDefault();show(active+1)}
+  });
+  dialog.addEventListener('close',()=>{if(trigger)trigger.focus()});
+})();
+</script>
 </body>
 </html>
