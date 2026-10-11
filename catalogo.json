@@ -1,4 +1,13 @@
 {
   "formato": 1,
-  "aplicaciones": []
+  "aplicaciones": [
+    {
+      "nombre": "Cocina Clara",
+      "descripcion": "Recetario gratuito para Windows con 34 recetas ilustradas, ingredientes, preparación paso a paso, ajustes de raciones, tiempos y potencias de cocción, buscador, favoritos, impresión y exportación a PDF.",
+      "plataforma": "windows",
+      "version": "1.6.0",
+      "enlace": "https://github.com/pastranaalex-glitch/cocina-clara/releases/tag/v1.6.0",
+      "publicado": true
+    }
+  ]
 }
