@@ -2,12 +2,20 @@
   "formato": 1,
   "aplicaciones": [
     {
+      "nombre": "Recetario Fácil",
+      "plataforma": "android",
+      "publicado": true,
+      "version": "1.20.0",
+      "descripcion": "52 recetas ilustradas para móviles y tabletas Android, con búsqueda, ingredientes ajustables, tiempos y preparación paso a paso.",
+      "enlace": "https://pastranaalex-glitch.github.io/recetario-facil.html"
+    },
+    {
       "nombre": "Cocina Clara",
-      "descripcion": "Recetario gratuito para Windows con 34 recetas ilustradas, ingredientes, preparación paso a paso, ajustes de raciones, tiempos y potencias de cocción, buscador, favoritos, impresión y exportación a PDF.",
       "plataforma": "windows",
+      "publicado": true,
       "version": "1.6.0",
-      "enlace": "https://github.com/pastranaalex-glitch/cocina-clara/releases/tag/v1.6.0",
-      "publicado": true
+      "descripcion": "Recetario gratuito para Windows con 34 recetas, ajustes de cantidades, búsqueda, favoritos, impresión y exportación a PDF.",
+      "enlace": "https://github.com/pastranaalex-glitch/cocina-clara/releases/latest"
     }
   ]
 }
