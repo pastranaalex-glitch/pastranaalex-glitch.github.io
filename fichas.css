@@ -1,4 +1,4 @@
-/* Biblioteca de herramientas · Fichas Pack 5.2
+/* Biblioteca de herramientas · Fichas Pack 5.3
    Diseño compartido con la portada Pack 5. Mantiene galerías, releases y opiniones propias. */
 html[data-biblioteca-ficha]{color-scheme:light;--bg:#f8f9fc;--panel:#fff;--panel2:#f5f3fd;--panel-2:#f5f3fd;--line:#e5e6ef;--ink:#171827;--txt:#171827;--muted:#6e7187;--blue:#6753e6;--mint:#6753e6;--accent:#6753e6;--orange:#e4974a;--radius:18px;scroll-padding-top:94px}
 .ficha-app{margin:0;background:#f8f9fc;color:#171827;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.55;font-size:15px;-webkit-font-smoothing:antialiased;min-width:0}
@@ -11,7 +11,7 @@ html[data-biblioteca-ficha]{color-scheme:light;--bg:#f8f9fc;--panel:#fff;--panel
 .ficha-app .site-header .brand-logo{background:linear-gradient(135deg,#7869eb,#5d46cc);display:grid;place-items:center;width:40px;height:40px;border-radius:13px;flex-shrink:0;box-shadow:0 5px 14px rgba(111,86,219,.18)}
 .ficha-app .site-header .brand-name{white-space:nowrap}.ficha-app .site-header .brand-suffix{color:#4c4c60}
 .ficha-app .site-header .site-nav{display:flex;align-items:center;gap:26px;flex-wrap:nowrap}.ficha-app .site-header .site-nav a{color:#53546b;font-size:.88rem;text-decoration:none;font-weight:680;white-space:nowrap}.ficha-app .site-header .site-nav a:hover{color:#5c48cf}.ficha-app .site-header .site-nav .nav-cta{color:#fff;background:#191a2b;border-radius:11px;padding:11px 17px}.ficha-app .site-header .site-nav .nav-cta:hover{background:#5442cf;color:#fff}
-/* Uniform introductory section on all four applications. */
+/* Uniform introductory section on all five applications. */
 .ficha-app .app-detail-hero{padding:30px 0 39px;background:transparent;border:0;margin:0}
 .ficha-app .detail-hero-layout{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(315px,.88fr);gap:34px;align-items:stretch;min-height:405px;padding:0}
 .ficha-app .detail-intro{background:linear-gradient(125deg,#f0eafe 0%,#f8f6ff 60%,#eff2ff 100%);border:1px solid #e9e1fb;border-radius:24px;padding:34px 38px;display:flex;flex-direction:column;min-width:0;box-shadow:0 12px 38px rgba(83,65,166,.045)}
@@ -67,3 +67,29 @@ html[data-biblioteca-ficha]{color-scheme:light;--bg:#f8f9fc;--panel:#fff;--panel
 @media(max-width:700px){.ficha-app .container,.ficha-app .wrap{width:min(100% - 30px,1120px)}.ficha-app .header-inner{height:65px}.ficha-app .site-header .site-nav a:not(.nav-cta){display:none}.ficha-app .site-header .brand-suffix{display:none}.ficha-app .detail-hero-layout{display:flex;flex-direction:column}.ficha-app .app-detail-hero{padding-top:16px}.ficha-app .detail-intro{padding:25px 23px}.ficha-app .detail-title-row h1{font-size:clamp(1.7rem,7vw,2.55rem)}.ficha-app .detail-title-row img{width:56px;height:56px}.ficha-app .detail-showcase{max-height:380px}.ficha-app .showcase-screen{min-height:245px;max-height:275px}.ficha-app .showcase-screen img{width:165px}.ficha-app .features,.ficha-app .feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ficha-app .gallery,.ficha-app .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ficha-app .footer-inner{flex-direction:column}.ficha-app .detail-subsection,.ficha-app .area,.ficha-app .section{padding-top:30px;padding-bottom:30px}}
 @media(max-width:450px){.ficha-app .site-header .brand-name{font-size:.92rem}.ficha-app .site-header .site-nav .nav-cta{padding:9px 12px}.ficha-app .detail-actions .button{flex:1;min-width:122px}.ficha-app .detail-stats{gap:13px}.ficha-app .detail-stats>div{min-width:120px}.ficha-app .features,.ficha-app .feature-grid{grid-template-columns:1fr}.ficha-app .gallery,.ficha-app .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.ficha-app .gallery-card .gallery-screen{height:170px}.ficha-app .shot img{height:180px}}
 @media(prefers-reduced-motion:reduce){.ficha-app *, .ficha-app *::before,.ficha-app *::after{scroll-behavior:auto;transition:none!important}}
+
+/* Quinta ficha: Rutas a Pie */
+.ficha-app.ficha-rutas .rutas-info{margin-top:0}.ficha-app.ficha-rutas .rutas-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.ficha-app.ficha-rutas .rutas-card{background:#fff;border:1px solid #e8e6f0;border-radius:18px;padding:24px;box-shadow:0 8px 28px #19164708}
+.ficha-app.ficha-rutas .rutas-card h3{margin:0 0 10px;font-size:1.03rem}.ficha-app.ficha-rutas .rutas-card p{margin:0;color:#6b6b80;font-size:.9rem}
+.ficha-app.ficha-rutas .rutas-card .card-emoji{display:inline-block;font-size:1.7rem;margin-bottom:10px}
+.ficha-app.ficha-rutas .rutas-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.ficha-app.ficha-rutas .rutas-shot{border:1px solid #e5e4ee;background:#fff;border-radius:17px;padding:10px;min-width:0;cursor:pointer;font:inherit;color:#272337;box-shadow:0 6px 22px #241a4d0a;text-align:left}
+.ficha-app.ficha-rutas .rutas-shot:hover{border-color:#917de8;transform:translateY(-2px)}.ficha-app.ficha-rutas .rutas-shot img{display:block;width:100%;height:260px;object-fit:contain;object-position:top;background:#f7f5fd;border-radius:10px}
+.ficha-app.ficha-rutas .rutas-shot span{display:block;font-size:.79rem;font-weight:740;margin:10px 4px 4px}
+.ficha-app.ficha-rutas .rutas-note{border:1px solid #e4ddf6;background:#f0ecff;border-radius:18px;padding:23px 26px}
+.ficha-app.ficha-rutas .rutas-note strong{color:#302746}.ficha-app.ficha-rutas .rutas-note p{margin:8px 0 0}
+.ficha-app.ficha-rutas .rutas-panels{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.ficha-app.ficha-rutas .rutas-panel{background:#fff;border:1px solid #e7e5ef;border-radius:18px;padding:25px}
+.ficha-app.ficha-rutas .rutas-panel h2{font-size:1.3rem;margin:0 0 13px}.ficha-app.ficha-rutas .rutas-panel li{margin:0 0 9px}
+.ficha-app.ficha-rutas .rutas-faq details{background:#fff;border:1px solid #e8e6f0;border-radius:12px;padding:14px 18px;margin-bottom:10px}
+.ficha-app.ficha-rutas .rutas-faq summary{cursor:pointer;font-weight:740;color:#262337}
+.ficha-app.ficha-rutas .rutas-faq details p{margin-bottom:2px}
+.ficha-app.ficha-rutas #rutas-lightbox{max-width:min(900px,92vw);max-height:94vh;border:0;border-radius:17px;padding:15px;background:#fff;color:#282337;box-shadow:0 20px 65px #0006}
+.ficha-app.ficha-rutas #rutas-lightbox::backdrop{background:rgba(12,9,27,.8)}
+.ficha-app.ficha-rutas #rutas-lightbox img{display:block;max-width:100%;max-height:76vh;object-fit:contain;margin:auto}
+.ficha-app.ficha-rutas .rutas-modal-controls{display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap;margin-top:8px}
+.ficha-app.ficha-rutas .rutas-modal-controls button{background:#eeeaff;border:0;border-radius:8px;padding:9px 13px;color:#5541bf;font-weight:750;cursor:pointer}
+@media(max-width:800px){.ficha-app.ficha-rutas .rutas-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ficha-app.ficha-rutas .rutas-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.ficha-app.ficha-rutas .rutas-panels{grid-template-columns:1fr}}
+@media(max-width:480px){.ficha-app.ficha-rutas .rutas-grid{grid-template-columns:1fr}.ficha-app.ficha-rutas .rutas-shot img{height:188px}.ficha-app.ficha-rutas .rutas-card,.ficha-app.ficha-rutas .rutas-panel{padding:18px}}
