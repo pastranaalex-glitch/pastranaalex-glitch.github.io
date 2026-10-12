@@ -5,6 +5,7 @@
   'use strict';
   const cards = Array.from(document.querySelectorAll('[data-app-card]'));
   const filterButtons = Array.from(document.querySelectorAll('[data-filter]'));
+  const categoryButtons = Array.from(document.querySelectorAll('[data-category-filter]'));
   const searchInput = document.getElementById('search-apps');
   const empty = document.getElementById('empty-results');
   const reset = document.getElementById('reset-search');
@@ -12,6 +13,7 @@
   const formatNumber = value => Number(value).toLocaleString('es-ES');
   const put = (id, value) => { const element = document.getElementById(id); if (element) element.textContent = String(value); };
   let platformFilter = 'todos';
+  let categoryFilter = 'todas';
 
   const normalize = text => String(text || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es-ES');
   function filterCards() {
@@ -19,9 +21,10 @@
     let visible = 0;
     for (const card of cards) {
       const matchesPlatform = platformFilter === 'todos' || card.dataset.platform === platformFilter;
+      const matchesCategory = categoryFilter === 'todas' || (card.dataset.categories || '').split(/\s+/).includes(categoryFilter);
       const searchText = normalize(card.dataset.search || card.textContent);
       const matchesText = words.every(word => searchText.includes(word));
-      card.hidden = !(matchesPlatform && matchesText);
+      card.hidden = !(matchesPlatform && matchesCategory && matchesText);
       if (!card.hidden) visible++;
     }
     for (const button of filterButtons) {
@@ -29,12 +32,18 @@
       button.classList.toggle('is-active', active);
       button.setAttribute('aria-pressed', String(active));
     }
+    for (const button of categoryButtons) {
+      const active = button.dataset.categoryFilter === categoryFilter;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    }
     if (empty) empty.hidden = visible !== 0;
     if (resultsStatus) resultsStatus.textContent = `${visible} ${visible === 1 ? 'aplicación disponible' : 'aplicaciones disponibles'}`;
   }
   for (const button of filterButtons) button.addEventListener('click', () => { platformFilter = button.dataset.filter; filterCards(); });
+  for (const button of categoryButtons) button.addEventListener('click', () => { categoryFilter = button.dataset.categoryFilter; filterCards(); });
   if (searchInput) searchInput.addEventListener('input', filterCards);
-  if (reset) reset.addEventListener('click', () => {platformFilter='todos';if(searchInput)searchInput.value='';filterCards();if(searchInput)searchInput.focus();});
+  if (reset) reset.addEventListener('click', () => {platformFilter='todos';categoryFilter='todas';if(searchInput)searchInput.value='';filterCards();if(searchInput)searchInput.focus();});
   put('total-apps', cards.length);
   put('hero-apps', cards.length);
   put('android-apps', cards.filter(card => card.dataset.platform === 'android').length);
@@ -42,6 +51,43 @@
   const totalFilterCount = document.querySelector('[data-filter-count="todos"]');
   if (totalFilterCount) totalFilterCount.textContent = String(cards.length);
   filterCards();
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu-principal');
+  if (menuToggle && menu) {
+    document.documentElement.classList.add('has-v2-menu');
+    const closeMenu = focusToggle => {
+      menu.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Abrir menú de navegación');
+      if (focusToggle) menuToggle.focus();
+    };
+    menuToggle.addEventListener('click', () => {
+      const opening = !menu.classList.contains('is-open');
+      menu.classList.toggle('is-open', opening);
+      menuToggle.setAttribute('aria-expanded', String(opening));
+      menuToggle.setAttribute('aria-label', opening ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+    });
+    for (const link of menu.querySelectorAll('a')) link.addEventListener('click', () => closeMenu(false));
+    document.addEventListener('pointerdown', event => {
+      if (!menu.contains(event.target) && !menuToggle.contains(event.target)) closeMenu(false);
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && menu.classList.contains('is-open')) closeMenu(true);
+    });
+    window.addEventListener('resize', () => { if (window.innerWidth > 700) closeMenu(false); });
+  }
+
+  const viewToggle = document.getElementById('view-toggle');
+  const grid = document.getElementById('apps-grid');
+  if (viewToggle && grid) {
+    viewToggle.addEventListener('click', () => {
+      const compact = !grid.classList.contains('is-compact');
+      grid.classList.toggle('is-compact', compact);
+      viewToggle.setAttribute('aria-pressed', String(compact));
+      viewToggle.textContent = compact ? '▦ Mostrar imágenes' : '☷ Vista compacta';
+    });
+  }
 
   function validAsset(asset, repo) {
     if (!asset || typeof asset.name !== 'string' || typeof asset.browser_download_url !== 'string') return false;
