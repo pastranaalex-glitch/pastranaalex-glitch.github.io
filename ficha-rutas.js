@@ -3,6 +3,8 @@
 const repo='pastranaalex-glitch/rutas-a-pie';
 const link=document.getElementById('download-rutas'),version=document.getElementById('rutas-version'),count=document.getElementById('rutas-downloads');
 const fallback='https://github.com/'+repo+'/releases/latest';
+function pending(){if(link){link.removeAttribute('href');link.setAttribute('aria-disabled','true');link.setAttribute('tabindex','-1');link.style.pointerEvents='none';link.style.opacity='0.65';link.textContent='Pendiente de publicación';link.title='Estamos preparando el APK para descarga';}if(count)count.textContent='Pendiente de publicación';}
+pending();
 const good=a=>a&&typeof a.name==='string'&&/\.apk$/i.test(a.name)&&typeof a.browser_download_url==='string'&&a.browser_download_url.startsWith('https://github.com/'+repo+'/releases/download/');
 async function getReleases(){try{
  const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),8000);
@@ -12,8 +14,8 @@ async function getReleases(){try{
  const releases=raw.filter(r=>r&&!r.draft&&!r.prerelease);const chosen=releases.find(r=>Array.isArray(r.assets)&&r.assets.some(good));if(!chosen)throw Error('No APK');
  const all=releases.flatMap(r=>(r.assets||[]).filter(good));const total=all.reduce((n,a)=>n+(Number(a.download_count)||0),0);
  version.textContent=String(chosen.tag_name||chosen.name||'1.5.1').replace(/^v/i,'');count.textContent=total.toLocaleString('es-ES');
- link.href=chosen.assets.find(a=>good(a)&&/1\.5\.1/i.test(a.name))?.browser_download_url||chosen.assets.find(good).browser_download_url;
-}catch(_){count.textContent='Consultar en GitHub';link.href=fallback;}}
+ link.href=chosen.assets.find(a=>good(a)&&/1\.5\.1/i.test(a.name))?.browser_download_url||chosen.assets.find(good).browser_download_url;link.removeAttribute('aria-disabled');link.removeAttribute('tabindex');link.style.pointerEvents='';link.style.opacity='';link.textContent='↓ Descargar gratis';link.removeAttribute('title');
+}catch(_){pending();}}
 getReleases();
 const images=[...document.querySelectorAll('[data-rutas-shot]')];
 const dialog=document.getElementById('rutas-lightbox'),big=document.getElementById('rutas-bigshot'),label=document.getElementById('rutas-caption');let selected=0;
