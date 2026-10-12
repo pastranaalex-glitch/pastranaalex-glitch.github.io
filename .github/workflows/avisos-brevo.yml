@@ -37,7 +37,8 @@ jobs:
         run: python scripts/avisos_brevo.py
       - name: Guardar versiones ya procesadas
         run: |
-          if git diff --quiet -- .github/avisos_estado.json; then
+          git add -- .github/avisos_estado.json
+          if git diff --cached --quiet -- .github/avisos_estado.json; then
             echo "Sin cambios de estado"
             exit 0
           fi
