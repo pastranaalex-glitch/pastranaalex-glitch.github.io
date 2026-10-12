@@ -33,3 +33,24 @@ h1{font-size:clamp(2.15rem,3.85vw,3.65rem);line-height:1.09;letter-spacing:-.065
 @media(max-width:700px){.container{width:min(100% - 30px,1200px)}.header-inner{height:65px}.brand-suffix{display:none}.site-nav>a:not(.nav-cta){display:none}.hero{padding-top:16px}.hero-surface{display:block;min-height:0}.hero-copy{padding:31px 24px 200px}.hero-copy h1{font-size:clamp(2.05rem,8vw,3.1rem)}.hero-lead{max-width:62ch}.hero-proof{margin-top:18px}.hero-art{position:absolute;right:0;bottom:0;width:100%;height:240px;min-height:0;pointer-events:none}.hero-phone-front{width:102px;height:202px;right:122px;bottom:-30px}.hero-phone-back{width:89px;height:188px;right:43px;bottom:-12px}.hero-float-top{font-size:.67rem;top:8px;right:190px;padding:6px 10px}.hero-float-bottom{bottom:24px;right:13px;font-size:.65rem;padding:6px 8px}.hero-proof{max-width:65%}.orb-one{width:265px;height:265px;bottom:-150px}.section-heading{align-items:start}.collection-count{margin-top:6px}.catalog-toolbar{flex-direction:column;align-items:stretch;gap:12px}.search-wrap{width:100%}.apps-grid{grid-template-columns:1fr}.card-art{height:181px}.card-phone{width:120px;height:245px;right:55px}.card-phone-recetario{right:60px}.desktop-illustration{width:232px;right:36px}.card-footer{flex-direction:row;align-items:end}.card-actions{width:auto}.values-panel{grid-template-columns:1fr;gap:25px;padding:26px}.footer-inner{flex-direction:column}}
 @media(max-width:430px){.brand-name{font-size:.97rem}.site-nav .nav-cta{padding:9px 12px}.hero-copy{padding:25px 20px 165px}.hero-copy h1{font-size:2.25rem;margin:17px 0 12px}.hero-lead{font-size:.88rem}.hero-actions{gap:8px;margin-top:18px}.hero-actions .button{font-size:.79rem;padding:9px 12px}.hero-proof{gap:8px;font-size:.66rem}.hero-proof strong{font-size:.73rem}.hero-art{height:210px}.hero-phone-front{width:87px;height:180px;right:105px}.hero-phone-back{width:79px;height:158px;right:32px}.hero-float-top{right:170px;top:19px}.hero-float-bottom{right:0;bottom:19px}.section-heading{flex-direction:column;gap:12px}.section-heading h2{font-size:1.78rem}.collection-count{margin-top:0}.card-art-copy{left:22px;max-width:60%}.card-art-copy strong{font-size:1.5rem}.card-phone{width:105px;height:220px;right:23px}.card-phone-recetario{right:22px}.desktop-illustration{right:-15px;width:190px}.card-body{padding:17px}.app-identity h3{font-size:1.06rem}.card-footer{flex-direction:column;align-items:stretch}.card-actions{width:100%}.card-actions .button{flex:1}.values-panel{padding:22px}.footer-links{gap:12px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.app-card,.button{transition:none}.app-card:hover,.button:hover{transform:none}}
+
+/* Pack 5.4 · Avisos por email: armonizado con el diseño de la Biblioteca */
+.newsletter-section{padding:4px 0 39px}
+.newsletter-panel{background:linear-gradient(113deg,#eeebff 0%,#f8f7ff 52%,#eaf4ff 100%);border:1px solid #e4def9;border-radius:24px;padding:28px 32px;display:grid;grid-template-columns:56px minmax(0,1fr) auto;align-items:center;gap:20px}
+.newsletter-icon{width:56px;height:56px;display:grid;place-items:center;border-radius:17px;color:#6753e6;background:#fff;font-size:1.8rem;box-shadow:0 9px 23px rgba(70,53,120,.08)}
+.newsletter-copy h2{font-size:clamp(1.35rem,2.1vw,1.83rem);line-height:1.19;letter-spacing:-.035em;margin:4px 0 9px;font-weight:820}
+.newsletter-copy p:not(.section-kicker){margin:0;max-width:62ch;font-size:.89rem;color:#62657b}
+.newsletter-action{display:flex;flex-direction:column;align-items:center;gap:9px}
+.newsletter-action .button{white-space:nowrap}
+.newsletter-action>span{font-size:.72rem;color:#777590}
+@media(max-width:830px){.newsletter-panel{grid-template-columns:52px minmax(0,1fr)}.newsletter-action{grid-column:2;align-items:flex-start}}
+@media(max-width:520px){.newsletter-panel{display:flex;align-items:flex-start;flex-direction:column;padding:24px 22px;gap:12px}.newsletter-icon{width:48px;height:48px}.newsletter-action{width:100%}.newsletter-action .button{width:100%}}
+
+/* Tarjeta Rutas a Pie: quinta app preservada al integrar Brevo (Pack 5.4) */
+.card-art-rutas{background:linear-gradient(130deg,#d4f5e7 0%,#e9fbf3 60%,#bce9d5 100%);color:#16463c}
+.card-art-rutas .art-tag{color:#2d7860}
+.card-art-rutas .card-art-copy strong{color:#153f35}
+.card-phone-rutas{right:8%;top:8%;width:30%;height:135%;transform:rotate(12deg);border:6px solid #1b2b2a;border-radius:27px;overflow:hidden;box-shadow:0 20px 48px rgba(13,52,42,.24);background:#fff;position:absolute;z-index:2}
+.card-phone-rutas img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.art-shape-rutas{background:#79cbaa;position:absolute;right:-8%;bottom:-35%;height:75%;width:44%;border-radius:50%;opacity:.28}
+@media(max-width:700px){.card-phone-rutas{width:33%;right:5%;top:12%}}

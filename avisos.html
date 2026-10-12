@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f9fc">
+  <meta name="robots" content="index,follow">
+  <meta name="description" content="Suscríbete voluntariamente para recibir avisos de nuevas aplicaciones y actualizaciones de la Biblioteca de herramientas.">
+  <link rel="canonical" href="https://pastranaalex-glitch.github.io/avisos.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="portada.css">
+  <title>Avisos por correo | Biblioteca de herramientas</title>
+  <style>
+    .avisos-main{padding:36px 0 76px}
+    .avisos-hero{background:linear-gradient(120deg,#efebff,#fbfaff 62%,#ebf5ff);border:1px solid #e4def7;border-radius:28px;padding:48px clamp(24px,6vw,70px)}
+    .avisos-hero .section-kicker{margin-bottom:10px}
+    .avisos-hero h1{max-width:840px;font-size:clamp(2.25rem,4vw,3.5rem);margin:0 0 16px}
+    .avisos-hero .lead{color:#585b70;font-size:1.1rem;max-width:700px;margin:0}
+    .avisos-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:23px 0}
+    .avisos-step{background:#fff;border:1px solid #e8e7ef;border-radius:18px;padding:22px}
+    .avisos-step strong{font-size:.99rem;display:block;margin-bottom:8px}
+    .avisos-step p{color:#6b6c81;font-size:.88rem;margin:0}
+    .avisos-step .step-number{display:grid;place-items:center;background:#eeeaff;color:#5d49d5;border-radius:10px;width:32px;height:32px;font-weight:850;margin-bottom:12px}
+    .avisos-form-card{max-width:860px;background:#fff;border:1px solid #e8e8ef;border-radius:22px;padding:30px;margin:23px auto 0;box-shadow:0 12px 36px rgba(50,35,105,.04)}
+    .avisos-form-card h2{letter-spacing:-.035em;font-size:1.65rem;margin:0 0 8px}
+    .avisos-form-card p{color:#62677a}
+    .avisos-notice{padding:18px;border:1px solid #e9e2cf;background:#fffbf0;border-radius:13px;color:#594c27}
+    .avisos-notice p{margin:0;color:inherit}
+    .avisos-form-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:20px 0}
+    #brevo-container{margin-top:17px}
+    #brevo-frame{width:100%;min-height:690px;border:1px solid #e8e5ee;border-radius:14px;background:white;display:block}
+    .avisos-small{font-size:.82rem;color:#7a7b8c}
+    .avisos-small a{color:#5d49d5}
+    @media(max-width:720px){.avisos-main{padding:17px 0 50px}.avisos-hero{padding:30px 22px}.avisos-steps{grid-template-columns:1fr}.avisos-step{padding:17px}.avisos-form-card{padding:22px 18px}#brevo-frame{min-height:720px}}
+  </style>
+  <script src="avisos-config.js" defer></script>
+  <script src="avisos.js" defer></script>
+</head>
+<body>
+<a href="#contenido" class="skip-link">Saltar al contenido</a>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="Volver a Biblioteca de herramientas"><span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><rect x="7" y="7" width="9" height="9" rx="3" fill="white"/><rect x="20" y="7" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="7" y="20" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="20" y="20" width="9" height="9" rx="3" fill="white"/></svg></span><span class="brand-name">Biblioteca<span class="brand-suffix"> de herramientas</span></span></a><nav class="site-nav" aria-label="Navegación principal"><a href="index.html#aplicaciones">Aplicaciones</a><a href="privacidad.html">Privacidad</a><a class="nav-cta" href="index.html">Explorar ↗</a></nav></div></header>
+<main class="avisos-main" id="contenido">
+  <div class="container">
+    <section class="avisos-hero">
+      <p class="section-kicker">NOVEDADES DE LA BIBLIOTECA</p>
+      <h1>Tu Biblioteca crece. <span>Entérate por correo.</span></h1>
+      <p class="lead">Un aviso cuando publique una aplicación nueva o una actualización importante. Sin publicidad, sin mensajes comerciales y sin obligación de suscribirte para descargar nada.</p>
+    </section>
+    <div class="avisos-steps" aria-label="Cómo funcionan los avisos">
+      <div class="avisos-step"><span class="step-number">1</span><strong>Apúntate si quieres</strong><p>Introduce tu correo y acepta recibir novedades en el formulario externo de Brevo.</p></div>
+      <div class="avisos-step"><span class="step-number">2</span><strong>Confirma tu dirección</strong><p>Recibirás un enlace de confirmación para evitar suscripciones accidentales.</p></div>
+      <div class="avisos-step"><span class="step-number">3</span><strong>Recibe solo novedades</strong><p>Nuevas aplicaciones, nuevas versiones y enlace a su ficha. Baja voluntaria en cada mensaje.</p></div>
+    </div>
+    <section class="avisos-form-card" aria-labelledby="form-title">
+      <h2 id="form-title">Recibir avisos gratuitamente</h2>
+      <p>La Biblioteca no almacena direcciones de correo en GitHub. La gestión de los contactos y la confirmación se realiza mediante Brevo.</p>
+      <div id="avisos-pendiente" class="avisos-notice" role="status"><p><strong>Estamos preparando el formulario.</strong> Todavía no se aceptan suscripciones. Pronto podrás activar los avisos aquí.</p></div>
+      <div id="avisos-activo" hidden>
+        <div class="avisos-form-actions">
+          <button class="button button-primary" type="button" id="mostrar-formulario">Mostrar formulario de suscripción ↗</button>
+          <a class="button button-outline" id="abrir-formulario" href="avisos.html" target="_blank" rel="noopener noreferrer" hidden>Abrir el formulario en otra pestaña</a>
+        </div>
+        <div id="brevo-container" hidden>
+          <iframe id="brevo-frame" title="Formulario de suscripción a novedades de la Biblioteca" referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
+        </div>
+        <p class="avisos-small">Al abrir el formulario externo, Brevo recibirá datos técnicos necesarios para prestarlo. Tu correo solo se recoge si decides enviarlo. <a href="privacidad.html#avisos-correo">Información de privacidad</a>.</p>
+      </div>
+      <p class="avisos-small">Puedes seguir descargando cualquiera de las aplicaciones sin dejar ningún dato personal. <a href="index.html#aplicaciones">Volver al catálogo</a>.</p>
+    </section>
+  </div>
+</main>
+<footer class="site-footer"><div class="container footer-inner"><div><strong>Biblioteca de herramientas</strong><p>Proyecto personal y gratuito para Android y Windows.</p></div><div class="footer-links"><a href="index.html">Inicio</a><a href="privacidad.html">Privacidad</a><span>Sin anuncios · Sin ánimo de lucro</span></div></div></footer>
+</body>
+</html>
