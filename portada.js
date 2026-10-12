@@ -58,7 +58,20 @@
     const label = card.querySelector('[data-download-label]');
     const meta = card.querySelector('[data-download-meta]');
     const button = card.querySelector('[data-download-button]');
-    if (button) button.href = fallback;
+    // Rutas a Pie aún no tiene repositorio público: nunca enviar a un enlace 404.
+    const pendingRutas = repo.endsWith('/rutas-a-pie');
+    const setRutasPending = () => {
+      if (!pendingRutas || !button) return;
+      button.removeAttribute('href');
+      button.setAttribute('aria-disabled', 'true');
+      button.setAttribute('tabindex', '-1');
+      button.textContent = 'Pendiente de publicación';
+      button.style.pointerEvents = 'none';
+      button.style.opacity = '0.65';
+      button.title = 'El APK todavía no está publicado en GitHub Releases';
+    };
+    if (pendingRutas) setRutasPending();
+    else if (button) button.href = fallback;
     try {
       const response = await fetch(`https://api.github.com/repos/${repo}/releases?per_page=100`, {headers: {Accept:'application/vnd.github+json'}});
       if (!response.ok) throw new Error(`GitHub API: ${response.status}`);
@@ -69,7 +82,8 @@
       if (!assets.length) {
         if (value) value.textContent = '—';
         if (label) label.textContent = 'Sin archivos descargables';
-        if (meta) meta.textContent = 'Consultar GitHub';
+        if (meta) meta.textContent = pendingRutas ? 'Publicación pendiente' : 'Consultar GitHub';
+        if (pendingRutas) setRutasPending();
         return 0;
       }
       const count = assets.reduce((sum, a) => sum + (Number(a.download_count) || 0), 0);
@@ -78,12 +92,23 @@
       if (meta) meta.textContent = 'GitHub Releases';
       const release = releases.find(r => Array.isArray(r.assets) && r.assets.some(a => validAsset(a, repo)));
       const asset = release && release.assets.find(a => validAsset(a, repo));
-      if (button && asset) button.href = asset.browser_download_url;
+      if (button && asset) {
+        button.href = asset.browser_download_url;
+        if (pendingRutas) {
+          button.removeAttribute('aria-disabled');
+          button.removeAttribute('tabindex');
+          button.textContent = 'Descargar ↗';
+          button.style.pointerEvents = '';
+          button.style.opacity = '';
+          button.removeAttribute('title');
+        }
+      }
       return count;
     } catch (_error) {
       if (value) value.textContent = '—';
-      if (label) label.textContent = 'Ver descargas en GitHub';
-      if (meta) meta.textContent = 'Contador no disponible';
+      if (label) label.textContent = pendingRutas ? 'Descarga todavía no disponible' : 'Ver descargas en GitHub';
+      if (meta) meta.textContent = pendingRutas ? 'Publicación pendiente' : 'Contador no disponible';
+      if (pendingRutas) setRutasPending();
       return null;
     }
   }
