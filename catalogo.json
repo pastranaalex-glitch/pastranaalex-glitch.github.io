@@ -2,11 +2,19 @@
   "formato": 1,
   "aplicaciones": [
     {
+      "nombre": "Lector Fácil",
+      "plataforma": "android",
+      "publicado": true,
+      "version": "1.0.1",
+      "descripcion": "Lectura de PDF y Word con opciones para exposiciones, marcadores y herramientas para compartir e imprimir.",
+      "enlace": "https://pastranaalex-glitch.github.io/lector-facil.html"
+    },
+    {
       "nombre": "Recetario Fácil",
       "plataforma": "android",
       "publicado": true,
       "version": "1.20.0",
-      "descripcion": "52 recetas ilustradas para móviles y tabletas Android, con búsqueda, ingredientes ajustables, tiempos y preparación paso a paso.",
+      "descripcion": "52 recetas ilustradas para Android con búsqueda, cantidades ajustables, tiempos y preparación paso a paso.",
       "enlace": "https://pastranaalex-glitch.github.io/recetario-facil.html"
     },
     {
@@ -14,8 +22,16 @@
       "plataforma": "windows",
       "publicado": true,
       "version": "1.6.0",
-      "descripcion": "Recetario gratuito para Windows con 34 recetas, ajustes de cantidades, búsqueda, favoritos, impresión y exportación a PDF.",
-      "enlace": "https://github.com/pastranaalex-glitch/cocina-clara/releases/latest"
+      "descripcion": "Recetario gratuito para Windows con 34 recetas, búsqueda y opciones de impresión.",
+      "enlace": "https://pastranaalex-glitch.github.io/cocina-clara.html"
+    },
+    {
+      "nombre": "Cocina a Punto",
+      "plataforma": "android",
+      "publicado": true,
+      "version": "1.4.1",
+      "descripcion": "Cronómetros de cocina simultáneos para Android con atajos personalizables, avisos y vibración.",
+      "enlace": "https://pastranaalex-glitch.github.io/cocina-a-punto.html"
     }
   ]
 }
