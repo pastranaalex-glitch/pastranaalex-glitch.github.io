@@ -1,0 +1,31 @@
+{
+  "initialized": true,
+  "repos": {
+    "pastranaalex-glitch/cocina-a-punto": {
+      "nombre": "Cocina a Punto",
+      "ultima_etiqueta": "v1.4.1",
+      "ultima_release_id": 409876658
+    },
+    "pastranaalex-glitch/cocina-clara": {
+      "nombre": "Cocina Clara",
+      "ultima_etiqueta": "v1.6.0",
+      "ultima_release_id": 409261648
+    },
+    "pastranaalex-glitch/lector-facil": {
+      "nombre": "Lector Fácil",
+      "ultima_etiqueta": "1.0.1",
+      "ultima_release_id": 409185016
+    },
+    "pastranaalex-glitch/recetario-facil": {
+      "nombre": "Recetario Fácil",
+      "ultima_etiqueta": "v1.20.0",
+      "ultima_release_id": 409575298
+    },
+    "pastranaalex-glitch/rutas-a-pie": {
+      "nombre": "Rutas a Pie",
+      "ultima_etiqueta": null,
+      "ultima_release_id": null
+    }
+  },
+  "version": 1
+}
