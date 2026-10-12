@@ -14,6 +14,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <title>Biblioteca de herramientas | Apps gratuitas para Android y Windows</title>
   <link rel="stylesheet" href="portada.css">
+  <link rel="stylesheet" href="portada-v2.css">
   <script type="application/ld+json">{
     "@context":"https://schema.org",
     "@type":"CollectionPage",
@@ -40,9 +41,11 @@
         </span>
         <span class="brand-name">Biblioteca<span class="brand-suffix"> de herramientas</span></span>
       </a>
-      <nav class="site-nav" aria-label="Navegación principal">
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú de navegación"><span aria-hidden="true" class="menu-symbol">☰</span> Menú</button>
+      <nav class="site-nav" id="menu-principal" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
         <a href="#aplicaciones">Aplicaciones</a>
-        <a href="#proyecto">El proyecto</a>
+        <a href="#proyecto">Quién está detrás</a>
         <a href="avisos.html">Avisos por correo</a>
         <a class="nav-cta" href="#aplicaciones">Explorar <span aria-hidden="true">↗</span></a>
       </nav>
@@ -97,15 +100,26 @@
             <button class="filter-button" data-filter="android" aria-pressed="false" type="button">Android <span id="android-apps">4</span></button>
             <button class="filter-button" data-filter="windows" aria-pressed="false" type="button">Windows <span id="windows-apps">1</span></button>
           </div>
-          <div class="search-wrap">
+          <div class="toolbar-side"><div class="search-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
             <label class="visually-hidden" for="search-apps">Buscar aplicaciones</label>
             <input type="search" id="search-apps" placeholder="Buscar una aplicación..." autocomplete="off" maxlength="120">
           </div>
+            <button type="button" class="view-toggle" id="view-toggle" aria-pressed="false">☷ Vista compacta</button>
+          </div>
+        </div>
+
+        <div class="category-row" role="group" aria-label="Filtrar aplicaciones por temática">
+          <span class="category-row-label">Categoría</span>
+          <button type="button" class="category-chip is-active" data-category-filter="todas" aria-pressed="true">Todas</button>
+          <button type="button" class="category-chip" data-category-filter="lectura" aria-pressed="false">Lectura</button>
+          <button type="button" class="category-chip" data-category-filter="cocina" aria-pressed="false">Cocina</button>
+          <button type="button" class="category-chip" data-category-filter="rutas" aria-pressed="false">Rutas</button>
+          <button type="button" class="category-chip" data-category-filter="utilidades" aria-pressed="false">Utilidades</button>
         </div>
 
         <div class="apps-grid" id="apps-grid">
-          <article class="app-card" id="app-lector-facil" data-app-card data-repo="pastranaalex-glitch/lector-facil" data-platform="android" data-fallback="https://github.com/pastranaalex-glitch/lector-facil/releases/latest" data-search="lector fácil lector facil documentos pdf word lectura exposiciones teleprompter impresión imprimir compañeros android">
+          <article class="app-card" id="app-lector-facil" data-app-card data-categories="lectura" data-repo="pastranaalex-glitch/lector-facil" data-platform="android" data-fallback="https://github.com/pastranaalex-glitch/lector-facil/releases/latest" data-search="lector fácil lector facil documentos pdf word lectura exposiciones teleprompter impresión imprimir compañeros android">
             <div class="card-art card-art-lector">
               <div class="card-art-copy"><span class="art-tag">LECTURA Y DOCUMENTOS</span><strong>Lee a tu manera.</strong><span>PDF, Word y mucho más.</span></div>
               <div class="card-phone card-phone-lector"><img src="captura-01-inicio.webp" alt="Captura real de la pantalla de Lector Fácil" width="691" height="1391" decoding="async"></div>
@@ -119,7 +133,7 @@
             </div>
           </article>
 
-          <article class="app-card" id="app-recetario-facil" data-app-card data-repo="pastranaalex-glitch/recetario-facil" data-platform="android" data-fallback="https://github.com/pastranaalex-glitch/recetario-facil/releases/latest" data-search="recetario fácil recetario facil recetas cocina ingredientes cantidades comensales sin lactosa android">
+          <article class="app-card" id="app-recetario-facil" data-app-card data-categories="cocina" data-repo="pastranaalex-glitch/recetario-facil" data-platform="android" data-fallback="https://github.com/pastranaalex-glitch/recetario-facil/releases/latest" data-search="recetario fácil recetario facil recetas cocina ingredientes cantidades comensales sin lactosa android">
             <div class="card-art card-art-recetario">
               <div class="card-art-copy"><span class="art-tag">RECETAS PARA TODOS</span><strong>El gusto de cocinar.</strong><span>52 recetas ilustradas.</span></div>
               <div class="card-phone card-phone-recetario"><img src="recetario-01-inicio.webp" alt="Captura real del catálogo de Recetario Fácil" width="691" height="1536" decoding="async"></div>
@@ -133,7 +147,7 @@
             </div>
           </article>
 
-          <article class="app-card" id="app-cocina-clara" data-app-card data-repo="pastranaalex-glitch/cocina-clara" data-platform="windows" data-fallback="https://github.com/pastranaalex-glitch/cocina-clara/releases/latest" data-search="cocina clara recetario windows pc ordenador recetas imprimir ingredientes cocina">
+          <article class="app-card" id="app-cocina-clara" data-app-card data-categories="cocina" data-repo="pastranaalex-glitch/cocina-clara" data-platform="windows" data-fallback="https://github.com/pastranaalex-glitch/cocina-clara/releases/latest" data-search="cocina clara recetario windows pc ordenador recetas imprimir ingredientes cocina">
             <div class="card-art card-art-clara">
               <div class="card-art-copy"><span class="art-tag">COCINA EN WINDOWS</span><strong>Todo más claro.</strong><span>Recetas para tu ordenador.</span></div>
               <div class="desktop-illustration" aria-hidden="true"><span class="desktop-bar"><i></i><i></i><i></i></span><span class="desktop-title">Mi recetario</span><span class="desktop-recipe"><span class="desktop-image"><svg viewBox="0 0 80 52" fill="none"><ellipse cx="40" cy="40" rx="30" ry="8" fill="#e2c1a5"/><path d="M15 26c0-12 11-19 25-19s25 7 25 19-9 17-25 17S15 38 15 26Z" fill="#F7BB63"/><path d="M25 21c9-10 18-10 30 2M27 30c10-8 16-5 27 2" stroke="#E38742" stroke-width="4" stroke-linecap="round"/></svg></span><span class="desktop-lines"><i></i><i></i><i></i></span></span><span class="desktop-small-cards"><i></i><i></i><i></i></span></div>
@@ -147,7 +161,7 @@
             </div>
           </article>
 
-          <article class="app-card" id="app-cocina-a-punto" data-app-card data-repo="pastranaalex-glitch/cocina-a-punto" data-platform="android" data-fallback="https://github.com/pastranaalex-glitch/cocina-a-punto/releases/latest" data-search="cocina a punto temporizadores timers cronometros cronómetros alarmas vibración notificaciones android">
+          <article class="app-card" id="app-cocina-a-punto" data-app-card data-categories="cocina utilidades" data-repo="pastranaalex-glitch/cocina-a-punto" data-platform="android" data-fallback="https://github.com/pastranaalex-glitch/cocina-a-punto/releases/latest" data-search="cocina a punto temporizadores timers cronometros cronómetros alarmas vibración notificaciones android">
             <div class="card-art card-art-punto">
               <div class="card-art-copy"><span class="art-tag">TEMPORIZADORES DE COCINA</span><strong>Todo a su tiempo.</strong><span>Varios avisos simultáneos.</span></div>
               <div class="card-phone card-phone-punto"><img src="cocina-punto-02-simultaneos.webp" alt="Captura real de los cronómetros de Cocina a Punto" width="691" height="1391" decoding="async"></div>
@@ -161,7 +175,7 @@
             </div>
           </article>
 
-          <article class="app-card" id="app-rutas-a-pie" data-app-card data-repo="pastranaalex-glitch/rutas-a-pie" data-platform="android" data-fallback="https://github.com/pastranaalex-glitch/rutas-a-pie/releases/latest" data-search="rutas a pie senderismo excursiones gps gpx caminatas españa regiones provincias android mapa sendero">
+          <article class="app-card" id="app-rutas-a-pie" data-app-card data-categories="rutas" data-repo="pastranaalex-glitch/rutas-a-pie" data-platform="android" data-fallback="https://github.com/pastranaalex-glitch/rutas-a-pie/releases/latest" data-search="rutas a pie senderismo excursiones gps gpx caminatas españa regiones provincias android mapa sendero">
             <div class="card-art card-art-rutas">
               <div class="card-art-copy"><span class="art-tag">CAMINA Y DESCUBRE</span><strong>Tu próxima ruta.</strong><span>225 fichas y tu recorrido GPS.</span></div>
               <div class="card-phone card-phone-rutas"><img src="WhatsApp Image 2026-10-12 at 18.21.56.jpeg" alt="Captura real del catálogo de Rutas a Pie" width="690" height="1536" loading="lazy" decoding="async"></div>
@@ -202,7 +216,13 @@
     <section class="values-section" id="proyecto" aria-labelledby="values-title">
       <div class="container">
         <div class="values-panel">
-          <div class="values-intro"><p class="section-kicker">UNA BIBLIOTECA DIFERENTE</p><h2 id="values-title">Un proyecto personal.<br>Para cualquiera.</h2><p>Comparto programas que voy desarrollando y mejorando por afición. Puedes conocer sus funciones, ver capturas reales y descargar desde sus publicaciones en GitHub.</p><a href="privacidad.html">Privacidad y opiniones <span aria-hidden="true">↗</span></a></div>
+          <div class="values-intro">
+            <p class="section-kicker">QUIÉN ESTÁ DETRÁS</p>
+            <h2 id="values-title">De una afición a una biblioteca abierta.</h2>
+            <p>Soy una persona aficionada a la informática y a crear aplicaciones útiles. La idea nació mientras desarrollaba herramientas para leer documentos, cocinar y resolver pequeñas necesidades del día a día.</p>
+            <p>Decidí reunirlas aquí para que otras personas también puedan utilizarlas. Voy aprendiendo, mejorando los programas y escuchando sugerencias de quienes los prueban, sin convertir esta afición en un negocio.</p>
+            <a href="privacidad.html">Conocer la política de privacidad <span aria-hidden="true">↗</span></a>
+          </div>
           <div class="value-list">
             <div class="value-item"><div class="value-icon" aria-hidden="true">✓</div><div><h3>Gratis, sin letra pequeña</h3><p>Sin anuncios, cuotas, ventas ni donaciones.</p></div></div>
             <div class="value-item"><div class="value-icon" aria-hidden="true">↗</div><div><h3>Descargas desde GitHub</h3><p>Enlaces a las versiones publicadas y contadores reales cuando están disponibles.</p></div></div>
