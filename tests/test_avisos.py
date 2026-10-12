@@ -19,10 +19,9 @@ class TestAvisos(unittest.TestCase):
         (self.root / '.github').mkdir()
         (self.root / 'scripts').mkdir()
         shutil.copy(ROOT / 'scripts' / 'plantilla_novedad.html', self.root / 'scripts' / 'plantilla_novedad.html')
-        shutil.copy(ROOT / 'index.html', self.root / 'index.html') if (ROOT / 'index.html').exists() else None
-        # Al probar el ZIP sin portada real, usa una portada mínima con los mismos datos.
-        if not (self.root / 'index.html').exists():
-            (self.root / 'index.html').write_text('''<article data-app-card data-repo="pastranaalex-glitch/lector-facil"><h3>Lector Fácil</h3><a href="lector-facil.html">Ficha</a></article>
+        # Utilizar un catálogo mínimo reproducible para las pruebas unitarias.
+        # No depende de las fichas reales, que pueden crecer con nuevas apps.
+        (self.root / 'index.html').write_text('''<article data-app-card data-repo="pastranaalex-glitch/lector-facil"><h3>Lector Fácil</h3><a href="lector-facil.html">Ficha</a></article>
 <article data-app-card data-repo="pastranaalex-glitch/cocina-clara"><h3>Cocina Clara</h3><a href="cocina-clara.html">Ficha</a></article>''', encoding='utf-8')
         self.patch_base = patch.object(mod, 'BASE', self.root)
         self.patch_state = patch.object(mod, 'STATE_FILE', self.root / '.github' / 'avisos_estado.json')
