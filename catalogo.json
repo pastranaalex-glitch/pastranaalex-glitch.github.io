@@ -32,6 +32,14 @@
       "version": "1.4.1",
       "descripcion": "Cronómetros de cocina simultáneos para Android con atajos personalizables, avisos y vibración.",
       "enlace": "https://pastranaalex-glitch.github.io/cocina-a-punto.html"
+    },
+    {
+      "nombre": "Rutas a Pie",
+      "plataforma": "android",
+      "publicado": true,
+      "version": "1.5.1",
+      "descripcion": "225 fichas en las 17 comunidades autónomas, mapa y grabación GPS, historial, GPX y ayuda sin conexión.",
+      "enlace": "https://pastranaalex-glitch.github.io/rutas-a-pie.html"
     }
   ]
 }

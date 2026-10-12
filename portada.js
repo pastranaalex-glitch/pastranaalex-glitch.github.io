@@ -46,12 +46,13 @@
   function validAsset(asset, repo) {
     if (!asset || typeof asset.name !== 'string' || typeof asset.browser_download_url !== 'string') return false;
     if (!asset.browser_download_url.startsWith(`https://github.com/${repo}/releases/download/`)) return false;
+    if (/rutas-a-pie$/.test(repo)) return /^RutasAPie_\d+(?:[._]\d+){1,3}\.apk$/i.test(asset.name);
     return /cocina-clara$/.test(repo) ? /\.(zip|exe|msi)$/i.test(asset.name) : /\.apk$/i.test(asset.name);
   }
   async function loadCard(card) {
     const repo = card.dataset.repo;
     // Only the repos shipped in our reviewed HTML are contacted.
-    if (!/^pastranaalex-glitch\/(lector-facil|recetario-facil|cocina-clara|cocina-a-punto)$/.test(repo)) return null;
+    if (!/^pastranaalex-glitch\/(lector-facil|recetario-facil|cocina-clara|cocina-a-punto|rutas-a-pie)$/.test(repo)) return null;
     const fallback = card.dataset.fallback || `https://github.com/${repo}/releases/latest`;
     const value = card.querySelector('[data-download-value]');
     const label = card.querySelector('[data-download-label]');
