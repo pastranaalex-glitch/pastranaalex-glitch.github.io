@@ -1,0 +1,49 @@
+name: Biblioteca - Preparar avisos Brevo
+
+on:
+  schedule:
+    # Comprobación aproximada cada seis horas; GitHub puede retrasarla.
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: biblioteca-brevo-borradores
+  cancel-in-progress: false
+
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Obtener repositorio
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Pruebas locales de seguridad y detección
+        run: python -m unittest discover -s tests -v
+      - name: Verificar novedades y crear borradores (no enviar)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          BREVO_SENDER_EMAIL: ${{ secrets.BREVO_SENDER_EMAIL }}
+          BREVO_LIST_ID: '3'
+        run: python scripts/avisos_brevo.py
+      - name: Guardar versiones ya procesadas
+        run: |
+          if git diff --quiet -- .github/avisos_estado.json; then
+            echo "Sin cambios de estado"
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .github/avisos_estado.json
+          git commit -m 'chore: registrar versiones avisadas [skip ci]'
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
