@@ -12,4 +12,14 @@ dl.href=asset.browser_download_url;version.textContent=String(first.tag_name||'1
 }catch(_){count.textContent='Ver en GitHub';dl.href=fallback;dl.textContent='↓ Descargar desde GitHub';}
 finally{clearTimeout(timer);}}
 run();
+
+const shots=[...document.querySelectorAll('[data-docs-shot]')],modal=document.getElementById('docs-lightbox'),big=document.getElementById('docs-bigshot'),caption=document.getElementById('docs-caption');let current=0;
+function show(i){if(!shots.length||!big)return;current=(i+shots.length)%shots.length;const chosen=shots[current];const img=chosen.querySelector('img');big.src=img.getAttribute('src');big.alt=img.alt;caption.textContent=chosen.querySelector('span').textContent;}
+shots.forEach((b,i)=>b.addEventListener('click',()=>{show(i);if(modal?.showModal)modal.showModal()}));
+document.getElementById('docs-prev')?.addEventListener('click',()=>show(current-1));
+document.getElementById('docs-next')?.addEventListener('click',()=>show(current+1));
+document.getElementById('docs-close')?.addEventListener('click',()=>modal?.close());
+modal?.addEventListener('click',e=>{if(e.target===modal)modal.close()});
+modal?.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(current-1);if(e.key==='ArrowRight')show(current+1)});
+
 })();
