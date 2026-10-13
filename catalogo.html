@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f9fd">
+  <meta name="description" content="Catálogo completo de aplicaciones gratuitas para Android y Windows: busca por nombre, sistema operativo y categoría.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Biblioteca de herramientas | Apps gratuitas para Android y Windows">
+  <meta property="og:description" content="Programas útiles, cuidadosamente presentados y completamente gratuitos. Una biblioteca personal sin anuncios ni pagos.">
+  <meta property="og:url" content="https://pastranaalex-glitch.github.io/catalogo.html">
+  <link rel="canonical" href="https://pastranaalex-glitch.github.io/catalogo.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <title>Catálogo de aplicaciones gratis | Biblioteca de herramientas</title>
+  <link rel="stylesheet" href="portada.css">
+  <link rel="stylesheet" href="pack6.css">
+  <link rel="stylesheet" href="portada-v2.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Catálogo de aplicaciones","url":"https://pastranaalex-glitch.github.io/catalogo.html"}</script>
+  <script src="pack6.js" defer></script>
+</head>
+<body data-pack6-page="catalogo">
+  <a class="skip-link" href="#aplicaciones">Saltar al catálogo de aplicaciones</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Biblioteca de herramientas, ir al inicio">
+        <span class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 36 36" fill="none"><rect x="7" y="7" width="9" height="9" rx="3" fill="white"/><rect x="20" y="7" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="7" y="20" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="20" y="20" width="9" height="9" rx="3" fill="white"/></svg>
+        </span>
+        <span class="brand-name">Biblioteca<span class="brand-suffix"> de herramientas</span></span>
+      </a>
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú de navegación"><span aria-hidden="true" class="menu-symbol">☰</span> Menú</button>
+      <nav class="site-nav" id="menu-principal" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="proximamente.html">Próximamente</a>
+        <a href="index.html#proyecto">El proyecto</a>
+        <a href="avisos.html">Avisos</a>
+        <a class="nav-cta" href="catalogo.html">Explorar <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="pack6-subhero"><div class="container"><p class="section-kicker">EXPLORA A TU RITMO</p><h1>El catálogo completo.</h1><p>Aplicaciones gratuitas para Android y Windows. Busca, compara y descarga desde GitHub.</p></div></section>
+    <section class="catalog-section" id="aplicaciones" aria-labelledby="catalog-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">NUESTRA COLECCIÓN</p>
+            <h2 id="catalog-title">Encuentra tu próxima herramienta favorita<span class="title-star" aria-hidden="true">✳</span></h2>
+            <p class="section-subtitle">Explora las aplicaciones disponibles y conoce lo que hace cada una.</p>
+          </div>
+          <span class="collection-count"><span id="total-apps">5</span> aplicaciones</span>
+        </div>
+
+        <div class="catalog-toolbar">
+          <div class="filters" role="group" aria-label="Filtrar por sistema operativo">
+            <button class="filter-button is-active" data-filter="todos" aria-pressed="true" type="button">Todas <span data-filter-count="todos">5</span></button>
+            <button class="filter-button" data-filter="android" aria-pressed="false" type="button">Android <span id="android-apps">4</span></button>
+            <button class="filter-button" data-filter="windows" aria-pressed="false" type="button">Windows <span id="windows-apps">1</span></button>
+          </div>
+          <div class="toolbar-side"><div class="search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+            <label class="visually-hidden" for="search-apps">Buscar aplicaciones</label>
+            <input type="search" id="search-apps" placeholder="Buscar una aplicación..." autocomplete="off" maxlength="120">
+          </div>
+            <button type="button" class="view-toggle" id="view-toggle" aria-pressed="false">☷ Vista compacta</button>
+          </div>
+        </div>
+
+        <div class="category-row" role="group" aria-label="Filtrar aplicaciones por temática">
+          <span class="category-row-label">Categoría</span>
+          <button type="button" class="category-chip is-active" data-category-filter="todas" aria-pressed="true">Todas</button>
+          <button type="button" class="category-chip" data-category-filter="lectura" aria-pressed="false">Lectura</button>
+          <button type="button" class="category-chip" data-category-filter="cocina" aria-pressed="false">Cocina</button>
+          <button type="button" class="category-chip" data-category-filter="rutas" aria-pressed="false">Rutas</button>
+          <button type="button" class="category-chip" data-category-filter="utilidades" aria-pressed="false">Utilidades</button>
+        </div>
+
+        <div class="apps-grid pack6-catalog-grid" id="apps-grid" data-catalog-slot="todos">
+          <div class="pack6-fallback" id="catalog-fallback">Aplicaciones disponibles: <a href="lector-facil.html">Lector Fácil</a> · <a href="recetario-facil.html">Recetario Fácil</a> · <a href="cocina-clara.html">Cocina Clara</a> · <a href="cocina-a-punto.html">Cocina a Punto</a> · <a href="rutas-a-pie.html">Rutas a Pie</a>.</div>
+        </div>
+        <div id="empty-results" class="empty-results" hidden>
+          <div class="empty-icon" aria-hidden="true">⌕</div>
+          <h3>No encontramos esa aplicación</h3>
+          <p>Prueba otra palabra o muestra de nuevo toda la colección.</p>
+          <button type="button" class="button button-primary" id="reset-search">Ver todas</button>
+        </div>
+        <p class="results-status visually-hidden" id="results-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><div><strong>Biblioteca de herramientas</strong><p>Aplicaciones gratuitas para Android y Windows, compartidas por afición.</p></div><div class="footer-links"><a href="index.html">Inicio</a><a href="proximamente.html">Próximamente</a><a href="#contenido">Volver arriba ↑</a><a href="privacidad.html">Privacidad</a><a href="avisos.html">Avisos por correo</a><span>Sin publicidad · Sin ánimo de lucro</span></div></div></footer>
+
+<!-- Cloudflare Web Analytics: estadísticas sin cookies -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"c3b3255ee9e649dea45b5127eef74fdd"}'></script>
+<!-- Fin de Cloudflare Web Analytics -->
+</body>
+</html>
