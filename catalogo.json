@@ -1,5 +1,5 @@
 {
-  "formato": 1,
+  "formato": 2,
   "aplicaciones": [
     {
       "nombre": "Lector Fácil",
@@ -7,7 +7,16 @@
       "publicado": true,
       "version": "1.0.1",
       "descripcion": "Lectura de PDF y Word con opciones para exposiciones, marcadores y herramientas para compartir e imprimir.",
-      "enlace": "https://pastranaalex-glitch.github.io/lector-facil.html"
+      "enlace": "https://pastranaalex-glitch.github.io/lector-facil.html",
+      "slug": "lector-facil",
+      "categorias": [
+        "lectura"
+      ],
+      "etiqueta": "LECTURA Y DOCUMENTOS",
+      "eslogan": "Lee a tu manera.",
+      "imagen": "captura-01-inicio.webp",
+      "icono": "icono-lector.svg",
+      "repo": "pastranaalex-glitch/lector-facil"
     },
     {
       "nombre": "Recetario Fácil",
@@ -15,7 +24,16 @@
       "publicado": true,
       "version": "1.20.0",
       "descripcion": "52 recetas ilustradas para Android con búsqueda, cantidades ajustables, tiempos y preparación paso a paso.",
-      "enlace": "https://pastranaalex-glitch.github.io/recetario-facil.html"
+      "enlace": "https://pastranaalex-glitch.github.io/recetario-facil.html",
+      "slug": "recetario-facil",
+      "categorias": [
+        "cocina"
+      ],
+      "etiqueta": "RECETAS PARA TODOS",
+      "eslogan": "El gusto de cocinar.",
+      "imagen": "recetario-01-inicio.webp",
+      "icono": "icono-recetario.svg",
+      "repo": "pastranaalex-glitch/recetario-facil"
     },
     {
       "nombre": "Cocina Clara",
@@ -23,7 +41,16 @@
       "publicado": true,
       "version": "1.6.0",
       "descripcion": "Recetario gratuito para Windows con 34 recetas, búsqueda y opciones de impresión.",
-      "enlace": "https://pastranaalex-glitch.github.io/cocina-clara.html"
+      "enlace": "https://pastranaalex-glitch.github.io/cocina-clara.html",
+      "slug": "cocina-clara",
+      "categorias": [
+        "cocina"
+      ],
+      "etiqueta": "COCINA EN WINDOWS",
+      "eslogan": "Todo más claro.",
+      "imagen": "",
+      "icono": "icono-clara.svg",
+      "repo": "pastranaalex-glitch/cocina-clara"
     },
     {
       "nombre": "Cocina a Punto",
@@ -31,7 +58,17 @@
       "publicado": true,
       "version": "1.4.1",
       "descripcion": "Cronómetros de cocina simultáneos para Android con atajos personalizables, avisos y vibración.",
-      "enlace": "https://pastranaalex-glitch.github.io/cocina-a-punto.html"
+      "enlace": "https://pastranaalex-glitch.github.io/cocina-a-punto.html",
+      "slug": "cocina-a-punto",
+      "categorias": [
+        "cocina",
+        "utilidades"
+      ],
+      "etiqueta": "TEMPORIZADORES",
+      "eslogan": "Todo a su tiempo.",
+      "imagen": "cocina-punto-02-simultaneos.webp",
+      "icono": "icono-punto.svg",
+      "repo": "pastranaalex-glitch/cocina-a-punto"
     },
     {
       "nombre": "Rutas a Pie",
@@ -39,7 +76,16 @@
       "publicado": true,
       "version": "1.5.1",
       "descripcion": "225 fichas en las 17 comunidades autónomas, mapa y grabación GPS, historial, GPX y ayuda sin conexión.",
-      "enlace": "https://pastranaalex-glitch.github.io/rutas-a-pie.html"
+      "enlace": "https://pastranaalex-glitch.github.io/rutas-a-pie.html",
+      "slug": "rutas-a-pie",
+      "categorias": [
+        "rutas"
+      ],
+      "etiqueta": "CAMINA Y DESCUBRE",
+      "eslogan": "Tu próxima ruta.",
+      "imagen": "WhatsApp Image 2026-10-12 at 18.21.56.jpeg",
+      "icono": "icono-rutas.svg",
+      "repo": "pastranaalex-glitch/rutas-a-pie"
     }
   ]
 }
