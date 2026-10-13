@@ -21,6 +21,19 @@
 .docs-panel h2{margin:0 0 12px}.docs-panel ol{padding-left:23px;line-height:1.95}
 .docs-warning{background:#f7f4ff;border:1px solid #e9defc;border-radius:16px;padding:18px;margin-top:15px;color:#46405d}
 @media(max-width:780px){.docs-feature-list{grid-template-columns:1fr}.docs-icon-stage{min-height:230px}}
+
+.docs-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start;margin-top:20px}
+.docs-shot{background:#fff;border:1px solid #e7e8f1;border-radius:19px;cursor:pointer;padding:15px 14px;display:flex;flex-direction:column;align-items:center;gap:13px;color:#272840;font:inherit;font-weight:750;box-shadow:0 8px 25px rgba(30,35,72,.045)}
+.docs-shot img{height:360px;max-width:100%;width:auto;object-fit:contain;border-radius:12px}
+.docs-shot:hover{border-color:#7362df;transform:translateY(-2px)}
+.docs-lightbox{border:0;border-radius:20px;padding:0;width:min(94vw,690px);max-height:92vh;box-shadow:0 30px 85px #18182b55}
+.docs-lightbox::backdrop{background:#090b1bbf}
+.docs-lightbox-body{padding:16px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.docs-lightbox-body>img{display:block;max-width:100%;max-height:calc(92vh - 95px);width:auto;object-fit:contain;border-radius:12px}
+.docs-modal-controls{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:10px;width:100%}
+.docs-modal-controls button{border:1px solid #dedfec;background:#f8f8ff;border-radius:10px;padding:9px 12px;color:#2d2b4e;font-weight:700;cursor:pointer}
+.docs-modal-controls span{font-size:.83rem;color:#56576e}
+@media(max-width:780px){.docs-gallery{grid-template-columns:1fr;max-width:470px;margin-inline:auto}.docs-shot img{height:300px}}
 </style></head>
 <body class="ficha-app ficha-documentos"><a class="skip-link" href="#contenido">Saltar al contenido</a>
 <header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="Biblioteca de herramientas"><span class="brand-logo" aria-hidden="true"><svg fill="white" height="30" viewBox="0 0 32 32" width="30"><rect height="9" rx="3" width="9" x="6" y="6"/><rect height="9" rx="3" width="9" x="18" y="6"/><rect height="9" rx="3" width="9" x="6" y="18"/><rect height="9" rx="3" width="9" x="18" y="18"/></svg></span><span class="brand-name">Biblioteca <span class="brand-suffix">de herramientas</span></span></a><nav class="site-nav" aria-label="Navegación principal"><a href="catalogo.html">Catálogo</a><a href="#funciones">Funciones</a><a href="#instalar">Instalación</a><a class="nav-cta" href="catalogo.html">Explorar ↗</a></nav></div></header>
@@ -41,6 +54,12 @@
 <article class="docs-feature"><span class="docs-accent" aria-hidden="true">📚</span><b>Carpetas y PDF</b><p>Organiza documentos en seis carpetas, conserva varias páginas juntas y exporta o comparte documentos completos en PDF.</p></article>
 <article class="docs-feature"><span class="docs-accent" aria-hidden="true">🔐</span><b>Privacidad y recuperación</b><p>Acceso opcional con huella o contraseña, almacenamiento privado y copias de seguridad cifradas restaurables con contraseña.</p></article>
 </div></div></section>
+<section class="area alternate" id="capturas"><div class="wrap"><h2>Así es Documentos de Casa</h2><p>Capturas reales de la versión 1.7.6, ajustadas para mostrar únicamente la interfaz. Pulsa una imagen para ampliarla.</p>
+<div class="docs-gallery">
+<button type="button" class="docs-shot" data-docs-shot="0" aria-label="Ampliar pantalla principal"><img src="documentos-casa-inicio.webp" alt="Pantalla principal con escáner, foto manual y seis carpetas" width="700" height="1383" loading="lazy"><span>Inicio y carpetas</span></button>
+<button type="button" class="docs-shot" data-docs-shot="1" aria-label="Ampliar ajustes de privacidad"><img src="documentos-casa-seguridad.webp" alt="Ajustes de huella, contraseña, capturas de pantalla y privacidad" width="700" height="1379" loading="lazy"><span>Seguridad y privacidad</span></button>
+<button type="button" class="docs-shot" data-docs-shot="2" aria-label="Ampliar lista de documentos"><img src="documentos-casa-documentos.webp" alt="Carpeta con miniaturas de documentos de prueba y opciones de gestión" width="700" height="1140" loading="lazy"><span>Documentos organizados</span></button>
+</div></div></section>
 <section class="area alternate" id="instalar"><div class="wrap"><div class="docs-panel"><h2>Cómo instalar Documentos de Casa</h2><ol>
 <li>Pulsa «Descargar APK gratis» y espera a que se descargue el archivo de GitHub.</li>
 <li>Abre el APK desde Descargas y autoriza la instalación desde ese origen si Android te lo pide.</li>
@@ -53,4 +72,4 @@
 <footer class="site-footer"><div class="container footer-inner"><div><strong>Biblioteca de herramientas</strong><p>Aplicaciones gratuitas para Android y Windows, compartidas por afición.</p></div><div class="footer-links"><a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="avisos.html">Avisos</a><a href="privacidad.html">Privacidad</a><span>Sin anuncios · Sin ánimo de lucro</span></div></div></footer>
 <script defer src="ficha-documentos.js"></script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"c3b3255ee9e649dea45b5127eef74fdd"}'></script>
-</body></html>
+<dialog class="docs-lightbox" id="docs-lightbox" aria-label="Captura de Documentos de Casa ampliada"><div class="docs-lightbox-body"><img id="docs-bigshot" src="documentos-casa-inicio.webp" alt="Captura ampliada"><div class="docs-modal-controls"><button type="button" id="docs-prev">← Anterior</button><span id="docs-caption">Inicio y carpetas</span><button type="button" id="docs-next">Siguiente →</button><button type="button" id="docs-close">Cerrar ✕</button></div></div></dialog></body></html>
