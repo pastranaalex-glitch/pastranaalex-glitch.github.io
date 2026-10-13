@@ -86,6 +86,24 @@
       "imagen": "WhatsApp Image 2026-10-12 at 18.21.56.jpeg",
       "icono": "icono-rutas.svg",
       "repo": "pastranaalex-glitch/rutas-a-pie"
+    },
+    {
+      "nombre": "Documentos de Casa",
+      "plataforma": "android",
+      "publicado": true,
+      "version": "1.7.6",
+      "descripcion": "Escanea con captura automática o manual, mejora imágenes, organiza documentos por carpetas, exporta PDF y protege tus archivos con huella y copias cifradas.",
+      "enlace": "https://pastranaalex-glitch.github.io/documentos-de-casa.html",
+      "slug": "documentos-de-casa",
+      "categorias": [
+        "lectura",
+        "utilidades"
+      ],
+      "etiqueta": "ESCÁNER Y ARCHIVADOR",
+      "eslogan": "Tus documentos, protegidos.",
+      "imagen": "",
+      "icono": "icono-documentos.svg",
+      "repo": "pastranaalex-glitch/documentos-de-casa"
     }
   ]
 }
