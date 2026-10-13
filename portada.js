@@ -92,7 +92,7 @@
   function validAsset(asset, repo) {
     if (!asset || typeof asset.name !== 'string' || typeof asset.browser_download_url !== 'string') return false;
     if (!asset.browser_download_url.startsWith(`https://github.com/${repo}/releases/download/`)) return false;
-    if (/rutas-a-pie$/.test(repo)) return /^RutasAPie_\d+(?:[._]\d+){1,3}\.apk$/i.test(asset.name);
+    if (/rutas-a-pie$/.test(repo)) return /\.apk$/i.test(asset.name);
     return /cocina-clara$/.test(repo) ? /\.(zip|exe|msi)$/i.test(asset.name) : /\.apk$/i.test(asset.name);
   }
   async function loadCard(card) {
@@ -118,8 +118,10 @@
     };
     if (pendingRutas) setRutasPending();
     else if (button) button.href = fallback;
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000);
     try {
-      const response = await fetch(`https://api.github.com/repos/${repo}/releases?per_page=100`, {headers: {Accept:'application/vnd.github+json'}});
+      const response = await fetch(`https://api.github.com/repos/${repo}/releases?per_page=100`, {headers: {Accept:'application/vnd.github+json'}, signal: controller.signal});
       if (!response.ok) throw new Error(`GitHub API: ${response.status}`);
       const json = await response.json();
       if (!Array.isArray(json)) throw new Error('Respuesta inesperada');
@@ -156,6 +158,8 @@
       if (meta) meta.textContent = pendingRutas ? 'Publicación pendiente' : 'Contador no disponible';
       if (pendingRutas) setRutasPending();
       return null;
+    } finally {
+      clearTimeout(timeout);
     }
   }
   Promise.all(cards.map(loadCard)).then(totals => {
