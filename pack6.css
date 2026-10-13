@@ -45,3 +45,8 @@
 }
 .pack6-art-logo img{width:100%;height:100%;object-fit:contain}
 @media(max-width:430px){.pack6-art-logo{width:104px;height:104px;right:10%}}
+
+/* Documentos de Casa: sexta aplicación; usa el icono de la app mientras preparamos capturas públicas. */
+.card-art-documentos-de-casa{background:linear-gradient(125deg,#dceffd,#e7f5ff 56%,#cfe1ff);color:#1a457a}
+.card-art-documentos-de-casa .art-tag,.card-art-documentos-de-casa .card-art-copy strong{color:inherit}
+.pack6-coming-grid.single-project{grid-template-columns:minmax(0,1fr);max-width:780px}
