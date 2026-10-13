@@ -7,3 +7,17 @@
 .pack6-catalog-grid .card-phone-cocina-clara{display:none}
 @media(max-width:980px){.pack6-catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pack6-featured .apps-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.pack6-featured .apps-grid,.pack6-catalog-grid,.pack6-coming-grid{grid-template-columns:1fr}.pack6-news-panel,.pack6-coming-panel,.pack6-coming-foot{flex-direction:column;align-items:stretch;padding:23px;gap:15px}.pack6-subhero{padding:18px 0 2px}.pack6-subhero .container{padding:25px 23px}.pack6-featured .section-heading{align-items:flex-start}}
+
+/* Identidad propia de cada ficha, conservando la estética de la portada original. */
+.card-art-lector-facil{background:linear-gradient(125deg,#e7e1ff,#f4efff 58%,#d4e8ff);color:#362f75}
+.card-art-recetario-facil{background:linear-gradient(125deg,#ffe7d2,#fff1e5 58%,#ffdbbd);color:#75402e}
+.card-art-cocina-clara{background:linear-gradient(125deg,#dceef9,#edf5ff 58%,#d0dfff);color:#243d6a}
+.card-art-cocina-a-punto{background:linear-gradient(125deg,#ffe8d4,#fff7ea 58%,#ffe3b1);color:#754122}
+.card-art-rutas-a-pie{background:linear-gradient(125deg,#d6f2e6,#f0faf2 60%,#c3e7d9);color:#204939}
+.card-art-lector-facil .art-tag,.card-art-recetario-facil .art-tag,.card-art-cocina-clara .art-tag,.card-art-cocina-a-punto .art-tag,.card-art-rutas-a-pie .art-tag{color:inherit;opacity:.78}
+.card-art-lector-facil .card-art-copy strong,.card-art-recetario-facil .card-art-copy strong,.card-art-cocina-clara .card-art-copy strong,.card-art-cocina-a-punto .card-art-copy strong,.card-art-rutas-a-pie .card-art-copy strong{color:inherit}
+.card-phone-lector-facil,.card-phone-recetario-facil,.card-phone-cocina-a-punto,.card-phone-rutas-a-pie{position:absolute;z-index:2;right:8%;top:9%;height:137%;width:30%;border:6px solid #262940;border-radius:25px;overflow:hidden;background:#fff;box-shadow:0 18px 40px rgba(32,24,69,.20);transform:rotate(10deg)}
+.card-phone-lector-facil img,.card-phone-recetario-facil img,.card-phone-cocina-a-punto img,.card-phone-rutas-a-pie img{width:100%;height:100%;object-fit:cover;object-position:top}
+.pack6-catalog-grid .app-card{min-width:0}
+@media(max-width:700px){.card-phone-lector-facil,.card-phone-recetario-facil,.card-phone-cocina-a-punto,.card-phone-rutas-a-pie{width:30%;right:10%;}}
+@media(min-width:701px) and (max-width:1120px){body[data-pack6-page="inicio"] .site-nav{gap:12px}body[data-pack6-page="inicio"] .site-nav a{font-size:.79rem}}
