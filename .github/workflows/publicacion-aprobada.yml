@@ -28,7 +28,10 @@ jobs:
         run: python scripts/publicar_aprobadas.py
       - name: Guardar nuevas fichas publicadas
         run: |
-          git add -- catalogo.json mi-salud-familiar.html mi-dinero-real.html menu-y-compra.html
+          git add -- catalogo.json
+          for file in mi-salud-familiar.html mi-dinero-real.html menu-y-compra.html; do
+            if [ -f "$file" ]; then git add -- "$file"; fi
+          done
           if git diff --cached --quiet; then
             echo "No hay aplicaciones nuevas aprobadas"
             exit 0
