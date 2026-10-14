@@ -16,7 +16,7 @@ if(menuToggle&&menu){
 }
 if(!slot)return;
 const fallback=document.getElementById('catalog-fallback');
-const validApp=a=>a&&a.publicado===true&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&a.repo===owner+'/'+a.slug&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
+const validApp=a=>a&&a.publicado===true&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&(a.repo===owner+'/'+a.slug||(a.slug==='menu-y-compra'&&a.repo===owner+'/'+owner+'.github.io'))&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
 const assetValid=(asset,a)=>asset&&typeof asset.name==='string'&&typeof asset.browser_download_url==='string'&&asset.browser_download_url.startsWith('https://github.com/'+a.repo+'/releases/download/')&&(a.plataforma==='windows'?/\.(zip|exe|msi)$/i:/\.apk$/i).test(asset.name)&&!/debug|unsigned|sin.firmar/i.test(asset.name);
 const mk=(tag,cls,text)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=String(text);return el;};
 let apps=[],platform='todos',category='todas',query='',compact=false;
@@ -30,7 +30,7 @@ function card(a){
  const desc=mk('p','app-description',a.descripcion),meta=mk('div','app-meta');meta.append(mk('span',null,'Versión '+(a.version||'actual')),mk('span',null,a.plataforma==='windows'?'Windows':'Android'));
  const footer=mk('div','card-footer'),stats=mk('div','downloads'),strong=mk('strong',null,'—'),label=mk('span',null,'Consultando descargas'),small=mk('small',null,'GitHub Releases');stats.append(strong,label,small);
  const actions=mk('div','card-actions'),detail=mk('a','button button-outline','Ver ficha'),dl=mk('a','button button-dark','Descargar ↓');detail.href=a.enlace;
- dl.href='https://github.com/'+a.repo+'/releases/latest';dl.rel='noopener noreferrer';if(a.plataforma==='windows')dl.target='_blank';
+ dl.href=a.slug==='menu-y-compra'?'Menu_y_Compra_1.4.3_Publicacion_Firmada.apk':'https://github.com/'+a.repo+'/releases/latest';dl.rel='noopener noreferrer';if(a.plataforma==='windows')dl.target='_blank';
  actions.append(detail,dl);footer.append(stats,actions);body.append(identity,desc,meta,footer);article.append(art,body);
  a.node=article;a.stat=strong;a.label=label;a.downloadLink=dl;return article;
 }
@@ -57,7 +57,7 @@ async function github(a){
  if(asset){a.url=asset.browser_download_url;a.date=Date.parse(chosen.published_at||chosen.created_at||'')||0;a.releaseName=chosen.name||chosen.tag_name||a.nombre;a.hasRelease=true;}
  }catch(e){a.failed=true;}
 }
-function updateLink(a){if(!a.node)return;if(a.count!==undefined){a.stat.textContent=fmt(a.count);a.label.textContent=a.count===1?'Descarga pública':'Descargas públicas';}else a.label.textContent='Consultar en GitHub';if(a.url)a.downloadLink.href=a.url;}
+function updateLink(a){if(!a.node)return;if(a.count!==undefined){a.stat.textContent=fmt(a.count);a.label.textContent=a.count===1?'Descarga pública':'Descargas públicas';}else a.label.textContent='Consultar en GitHub';if(a.url)a.downloadLink.href=a.url;if(a.slug==='menu-y-compra'){a.label.textContent='Descarga directa';a.stat.textContent='APK';}}
 function featureList(){
  const valid=apps.filter(a=>a.hasRelease),windows=valid.filter(a=>a.plataforma==='windows').sort((a,b)=>b.count-a.count),byDate=[...valid].sort((a,b)=>b.date-a.date),byCount=[...valid].sort((a,b)=>b.count-a.count);
  const selected=[];const add=a=>{if(a&&!selected.includes(a))selected.push(a);};
@@ -77,6 +77,8 @@ function totals(){
 async function start(){
  try{
  const r=await fetch('catalogo.json',{cache:'no-store'});if(!r.ok)throw Error('Catálogo');const data=await r.json();if(!data||!Array.isArray(data.aplicaciones))throw Error('Datos');
+ const menu=data.aplicaciones.find(a=>a.slug==='menu-y-compra');
+ if(menu&&!menu.publicado){try{const f=await fetch('Menu_y_Compra_1.4.3_Publicacion_Firmada.apk',{method:'HEAD',cache:'no-store'});if(f.ok)menu.publicado=true;}catch(_){}}
  apps=data.aplicaciones.filter(validApp).slice(0,60);if(!apps.length)throw Error('Sin apps');
  if(isHome){const defaults=[apps.find(a=>a.slug==='rutas-a-pie'),apps.find(a=>a.slug==='recetario-facil'),apps.find(a=>a.slug==='cocina-clara')].filter(Boolean);defaults.forEach(a=>slot.append(card(a)));}
  else apps.forEach(a=>slot.append(card(a)));
