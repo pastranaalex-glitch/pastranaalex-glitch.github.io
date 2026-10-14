@@ -59,3 +59,14 @@ body[data-pack6-page="proximamente"] .pack6-project-health .pack6-project-icon{b
 body[data-pack6-page="proximamente"] .pack6-project-finance .pack6-project-icon{background:#e0f5ec;color:#1f8061;font-weight:800}
 @media (min-width:701px) and (max-width:980px){body[data-pack6-page="proximamente"] .pack6-coming-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:700px){body[data-pack6-page="proximamente"] .pack6-coming-grid{grid-template-columns:1fr}}
+
+/* Contadores de lanzamiento por app. Fechas configuradas de manera independiente. */
+.pack6-countdown{margin:12px 0 15px;padding:15px;border:1px solid #e2def3;border-radius:16px;background:#faf9ff}
+.pack6-countdown-title{display:block;color:#4a426f;font-size:.79rem;font-weight:800;margin-bottom:11px}
+.pack6-countdown-clock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.pack6-countdown-clock>div{text-align:center;background:#fff;border:1px solid #e8e5f4;border-radius:10px;padding:8px 3px}
+.pack6-countdown-clock strong{display:block;color:#322c5b;font-size:clamp(1.05rem,2.1vw,1.55rem);font-variant-numeric:tabular-nums;line-height:1.4}
+.pack6-countdown-clock small{display:block;font-size:.67rem;color:#656478}
+.pack6-project-card .pack6-countdown-message{font-size:.75rem;line-height:1.4;margin:11px 0 0;color:#68617f}
+.pack6-all-published{padding:18px;border:1px solid #d2eada;border-radius:14px;background:#f2fbf4}
+@media(max-width:700px){.pack6-countdown-clock strong{font-size:1.4rem}}
