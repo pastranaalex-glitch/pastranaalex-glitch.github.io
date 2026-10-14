@@ -66,6 +66,7 @@
       if (catalogueResponse.ok) {
         const catalogue = await catalogueResponse.json();
         const live = new Set((catalogue.aplicaciones || []).filter(a => a && a.publicado === true).map(a => a.slug));
+        try{const apk=await fetch('Menu_y_Compra_1.4.3_Publicacion_Firmada.apk',{method:'HEAD',cache:'no-store'});if(apk.ok)live.add('menu-y-compra');}catch(_){}
         cards.forEach(card => {
           if (!live.has(card.dataset.proxima)) return;
           card.hidden = true;
