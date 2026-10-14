@@ -16,8 +16,8 @@ if(menuToggle&&menu){
 }
 if(!slot)return;
 const fallback=document.getElementById('catalog-fallback');
-const validApp=a=>a&&a.publicado===true&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&(a.repo===owner+'/'+a.slug||(a.slug==='menu-y-compra'&&a.repo===owner+'/'+owner+'.github.io'))&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
-const assetValid=(asset,a)=>asset&&typeof asset.name==='string'&&typeof asset.browser_download_url==='string'&&asset.browser_download_url.startsWith('https://github.com/'+a.repo+'/releases/download/')&&(a.plataforma==='windows'?/\.(zip|exe|msi)$/i:/\.apk$/i).test(asset.name)&&!/debug|unsigned|sin.firmar/i.test(asset.name);
+const validApp=a=>a&&a.publicado===true&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&(a.repo===owner+'/'+a.slug||(['menu-y-compra','mi-salud-familiar'].includes(a.slug)&&a.repo===owner+'/'+owner+'.github.io'))&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
+const assetValid=(asset,a)=>asset&&typeof asset.name==='string'&&typeof asset.browser_download_url==='string'&&asset.browser_download_url.startsWith('https://github.com/'+a.repo+'/releases/download/')&&(a.plataforma==='windows'?/\.(zip|exe|msi)$/i:/\.apk$/i).test(asset.name)&&!/debug|unsigned|sin.firmar/i.test(asset.name)&&(a.slug!=='mi-salud-familiar'||(asset.name==='MiSaludFamiliar_2.9_Publicacion_Firmada.apk'&&asset.browser_download_url.startsWith('https://github.com/'+a.repo+'/releases/download/mi-salud-familiar-v2.9/')));
 const mk=(tag,cls,text)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=String(text);return el;};
 let apps=[],platform='todos',category='todas',query='',compact=false;
 function card(a){
@@ -30,7 +30,7 @@ function card(a){
  const desc=mk('p','app-description',a.descripcion),meta=mk('div','app-meta');meta.append(mk('span',null,'Versión '+(a.version||'actual')),mk('span',null,a.plataforma==='windows'?'Windows':'Android'));
  const footer=mk('div','card-footer'),stats=mk('div','downloads'),strong=mk('strong',null,'—'),label=mk('span',null,'Consultando descargas'),small=mk('small',null,'GitHub Releases');stats.append(strong,label,small);
  const actions=mk('div','card-actions'),detail=mk('a','button button-outline','Ver ficha'),dl=mk('a','button button-dark','Descargar ↓');detail.href=a.enlace;
- dl.href=a.slug==='menu-y-compra'?'Menu_y_Compra_1.4.3_Publicacion_Firmada.apk':'https://github.com/'+a.repo+'/releases/latest';dl.rel='noopener noreferrer';if(a.plataforma==='windows')dl.target='_blank';
+ dl.href=a.slug==='menu-y-compra'?'Menu_y_Compra_1.4.3_Publicacion_Firmada.apk':a.slug==='mi-salud-familiar'?'https://github.com/'+a.repo+'/releases/tag/mi-salud-familiar-v2.9':'https://github.com/'+a.repo+'/releases/latest';dl.rel='noopener noreferrer';if(a.plataforma==='windows')dl.target='_blank';
  actions.append(detail,dl);footer.append(stats,actions);body.append(identity,desc,meta,footer);article.append(art,body);
  a.node=article;a.stat=strong;a.label=label;a.downloadLink=dl;return article;
 }
@@ -54,7 +54,7 @@ async function github(a){
  if(a.slug==='menu-y-compra'){a.count=undefined;return;}
  try{const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),9000);let resp;try{resp=await fetch('https://api.github.com/repos/'+a.repo+'/releases?per_page=100',{headers:{Accept:'application/vnd.github+json'},signal:ctrl.signal});}finally{clearTimeout(timer);}
  if(!resp.ok)throw Error('API '+resp.status);
- const rel=(await resp.json()).filter(r=>r&&!r.draft&&!r.prerelease);
+ const rel=(await resp.json()).filter(r=>r&&!r.draft&&!r.prerelease&&(a.slug!=='mi-salud-familiar'||r.tag_name==='mi-salud-familiar-v2.9'));
  const list=rel.flatMap(r=>(r.assets||[]).filter(x=>assetValid(x,a)));a.count=list.reduce((n,x)=>n+(Number(x.download_count)||0),0);
  const chosen=rel.find(r=>(r.assets||[]).some(x=>assetValid(x,a)));const asset=chosen?.assets.find(x=>assetValid(x,a));
  if(asset){a.url=asset.browser_download_url;a.date=Date.parse(chosen.published_at||chosen.created_at||'')||0;a.releaseName=chosen.name||chosen.tag_name||a.nombre;a.hasRelease=true;}
