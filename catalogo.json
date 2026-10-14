@@ -122,6 +122,24 @@
       "imagen": "",
       "icono": "icono-menu.svg",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io"
+    },
+    {
+      "nombre": "Mi Salud Familiar",
+      "plataforma": "android",
+      "publicado": false,
+      "version": "2.9",
+      "descripcion": "Organiza medicamentos, enfermedades, alergias, tensión arterial e informes en dos perfiles independientes, con copias JSON.",
+      "enlace": "https://pastranaalex-glitch.github.io/mi-salud-familiar.html",
+      "slug": "mi-salud-familiar",
+      "categorias": [
+        "salud",
+        "utilidades"
+      ],
+      "etiqueta": "SALUD FAMILIAR",
+      "eslogan": "Tu salud, organizada.",
+      "imagen": "",
+      "icono": "icono-salud.svg",
+      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io"
     }
   ]
 }
