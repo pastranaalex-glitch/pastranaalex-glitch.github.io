@@ -1,0 +1,56 @@
+{
+  "formato": 1,
+  "aplicaciones": [
+    {
+      "slug": "menu-y-compra",
+      "nombre": "Menú y Compra",
+      "fechaEstreno": null,
+      "repo": null,
+      "plataforma": "android",
+      "versionAprobada": null,
+      "revisionAprobada": false,
+      "publicacionAutomatica": false,
+      "categorias": [
+        "cocina",
+        "utilidades"
+      ],
+      "descripcion": "Organiza menús semanales y listas de la compra para preparar las comidas de forma práctica.",
+      "etiqueta": "MENÚS Y COMPRAS",
+      "eslogan": "Planifica con sencillez."
+    },
+    {
+      "slug": "mi-salud-familiar",
+      "nombre": "Mi Salud Familiar",
+      "fechaEstreno": null,
+      "repo": null,
+      "plataforma": "android",
+      "versionAprobada": null,
+      "revisionAprobada": false,
+      "publicacionAutomatica": false,
+      "categorias": [
+        "salud",
+        "utilidades"
+      ],
+      "descripcion": "Organiza información de salud, tratamientos y citas de la familia de forma sencilla.",
+      "etiqueta": "SALUD Y ORGANIZACIÓN",
+      "eslogan": "Tu salud, organizada."
+    },
+    {
+      "slug": "mi-dinero-real",
+      "nombre": "Mi Dinero Real",
+      "fechaEstreno": null,
+      "repo": null,
+      "plataforma": null,
+      "versionAprobada": null,
+      "revisionAprobada": false,
+      "publicacionAutomatica": false,
+      "categorias": [
+        "finanzas",
+        "utilidades"
+      ],
+      "descripcion": "Control de ingresos, gastos y presupuestos para gestionar mejor la economía cotidiana.",
+      "etiqueta": "FINANZAS PERSONALES",
+      "eslogan": "Tus cuentas, claras."
+    }
+  ]
+}
