@@ -70,3 +70,16 @@ body[data-pack6-page="proximamente"] .pack6-project-finance .pack6-project-icon{
 .pack6-project-card .pack6-countdown-message{font-size:.75rem;line-height:1.4;margin:11px 0 0;color:#68617f}
 .pack6-all-published{padding:18px;border:1px solid #d2eada;border-radius:14px;background:#f2fbf4}
 @media(max-width:700px){.pack6-countdown-clock strong{font-size:1.4rem}}
+
+/* Semáforo discreto de automatización; el reloj NO activa la descarga. */
+body[data-pack6-page="proximamente"] .pack6-status-line{
+  display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:7px 10px; margin-top:18px;
+}
+body[data-pack6-page="proximamente"] .pack6-status-line .pack6-status{margin-top:0}
+.pack6-auto-indicator{
+  display:inline-flex; align-items:center; gap:5px;
+  font-size:.67rem; line-height:1.3; font-weight:650; color:#777d8b; white-space:nowrap;
+}
+.pack6-auto-dot{width:8px; height:8px; flex:none; border-radius:50%; background:#a3a8b3; box-shadow:0 0 0 2px #e9eaef}
+.pack6-auto-indicator[data-auto-status="active"]{color:#17693d}
+.pack6-auto-indicator[data-auto-status="active"] .pack6-auto-dot{background:#1fbd68;box-shadow:0 0 0 2px #d8f8e6}
