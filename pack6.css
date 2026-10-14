@@ -50,3 +50,12 @@
 .card-art-documentos-de-casa{background:linear-gradient(125deg,#dceffd,#e7f5ff 56%,#cfe1ff);color:#1a457a}
 .card-art-documentos-de-casa .art-tag,.card-art-documentos-de-casa .card-art-copy strong{color:inherit}
 .pack6-coming-grid.single-project{grid-template-columns:minmax(0,1fr);max-width:780px}
+
+/* Próximamente: tres proyectos bien distribuidos y diferenciados. */
+body[data-pack6-page="proximamente"] .pack6-coming-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+body[data-pack6-page="proximamente"] .pack6-project-card{display:flex;flex-direction:column;min-width:0}
+body[data-pack6-page="proximamente"] .pack6-project-card .pack6-platform{margin-top:auto;padding-top:15px}
+body[data-pack6-page="proximamente"] .pack6-project-health .pack6-project-icon{background:#ffe7ec;color:#b73158}
+body[data-pack6-page="proximamente"] .pack6-project-finance .pack6-project-icon{background:#e0f5ec;color:#1f8061;font-weight:800}
+@media (min-width:701px) and (max-width:980px){body[data-pack6-page="proximamente"] .pack6-coming-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:700px){body[data-pack6-page="proximamente"] .pack6-coming-grid{grid-template-columns:1fr}}
