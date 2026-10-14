@@ -1,0 +1,40 @@
+name: Biblioteca - Publicación automática aprobada
+
+on:
+  schedule:
+    # GitHub Actions puede ejecutar la tarea con cierto retraso.
+    - cron: '29 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: biblioteca-publicacion-aprobada
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Revisar anuncios y versiones autorizadas
+        run: python scripts/publicar_aprobadas.py
+      - name: Guardar nuevas fichas publicadas
+        run: |
+          git add -- catalogo.json mi-salud-familiar.html mi-dinero-real.html menu-y-compra.html
+          if git diff --cached --quiet; then
+            echo "No hay aplicaciones nuevas aprobadas"
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "Publicar aplicaciones aprobadas [skip ci]"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
