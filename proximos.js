@@ -5,6 +5,27 @@
   if (!cards.length) return;
   const pad = n => String(n).padStart(2, '0');
   const known = new Map();
+  // Verde solo cuando una app tiene la publicación habilitada, aprobada y completamente configurada.
+  const isConfigured = app => !!app
+    && app.publicacionAutomatica === true
+    && app.revisionAprobada === true
+    && typeof app.repo === 'string'
+    && /^pastranaalex-glitch\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(app.repo)
+    && typeof app.versionAprobada === 'string' && app.versionAprobada.trim() !== ''
+    && ['android', 'windows'].includes(app.plataforma)
+    && typeof app.fechaEstreno === 'string'
+    && Number.isFinite(Date.parse(app.fechaEstreno));
+  const setAutomation = (card, app) => {
+    const el = card.querySelector('.pack6-auto-indicator');
+    if (!el) return;
+    const enabled = isConfigured(app);
+    el.dataset.autoStatus = enabled ? 'active' : 'pending';
+    const state = enabled ? 'Publicación automática activada' : 'Publicación automática pendiente';
+    el.title = state;
+    el.setAttribute('aria-label', state);
+    const label = el.querySelector('[data-auto-label]');
+    if (label) label.textContent = enabled ? 'Automatizada' : 'Sin automatizar';
+  };
   const say = (card, message) => {
     const target = card.querySelector('.pack6-countdown-message');
     if (target && target.textContent !== message) target.textContent = message;
@@ -65,6 +86,7 @@
       config.aplicaciones.forEach(app => {
         if (app && typeof app.slug === 'string') known.set(app.slug, app);
       });
+      cards.forEach(card => setAutomation(card, known.get(card.dataset.proxima)));
       tick();
       if (cards.some(card => !card.hidden && known.get(card.dataset.proxima)?.fechaEstreno)) setInterval(tick, 1000);
     } catch (_) {
