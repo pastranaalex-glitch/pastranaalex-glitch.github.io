@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import re
+import urllib.parse
 import urllib.request
 
 BASE = Path(__file__).resolve().parents[1]
