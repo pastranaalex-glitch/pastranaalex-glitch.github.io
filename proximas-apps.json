@@ -51,6 +51,23 @@
       "descripcion": "Control de ingresos, gastos y presupuestos para gestionar mejor la economía cotidiana.",
       "etiqueta": "FINANZAS PERSONALES",
       "eslogan": "Tus cuentas, claras."
+    },
+    {
+      "slug": "voz-a-texto-pro",
+      "nombre": "Voz a Texto PRO",
+      "fechaEstreno": null,
+      "repo": null,
+      "plataforma": "windows",
+      "versionAprobada": null,
+      "revisionAprobada": false,
+      "publicacionAutomatica": false,
+      "categorias": [
+        "audio",
+        "productividad"
+      ],
+      "descripcion": "Convierte grabaciones de discursos, conferencias y reuniones en texto organizado con puntuación y párrafos.",
+      "etiqueta": "TRANSCRIPCIÓN INTELIGENTE",
+      "eslogan": "De la voz a un texto claro."
     }
   ]
 }
