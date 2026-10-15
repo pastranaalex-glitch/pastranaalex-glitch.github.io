@@ -1,6 +1,10 @@
 name: Publicar Mi Salud Familiar 2.9
 on:
   workflow_dispatch:
+  # Una comprobación inmediata al instalar esta mejora, sin esperar al cron.
+  push:
+    paths:
+      - '.github/workflows/publicar-mi-salud-familiar-29.yml'
   schedule:
     # Comprobar antes del estreno si el APK aprobado ya está subido.
     - cron: '0 */4 15-17 10 *'
