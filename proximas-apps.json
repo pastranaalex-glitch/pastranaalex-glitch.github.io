@@ -22,11 +22,11 @@
       "slug": "mi-salud-familiar",
       "nombre": "Mi Salud Familiar",
       "fechaEstreno": "2026-10-18T00:00:00+02:00",
-      "repo": null,
+      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "plataforma": "android",
-      "versionAprobada": null,
-      "revisionAprobada": false,
-      "publicacionAutomatica": false,
+      "versionAprobada": "2.9",
+      "revisionAprobada": true,
+      "publicacionAutomatica": true,
       "categorias": [
         "salud",
         "utilidades"
