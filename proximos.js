@@ -10,7 +10,7 @@
     && app.publicacionAutomatica === true
     && app.revisionAprobada === true
     && typeof app.repo === 'string'
-    && /^pastranaalex-glitch\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(app.repo)
+    && (/^pastranaalex-glitch\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(app.repo) || (app.slug === 'mi-salud-familiar' && app.repo === 'pastranaalex-glitch/pastranaalex-glitch.github.io'))
     && typeof app.versionAprobada === 'string' && app.versionAprobada.trim() !== ''
     && ['android', 'windows'].includes(app.plataforma)
     && typeof app.fechaEstreno === 'string'
@@ -20,11 +20,11 @@
     if (!el) return;
     const enabled = isConfigured(app);
     el.dataset.autoStatus = enabled ? 'active' : 'pending';
-    const state = enabled ? 'Publicación automática activada' : 'Publicación automática pendiente';
+    const state = enabled ? 'Publicación automática activada; APK verificado' : (app?.slug === 'mi-salud-familiar' ? 'Programación instalada; APK aún no verificado en GitHub' : 'Publicación automática pendiente');
     el.title = state;
     el.setAttribute('aria-label', state);
     const label = el.querySelector('[data-auto-label]');
-    if (label) label.textContent = enabled ? 'Automatizada' : 'Sin automatizar';
+    if (label) label.textContent = enabled ? 'Automatizada' : (app?.slug === 'mi-salud-familiar' ? 'Esperando APK' : 'Sin automatizar');
   };
   const say = (card, message) => {
     const target = card.querySelector('.pack6-countdown-message');
