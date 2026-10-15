@@ -17,7 +17,7 @@ if(menuToggle&&menu){
 if(!slot)return;
 const fallback=document.getElementById('catalog-fallback');
 const validApp=a=>a&&a.publicado===true&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&(a.repo===owner+'/'+a.slug||(['menu-y-compra','mi-salud-familiar','mi-dinero-real'].includes(a.slug)&&a.repo===owner+'/'+owner+'.github.io'))&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
-const assetValid=(asset,a)=>asset&&typeof asset.name==='string'&&typeof asset.browser_download_url==='string'&&asset.browser_download_url.startsWith('https://github.com/'+a.repo+'/releases/download/')&&(a.plataforma==='windows'?/\.(zip|exe|msi)$/i:/\.apk$/i).test(asset.name)&&!/debug|unsigned|sin.firmar/i.test(asset.name)&&(a.slug!=='mi-salud-familiar'||(asset.name==='MiSaludFamiliar_2.9_Publicacion_Firmada.apk'&&asset.browser_download_url.startsWith('https://github.com/'+a.repo+'/releases/download/mi-salud-familiar-v2.9/')));
+const assetValid=(asset,a)=>asset&&typeof asset.name==='string'&&typeof asset.browser_download_url==='string'&&asset.browser_download_url.startsWith('https://github.com/'+a.repo+'/releases/download/')&&(a.plataforma==='windows'?/\.(zip|exe|msi)$/i:/\.apk$/i).test(asset.name)&&!/debug|unsigned|sin.firmar/i.test(asset.name)&&(a.slug!=='mi-salud-familiar'||(asset.name==='MiSaludFamiliar_2.9_Publicacion_Firmada.apk'&&asset.browser_download_url.startsWith('https://github.com/'+a.repo+'/releases/download/mi-salud-familiar-v2.9/')))&&(a.slug!=='menu-y-compra'||/^Menu_y_Compra_.*\.apk$/i.test(asset.name));
 const mk=(tag,cls,text)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=String(text);return el;};
 let apps=[],platform='todos',category='todas',query='',compact=false;
 function card(a){
@@ -51,7 +51,7 @@ function wire(){
 async function github(a){
  // Menú y Compra se distribuye como archivo local: nunca consultar releases de este repositorio,
  // ya que contienen APK de otras aplicaciones (por ejemplo Rutas a Pie).
- if(a.slug==='menu-y-compra'||a.slug==='mi-dinero-real'){a.count=undefined;return;}
+ if(a.slug==='mi-dinero-real'){a.count=undefined;return;}
  try{const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),9000);let resp;try{resp=await fetch('https://api.github.com/repos/'+a.repo+'/releases?per_page=100',{headers:{Accept:'application/vnd.github+json'},signal:ctrl.signal});}finally{clearTimeout(timer);}
  if(!resp.ok)throw Error('API '+resp.status);
  const rel=(await resp.json()).filter(r=>r&&!r.draft&&!r.prerelease&&(a.slug!=='mi-salud-familiar'||r.tag_name==='mi-salud-familiar-v2.9'));
@@ -60,7 +60,7 @@ async function github(a){
  if(asset){a.url=asset.browser_download_url;a.date=Date.parse(chosen.published_at||chosen.created_at||'')||0;a.releaseName=chosen.name||chosen.tag_name||a.nombre;a.hasRelease=true;}
  }catch(e){a.failed=true;}
 }
-function updateLink(a){if(!a.node)return;if(a.count!==undefined){a.stat.textContent=fmt(a.count);a.label.textContent=a.count===1?'Descarga pública':'Descargas públicas';}else a.label.textContent='Consultar en GitHub';if(a.slug==='mi-dinero-real'){a.downloadLink.href='MiDineroReal2_2.5.1_Publicacion_Firmada.apk';a.downloadLink.setAttribute('download','MiDineroReal2_2.5.1_Publicacion_Firmada.apk');a.label.textContent='Descarga directa';a.stat.textContent='APK';}else if(a.slug==='menu-y-compra'){a.downloadLink.href='Menu_y_Compra_1.4.3_Publicacion_Firmada.apk';a.downloadLink.setAttribute('download','Menu_y_Compra_1.4.3_Publicacion_Firmada.apk');a.label.textContent='Descarga directa';a.stat.textContent='APK';}else if(a.url){a.downloadLink.href=a.url;}}
+function updateLink(a){if(!a.node)return;if(a.count!==undefined){a.stat.textContent=fmt(a.count);a.label.textContent=a.count===1?'Descarga pública':'Descargas públicas';}else a.label.textContent='Consultar en GitHub';if(a.slug==='mi-dinero-real'){a.downloadLink.href='MiDineroReal2_2.5.1_Publicacion_Firmada.apk';a.downloadLink.setAttribute('download','MiDineroReal2_2.5.1_Publicacion_Firmada.apk');a.label.textContent='Descarga directa';a.stat.textContent='APK';}else if(a.slug==='menu-y-compra'){if(a.url){a.downloadLink.href=a.url;a.downloadLink.removeAttribute('download');}else{a.downloadLink.href='Menu_y_Compra_1.4.3_Publicacion_Firmada.apk';a.downloadLink.setAttribute('download','Menu_y_Compra_1.4.3_Publicacion_Firmada.apk');a.label.textContent='Descarga directa';a.stat.textContent='APK';}}else if(a.url){a.downloadLink.href=a.url;}}
 function featureList(){
  const valid=apps.filter(a=>a.hasRelease),windows=valid.filter(a=>a.plataforma==='windows').sort((a,b)=>b.count-a.count),byDate=[...valid].sort((a,b)=>b.date-a.date),byCount=[...valid].sort((a,b)=>b.count-a.count);
  const selected=[];const add=a=>{if(a&&!selected.includes(a))selected.push(a);};
