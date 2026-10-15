@@ -140,6 +140,24 @@
       "imagen": "",
       "icono": "icono-salud.svg",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io"
+    },
+    {
+      "nombre": "Mi Dinero Real 2",
+      "plataforma": "android",
+      "publicado": true,
+      "version": "2.5.1",
+      "descripcion": "Controla los ingresos y gastos del hogar, comida por separado, presupuestos, pagos recurrentes e informes PDF y Word. Sin anuncios.",
+      "enlace": "https://pastranaalex-glitch.github.io/mi-dinero-real.html",
+      "slug": "mi-dinero-real",
+      "categorias": [
+        "economia",
+        "utilidades"
+      ],
+      "etiqueta": "ECONOMÍA DEL HOGAR",
+      "eslogan": "Tus cuentas, más claras.",
+      "imagen": "",
+      "icono": "icono-mi-dinero-real.svg",
+      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io"
     }
   ]
 }
