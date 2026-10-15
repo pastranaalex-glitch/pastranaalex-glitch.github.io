@@ -25,6 +25,15 @@
 .menu-panel h2{margin-top:0}.menu-panel ol{padding-left:24px;line-height:1.95}
 .menu-hint{padding:17px 20px;background:#f5f8f2;border:1px solid #e0eada;border-radius:12px}
 .menu-note{color:#596271;line-height:1.7}
+.menu-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}
+.menu-shot{display:block;overflow:hidden;border:1px solid #ead9cb;border-radius:18px;background:#fff;color:#713716;text-decoration:none;box-shadow:0 8px 22px rgba(95,50,22,.08);transition:transform .18s ease,box-shadow .18s ease}
+.menu-shot:hover,.menu-shot:focus-visible{transform:translateY(-3px);box-shadow:0 13px 30px rgba(95,50,22,.16)}
+.menu-shot:focus-visible{outline:3px solid #d85d1d;outline-offset:3px}
+.menu-shot-image{height:350px;display:flex;align-items:flex-start;justify-content:center;overflow:hidden;padding:12px 10px 0;background:linear-gradient(145deg,#fff8ef,#f6e6d6)}
+.menu-shot-image img{display:block;max-width:100%;height:100%;width:auto;object-fit:contain;object-position:top;border-radius:10px 10px 0 0;box-shadow:0 5px 16px rgba(66,40,22,.17)}
+.menu-shot-label{display:block;padding:15px 17px;font-weight:650;line-height:1.45}
+@media(max-width:780px){.menu-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.menu-shot-image{height:280px}}
+@media(max-width:460px){.menu-gallery{grid-template-columns:1fr;gap:11px}.menu-shot{display:flex;align-items:center;gap:12px;padding:9px}.menu-shot-image{width:94px;height:168px;flex:none;padding:0;border-radius:9px}.menu-shot-image img{height:100%;max-width:100%;border-radius:7px}.menu-shot-label{padding:9px;font-size:.96rem}}
 @media(max-width:780px){.menu-features{grid-template-columns:1fr}.menu-icon-stage{min-height:220px}}
 </style>
 </head>
@@ -32,7 +41,7 @@
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 <header class="site-header"><div class="container header-inner">
 <a class="brand" href="index.html" aria-label="Biblioteca de herramientas"><span class="brand-logo" aria-hidden="true"><svg fill="white" height="30" viewBox="0 0 32 32" width="30"><rect height="9" rx="3" width="9" x="6" y="6"/><rect height="9" rx="3" width="9" x="18" y="6"/><rect height="9" rx="3" width="9" x="6" y="18"/><rect height="9" rx="3" width="9" x="18" y="18"/></svg></span><span class="brand-name">Biblioteca <span class="brand-suffix">de herramientas</span></span></a>
-<nav class="site-nav" aria-label="Navegación principal"><a href="catalogo.html">Catálogo</a><a href="#funciones">Funciones</a><a href="#instalar">Instalar</a><a class="nav-cta" href="catalogo.html">Explorar ↗</a></nav>
+<nav class="site-nav" aria-label="Navegación principal"><a href="catalogo.html">Catálogo</a><a href="#funciones">Funciones</a><a href="#capturas">Capturas</a><a href="#instalar">Instalar</a><a class="nav-cta" href="catalogo.html">Explorar ↗</a></nav>
 </div></header>
 <main id="contenido">
 <section class="app-detail-hero"><div class="container detail-hero-layout">
@@ -56,6 +65,11 @@
 <article class="menu-feature"><span aria-hidden="true">📅</span><b>Organiza la semana</b><p>Planifica las comidas, cambia de semana y vincula recetas a tus menús.</p></article>
 <article class="menu-feature"><span aria-hidden="true">🧾</span><b>Compra sin olvidos</b><p>Crea listas, organiza productos por categorías y marca lo que ya has comprado.</p></article>
 <article class="menu-feature"><span aria-hidden="true">🥘</span><b>Guarda tus recetas</b><p>Consulta, edita y busca recetas; aprovecha sus ingredientes al preparar la compra.</p></article>
+</div></div></section>
+<section class="area alternate" id="capturas"><div class="wrap"><h2>Así se ve Menú y Compra</h2><p>Capturas reales de la aplicación en Android. Pulsa una imagen para ampliarla.</p><div class="menu-gallery">
+<a class="menu-shot" href="menu-compra-semana.jpg" aria-label="Ampliar captura: Semana"><span class="menu-shot-image"><img src="menu-compra-semana.jpg" alt="Pantalla Semana de Menú y Compra: planificación de comidas por día y acceso a preparar la compra semanal." width="691" height="1536" loading="lazy" decoding="async"></span><span class="menu-shot-label">Planifica la semana y prepara la compra semanal ↗</span></a>
+<a class="menu-shot" href="menu-compra-compra.jpg" aria-label="Ampliar captura: Compra"><span class="menu-shot-image"><img src="menu-compra-compra.jpg" alt="Pantalla Compra de Menú y Compra: añade productos, categorías, cantidades y notas, y marca lo que ya tienes." width="691" height="1536" loading="lazy" decoding="async"></span><span class="menu-shot-label">Organiza la lista de la compra ↗</span></a>
+<a class="menu-shot" href="menu-compra-recetas.jpg" aria-label="Ampliar captura: Recetas"><span class="menu-shot-image"><img src="menu-compra-recetas.jpg" alt="Pantalla Recetas de Menú y Compra: búsqueda, creación, importación y exportación de recetas." width="691" height="1536" loading="lazy" decoding="async"></span><span class="menu-shot-label">Busca, crea e importa tus recetas ↗</span></a>
 </div></div></section>
 <section class="area alternate" id="instalar"><div class="wrap">
 <div class="menu-panel"><h2>Cómo instalar Menú y Compra</h2><ol>
