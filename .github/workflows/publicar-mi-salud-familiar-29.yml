@@ -8,6 +8,7 @@ on:
     - cron: '*/15 0-12 18 10 *'
 permissions:
   contents: write
+  pages: write
 concurrency:
   group: salud-familiar-2-9
   cancel-in-progress: false
