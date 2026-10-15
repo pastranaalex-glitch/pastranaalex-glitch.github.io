@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - '.github/workflows/publicar-mi-salud-familiar-29.yml'
+      - 'proximas-apps.json'
   schedule:
     # Comprobar antes del estreno si el APK aprobado ya está subido.
     - cron: '0 */4 15-17 10 *'
