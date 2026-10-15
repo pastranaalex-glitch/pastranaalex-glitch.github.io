@@ -55,7 +55,7 @@ async function github(a){
  try{const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),9000);let resp;try{resp=await fetch('https://api.github.com/repos/'+a.repo+'/releases?per_page=100',{headers:{Accept:'application/vnd.github+json'},signal:ctrl.signal});}finally{clearTimeout(timer);}
  if(!resp.ok)throw Error('API '+resp.status);
  const rel=(await resp.json()).filter(r=>r&&!r.draft&&!r.prerelease&&(a.slug!=='mi-salud-familiar'||r.tag_name==='mi-salud-familiar-v2.9'));
- const list=rel.flatMap(r=>(r.assets||[]).filter(x=>assetValid(x,a)));a.count=list.reduce((n,x)=>n+(Number(x.download_count)||0),0);
+ const list=rel.flatMap(r=>(r.assets||[]).filter(x=>assetValid(x,a)));if(a.slug==='menu-y-compra'&&!list.length){a.count=undefined;return;}a.count=list.reduce((n,x)=>n+(Number(x.download_count)||0),0);
  const chosen=rel.find(r=>(r.assets||[]).some(x=>assetValid(x,a)));const asset=chosen?.assets.find(x=>assetValid(x,a));
  if(asset){a.url=asset.browser_download_url;a.date=Date.parse(chosen.published_at||chosen.created_at||'')||0;a.releaseName=chosen.name||chosen.tag_name||a.nombre;a.hasRelease=true;}
  }catch(e){a.failed=true;}
