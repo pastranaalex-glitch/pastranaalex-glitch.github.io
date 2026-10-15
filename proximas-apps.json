@@ -33,7 +33,8 @@
       ],
       "descripcion": "Organiza información de salud, tratamientos y citas de la familia de forma sencilla.",
       "etiqueta": "SALUD Y ORGANIZACIÓN",
-      "eslogan": "Tu salud, organizada."
+      "eslogan": "Tu salud, organizada.",
+      "apkSubido": true
     },
     {
       "slug": "mi-dinero-real",
