@@ -20,11 +20,11 @@
     if (!el) return;
     const enabled = isConfigured(app);
     el.dataset.autoStatus = enabled ? 'active' : 'pending';
-    const state = enabled ? 'Publicación automática activada; APK verificado' : (app?.slug === 'mi-salud-familiar' ? 'Programación instalada; APK aún no verificado en GitHub' : 'Publicación automática pendiente');
+    const state = enabled ? 'Publicación automática activada; APK verificado' : (app?.slug === 'mi-salud-familiar' ? (app.apkSubido === true ? 'APK subido a GitHub; verificando su contenido' : 'Programación instalada; pendiente de subir APK a GitHub') : 'Publicación automática pendiente');
     el.title = state;
     el.setAttribute('aria-label', state);
     const label = el.querySelector('[data-auto-label]');
-    if (label) label.textContent = enabled ? 'Automatizada' : (app?.slug === 'mi-salud-familiar' ? 'Esperando APK' : 'Sin automatizar');
+    if (label) label.textContent = enabled ? 'Automatizada' : (app?.slug === 'mi-salud-familiar' ? (app.apkSubido === true ? 'Verificando APK' : 'Esperando APK') : 'Sin automatizar');
   };
   const say = (card, message) => {
     const target = card.querySelector('.pack6-countdown-message');
