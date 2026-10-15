@@ -1,0 +1,26 @@
+name: Publicar Mi Salud Familiar 2.9
+on:
+  workflow_dispatch:
+  schedule:
+    # 18/10/2026 00:00 Madrid = 17/10/2026 22:00 UTC.
+    # GitHub Actions puede retrasar los trabajos programados.
+    - cron: '*/15 22-23 17 10 *'
+    - cron: '*/15 0-12 18 10 *'
+permissions:
+  contents: write
+concurrency:
+  group: salud-familiar-2-9
+  cancel-in-progress: false
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Verificar APK y fecha antes de publicar
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python3 .github/scripts/publicar_mi_salud_familiar_29.py
