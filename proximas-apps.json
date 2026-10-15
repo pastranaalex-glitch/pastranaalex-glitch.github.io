@@ -38,20 +38,22 @@
     },
     {
       "slug": "mi-dinero-real",
-      "nombre": "Mi Dinero Real",
+      "nombre": "Mi Dinero Real 2",
       "fechaEstreno": "2026-10-21T00:00:00+02:00",
-      "repo": null,
-      "plataforma": null,
-      "versionAprobada": null,
-      "revisionAprobada": false,
-      "publicacionAutomatica": false,
+      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
+      "plataforma": "android",
+      "versionAprobada": "2.5.1",
+      "revisionAprobada": true,
+      "publicacionAutomatica": true,
       "categorias": [
         "finanzas",
         "utilidades"
       ],
       "descripcion": "Control de ingresos, gastos y presupuestos para gestionar mejor la economía cotidiana.",
       "etiqueta": "FINANZAS PERSONALES",
-      "eslogan": "Tus cuentas, claras."
+      "eslogan": "Tus cuentas, claras.",
+      "apkSubido": true,
+      "sha256Aprobado": "c7f35b29e0fa46ccf91c349ca53360dd9c204f988eabcf8c6eed3a30eff9d69c"
     },
     {
       "slug": "voz-a-texto-pro",
