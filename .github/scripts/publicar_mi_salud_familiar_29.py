@@ -95,6 +95,13 @@ def main():
         command("git", "add", "catalogo.json", "mi-salud-familiar.html", "proximas-apps.json")
         command("git", "commit", "-m", "Publicar Mi Salud Familiar 2.9 tras verificar APK")
         command("git", "push", "origin", "HEAD:main")
+        # El GITHUB_TOKEN no inicia por si mismo otra compilacion de Pages.
+        try:
+            command("gh", "api", "-X", "POST", "repos/" + REPO + "/pages/builds")
+            print("Reconstruccion de GitHub Pages solicitada.")
+        except subprocess.CalledProcessError as error:
+            print("AVISO: Pages no ha aceptado la peticion de reconstruccion:", error.stderr)
+
     print("Ficha actualizada y descarga comprobada:", URL)
 
 if __name__ == "__main__":
