@@ -10,7 +10,7 @@
     && app.publicacionAutomatica === true
     && app.revisionAprobada === true
     && typeof app.repo === 'string'
-    && (/^pastranaalex-glitch\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(app.repo) || (app.slug === 'mi-salud-familiar' && app.repo === 'pastranaalex-glitch/pastranaalex-glitch.github.io'))
+    && (/^pastranaalex-glitch\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(app.repo) || (['mi-salud-familiar', 'mi-dinero-real'].includes(app.slug) && app.repo === 'pastranaalex-glitch/pastranaalex-glitch.github.io'))
     && typeof app.versionAprobada === 'string' && app.versionAprobada.trim() !== ''
     && ['android', 'windows'].includes(app.plataforma)
     && typeof app.fechaEstreno === 'string'
