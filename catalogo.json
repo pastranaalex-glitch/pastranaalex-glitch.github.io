@@ -108,7 +108,7 @@
     {
       "nombre": "Menú y Compra",
       "plataforma": "android",
-      "publicado": false,
+      "publicado": true,
       "version": "1.4.3",
       "descripcion": "Planifica menús semanales, guarda recetas y organiza listas de compra con ingredientes agrupados.",
       "enlace": "https://pastranaalex-glitch.github.io/menu-y-compra.html",
