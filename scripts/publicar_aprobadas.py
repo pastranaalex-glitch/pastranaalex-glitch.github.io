@@ -134,7 +134,7 @@ def main():
                 url = f"https://{OWNER}.github.io/{newly_published}.html"
                 if url not in xml and "</urlset>" in xml:
                     date = now.date().isoformat()
-                    xml = xml.replace("</urlset>", f"  <url><loc>{url}</loc><lastmod>{date}</lastmod></url>\\n</urlset>")
+                    xml = xml.replace("</urlset>", f"  <url><loc>{url}</loc><lastmod>{date}</lastmod></url>\n</urlset>")
             sitemap.write_text(xml, encoding="utf-8")
     print("Nuevas publicaciones:", ", ".join(changes) if changes else "ninguna")
     return changes
