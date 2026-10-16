@@ -56,21 +56,21 @@
       "sha256Aprobado": "c7f35b29e0fa46ccf91c349ca53360dd9c204f988eabcf8c6eed3a30eff9d69c"
     },
     {
-      "slug": "voz-a-texto-pro",
-      "nombre": "Voz a Texto PRO",
+      "slug": "en-familia",
+      "nombre": "En familia: dibuja, actúa y adivina",
       "fechaEstreno": null,
       "repo": null,
-      "plataforma": "windows",
+      "plataforma": "android",
       "versionAprobada": null,
       "revisionAprobada": false,
       "publicacionAutomatica": false,
       "categorias": [
-        "audio",
-        "productividad"
+        "juegos",
+        "familia"
       ],
-      "descripcion": "Convierte grabaciones de discursos, conferencias y reuniones en texto organizado con puntuación y párrafos.",
-      "etiqueta": "TRANSCRIPCIÓN INTELIGENTE",
-      "eslogan": "De la voz a un texto claro."
+      "descripcion": "Un juego para reunir a pequeños y mayores con retos de mímica, dibujos y pistas. El móvil propone el reto; la diversión sucede entre vosotros.",
+      "etiqueta": "JUEGO EN FAMILIA",
+      "eslogan": "El mejor plan es jugar juntos."
     }
   ]
 }
