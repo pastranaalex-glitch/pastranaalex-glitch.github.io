@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8f9fc">
-  <meta name="description" content="Cómo se verificarán las descargas de la Biblioteca de herramientas: análisis antivirus previstos con Microsoft Defender y VirusTotal, y huellas SHA-256 por versión.">
+  <meta name="description" content="Análisis de seguridad de las aplicaciones: primer informe de VirusTotal publicado y SHA-256 verificado para Menú y Compra 1.4.3, con comprobaciones por versión.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://pastranaalex-glitch.github.io/seguridad.html">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -26,6 +26,9 @@
     .seg-panel p,.seg-panel li{font-size:.92rem;color:#555971;line-height:1.65}
     .seg-panel p{margin:8px 0 12px}.seg-panel ul{padding-left:20px;margin:8px 0 18px}
     .seg-panel a{color:#5643c0;font-weight:700}
+    .seg-confirmacion{border:1px solid #bfdccc;background:#f5fcf7;border-radius:14px;padding:14px 18px;margin:12px 0 23px}
+    .seg-confirmacion h3{margin:0 0 8px;color:#1d6045}
+    .seg-confirmacion p{font-size:.85rem;margin:7px 0}
     .seg-disclaimer{border-left:4px solid #7560d9;padding:9px 13px;background:#f6f3ff;border-radius:0 10px 10px 0}
     .seg-code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;word-break:break-word;font-size:.85em}
     .seg-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
@@ -45,13 +48,21 @@
       <a class="seg-back" href="index.html">← Volver a la portada</a>
       <section class="seg-hero" aria-labelledby="seg-title">
         <span class="seg-eyebrow">NOVEDAD · TRANSPARENCIA</span>
-        <h1 id="seg-title">Así verificaremos nuestras descargas</h1>
+        <h1 id="seg-title">Así comprobamos nuestras descargas</h1>
         <p>La Biblioteca es un proyecto personal y gratuito. Queremos que puedas saber qué archivo vas a instalar y qué comprobaciones se le han realizado, sin pedirte que confíes a ciegas.</p>
-        <span class="seg-state">En preparación · Todavía no hay análisis publicados</span>
+        <span class="seg-state">Primer análisis publicado · Menú y Compra 1.4.3</span>
       </section>
       <div class="seg-content">
         <section class="seg-panel" aria-labelledby="plan-title">
-          <h2 id="plan-title">Nuestro plan de comprobaciones</h2>
+          <h2 id="plan-title">Resultados publicados y próximas comprobaciones</h2>
+          <div class="seg-confirmacion" aria-label="Primer informe antivirus publicado">
+            <h3>Menú y Compra 1.4.3 · Android</h3>
+            <p><strong>VirusTotal: 0 de 67 detecciones</strong> en el informe consultado el 16/10/2026. Microsoft Defender: sin amenazas en la comprobación local comunicada por el autor.</p>
+            <p><strong>Archivo:</strong> <code class="seg-code">Menu_y_Compra_1.4.3_Publicacion_Firmada.apk</code></p>
+            <p><strong>SHA-256:</strong> <code class="seg-code">b33d1715d4bdc45a9b493171c590ee8111ce4e740e4ff64d810b9a9687888200</code></p>
+            <p>La huella coincide con el APK descargado directamente desde la Biblioteca el 16/10/2026.</p>
+            <p><a href="https://www.virustotal.com/gui/file/b33d1715d4bdc45a9b493171c590ee8111ce4e740e4ff64d810b9a9687888200/detection" target="_blank" rel="noopener noreferrer">Consultar el informe de VirusTotal ↗</a> · <a href="menu-y-compra.html">Ir a la ficha de Menú y Compra ↗</a></p>
+          </div>
           <h3>1. Análisis antivirus</h3>
           <p>Antes de anunciar una versión como comprobada, analizaremos el archivo publicado con Microsoft Defender y consultaremos su informe en VirusTotal. Mostraremos los resultados obtenidos, indicando el nombre de los servicios y la fecha.</p>
           <h3>2. Identificación exacta del archivo</h3>
@@ -65,7 +76,7 @@
         <aside class="seg-panel" aria-labelledby="consejos-title">
           <h2 id="consejos-title">Antes de instalar una app</h2>
           <ul>
-            <li>Descarga desde la ficha de nuestra Biblioteca y comprueba que el enlace lleva a la versión publicada en GitHub Releases.</li>
+            <li>Descarga desde la ficha de la Biblioteca y comprueba que el archivo procede del enlace oficial indicado: la propia Biblioteca o GitHub Releases, según la aplicación.</li>
             <li>Comprueba el nombre del archivo y, cuando esté disponible, su huella SHA-256.</li>
             <li>Revisa los permisos que solicita la aplicación.</li>
             <li>No desactives el antivirus ni Google Play Protect para completar una instalación. Si aparece una alerta, detente y revisa el aviso.</li>
