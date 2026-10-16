@@ -26,6 +26,8 @@ def valid_release(app, release):
     suffixes = (".apk",) if app["plataforma"] == "android" else (".exe", ".msi", ".zip")
     return any(
         x.get("state") == "uploaded"
+        and (not app.get("archivoAprobado") or x.get("name") == app["archivoAprobado"])
+        and (not app.get("sha256Aprobado") or x.get("digest", "").lower() == "sha256:" + app["sha256Aprobado"].lower())
         and x.get("name", "").lower().endswith(suffixes)
         and not any(w in x.get("name", "").lower() for w in ("debug", "unsigned", "sin-firmar"))
         and x.get("browser_download_url", "").startswith(
@@ -45,12 +47,12 @@ def entry(app):
     slug = app["slug"]
     return {
         "nombre": app["nombre"], "plataforma": app["plataforma"],
-        "publicado": True, "version": app["versionAprobada"].lstrip("vV"),
+        "publicado": True, "version": app.get("versionVisible") or app["versionAprobada"].lstrip("vV"),
         "descripcion": app["descripcion"],
         "enlace": f"https://{OWNER}.github.io/{slug}.html",
         "slug": slug, "categorias": app["categorias"],
         "etiqueta": app["etiqueta"], "eslogan": app["eslogan"],
-        "imagen": "", "icono": "favicon.svg", "repo": app["repo"]
+        "imagen": "", "icono": (app.get("icono") if app.get("icono") == "icono-en-familia.svg" and slug == "en-familia" else "favicon.svg"), "repo": app["repo"]
     }
 
 def page(app, release):
@@ -90,7 +92,7 @@ def main():
         if app.get("publicacionAutomatica") is not True or app.get("revisionAprobada") is not True:
             continue
         repo, tag, date = app.get("repo"), app.get("versionAprobada"), app.get("fechaEstreno")
-        if not isinstance(repo, str) or not REPO_RE.fullmatch(repo) or not isinstance(tag, str) or not tag or not isinstance(date, str):
+        if not isinstance(repo, str) or not (REPO_RE.fullmatch(repo) or (slug == "en-familia" and repo == OWNER + "/" + OWNER + ".github.io")) or not isinstance(tag, str) or not tag or not isinstance(date, str):
             continue
         if app.get("plataforma") not in ("android", "windows") or not all(
             isinstance(app.get(k), str) and app[k].strip() for k in ("nombre", "descripcion", "etiqueta", "eslogan")
@@ -113,9 +115,13 @@ def main():
             continue
         page_path = BASE / (slug + ".html")
         if page_path.exists():
-            print("No se modifica una ficha ya existente:", slug)
-            continue
-        page_path.write_text(page(app, release), encoding="utf-8")
+            # En Familia cuenta con una ficha detallada y verificada ya preparada.
+            # No permitir que una ficha ajena o distinta se considere publicada.
+            if slug != "en-familia" or 'data-publication-preview="en-familia"' not in page_path.read_text(encoding="utf-8"):
+                print("No se modifica una ficha ya existente:", slug)
+                continue
+        else:
+            page_path.write_text(page(app, release), encoding="utf-8")
         apps.append(entry(app))
         changes.append(slug)
     if changes:
