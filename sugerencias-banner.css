@@ -1,0 +1,11 @@
+/* Biblioteca: invitación a proponer nuevas aplicaciones, ligera y adaptable. */
+.idea-invite{padding:1px 0 23px}
+.idea-invite-inner{display:flex;gap:17px;align-items:center;justify-content:space-between;border:1px solid #e5dcfb;background:linear-gradient(115deg,#efeafe,#f8f5ff 68%,#eaf4ff);border-radius:20px;padding:22px 26px}
+.idea-invite-copy{display:flex;gap:13px;align-items:flex-start;flex:1;min-width:0}
+.idea-invite-symbol{font-size:1.55rem;flex:0 0 auto;display:grid;place-items:center;width:45px;height:45px;border-radius:14px;background:#fff;border:1px solid #e5dcff}
+.idea-invite h2{font-size:clamp(1.16rem,2.5vw,1.5rem);line-height:1.23;letter-spacing:-.03em;margin:0 0 6px;color:#2a2744}
+.idea-invite p{font-size:.88rem;color:#5e5d7a;line-height:1.5;margin:0;max-width:75ch}
+.idea-invite-button{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;padding:11px 18px;min-height:46px;background:#6450cf;color:#fff!important;text-decoration:none;font-size:.87rem;font-weight:800;border-radius:12px;box-shadow:0 6px 16px rgba(100,80,207,.12)}
+.idea-invite-button:hover{background:#533bbd;color:#fff}
+.idea-invite-button:focus-visible{outline:3px solid #3d2ca6;outline-offset:3px}
+@media(max-width:700px){.idea-invite-inner{flex-direction:column;align-items:stretch;gap:13px;padding:19px}.idea-invite-symbol{width:39px;height:39px;font-size:1.3rem}.idea-invite-button{width:100%}}
