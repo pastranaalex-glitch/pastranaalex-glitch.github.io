@@ -74,7 +74,7 @@
       "versionVisible": "1.7.2",
       "archivoAprobado": "En_Familia_1.7.2_Publicacion_Firmada.apk",
       "sha256Aprobado": "ca60248d387a2b928e1745becb0332f576229e23b451759bb61bb4e07a9deb0e",
-      "apkSubido": false,
+      "apkSubido": true,
       "icono": "icono-en-familia.svg"
     }
   ]
