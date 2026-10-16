@@ -60,8 +60,8 @@
     <a class="seguridad-ficha-link" href="seguridad.html">Cómo verificaremos cada versión ↗</a>
   </div>
 </aside>
-<div class="detail-actions"><a id="menu-download" class="button detail-primary" href="catalogo.html" aria-disabled="true">Preparando descarga del APK…</a><a class="button detail-secondary" href="#funciones">Ver funciones ↗</a></div>
-<p id="menu-download-status" class="detail-note" role="status" aria-live="polite">La descarga se activará en cuanto el APK firmado esté alojado en la Biblioteca.</p>
+<div class="detail-actions"><a id="menu-download" class="button detail-primary" href="Menu_y_Compra_1.4.3_Publicacion_Firmada.apk" download="Menu_y_Compra_1.4.3_Publicacion_Firmada.apk">↓ Descargar APK firmado (5,7 MB)</a><a class="button detail-secondary" href="#funciones">Ver funciones ↗</a></div>
+<p id="menu-download-status" class="detail-note" role="status" aria-live="polite">Descarga directa desde Biblioteca de herramientas. Versión 1.4.3 para Android.</p>
 <div class="detail-stats"><div><span>Versión</span><strong>1.4.3</strong></div><div><span>Precio</span><strong>Gratis</strong></div></div>
 </div>
 <aside class="detail-showcase" aria-label="Icono de Menú y Compra">
@@ -82,7 +82,7 @@
 </div></div></section>
 <section class="area alternate" id="instalar"><div class="wrap">
 <div class="menu-panel"><h2>Cómo instalar Menú y Compra</h2><ol>
-<li>Pulsa «Descargar APK» cuando aparezca el enlace disponible.</li>
+<li>Pulsa «Descargar APK firmado» para obtener la versión 1.4.3.</li>
 <li>Abre el archivo APK en tu móvil Android.</li>
 <li>Si Android te pregunta, permite la instalación desde el navegador o gestor de archivos que has utilizado.</li>
 <li>Abre la aplicación y empieza por el menú semanal o tu lista de compra.</li>
@@ -92,18 +92,6 @@
 </div></section>
 </main>
 <footer class="site-footer"><div class="container footer-inner"><div><strong>Biblioteca de herramientas</strong><p>Aplicaciones gratuitas para Android y Windows, compartidas por afición.</p></div><div class="footer-links"><a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="avisos.html">Avisos</a><a href="privacidad.html">Privacidad</a><span>Sin anuncios · Sin ánimo de lucro</span></div></div></footer>
-<script>
-(async()=>{
- const file="Menu_y_Compra_1.4.3_Publicacion_Firmada.apk";
- const btn=document.getElementById('menu-download'),msg=document.getElementById('menu-download-status');
- try{
-   const response=await fetch(file,{method:'HEAD',cache:'no-store'});
-   if(!response.ok)return;
-   btn.href=file;btn.removeAttribute('aria-disabled');btn.textContent='↓ Descargar APK firmado (5,7 MB)';
-   btn.setAttribute('download',file);
-   msg.textContent='Descarga directa desde Biblioteca de herramientas. Versión 1.4.3 para Android.';
- }catch(_){}
-})();
-</script>
+
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"c3b3255ee9e649dea45b5127eef74fdd"}'></script>
 </body></html>
