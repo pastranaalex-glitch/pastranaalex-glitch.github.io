@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f9fc">
+  <meta name="description" content="Cómo se verificarán las descargas de la Biblioteca de herramientas: análisis antivirus previstos con Microsoft Defender y VirusTotal, y huellas SHA-256 por versión.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://pastranaalex-glitch.github.io/seguridad.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <title>Seguridad y transparencia | Biblioteca de herramientas</title>
+  <link rel="stylesheet" href="portada.css">
+  <link rel="stylesheet" href="portada-v2.css">
+  <style>
+    .seg-top{padding:27px 0 14px}
+    .seg-back{font-size:.87rem;font-weight:750;color:#5f4bc7;text-decoration:none}
+    .seg-hero{margin-top:18px;padding:32px;border:1px solid #e7e2f5;border-radius:24px;background:linear-gradient(130deg,#f0eaff,#f8f6ff 54%,#edf6ff)}
+    .seg-eyebrow{font-size:.76rem;letter-spacing:.09em;font-weight:850;color:#5c45b4}
+    .seg-hero h1{font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.045em;margin:11px 0}
+    .seg-hero>p{color:#53576e;max-width:75ch;margin:10px 0;line-height:1.65}
+    .seg-state{display:inline-flex;align-items:center;border:1px solid #ded4fa;border-radius:999px;padding:7px 13px;background:#fff;color:#5841b7;font-size:.83rem;font-weight:800;margin-top:8px}
+    .seg-content{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:20px;padding:20px 0 52px}
+    .seg-panel{padding:26px 28px;border:1px solid #e6e6ee;background:#fff;border-radius:19px}
+    .seg-panel h2{font-size:1.4rem;margin:0 0 12px;letter-spacing:-.03em}
+    .seg-panel h3{font-size:1rem;margin:16px 0 4px;color:#272946}
+    .seg-panel p,.seg-panel li{font-size:.92rem;color:#555971;line-height:1.65}
+    .seg-panel p{margin:8px 0 12px}.seg-panel ul{padding-left:20px;margin:8px 0 18px}
+    .seg-panel a{color:#5643c0;font-weight:700}
+    .seg-disclaimer{border-left:4px solid #7560d9;padding:9px 13px;background:#f6f3ff;border-radius:0 10px 10px 0}
+    .seg-code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;word-break:break-word;font-size:.85em}
+    .seg-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .seg-link{display:inline-flex;align-items:center;border-radius:11px;background:#6450d6;color:#fff!important;padding:10px 15px;text-decoration:none;font-weight:750}
+    .seg-link.secondary{background:#eeeafb;color:#5844bb!important}
+    @media(max-width:760px){.seg-content{grid-template-columns:1fr;padding-bottom:32px}.seg-panel,.seg-hero{padding:22px}.seg-top{padding-top:17px}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Ir a la portada de la Biblioteca"><span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><rect x="7" y="7" width="9" height="9" rx="3" fill="white"/><rect x="20" y="7" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="7" y="20" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="20" y="20" width="9" height="9" rx="3" fill="white"/></svg></span><span class="brand-name">Biblioteca<span class="brand-suffix"> de herramientas</span></span></a>
+    <a class="button button-outline" href="catalogo.html">Ver catálogo →</a>
+  </div></header>
+  <main id="contenido">
+    <div class="container seg-top">
+      <a class="seg-back" href="index.html">← Volver a la portada</a>
+      <section class="seg-hero" aria-labelledby="seg-title">
+        <span class="seg-eyebrow">NOVEDAD · TRANSPARENCIA</span>
+        <h1 id="seg-title">Así verificaremos nuestras descargas</h1>
+        <p>La Biblioteca es un proyecto personal y gratuito. Queremos que puedas saber qué archivo vas a instalar y qué comprobaciones se le han realizado, sin pedirte que confíes a ciegas.</p>
+        <span class="seg-state">En preparación · Todavía no hay análisis publicados</span>
+      </section>
+      <div class="seg-content">
+        <section class="seg-panel" aria-labelledby="plan-title">
+          <h2 id="plan-title">Nuestro plan de comprobaciones</h2>
+          <h3>1. Análisis antivirus</h3>
+          <p>Antes de anunciar una versión como comprobada, analizaremos el archivo publicado con Microsoft Defender y consultaremos su informe en VirusTotal. Mostraremos los resultados obtenidos, indicando el nombre de los servicios y la fecha.</p>
+          <h3>2. Identificación exacta del archivo</h3>
+          <p>Publicaremos el nombre del archivo, la versión y su huella digital SHA-256. Así podrás comprobar que el archivo descargado es el mismo que se verificó.</p>
+          <h3>3. Enlaces al informe</h3>
+          <p>Cuando dispongamos de un informe público para una versión concreta, enlazaremos ese resultado desde su ficha, junto con el estado de la comprobación.</p>
+          <h3>4. Nueva verificación por versión</h3>
+          <p>Una actualización puede cambiar el archivo. Por eso no daremos por analizada una nueva versión basándonos en el resultado de una anterior.</p>
+          <p class="seg-disclaimer"><strong>Importante:</strong> ningún antivirus ofrece una garantía del 100 % de ausencia de amenazas. Un resultado sin detecciones significa solo que los motores utilizados no detectaron amenazas en el archivo analizado en ese momento.</p>
+        </section>
+        <aside class="seg-panel" aria-labelledby="consejos-title">
+          <h2 id="consejos-title">Antes de instalar una app</h2>
+          <ul>
+            <li>Descarga desde la ficha de nuestra Biblioteca y comprueba que el enlace lleva a la versión publicada en GitHub Releases.</li>
+            <li>Comprueba el nombre del archivo y, cuando esté disponible, su huella SHA-256.</li>
+            <li>Revisa los permisos que solicita la aplicación.</li>
+            <li>No desactives el antivirus ni Google Play Protect para completar una instalación. Si aparece una alerta, detente y revisa el aviso.</li>
+            <li>No ignores advertencias del sistema por el simple hecho de que una web diga que un archivo es seguro.</li>
+          </ul>
+          <p>La información sobre permisos y tratamiento de datos puede variar según la aplicación. Consulta también nuestra <a href="privacidad.html">página de privacidad</a>.</p>
+          <div class="seg-links">
+            <a class="seg-link" href="catalogo.html">Explorar aplicaciones →</a>
+            <a class="seg-link secondary" href="index.html">Volver al inicio</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><div><strong>Biblioteca de herramientas</strong><p>Aplicaciones gratuitas para Android y Windows compartidas por afición.</p></div><div class="footer-links"><a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="privacidad.html">Privacidad</a><span>Análisis pendientes de publicación</span></div></div></footer>
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"c3b3255ee9e649dea45b5127eef74fdd"}'></script>
+</body>
+</html>
