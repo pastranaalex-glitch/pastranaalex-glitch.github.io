@@ -31,6 +31,22 @@
       {"@type":"ListItem","position":6,"url":"https://pastranaalex-glitch.github.io/documentos-de-casa.html","name":"Documentos de Casa"}
     ]}
   }</script>
+  <style>
+    /* Confianza en la Biblioteca: bloque editorial ligero y adaptable. */
+    .confianza-section{padding:0 0 18px}
+    .confianza-panel{display:grid;grid-template-columns:minmax(0,1.03fr) minmax(0,.97fr);gap:26px;align-items:center;padding:24px 31px;background:#fff;border:1px solid #e6e5ef;border-radius:20px;box-shadow:0 8px 30px rgba(29,23,72,.035)}
+    .confianza-intro h2{font-size:clamp(1.28rem,2.1vw,1.82rem);line-height:1.2;letter-spacing:-.03em;margin:5px 0 9px}
+    .confianza-intro>p:not(.section-kicker){color:#5f6278;font-size:.92rem;margin:0 0 10px;max-width:65ch}
+    .confianza-intro a,.confianza-foot a{color:#5846cb;font-weight:750;text-decoration:underline;text-underline-offset:3px}
+    .confianza-intro a{font-size:.86rem}
+    .confianza-puntos{display:grid;gap:12px}
+    .confianza-punto{display:flex;gap:12px;align-items:start}
+    .confianza-icono{display:grid;place-items:center;flex:none;background:#f0ecff;color:#5846cb;border-radius:10px;width:31px;height:31px;font-weight:800}
+    .confianza-punto strong{display:block;color:#24253c;font-size:.9rem;line-height:1.25}
+    .confianza-punto p{color:#66697e;font-size:.81rem;line-height:1.45;margin:3px 0 0}
+    .confianza-foot{grid-column:1/-1;margin:-6px 0 0;color:#696a7f;font-size:.79rem}
+    @media(max-width:760px){.confianza-panel{grid-template-columns:1fr;gap:18px;padding:21px}.confianza-foot{grid-column:auto;margin:0}.confianza-section{padding-bottom:12px}}
+  </style>
   <script src="pack6.js?v=20261015-corrector2" defer></script>
 </head>
 <body data-pack6-page="inicio">
@@ -65,7 +81,7 @@
             <p class="hero-lead">Aplicaciones para Android y Windows hechas por afición, pensadas para facilitarte las cosas. Sin publicidad, sin pagos y sin donaciones.</p>
             <div class="hero-actions">
               <a class="button button-primary" href="catalogo.html">Descubrir aplicaciones <span aria-hidden="true">→</span></a>
-              <a class="button button-text" href="#proyecto">Conoce la Biblioteca <span aria-hidden="true">↗</span></a>
+              <a class="button button-text" href="#confianza">¿Por qué son gratis? <span aria-hidden="true">↗</span></a>
             </div>
             <div class="hero-proof" aria-label="Datos de la biblioteca">
               <span><strong id="hero-apps">6</strong> aplicaciones</span>
@@ -80,8 +96,27 @@
             <div class="hero-phone hero-phone-back"><img src="recetario-01-inicio.webp" alt="Pantalla de Recetario Fácil con buscador y recetas" width="691" height="1536" decoding="async"></div>
             <div class="hero-phone hero-phone-front"><img src="captura-01-inicio.webp" alt="Pantalla de inicio de Lector Fácil" width="691" height="1391" fetchpriority="high"></div>
             <div class="hero-float hero-float-top" aria-hidden="true"><span>✦</span> Hechas para ayudarte</div>
-            <div class="hero-float hero-float-bottom" aria-hidden="true"><span class="float-icon">✓</span><span>Descarga segura<br><small>desde GitHub Releases</small></span></div>
+            <div class="hero-float hero-float-bottom" aria-hidden="true"><span class="float-icon">✓</span><span>Descargas en GitHub<br><small>versiones publicadas</small></span></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="confianza-section" id="confianza" aria-labelledby="confianza-title">
+      <div class="container">
+        <div class="confianza-panel">
+          <div class="confianza-intro">
+            <p class="section-kicker">SIN TRUCOS NI LETRA PEQUEÑA</p>
+            <h2 id="confianza-title">¿Por qué son gratuitas estas aplicaciones?</h2>
+            <p>Porque esta Biblioteca es un proyecto personal que hago por afición. Creo herramientas para necesidades cotidianas y he decidido compartirlas, sin convertirlo en un negocio.</p>
+            <a href="#proyecto">Conoce quién está detrás del proyecto →</a>
+          </div>
+          <div class="confianza-puntos" aria-label="Transparencia en las descargas">
+            <div class="confianza-punto"><span class="confianza-icono" aria-hidden="true">✓</span><div><strong>Sin pagos, publicidad ni donaciones</strong><p>No necesitas pagar ni facilitar datos bancarios para descargar las aplicaciones.</p></div></div>
+            <div class="confianza-punto"><span class="confianza-icono" aria-hidden="true">↗</span><div><strong>Versiones publicadas en GitHub</strong><p>Desde cada ficha puedes conocer el programa y acceder a sus archivos de descarga.</p></div></div>
+            <div class="confianza-punto"><span class="confianza-icono" aria-hidden="true">i</span><div><strong>Instala con información</strong><p>Antes de instalar, comprueba el nombre del archivo, los permisos y los avisos de Android o Windows. Si algo no te convence, no continúes.</p></div></div>
+          </div>
+          <p class="confianza-foot">¿Te preocupa qué datos se utilizan? Consulta la <a href="privacidad.html">información de privacidad</a>. Publicar en GitHub no sustituye una auditoría de seguridad.</p>
         </div>
       </div>
     </section>
