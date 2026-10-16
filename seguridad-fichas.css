@@ -18,3 +18,9 @@
 .seguridad-ficha-hash summary{cursor:pointer;font-weight:750;color:#5540bf}
 .seguridad-ficha-hash code{display:block;margin:7px 0;padding:8px;background:#fff;border:1px solid #ddd9f0;border-radius:8px;font-size:.75rem;overflow-wrap:anywhere;user-select:all}
 .seguridad-ficha-cautela{margin:8px 0 0;font-size:.72rem;line-height:1.45;color:#747088}
+
+/* Una detección no se confunde con los informes sin detecciones. */
+.seguridad-ficha--alerta{border-color:#ead3a0;background:#fffaf0}
+.seguridad-ficha--alerta .seguridad-ficha-icon{background:#fff0cd;color:#785016}
+.seguridad-ficha-status--alerta{background:#fff0cc;border-color:#e6c584;color:#7d4809}
+.seguridad-ficha--alerta .seguridad-ficha-text code{overflow-wrap:anywhere;font-size:.92em}
