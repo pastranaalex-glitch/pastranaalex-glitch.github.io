@@ -74,8 +74,12 @@ function headline(){const latest=apps.filter(a=>a.hasRelease).sort((a,b)=>b.date
  if(link){link.href=latest.enlace;link.textContent='Ver '+latest.nombre+' →';}
 }
 function totals(){
- const total=apps.every(a=>a.count!==undefined)?fmt(apps.reduce((n,a)=>n+a.count,0)):'—';
- const el=document.getElementById('hero-downloads');if(el)el.textContent=total;
+ const el=document.getElementById('hero-downloads');if(!el)return;
+ const known=apps.filter(a=>Number.isFinite(a.count)&&a.count>=0);
+ if(!known.length){el.textContent='—';el.title='GitHub no ha proporcionado datos de descargas';return;}
+ const counted=known.reduce((n,a)=>n+a.count,0);
+ el.textContent='≥ '+fmt(counted);
+ el.title='Mínimo de descargas registradas en GitHub Releases. No incluye las descargas directas ni datos no disponibles.';
 }
 async function start(){
  try{
