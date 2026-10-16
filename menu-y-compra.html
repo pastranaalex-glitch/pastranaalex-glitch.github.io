@@ -64,7 +64,7 @@
 </aside>
 <div class="detail-actions"><a id="menu-download" class="button detail-primary" href="Menu_y_Compra_1.4.3_Publicacion_Firmada.apk" download="Menu_y_Compra_1.4.3_Publicacion_Firmada.apk">↓ Descargar APK firmado (5,7 MB)</a><a class="button detail-secondary" href="#funciones">Ver funciones ↗</a></div>
 <p id="menu-download-status" class="detail-note" role="status" aria-live="polite">Descarga directa desde Biblioteca de herramientas. Versión 1.4.3 para Android.</p>
-<div class="detail-stats"><div><span>Versión</span><strong>1.4.3</strong></div><div><span>Precio</span><strong>Gratis</strong></div></div>
+<div class="detail-stats"><div><span>Versión</span><strong>1.4.3</strong></div><div><span>Precio</span><strong>Gratis</strong></div><div><span>Descargas públicas</span><strong id="menu-download-count" aria-live="polite">Consultando…</strong></div></div>
 </div>
 <aside class="detail-showcase" aria-label="Icono de Menú y Compra">
 <div class="showcase-top"><img src="icono-menu.svg" alt="" width="36" height="36"><div><strong>Menú y Compra</strong><span>Android · Aplicación gratuita</span></div><span class="showcase-free">Gratis</span></div>
@@ -95,5 +95,26 @@
 </main>
 <footer class="site-footer"><div class="container footer-inner"><div><strong>Biblioteca de herramientas</strong><p>Aplicaciones gratuitas para Android y Windows, compartidas por afición.</p></div><div class="footer-links"><a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="avisos.html">Avisos</a><a href="privacidad.html">Privacidad</a><span>Sin anuncios · Sin ánimo de lucro</span></div></div></footer>
 
+<script>
+(async function(){
+  const counter=document.getElementById('menu-download-count');
+  const button=document.getElementById('menu-download');
+  const status=document.getElementById('menu-download-status');
+  try{
+    const response=await fetch('https://api.github.com/repos/pastranaalex-glitch/pastranaalex-glitch.github.io/releases?per_page=100',{headers:{Accept:'application/vnd.github+json'},cache:'no-store'});
+    if(!response.ok)throw new Error('GitHub API '+response.status);
+    const releases=(await response.json()).filter(r=>r&&!r.draft&&!r.prerelease);
+    const release=releases.find(r=>(r.assets||[]).some(a=>/^Menu_y_Compra_.*\\.apk$/i.test(a.name||'')&&!/debug|unsigned|sin.firmar/i.test(a.name||'')));
+    const assets=(release?.assets||[]).filter(a=>/^Menu_y_Compra_.*\\.apk$/i.test(a.name||'')&&!/debug|unsigned|sin.firmar/i.test(a.name||''));
+    if(!release||!assets.length)throw new Error('No hay una APK pública válida');
+    const total=assets.reduce((sum,a)=>sum+(Number(a.download_count)||0),0);
+    if(counter)counter.textContent=total.toLocaleString('es-ES');
+    if(button&&assets[0].browser_download_url){button.href=assets[0].browser_download_url;button.removeAttribute('download');}
+    if(status)status.textContent='Descarga oficial desde GitHub Releases. Versión 1.4.3 para Android.';
+  }catch(_){
+    if(counter)counter.textContent='No disponible';
+  }
+})();
+</script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"c3b3255ee9e649dea45b5127eef74fdd"}'></script>
 </body></html>
