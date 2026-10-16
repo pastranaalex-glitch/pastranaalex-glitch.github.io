@@ -126,6 +126,16 @@ def main():
         changes.append(slug)
     if changes:
         CATALOG.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        # Dar de alta las fichas nuevas en el mapa de sitio, sin duplicarlas.
+        sitemap = BASE / "sitemap.xml"
+        if sitemap.exists():
+            xml = sitemap.read_text(encoding="utf-8")
+            for newly_published in changes:
+                url = f"https://{OWNER}.github.io/{newly_published}.html"
+                if url not in xml and "</urlset>" in xml:
+                    date = now.date().isoformat()
+                    xml = xml.replace("</urlset>", f"  <url><loc>{url}</loc><lastmod>{date}</lastmod></url>\\n</urlset>")
+            sitemap.write_text(xml, encoding="utf-8")
     print("Nuevas publicaciones:", ", ".join(changes) if changes else "ninguna")
     return changes
 
