@@ -10,3 +10,11 @@
 .seguridad-ficha-link{color:#5540bf!important;text-decoration:underline;text-underline-offset:3px;font-size:.79rem;font-weight:750}
 .seguridad-ficha-link:focus-visible{outline:3px solid #7867eb;outline-offset:3px;border-radius:3px}
 @media(max-width:540px){.seguridad-ficha{padding:12px;gap:10px}.seguridad-ficha-top{align-items:flex-start}.seguridad-ficha-text{font-size:.8rem}}
+
+/* Informes reales publicados por version, con advertencia visible. */
+.seguridad-ficha-status--revisado{background:#e8f8ef;border-color:#b5e3c6;color:#156043}
+.seguridad-ficha-links{display:flex;flex-wrap:wrap;gap:5px 14px;margin:6px 0 9px}
+.seguridad-ficha-hash{font-size:.76rem;color:#5d5979;margin:8px 0}
+.seguridad-ficha-hash summary{cursor:pointer;font-weight:750;color:#5540bf}
+.seguridad-ficha-hash code{display:block;margin:7px 0;padding:8px;background:#fff;border:1px solid #ddd9f0;border-radius:8px;font-size:.75rem;overflow-wrap:anywhere;user-select:all}
+.seguridad-ficha-cautela{margin:8px 0 0;font-size:.72rem;line-height:1.45;color:#747088}
