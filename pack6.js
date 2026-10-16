@@ -51,7 +51,7 @@ function wire(){
 async function github(a){
  // Menú y Compra se distribuye como archivo local: nunca consultar releases de este repositorio,
  // ya que contienen APK de otras aplicaciones (por ejemplo Rutas a Pie).
- if(a.slug==='mi-dinero-real'){a.count=undefined;return;}
+ if(a.slug==='mi-dinero-real'||a.slug==='menu-y-compra'){a.count=undefined;return;}
  try{const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),9000);let resp;try{resp=await fetch('https://api.github.com/repos/'+a.repo+'/releases?per_page=100',{headers:{Accept:'application/vnd.github+json'},signal:ctrl.signal});}finally{clearTimeout(timer);}
  if(!resp.ok)throw Error('API '+resp.status);
  const rel=(await resp.json()).filter(r=>r&&!r.draft&&!r.prerelease&&(a.slug!=='mi-salud-familiar'||r.tag_name==='mi-salud-familiar-v2.9'));
@@ -60,7 +60,7 @@ async function github(a){
  if(asset){a.url=asset.browser_download_url;a.date=Date.parse(chosen.published_at||chosen.created_at||'')||0;a.releaseName=chosen.name||chosen.tag_name||a.nombre;a.hasRelease=true;}
  }catch(e){a.failed=true;}
 }
-function updateLink(a){if(!a.node)return;if(a.count!==undefined){a.stat.textContent=fmt(a.count);a.label.textContent=a.count===1?'Descarga pública':'Descargas públicas';}else a.label.textContent='Consultar en GitHub';if(a.slug==='mi-dinero-real'){a.downloadLink.href='MiDineroReal2_2.5.1_Publicacion_Firmada.apk';a.downloadLink.setAttribute('download','MiDineroReal2_2.5.1_Publicacion_Firmada.apk');a.label.textContent='Descarga directa';a.stat.textContent='APK';}else if(a.slug==='menu-y-compra'){if(a.url){a.downloadLink.href=a.url;a.downloadLink.removeAttribute('download');}else{a.downloadLink.href='Menu_y_Compra_1.4.3_Publicacion_Firmada.apk';a.downloadLink.setAttribute('download','Menu_y_Compra_1.4.3_Publicacion_Firmada.apk');a.label.textContent='Descarga directa';a.stat.textContent='APK';}}else if(a.url){a.downloadLink.href=a.url;}}
+function updateLink(a){if(!a.node)return;if(a.count!==undefined){a.stat.textContent=fmt(a.count);a.label.textContent=a.count===1?'Descarga pública':'Descargas públicas';}else a.label.textContent='Consultar en GitHub';if(a.slug==='mi-dinero-real'){a.downloadLink.href='MiDineroReal2_2.5.1_Publicacion_Firmada.apk';a.downloadLink.setAttribute('download','MiDineroReal2_2.5.1_Publicacion_Firmada.apk');a.label.textContent='Descarga directa';a.stat.textContent='APK';}else if(a.slug==='menu-y-compra'){a.downloadLink.href='Menu_y_Compra_1.4.3_Publicacion_Firmada.apk';a.downloadLink.setAttribute('download','Menu_y_Compra_1.4.3_Publicacion_Firmada.apk');a.label.textContent='Descarga directa';a.stat.textContent='APK';}else if(a.url){a.downloadLink.href=a.url;}}
 function featureList(){
  const valid=apps.filter(a=>a.hasRelease),windows=valid.filter(a=>a.plataforma==='windows').sort((a,b)=>b.count-a.count),byDate=[...valid].sort((a,b)=>b.date-a.date),byCount=[...valid].sort((a,b)=>b.count-a.count);
  const selected=[];const add=a=>{if(a&&!selected.includes(a))selected.push(a);};
