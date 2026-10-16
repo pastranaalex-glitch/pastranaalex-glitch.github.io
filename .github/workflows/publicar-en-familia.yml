@@ -1,0 +1,41 @@
+name: En Familia - publicar APK verificada
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'En_Familia_1.7.2_Publicacion_Firmada.apk'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: en-familia-v1.7.2-release
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validar el APK oficial con SHA-256
+        run: |
+          echo 'ca60248d387a2b928e1745becb0332f576229e23b451759bb61bb4e07a9deb0e  En_Familia_1.7.2_Publicacion_Firmada.apk' | sha256sum --check --status
+      - name: Crear publicación con descarga y contador
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          archivo='En_Familia_1.7.2_Publicacion_Firmada.apk'
+          etiqueta='en-familia-v1.7.2'
+          if gh release view "$etiqueta" >/dev/null 2>&1; then
+            if gh release view "$etiqueta" --json assets -q '.assets[].name' | grep -Fxq "$archivo"; then
+              echo 'La APK ya esta publicada, sin duplicarla.'
+            else
+              gh release upload "$etiqueta" "$archivo"
+            fi
+          else
+            gh release create "$etiqueta" "$archivo" --title 'En Familia 1.7.2 · 500 retos educativos' --notes 'Juego educativo gratuito para Android. 500 pruebas, seis actividades, modos cooperativo y por equipos, historial entre jornadas. Sin anuncios ni acceso a Internet. APK oficial firmada y revisada, SHA-256 ca60248d387a2b928e1745becb0332f576229e23b451759bb61bb4e07a9deb0e.'
+          fi
