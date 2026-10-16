@@ -158,6 +158,24 @@
       "imagen": "",
       "icono": "icono-mi-dinero-real.svg",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io"
+    },
+    {
+      "nombre": "En Familia",
+      "plataforma": "android",
+      "publicado": true,
+      "version": "1.7.2",
+      "descripcion": "Juego educativo y familiar con 500 pruebas de mímica, dibujo, pistas, historias, vocalización y preguntas, con historial entre jornadas y modos cooperativo o por equipos.",
+      "enlace": "https://pastranaalex-glitch.github.io/en-familia.html",
+      "slug": "en-familia",
+      "categorias": [
+        "juegos",
+        "familia"
+      ],
+      "etiqueta": "JUEGO EDUCATIVO",
+      "eslogan": "500 retos para jugar juntos.",
+      "imagen": "",
+      "icono": "icono-en-familia.svg",
+      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io"
     }
   ]
 }
