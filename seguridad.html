@@ -28,6 +28,8 @@
     .seg-panel a{color:#5643c0;font-weight:700}
     .seg-confirmacion{border:1px solid #bfdccc;background:#f5fcf7;border-radius:14px;padding:14px 18px;margin:12px 0 23px}
     .seg-confirmacion h3{margin:0 0 8px;color:#1d6045}
+    .seg-alerta{border-color:#e8d29b;background:#fffaf0}
+    .seg-alerta h3{color:#80521d}
     .seg-confirmacion p{font-size:.85rem;margin:7px 0}
     .seg-disclaimer{border-left:4px solid #7560d9;padding:9px 13px;background:#f6f3ff;border-radius:0 10px 10px 0}
     .seg-code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;word-break:break-word;font-size:.85em}
@@ -50,11 +52,19 @@
         <span class="seg-eyebrow">NOVEDAD · TRANSPARENCIA</span>
         <h1 id="seg-title">Así comprobamos nuestras descargas</h1>
         <p>La Biblioteca es un proyecto personal y gratuito. Queremos que puedas saber qué archivo vas a instalar y qué comprobaciones se le han realizado, sin pedirte que confíes a ciegas.</p>
-        <span class="seg-state">3 aplicaciones con comprobaciones publicadas · 16/10/2026</span>
+        <span class="seg-state">4 aplicaciones analizadas · 3 sin detecciones · 1 alerta en revisión</span>
       </section>
       <div class="seg-content">
         <section class="seg-panel" aria-labelledby="plan-title">
           <h2 id="plan-title">Resultados publicados y próximas comprobaciones</h2>
+          <div class="seg-confirmacion seg-alerta" aria-label="Alerta de Cocina a Punto 1.4.1 en revisión">
+            <h3>⚠ Cocina a Punto 1.4.1 · Alerta en revisión</h3>
+            <p><strong>VirusTotal: 1 detección de 68 motores</strong>, repetida el 16/10/2026. AhnLab-V3 señala <code class="seg-code">PUP/Android.Agent.1338419</code>. Los demás motores no señalaron amenazas. Microsoft Defender: sin amenazas en la comprobación local comunicada por el autor.</p>
+            <p><strong>Archivo:</strong> <code class="seg-code">CocinaAPunto-v1.4.1.apk</code></p>
+            <p><strong>SHA-256:</strong> <code class="seg-code">c6f3357a7b342095d2c50d376239fb71f3b3c1e69a615d8365aedd94f930fe37</code></p>
+            <p>La huella coincide con el APK que está publicado en GitHub Releases. La categoría PUP indica un programa potencialmente no deseado; <strong>no es posible confirmar todavía si esta alerta es un falso positivo</strong>. Estamos revisándola y no recomendamos ignorar advertencias del dispositivo.</p>
+            <p><a href="https://www.virustotal.com/gui/file/c6f3357a7b342095d2c50d376239fb71f3b3c1e69a615d8365aedd94f930fe37/detection" target="_blank" rel="noopener noreferrer">Consultar el informe de VirusTotal ↗</a> · <a href="cocina-a-punto.html">Ir a la ficha de Cocina a Punto ↗</a></p>
+          </div>
           <div class="seg-confirmacion" aria-label="Informe antivirus de Recetario Fácil 1.20.0">
             <h3>Recetario Fácil 1.20.0 · Android</h3>
             <p><strong>VirusTotal: 0 de 68 detecciones</strong> en el informe consultado el 16/10/2026. Microsoft Defender: sin amenazas en la comprobación local comunicada por el autor.</p>
