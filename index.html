@@ -46,6 +46,19 @@
     .confianza-punto p{color:#66697e;font-size:.81rem;line-height:1.45;margin:3px 0 0}
     .confianza-foot{grid-column:1/-1;margin:-6px 0 0;color:#696a7f;font-size:.79rem}
     @media(max-width:760px){.confianza-panel{grid-template-columns:1fr;gap:18px;padding:21px}.confianza-foot{grid-column:auto;margin:0}.confianza-section{padding-bottom:12px}}
+    /* Aviso superior de seguridad: animación discreta, accesible y sin falsas garantías. */
+    .seguridad-aviso{padding:12px 0 0}
+    .seguridad-aviso-interior{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:13px 18px;border:1px solid #d2c6ff;border-radius:16px;background:linear-gradient(105deg,#efeaff,#f7f4ff 65%,#e7f6f2);box-shadow:0 5px 20px rgba(81,65,168,.08)}
+    .seguridad-aviso-nuevo{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto;padding:7px 11px;color:#fff;background:#604bc9;border-radius:999px;font-weight:850;font-size:.73rem;letter-spacing:.025em}
+    .seguridad-aviso-punto{width:8px;height:8px;display:inline-block;border-radius:50%;background:#bdf8e6;box-shadow:0 0 0 0 rgba(189,248,230,.75);animation:seg-pulso 2.8s ease-in-out infinite}
+    .seguridad-aviso-texto{flex:1 1 355px;min-width:0;color:#2c3150;font-size:.89rem;line-height:1.45}
+    .seguridad-aviso-texto strong{font-weight:850}
+    .seguridad-aviso-texto small{display:block;margin-top:2px;color:#5f607c;font-size:.81rem}
+    .seguridad-aviso-enlace{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;padding:9px 13px;border-radius:10px;background:#fff;color:#5040ab;text-decoration:none;border:1px solid #d5cafa;font-size:.83rem;font-weight:850;white-space:normal;text-align:center}
+    .seguridad-aviso-enlace:hover{background:#e6deff}
+    @keyframes seg-pulso{0%,100%{box-shadow:0 0 0 0 rgba(119,222,189,.5)}45%{box-shadow:0 0 0 6px rgba(119,222,189,0)}}
+    @media (prefers-reduced-motion:reduce){.seguridad-aviso-punto{animation:none}}
+    @media(max-width:650px){.seguridad-aviso-interior{padding:13px;gap:10px}.seguridad-aviso-texto{flex-basis:100%;order:2;font-size:.87rem}.seguridad-aviso-enlace{order:3;width:100%}.seguridad-aviso-nuevo{order:1}}
   </style>
   <script src="pack6.js?v=20261015-corrector2" defer></script>
 </head>
@@ -70,6 +83,19 @@
       </nav>
     </div>
   </header>
+
+  <aside class="seguridad-aviso" aria-label="Novedad: verificación de descargas">
+    <div class="container">
+      <div class="seguridad-aviso-interior">
+        <span class="seguridad-aviso-nuevo"><span class="seguridad-aviso-punto" aria-hidden="true"></span> NOVEDAD · EN PREPARACIÓN</span>
+        <div class="seguridad-aviso-texto">
+          <strong>🛡️ Más transparencia en las descargas.</strong>
+          <small>Estamos preparando comprobaciones con Microsoft Defender, VirusTotal y SHA-256. Publicaremos los resultados reales de cada versión cuando estén disponibles.</small>
+        </div>
+        <a class="seguridad-aviso-enlace" href="seguridad.html">Conoce cómo lo haremos →</a>
+      </div>
+    </div>
+  </aside>
 
   <main id="inicio">
     <section class="hero" aria-labelledby="hero-title">
@@ -176,7 +202,7 @@
     </section>
   </main>
 
-  <footer class="site-footer"><div class="container footer-inner"><div><strong>Biblioteca de herramientas</strong><p>Aplicaciones gratuitas para Android y Windows, compartidas por afición.</p></div><div class="footer-links"><a href="catalogo.html">Catálogo</a><a href="proximamente.html">Próximamente</a><a href="#inicio">Volver arriba ↑</a><a href="privacidad.html">Privacidad</a><a href="avisos.html">Avisos por correo</a><span>Sin publicidad · Sin ánimo de lucro</span></div></div></footer>
+  <footer class="site-footer"><div class="container footer-inner"><div><strong>Biblioteca de herramientas</strong><p>Aplicaciones gratuitas para Android y Windows, compartidas por afición.</p></div><div class="footer-links"><a href="catalogo.html">Catálogo</a><a href="proximamente.html">Próximamente</a><a href="#inicio">Volver arriba ↑</a><a href="privacidad.html">Privacidad</a><a href="seguridad.html">Seguridad</a><a href="avisos.html">Avisos por correo</a><span>Sin publicidad · Sin ánimo de lucro</span></div></div></footer>
 
 <!-- Cloudflare Web Analytics: estadísticas sin cookies -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"c3b3255ee9e649dea45b5127eef74fdd"}'></script>
