@@ -1,0 +1,12 @@
+/* Biblioteca de herramientas: estado real de las comprobaciones por archivo.
+   Se muestra antes de descargar. No supone una certificación de seguridad. */
+.seguridad-ficha{display:flex;gap:12px;align-items:flex-start;margin:17px 0 14px;padding:14px 15px;border:1px solid #dcd5ed;border-radius:14px;background:#f9f7ff;color:#2d2b45;box-shadow:0 3px 14px rgba(34,22,82,.045);font:inherit}
+.seguridad-ficha-icon{display:grid;place-items:center;flex:0 0 34px;width:34px;height:34px;border-radius:11px;background:#eae4ff;color:#5845bd;font-size:19px;line-height:1}
+.seguridad-ficha-body{flex:1;min-width:0}
+.seguridad-ficha-top{display:flex;align-items:center;flex-wrap:wrap;gap:6px 11px;margin-bottom:5px}
+.seguridad-ficha-title{font-size:.9rem;font-weight:800;color:#2c2a43;line-height:1.3}
+.seguridad-ficha-status{font-size:.72rem;font-weight:780;color:#755100;background:#fff2d4;border:1px solid #ead29b;border-radius:999px;padding:3px 8px;line-height:1.3}
+.seguridad-ficha-text{font-size:.79rem;color:#54536c;line-height:1.5;margin:0 0 5px}
+.seguridad-ficha-link{color:#5540bf!important;text-decoration:underline;text-underline-offset:3px;font-size:.79rem;font-weight:750}
+.seguridad-ficha-link:focus-visible{outline:3px solid #7867eb;outline-offset:3px;border-radius:3px}
+@media(max-width:540px){.seguridad-ficha{padding:12px;gap:10px}.seguridad-ficha-top{align-items:flex-start}.seguridad-ficha-text{font-size:.8rem}}
