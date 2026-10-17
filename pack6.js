@@ -10,6 +10,7 @@ const validApp=a=>a&&a.publicado===true&&['android','windows'].includes(a.plataf
 /* La descarga nunca depende de una consulta a la API de GitHub.
    Fijamos versión, nombre y SHA-256 a los metadatos verificados del catálogo. */
 const approvedDownload=a=>{
+ if(a&&a.disponible===false)return '';
  const d=a&&a.descarga;
  if(!d||d.version!==a.version||typeof a.repo!=='string'
    ||!/^[a-zA-Z0-9._-]+$/.test(d.tag||'')
@@ -28,22 +29,24 @@ const assetValid=(asset,a)=>{
 const mk=(tag,cls,text)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=String(text);return el;};
 let apps=[],platform='todos',category='todas',query='',compact=false;
 function card(a){
+ const paused=a.disponible===false;
  const article=mk('article','app-card');article.dataset.appCard='';article.dataset.platform=a.plataforma;article.dataset.categories=(a.categorias||[]).join(' ');article.dataset.search=normalize(a.nombre+' '+a.descripcion+' '+(a.categorias||[]).join(' '));article.dataset.repo=a.repo;
  const art=mk('div','card-art card-art-'+a.slug);
  const copy=mk('div','card-art-copy');copy.append(mk('span','art-tag',a.etiqueta||'APP GRATUITA'),mk('strong',null,a.eslogan||a.nombre),mk('span',null,a.plataforma==='windows'?'Para tu ordenador':'Para tu móvil'));art.append(copy);
  const image=a.portada||a.imagen,isCover=Boolean(a.portada)||a.slug==='jardin-de-joyas';if(isCover)art.classList.add('is-promo-cover');
  if(image&&/^[\w\s.()-]+\.(webp|jpeg|jpg|png)$/i.test(image)){const holder=mk('div','card-phone card-phone-'+a.slug);const img=mk('img');img.src=image;img.alt=(isCover?'Portada promocional de ':'Captura real de ')+a.nombre;img.loading='lazy';img.decoding='async';holder.append(img);art.append(holder);}else{const holder=mk('div','pack6-art-logo');const mark=mk('img');mark.src=a.icono;mark.alt='';mark.loading='lazy';mark.decoding='async';holder.append(mark);art.append(holder);}
  const body=mk('div','card-body'),identity=mk('div','app-identity'),icon=mk('img','app-icon');icon.src=a.icono;icon.alt='';icon.loading='lazy';icon.width=54;icon.height=54;
- const names=mk('div');names.append(mk('h3',null,a.nombre),mk('p',null,(a.plataforma==='windows'?'Windows':'Android')+' · '+((a.categorias||[])[0]||'Herramientas')));identity.append(icon,names,mk('span','free-label','Gratis'));
+ const names=mk('div');names.append(mk('h3',null,a.nombre),mk('p',null,(a.plataforma==='windows'?'Windows':'Android')+' · '+((a.categorias||[])[0]||'Herramientas')));identity.append(icon,names,mk('span','free-label',paused?'En reparación':'Gratis'));
  const short={'lector-facil':'Lee PDF y Word, prepara exposiciones y guarda marcadores.','recetario-facil':'52 recetas ilustradas, con búsqueda y preparación paso a paso.','rutas-a-pie':'Explora 225 rutas por España y graba tus recorridos con GPS.'};
  const desc=mk('p','app-description',isHome&&short[a.slug]?short[a.slug]:a.descripcion),meta=mk('div','app-meta');meta.append(mk('span',null,'Versión '+(a.version||'actual')),mk('span',null,a.plataforma==='windows'?'Windows':'Android'));
  const footer=mk('div','card-footer'),stats=mk('div','downloads'),strong=mk('strong',null,'—'),label=mk('span',null,'Consultando descargas'),small=mk('small',null,'GitHub Releases');stats.append(strong,label,small);
- const actions=mk('div','card-actions'),detail=mk('a','button button-outline','Ver aplicación →'),dl=mk('a','button button-dark','Descargar ↓');detail.href=a.enlace;
+ const actions=mk('div','card-actions'),detail=mk('a','button button-outline','Ver aplicación →'),dl=mk(paused?'button':'a','button button-dark',paused?'Descarga suspendida':'Descargar ↓');detail.href=a.enlace;
  const direct=approvedDownload(a);
- if(direct){dl.href=direct;dl.title='Descargar la versión '+a.version+' desde GitHub Releases';}
+ if(paused){dl.type='button';dl.disabled=true;dl.setAttribute('aria-disabled','true');dl.title='Jardín de Joyas temporalmente no disponible hasta completar la reparación';dl.style.opacity='0.65';dl.style.cursor='not-allowed';}
+ else if(direct){dl.href=direct;dl.title='Descargar la versión '+a.version+' desde GitHub Releases';}
  else{dl.href=a.enlace;dl.textContent='Ver descarga →';dl.title='Consultar la ficha antes de descargar';}
- dl.rel='noopener noreferrer';if(a.plataforma==='windows')dl.target='_blank';
- actions.append(detail,dl);footer.append(stats,actions);body.append(identity,desc);if(a.slug==='cocina-a-punto'){const notice=mk('a','ui-warning','1 detección en VirusTotal · En revisión');notice.href='cocina-a-punto.html#informacion-descarga';body.append(notice);}body.append(meta,footer);article.append(art,body);
+ if(!paused){dl.rel='noopener noreferrer';if(a.plataforma==='windows')dl.target='_blank';}
+ actions.append(detail,dl);footer.append(stats,actions);body.append(identity,desc);if(paused){body.append(mk('p','ui-warning','Temporalmente no disponible hasta completar la reparación.'));strong.textContent='—';label.textContent='Descarga suspendida';small.textContent='En revisión';}if(a.slug==='cocina-a-punto'){const notice=mk('a','ui-warning','1 detección en VirusTotal · En revisión');notice.href='cocina-a-punto.html#informacion-descarga';body.append(notice);}body.append(meta,footer);article.append(art,body);
  a.node=article;a.stat=strong;a.label=label;a.downloadLink=dl;return article;
 }
 function filters(){
@@ -79,6 +82,7 @@ function listReleases(repo){
  return releaseRequests.get(repo);
 }
 async function github(a){
+ if(a.disponible===false)return;
  if(!approvedDownload(a)){a.failed=true;return;}
  try{
   const releases=await listReleases(a.repo);
@@ -92,7 +96,7 @@ async function github(a){
  }catch(_){a.failed=true;}
 }
 function updateLink(a){
- if(!a.node)return;
+ if(!a.node || a.disponible===false)return;
  if(a.count!==undefined){
   a.stat.textContent=fmt(a.count);
   a.label.textContent=a.count===1?'Descarga de esta versión':'Descargas de esta versión';
