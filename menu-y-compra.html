@@ -93,21 +93,32 @@
 <script>
 (async function(){
   const counter=document.getElementById('menu-download-count');
-  const button=document.getElementById('menu-download');
   const status=document.getElementById('menu-download-status');
+  /* El enlace local funciona sin JavaScript. El contador refleja exclusivamente
+     las descargas del archivo concreto en GitHub Releases. */
   try{
-    const response=await fetch('https://api.github.com/repos/pastranaalex-glitch/pastranaalex-glitch.github.io/releases?per_page=100',{headers:{Accept:'application/vnd.github+json'},cache:'no-store'});
-    if(!response.ok)throw new Error('GitHub API '+response.status);
-    const releases=(await response.json()).filter(r=>r&&!r.draft&&!r.prerelease);
-    const release=releases.find(r=>(r.assets||[]).some(a=>/^Menu_y_Compra_.*\\.apk$/i.test(a.name||'')&&!/debug|unsigned|sin.firmar/i.test(a.name||'')));
-    const assets=(release?.assets||[]).filter(a=>/^Menu_y_Compra_.*\\.apk$/i.test(a.name||'')&&!/debug|unsigned|sin.firmar/i.test(a.name||''));
-    if(!release||!assets.length)throw new Error('No hay una APK pública válida');
-    const total=assets.reduce((sum,a)=>sum+(Number(a.download_count)||0),0);
-    if(counter)counter.textContent=total.toLocaleString('es-ES');
-    if(button&&assets[0].browser_download_url){button.href=assets[0].browser_download_url;button.removeAttribute('download');}
-    if(status)status.textContent='Descarga oficial desde GitHub Releases. Versión 1.4.3 para Android.';
+    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),7000);
+    let response;
+    try{
+      response=await fetch('https://api.github.com/repos/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/tags/v.1.4.3',{
+        headers:{Accept:'application/vnd.github+json'},signal:controller.signal
+      });
+    }finally{clearTimeout(timer);}
+    if(!response.ok)throw new Error('Contador no disponible');
+    const release=await response.json();
+    if(release.draft||release.prerelease||release.tag_name!=='v.1.4.3')throw new Error('Release distinta');
+    const file=(release.assets||[]).find(a=>
+      a.state==='uploaded'
+      &&a.name==='Menu_y_Compra_1.4.3_Publicacion_Firmada.3.apk'
+      &&a.digest==='sha256:b33d1715d4bdc45a9b493171c590ee8111ce4e740e4ff64d810b9a9687888200'
+      &&a.browser_download_url==='https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/v.1.4.3/Menu_y_Compra_1.4.3_Publicacion_Firmada.3.apk'
+    );
+    if(!file)throw new Error('Archivo no verificado');
+    if(counter)counter.textContent=Math.max(0,Number(file.download_count)||0).toLocaleString('es-ES');
+    if(status)status.textContent='Descarga directa disponible. El contador refleja solo GitHub Releases, no las descargas desde esta página.';
   }catch(_){
-    if(counter)counter.textContent='No disponible';
+    if(counter)counter.textContent='—';
+    if(status)status.textContent='La descarga directa sigue disponible. No se pudo actualizar el contador.';
   }
 })();
 </script>
