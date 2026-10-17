@@ -180,9 +180,9 @@
     {
       "nombre": "Jardín de Joyas",
       "plataforma": "android",
-      "publicado": false,
+      "publicado": true,
       "version": "1.4.1",
-      "descripcion": "Juego de combinar joyas para Android, con efectos visuales coloridos y controles táctiles cómodos.",
+      "descripcion": "Combina joyas en 200 niveles, crea bombas y rayos y disfruta del modo Relax. Gratis, sin anuncios y sin conexión.",
       "enlace": "https://pastranaalex-glitch.github.io/jardin-de-joyas.html",
       "slug": "jardin-de-joyas",
       "categorias": [

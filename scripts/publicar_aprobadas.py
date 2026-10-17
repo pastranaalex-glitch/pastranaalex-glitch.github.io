@@ -52,7 +52,7 @@ def entry(app):
         "enlace": f"https://{OWNER}.github.io/{slug}.html",
         "slug": slug, "categorias": app["categorias"],
         "etiqueta": app["etiqueta"], "eslogan": app["eslogan"],
-        "imagen": "", "icono": (app.get("icono") if app.get("icono") == "icono-en-familia.svg" and slug == "en-familia" else "favicon.svg"), "repo": app["repo"]
+        "imagen": "", "icono": (app.get("icono") if (slug, app.get("icono")) in (("en-familia", "icono-en-familia.svg"), ("jardin-de-joyas", "icono-jardin-de-joyas.svg")) else "favicon.svg"), "repo": app["repo"]
     }
 
 def page(app, release):
@@ -87,12 +87,13 @@ def main():
         slug = app.get("slug")
         if not isinstance(slug, str) or not SLUG_RE.fullmatch(slug):
             continue
-        if any(x.get("slug") == slug for x in apps):
+        existente = next((x for x in apps if x.get("slug") == slug), None)
+        if existente is not None and not (slug == "jardin-de-joyas" and existente.get("publicado") is False):
             continue
         if app.get("publicacionAutomatica") is not True or app.get("revisionAprobada") is not True:
             continue
         repo, tag, date = app.get("repo"), app.get("versionAprobada"), app.get("fechaEstreno")
-        if not isinstance(repo, str) or not (REPO_RE.fullmatch(repo) or (slug == "en-familia" and repo == OWNER + "/" + OWNER + ".github.io")) or not isinstance(tag, str) or not tag or not isinstance(date, str):
+        if not isinstance(repo, str) or not (REPO_RE.fullmatch(repo) or (slug in ("en-familia", "jardin-de-joyas") and repo == OWNER + "/" + OWNER + ".github.io")) or not isinstance(tag, str) or not tag or not isinstance(date, str):
             continue
         if app.get("plataforma") not in ("android", "windows") or not all(
             isinstance(app.get(k), str) and app[k].strip() for k in ("nombre", "descripcion", "etiqueta", "eslogan")
@@ -117,12 +118,15 @@ def main():
         if page_path.exists():
             # En Familia cuenta con una ficha detallada y verificada ya preparada.
             # No permitir que una ficha ajena o distinta se considere publicada.
-            if slug != "en-familia" or 'data-publication-preview="en-familia"' not in page_path.read_text(encoding="utf-8"):
+            if slug not in ("en-familia", "jardin-de-joyas") or ('data-publication-preview="' + slug + '"') not in page_path.read_text(encoding="utf-8"):
                 print("No se modifica una ficha ya existente:", slug)
                 continue
         else:
             page_path.write_text(page(app, release), encoding="utf-8")
-        apps.append(entry(app))
+        if existente is None:
+            apps.append(entry(app))
+        else:
+            apps[apps.index(existente)] = entry(app)
         changes.append(slug)
     if changes:
         CATALOG.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -141,3 +145,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
