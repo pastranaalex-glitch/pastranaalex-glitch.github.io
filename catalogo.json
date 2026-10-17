@@ -175,7 +175,7 @@
     {
       "nombre": "Mi Salud Familiar",
       "plataforma": "android",
-      "publicado": false,
+      "publicado": true,
       "version": "2.9",
       "descripcion": "Organiza medicamentos, enfermedades, alergias, tensión arterial e informes en dos perfiles independientes, con copias JSON.",
       "enlace": "https://pastranaalex-glitch.github.io/mi-salud-familiar.html",
@@ -189,7 +189,13 @@
       "imagen": "",
       "icono": "icono-salud.svg",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
-      "portada": "mi-salud-familiar-portada-realista.webp"
+      "portada": "mi-salud-familiar-portada-realista.webp",
+      "descarga": {
+        "version": "2.9",
+        "tag": "mi-salud-familiar-v2.9",
+        "archivo": "MiSaludFamiliar_2.9_Publicacion_Firmada.apk",
+        "sha256": "bc749053460064f8a85c9d6bf1af5ef1b4ac34a532e6fc915c3bda4dd276d749"
+      }
     },
     {
       "nombre": "Mi Dinero Real 2",
