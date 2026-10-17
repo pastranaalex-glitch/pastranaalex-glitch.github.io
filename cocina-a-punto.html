@@ -70,14 +70,14 @@ $('prev').addEventListener('click',()=>showShot(selected-1));$('next').addEventL
 modal.addEventListener('click',e=>{if(e.target===modal)closeShot();});
 document.addEventListener('keydown',e=>{if(modal.getAttribute('aria-hidden')!=='false')return;if(e.key==='Escape')closeShot();if(e.key==='ArrowLeft')showShot(selected-1);if(e.key==='ArrowRight')showShot(selected+1);});
 const format=n=>Number(n).toLocaleString('es-ES');
-const validAsset=a=>a&&typeof a.name==='string'&&/\.apk$/i.test(a.name)&&typeof a.browser_download_url==='string'&&a.browser_download_url.startsWith('https://github.com/'+repo+'/releases/download/');
+const validAsset=a=>a&&a.name==='CocinaAPunto-v1.4.1.apk'&&a.state==='uploaded'&&a.digest==='sha256:c6f3357a7b342095d2c50d376239fb71f3b3c1e69a615d8365aedd94f930fe37'&&a.browser_download_url===fallback;
 async function loadReleases(){
  try{const r=await fetch('https://api.github.com/repos/'+repo+'/releases?per_page=100',{headers:{Accept:'application/vnd.github+json'}});if(!r.ok)throw new Error('GitHub no disponible');
  const data=await r.json();const releases=Array.isArray(data)?data.filter(x=>x&&!x.draft&&!x.prerelease):[];
  if(!releases.length)return;
  const apks=releases.flatMap(x=>Array.isArray(x.assets)?x.assets.filter(validAsset):[]);
  if(apks.length){const total=apks.reduce((acc,a)=>acc+(Number(a.download_count)||0),0);$('total-downloads').textContent=format(total);$('download-label').textContent=total===1?'descarga pública':'descargas públicas';const latest=releases.find(x=>Array.isArray(x.assets)&&x.assets.some(validAsset));if(latest){const apk=latest.assets.find(validAsset);$('download-button').href=apk.browser_download_url;}}
- const list=$('release-history');list.replaceChildren();for(const rel of releases.slice(0,7)){const li=document.createElement('li');const a=document.createElement('a');a.href='https://github.com/'+repo+'/releases/tag/'+encodeURIComponent(rel.tag_name);a.textContent=rel.name||rel.tag_name;li.append(a);const date=rel.published_at?new Date(rel.published_at).toLocaleDateString('es-ES'):'';if(date)li.append(document.createTextNode(' · '+date));list.append(li);}if(releases[0]?.tag_name)$('version-pill').textContent=releases[0].tag_name.replace(/^v/i,'');
+ const list=$('release-history');list.replaceChildren();for(const rel of releases.slice(0,7)){const li=document.createElement('li');const a=document.createElement('a');a.href='https://github.com/'+repo+'/releases/tag/'+encodeURIComponent(rel.tag_name);a.textContent=rel.name||rel.tag_name;li.append(a);const date=rel.published_at?new Date(rel.published_at).toLocaleDateString('es-ES'):'';if(date)li.append(document.createTextNode(' · '+date));list.append(li);}const aprobada=releases.find(x=>x.tag_name==='v1.4.1');if(aprobada)$('version-pill').textContent='1.4.1';
  }catch(_){$('download-button').href=fallback;$('download-label').textContent='Consulta las descargas en GitHub';}
 }
 loadReleases();
