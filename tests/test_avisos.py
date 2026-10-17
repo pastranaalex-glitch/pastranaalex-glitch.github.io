@@ -19,10 +19,16 @@ class TestAvisos(unittest.TestCase):
         (self.root / '.github').mkdir()
         (self.root / 'scripts').mkdir()
         shutil.copy(ROOT / 'scripts' / 'plantilla_novedad.html', self.root / 'scripts' / 'plantilla_novedad.html')
-        # Utilizar un catálogo mínimo reproducible para las pruebas unitarias.
-        # No depende de las fichas reales, que pueden crecer con nuevas apps.
-        (self.root / 'index.html').write_text('''<article data-app-card data-repo="pastranaalex-glitch/lector-facil"><h3>Lector Fácil</h3><a href="lector-facil.html">Ficha</a></article>
-<article data-app-card data-repo="pastranaalex-glitch/cocina-clara"><h3>Cocina Clara</h3><a href="cocina-clara.html">Ficha</a></article>''', encoding='utf-8')
+        # Las pruebas emplean el formato actual y real: catalogo.json.
+        self.catalogue = {'formato': 2, 'aplicaciones': [
+            {'nombre': 'Lector Fácil', 'slug': 'lector-facil', 'publicado': True,
+             'repo': 'pastranaalex-glitch/lector-facil',
+             'enlace': 'https://pastranaalex-glitch.github.io/lector-facil.html'},
+            {'nombre': 'Cocina Clara', 'slug': 'cocina-clara', 'publicado': True,
+             'repo': 'pastranaalex-glitch/cocina-clara',
+             'enlace': 'https://pastranaalex-glitch.github.io/cocina-clara.html'},
+        ]}
+        self.save_catalogue()
         self.patch_base = patch.object(mod, 'BASE', self.root)
         self.patch_state = patch.object(mod, 'STATE_FILE', self.root / '.github' / 'avisos_estado.json')
         self.patch_template = patch.object(mod, 'TEMPLATE_FILE', self.root / 'scripts' / 'plantilla_novedad.html')
@@ -33,6 +39,11 @@ class TestAvisos(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.releases = {'pastranaalex-glitch/lector-facil': self.release(101,'v1.0'),
                          'pastranaalex-glitch/cocina-clara': self.release(200,'v1.0')}
+
+    def save_catalogue(self):
+        import json
+        (self.root / 'catalogo.json').write_text(
+            json.dumps(self.catalogue, ensure_ascii=False), encoding='utf-8')
 
     @staticmethod
     def release(id, tag):
@@ -68,11 +79,40 @@ class TestAvisos(unittest.TestCase):
              patch.object(mod, 'create_draft') as create:
             mod.run()
             self.releases['pastranaalex-glitch/nueva-app'] = self.release(333,'v1.0')
-            (self.root / 'index.html').write_text((self.root / 'index.html').read_text(encoding='utf-8') +
-                '\n<article data-app-card data-repo="pastranaalex-glitch/nueva-app"><h3>Nueva App</h3><a href="nueva-app.html">Ficha</a></article>', encoding='utf-8')
+            self.catalogue['aplicaciones'].append(
+                {'nombre': 'Nueva App', 'slug': 'nueva-app', 'publicado': True,
+                 'repo': 'pastranaalex-glitch/nueva-app',
+                 'enlace': 'https://pastranaalex-glitch.github.io/nueva-app.html'})
+            self.save_catalogue()
             mod.run()
             self.assertEqual(create.call_count, 1)
             self.assertEqual(create.call_args.args[2], 'nueva')
+
+    def test_shared_repository_and_unpublished_apps_are_skipped(self):
+        self.catalogue['aplicaciones'] += [
+            {'nombre': 'En Familia', 'slug': 'en-familia', 'publicado': True,
+             'repo': 'pastranaalex-glitch/pastranaalex-glitch.github.io',
+             'enlace': 'https://pastranaalex-glitch.github.io/en-familia.html'},
+            {'nombre': 'Aún no publicada', 'slug': 'pendiente', 'publicado': False,
+             'repo': 'pastranaalex-glitch/pendiente',
+             'enlace': 'https://pastranaalex-glitch.github.io/pendiente.html'}]
+        self.save_catalogue()
+        self.assertEqual(len(mod.get_catalogue()), 2)
+
+    def test_duplicate_repository_rejected(self):
+        self.catalogue['aplicaciones'].append(
+            {'nombre': 'Otra ficha', 'slug': 'otra-ficha', 'publicado': True,
+             'repo': 'pastranaalex-glitch/lector-facil',
+             'enlace': 'https://pastranaalex-glitch.github.io/otra-ficha.html'})
+        self.save_catalogue()
+        with self.assertRaisesRegex(ValueError, 'duplicados'):
+            mod.get_catalogue()
+
+    def test_external_ficha_rejected(self):
+        self.catalogue['aplicaciones'][0]['enlace'] = 'https://example.org/lector-facil.html'
+        self.save_catalogue()
+        with self.assertRaisesRegex(ValueError, 'Enlace de ficha'):
+            mod.get_catalogue()
 
     def test_email_escaping_and_unsubscribe(self):
         app = mod.get_catalogue()[0]

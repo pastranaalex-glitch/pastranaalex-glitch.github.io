@@ -77,14 +77,50 @@ class CatalogueParser(HTMLParser):
 
 
 def get_catalogue():
-    parser = CatalogueParser()
-    parser.feed((BASE / 'index.html').read_text(encoding='utf-8'))
-    if not parser.apps:
-        raise ValueError('No se detectaron fichas en index.html: se detiene la automatización')
-    repos = [x['repo'] for x in parser.apps]
-    if len(repos) != len(set(repos)):
-        raise ValueError('Hay repositorios duplicados en index.html')
-    return parser.apps
+    """Lee las aplicaciones publicadas desde catalogo.json.
+
+    Las releases de aplicaciones con repositorio propio se pueden identificar
+    inequívocamente. Las publicadas en el repositorio compartido de esta web
+    requieren una detección por etiqueta/archivo y se omiten por seguridad.
+    """
+    catalogue_file = BASE / 'catalogo.json'
+    catalogue = json.loads(catalogue_file.read_text(encoding='utf-8'))
+    if not isinstance(catalogue, dict) or not isinstance(catalogue.get('aplicaciones'), list):
+        raise ValueError('catalogo.json no contiene una lista de aplicaciones válida')
+
+    apps = []
+    seen_repos = set()
+    shared_repo = OWNER + '/' + OWNER + '.github.io'
+    for record in catalogue['aplicaciones']:
+        if not isinstance(record, dict):
+            raise ValueError('Entrada inválida en catalogo.json')
+        if record.get('publicado') is not True:
+            continue
+
+        repo = record.get('repo')
+        if repo == shared_repo:
+            # No se puede identificar una app concreta solo por latest release:
+            # hacerlo ocasionaría avisos duplicados o sobre la app equivocada.
+            continue
+        if not isinstance(repo, str) or not re.fullmatch(
+                r'pastranaalex-glitch/[A-Za-z0-9_.-]+', repo):
+            raise ValueError('Repositorio no reconocido en catalogo.json')
+        nombre, slug = record.get('nombre'), record.get('slug')
+        if not isinstance(nombre, str) or not nombre.strip():
+            raise ValueError('Falta nombre de aplicación en catalogo.json')
+        if not isinstance(slug, str) or not re.fullmatch(r'[a-z0-9-]+', slug):
+            raise ValueError('Slug de ficha inválido en catalogo.json')
+        ficha = SITE + slug + '.html'
+        if record.get('enlace') != ficha:
+            raise ValueError('Enlace de ficha inesperado para ' + nombre)
+        if repo in seen_repos:
+            raise ValueError('Hay repositorios duplicados en catalogo.json: ' + repo)
+        seen_repos.add(repo)
+        apps.append({'repo': repo, 'nombre': nombre.strip(), 'ficha': ficha})
+
+    if not apps:
+        raise ValueError('No hay aplicaciones con repositorio propio publicadas en catalogo.json')
+    return apps
 
 
 def request_json(url, *, method='GET', payload=None, headers=None):
