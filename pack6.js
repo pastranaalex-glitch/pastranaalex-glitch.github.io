@@ -7,7 +7,24 @@ const safe=(v)=>typeof v==='string'?v:'';
 if(!slot)return;
 const fallback=document.getElementById('catalog-fallback');
 const validApp=a=>a&&a.publicado===true&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&(a.repo===owner+'/'+a.slug||(['menu-y-compra','mi-salud-familiar','mi-dinero-real','en-familia','jardin-de-joyas'].includes(a.slug)&&a.repo===owner+'/'+owner+'.github.io'))&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
-const assetValid=(asset,a)=>asset&&typeof asset.name==='string'&&typeof asset.browser_download_url==='string'&&asset.browser_download_url.startsWith('https://github.com/'+a.repo+'/releases/download/')&&(a.plataforma==='windows'?/\.(zip|exe|msi)$/i:/\.apk$/i).test(asset.name)&&!/debug|unsigned|sin.firmar/i.test(asset.name)&&(a.slug!=='mi-salud-familiar'||(asset.name==='MiSaludFamiliar_2.9_Publicacion_Firmada.apk'&&asset.browser_download_url.startsWith('https://github.com/'+a.repo+'/releases/download/mi-salud-familiar-v2.9/')))&&(a.slug!=='menu-y-compra'||/^Menu_y_Compra_.*\.apk$/i.test(asset.name))&&(a.slug!=='en-familia'||(asset.name==='En_Familia_1.7.2_Publicacion_Firmada.apk'&&asset.digest==='sha256:ca60248d387a2b928e1745becb0332f576229e23b451759bb61bb4e07a9deb0e'&&asset.browser_download_url.startsWith('https://github.com/'+a.repo+'/releases/download/en-familia-v1.7.2/')))&&(a.slug!=='jardin-de-joyas'||(asset.name==='Jardin_de_Joyas_Pack_6_1_4_1.apk'&&asset.digest==='sha256:8e0abb545467d53e19adcbb13ed4aab48d21567c8046b45a0d619bfabbfb70d6'&&asset.browser_download_url.startsWith('https://github.com/'+a.repo+'/releases/download/V.1.4.1/')));
+/* La descarga nunca depende de una consulta a la API de GitHub.
+   Fijamos versión, nombre y SHA-256 a los metadatos verificados del catálogo. */
+const approvedDownload=a=>{
+ const d=a&&a.descarga;
+ if(!d||d.version!==a.version||typeof a.repo!=='string'
+   ||!/^[a-zA-Z0-9._-]+$/.test(d.tag||'')
+   ||!/^[a-zA-Z0-9._()-]+\.(apk|exe|zip|msi)$/i.test(d.archivo||'')
+   ||!/^[a-f0-9]{64}$/.test(d.sha256||'')
+   ||(a.plataforma==='windows'?!/\.(exe|zip|msi)$/i.test(d.archivo):!/\.apk$/i.test(d.archivo)))return '';
+ return 'https://github.com/'+a.repo+'/releases/download/'+d.tag+'/'+d.archivo;
+};
+const assetValid=(asset,a)=>{
+ const url=approvedDownload(a);
+ return !!(url&&asset&&asset.state==='uploaded'
+   &&asset.name===a.descarga.archivo
+   &&asset.digest==='sha256:'+a.descarga.sha256
+   &&asset.browser_download_url===url);
+};
 const mk=(tag,cls,text)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=String(text);return el;};
 let apps=[],platform='todos',category='todas',query='',compact=false;
 function card(a){
@@ -22,7 +39,10 @@ function card(a){
  const desc=mk('p','app-description',isHome&&short[a.slug]?short[a.slug]:a.descripcion),meta=mk('div','app-meta');meta.append(mk('span',null,'Versión '+(a.version||'actual')),mk('span',null,a.plataforma==='windows'?'Windows':'Android'));
  const footer=mk('div','card-footer'),stats=mk('div','downloads'),strong=mk('strong',null,'—'),label=mk('span',null,'Consultando descargas'),small=mk('small',null,'GitHub Releases');stats.append(strong,label,small);
  const actions=mk('div','card-actions'),detail=mk('a','button button-outline','Ver aplicación →'),dl=mk('a','button button-dark','Descargar ↓');detail.href=a.enlace;
- dl.href=a.slug==='jardin-de-joyas'?'https://github.com/'+a.repo+'/releases/download/V.1.4.1/Jardin_de_Joyas_Pack_6_1_4_1.apk':a.slug==='mi-dinero-real'?'MiDineroReal2_2.5.1_Publicacion_Firmada.apk':a.slug==='menu-y-compra'?'Menu_y_Compra_1.4.3_Publicacion_Firmada.apk':a.slug==='mi-salud-familiar'?'https://github.com/'+a.repo+'/releases/tag/mi-salud-familiar-v2.9':a.slug==='en-familia'?'https://github.com/'+a.repo+'/releases/tag/en-familia-v1.7.2':'https://github.com/'+a.repo+'/releases/latest';dl.rel='noopener noreferrer';if(a.plataforma==='windows')dl.target='_blank';
+ const direct=approvedDownload(a);
+ if(direct){dl.href=direct;dl.title='Descargar la versión '+a.version+' desde GitHub Releases';}
+ else{dl.href=a.enlace;dl.textContent='Ver descarga →';dl.title='Consultar la ficha antes de descargar';}
+ dl.rel='noopener noreferrer';if(a.plataforma==='windows')dl.target='_blank';
  actions.append(detail,dl);footer.append(stats,actions);body.append(identity,desc);if(a.slug==='cocina-a-punto'){const notice=mk('a','ui-warning','1 detección en VirusTotal · En revisión');notice.href='cocina-a-punto.html#informacion-descarga';body.append(notice);}body.append(meta,footer);article.append(art,body);
  a.node=article;a.stat=strong;a.label=label;a.downloadLink=dl;return article;
 }
@@ -40,18 +60,49 @@ function wire(){
  const reset=document.getElementById('reset-search');if(reset)reset.addEventListener('click',()=>{platform='todos';category='todas';query='';if(search){search.value='';search.focus();}filters();});
  const view=document.getElementById('view-toggle');if(view)view.addEventListener('click',()=>{compact=!compact;slot.classList.toggle('is-compact',compact);view.setAttribute('aria-pressed',String(compact));view.textContent=compact?'▦ Mostrar imágenes':'☷ Vista compacta';});
 }
-async function github(a){
- // Mi Dinero Real aún se distribuye como descarga directa; Menú y Compra usa su APK de GitHub Release.
- if(a.slug==='mi-dinero-real'){a.count=undefined;return;}
- try{const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),9000);let resp;try{resp=await fetch('https://api.github.com/repos/'+a.repo+'/releases?per_page=100',{headers:{Accept:'application/vnd.github+json'},signal:ctrl.signal});}finally{clearTimeout(timer);}
- if(!resp.ok)throw Error('API '+resp.status);
- const rel=(await resp.json()).filter(r=>r&&!r.draft&&!r.prerelease&&(a.slug!=='mi-salud-familiar'||r.tag_name==='mi-salud-familiar-v2.9')&&(a.slug!=='en-familia'||r.tag_name==='en-familia-v1.7.2')&&(a.slug!=='jardin-de-joyas'||r.tag_name==='V.1.4.1'));
- const list=rel.flatMap(r=>(r.assets||[]).filter(x=>assetValid(x,a)));if(a.slug==='menu-y-compra'&&!list.length){a.count=undefined;return;}a.count=list.reduce((n,x)=>n+(Number(x.download_count)||0),0);
- const chosen=rel.find(r=>(r.assets||[]).some(x=>assetValid(x,a)));const asset=chosen?.assets.find(x=>assetValid(x,a));
- if(asset){a.url=asset.browser_download_url;a.date=Date.parse(chosen.published_at||chosen.created_at||'')||0;a.releaseName=chosen.name||chosen.tag_name||a.nombre;a.hasRelease=true;}
- }catch(e){a.failed=true;}
+/* Las aplicaciones que comparten repositorio comparten también la consulta,
+   evitando solicitudes repetidas y retrasos innecesarios en móvil. */
+const releaseRequests=new Map();
+function listReleases(repo){
+ if(!releaseRequests.has(repo)){
+  releaseRequests.set(repo,(async()=>{
+   const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),7000);
+   try{
+    const response=await fetch('https://api.github.com/repos/'+repo+'/releases?per_page=30',{headers:{Accept:'application/vnd.github+json'},signal:ctrl.signal});
+    if(!response.ok)throw Error('API '+response.status);
+    const result=await response.json();
+    if(!Array.isArray(result))throw Error('Respuesta de GitHub no válida');
+    return result;
+   }finally{clearTimeout(timer);}
+  })());
+ }
+ return releaseRequests.get(repo);
 }
-function updateLink(a){if(!a.node)return;if(a.count!==undefined){a.stat.textContent=fmt(a.count);a.label.textContent=a.count===1?'Descarga pública':'Descargas públicas';}else a.label.textContent='Consultar en GitHub';if(a.slug==='mi-dinero-real'){a.downloadLink.href='MiDineroReal2_2.5.1_Publicacion_Firmada.apk';a.downloadLink.setAttribute('download','MiDineroReal2_2.5.1_Publicacion_Firmada.apk');a.label.textContent='Descarga directa';a.stat.textContent='APK';}else if(a.slug==='menu-y-compra'){if(a.url){a.downloadLink.href=a.url;a.downloadLink.removeAttribute('download');}else{a.downloadLink.href='Menu_y_Compra_1.4.3_Publicacion_Firmada.apk';a.downloadLink.setAttribute('download','Menu_y_Compra_1.4.3_Publicacion_Firmada.apk');a.label.textContent='Descarga directa';a.stat.textContent='APK';}}else if(a.url){a.downloadLink.href=a.url;}}
+async function github(a){
+ if(!approvedDownload(a)){a.failed=true;return;}
+ try{
+  const releases=await listReleases(a.repo);
+  const release=releases.find(r=>r&&!r.draft&&!r.prerelease&&r.tag_name===a.descarga.tag);
+  const asset=release?.assets?.find(x=>assetValid(x,a));
+  if(!asset){a.failed=true;return;}
+  a.count=Math.max(0,Number(asset.download_count)||0);
+  a.date=Date.parse(release.published_at||release.created_at||'')||0;
+  a.releaseName=release.name||release.tag_name||a.nombre;
+  a.hasRelease=true;
+ }catch(_){a.failed=true;}
+}
+function updateLink(a){
+ if(!a.node)return;
+ if(a.count!==undefined){
+  a.stat.textContent=fmt(a.count);
+  a.label.textContent=a.count===1?'Descarga de esta versión':'Descargas de esta versión';
+ }else{
+  a.stat.textContent='—';
+  a.label.textContent='Contador no disponible';
+ }
+ const direct=approvedDownload(a);
+ if(direct)a.downloadLink.href=direct;
+}
 function featureList(){
  const selected=['lector-facil','recetario-facil','rutas-a-pie'].map(slug=>apps.find(a=>a.slug===slug)).filter(Boolean);
  for(const a of apps){if(selected.length<3&&a.slug!=='jardin-de-joyas'&&!selected.includes(a))selected.push(a);}
@@ -68,13 +119,11 @@ function totals(){
  if(!known.length){el.textContent='—';el.title='GitHub no ha proporcionado datos de descargas';return;}
  const counted=known.reduce((n,a)=>n+a.count,0);
  el.textContent='≥ '+fmt(counted);
- el.title='Mínimo de descargas registradas en GitHub Releases. No incluye las descargas directas ni datos no disponibles.';
+ el.title='Suma de descargas de las versiones actuales en GitHub Releases. No incluye otros enlaces ni los datos no disponibles.';
 }
 async function start(){
  try{
  const r=await fetch('catalogo.json',{cache:'no-store'});if(!r.ok)throw Error('Catálogo');const data=await r.json();if(!data||!Array.isArray(data.aplicaciones))throw Error('Datos');
- const menu=data.aplicaciones.find(a=>a.slug==='menu-y-compra');
- if(menu&&!menu.publicado){try{const f=await fetch('Menu_y_Compra_1.4.3_Publicacion_Firmada.apk',{method:'HEAD',cache:'no-store'});if(f.ok)menu.publicado=true;}catch(_){}}
  apps=data.aplicaciones.filter(validApp).slice(0,60);if(!apps.length)throw Error('Sin apps');
  if(isHome){slot.replaceChildren(...featureList().map(card));}
  else apps.forEach(a=>slot.append(card(a)));
@@ -83,9 +132,9 @@ async function start(){
  set('total-apps',apps.length);set('hero-apps',apps.length);set('android-apps',apps.filter(a=>a.plataforma==='android').length);set('windows-apps',apps.filter(a=>a.plataforma==='windows').length);
  const count=document.querySelector('[data-filter-count="todos"]');if(count)count.textContent=apps.length;
  if(!isHome){const params=new URLSearchParams(location.search);const raw=(params.get('q')||'').slice(0,120);query=normalize(raw);const search=document.getElementById('search-apps');if(search)search.value=raw;const p=params.get('platform'),c=params.get('category');if(['android','windows'].includes(p))platform=p;if(apps.some(a=>(a.categorias||[]).includes(c)))category=c;wire();filters();}
- await Promise.all(apps.map(github));
+ await Promise.all(apps.map(async a=>{await github(a);updateLink(a);}));
  if(isHome){const featured=featureList();slot.replaceChildren(...featured.map(a=>{if(!a.node)card(a);return a.node;}));}
- apps.forEach(updateLink);totals();if(isHome)headline();
+ totals();if(isHome)headline();
  }catch(e){console.warn('La Biblioteca conserva sus enlaces alternativos.',e);}
 }
 start();
