@@ -14,8 +14,8 @@ function card(a){
  const article=mk('article','app-card');article.dataset.appCard='';article.dataset.platform=a.plataforma;article.dataset.categories=(a.categorias||[]).join(' ');article.dataset.search=normalize(a.nombre+' '+a.descripcion+' '+(a.categorias||[]).join(' '));article.dataset.repo=a.repo;
  const art=mk('div','card-art card-art-'+a.slug);
  const copy=mk('div','card-art-copy');copy.append(mk('span','art-tag',a.etiqueta||'APP GRATUITA'),mk('strong',null,a.eslogan||a.nombre),mk('span',null,a.plataforma==='windows'?'Para tu ordenador':'Para tu móvil'));art.append(copy);
- const image=a.portada||a.imagen;if(a.portada)art.classList.add('is-promo-cover');
- if(image&&/^[\w\s.()-]+\.(webp|jpeg|jpg|png)$/i.test(image)){const holder=mk('div','card-phone card-phone-'+a.slug);const img=mk('img');img.src=image;img.alt=(a.portada?'Portada promocional de ':'Captura real de ')+a.nombre;img.loading='lazy';img.decoding='async';holder.append(img);art.append(holder);}else{const holder=mk('div','pack6-art-logo');const mark=mk('img');mark.src=a.icono;mark.alt='';mark.loading='lazy';mark.decoding='async';holder.append(mark);art.append(holder);}
+ const image=a.portada||a.imagen,isCover=Boolean(a.portada)||a.slug==='jardin-de-joyas';if(isCover)art.classList.add('is-promo-cover');
+ if(image&&/^[\w\s.()-]+\.(webp|jpeg|jpg|png)$/i.test(image)){const holder=mk('div','card-phone card-phone-'+a.slug);const img=mk('img');img.src=image;img.alt=(isCover?'Portada promocional de ':'Captura real de ')+a.nombre;img.loading='lazy';img.decoding='async';holder.append(img);art.append(holder);}else{const holder=mk('div','pack6-art-logo');const mark=mk('img');mark.src=a.icono;mark.alt='';mark.loading='lazy';mark.decoding='async';holder.append(mark);art.append(holder);}
  const body=mk('div','card-body'),identity=mk('div','app-identity'),icon=mk('img','app-icon');icon.src=a.icono;icon.alt='';icon.loading='lazy';icon.width=54;icon.height=54;
  const names=mk('div');names.append(mk('h3',null,a.nombre),mk('p',null,(a.plataforma==='windows'?'Windows':'Android')+' · '+((a.categorias||[])[0]||'Herramientas')));identity.append(icon,names,mk('span','free-label','Gratis'));
  const short={'lector-facil':'Lee PDF y Word, prepara exposiciones y guarda marcadores.','recetario-facil':'52 recetas ilustradas, con búsqueda y preparación paso a paso.','rutas-a-pie':'Explora 225 rutas por España y graba tus recorridos con GPS.'};
@@ -31,7 +31,7 @@ function filters(){
  document.querySelectorAll('[data-filter]').forEach(b=>{const on=b.dataset.filter===platform;b.classList.toggle('is-active',on);b.setAttribute('aria-pressed',String(on));});
  document.querySelectorAll('[data-category-filter]').forEach(b=>{const on=b.dataset.categoryFilter===category;b.classList.toggle('is-active',on);b.setAttribute('aria-pressed',String(on));});
  const empty=document.getElementById('empty-results');if(empty)empty.hidden=visible!==0;
- const status=document.getElementById('results-status');if(status)status.textContent=visible+' aplicaciones encontradas';
+ const status=document.getElementById('results-status');if(status)status.textContent=visible===1?'1 aplicación encontrada':visible+' aplicaciones encontradas';
 }
 function wire(){
  document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{platform=b.dataset.filter;filters();}));

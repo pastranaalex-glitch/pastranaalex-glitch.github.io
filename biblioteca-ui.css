@@ -27,12 +27,12 @@ body.library-ui{--ui-purple:#6753e6;--ui-ink:#171827;--ui-muted:#5f6278;backgrou
 .library-ui .button-primary{background:#6753e6;color:white}
 .library-ui .button-primary:hover{background:#5340c9}
 .ui-home-hero{padding:28px 0 0}
-.ui-home-surface{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;padding:26px 30px;background:linear-gradient(120deg,#f5f2ff,#fff 60%,#f2f4ff);border:1px solid #e5e2f1;border-radius:22px}
-.ui-home-copy h1{font-size:clamp(2.35rem,4.3vw,3.7rem);font-weight:820;line-height:1.06;letter-spacing:-.055em;margin:0 0 18px}
+.ui-home-surface{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;padding:20px 30px;background:linear-gradient(120deg,#f5f2ff,#fff 60%,#f2f4ff);border:1px solid #e5e2f1;border-radius:22px}
+.ui-home-copy h1{font-size:clamp(2.35rem,4.3vw,3.3rem);font-weight:820;line-height:1.06;letter-spacing:-.055em;margin:0 0 18px}
 .ui-home-copy h1 span{color:#6753e6}
-.ui-home-copy>p{font-size:1.05rem;color:#5b5d75;max-width:38ch;margin:0 0 23px}
+.ui-home-copy>p{font-size:1.05rem;color:#5b5d75;margin:0 0 23px}
 .ui-home-copy .button{min-height:50px;padding:13px 23px;font-size:.98rem}
-.ui-feature{background:white;overflow:hidden;border:1px solid #e5e2ef;border-radius:16px;box-shadow:0 5px 16px #26203c07;position:relative;min-width:0}
+.ui-feature{background:white;overflow:hidden;border:1px solid #e5e2ef;border-radius:16px;box-shadow:0 5px 16px #26203c07;position:relative;min-width:0;width:100%;max-width:420px;justify-self:end}
 .ui-feature-art{display:block;aspect-ratio:1672/941;background:#29143d;overflow:hidden}
 .ui-feature-art img{display:block;width:100%;height:100%;object-fit:cover}
 .ui-feature-tag{position:absolute;left:12px;top:12px;padding:6px 10px;border-radius:8px;background:#fff;color:#5840bf;font-size:.68rem;letter-spacing:.03em;font-weight:850;pointer-events:none}
@@ -41,7 +41,7 @@ body.library-ui{--ui-purple:#6753e6;--ui-ink:#171827;--ui-muted:#5f6278;backgrou
 .ui-feature-info h2{font-size:1.12rem;margin:0;letter-spacing:-.025em}
 .ui-feature-info p{font-size:.83rem;color:#66687e;margin:2px 0 0}
 .ui-feature-info a{margin-left:auto;min-height:44px;display:flex;align-items:center;text-decoration:none;color:#5944cc;font-size:.86rem;font-weight:750;flex-shrink:0}
-.ui-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid #e5e4ef;padding:20px 8px;gap:18px}
+.ui-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid #e5e4ef;padding:14px 8px;gap:18px}
 .ui-benefit{display:flex;align-items:center;gap:12px;min-width:0}
 .ui-benefit-icon{display:grid;place-items:center;background:#eeebff;color:#6048d6;width:39px;height:39px;border-radius:11px;font-weight:850;font-size:1.25rem;flex:none}
 .ui-benefit strong{display:block;font-size:.88rem;color:#29253f}
@@ -108,12 +108,12 @@ body.library-ui{--ui-purple:#6753e6;--ui-ink:#171827;--ui-muted:#5f6278;backgrou
 .library-ui .ui-detail-grid .app-promo-cover img{width:100%;height:auto;display:block;border-radius:12px;box-shadow:none}
 .library-ui .ui-detail-grid .app-promo-cover figcaption{font-size:.73rem;color:#6c6480;text-align:left;padding:7px 2px 0}
 .library-ui .ui-detail-intro,.ficha-app.library-ui .ui-detail-intro{padding:12px 6px;background:transparent;border:0;border-radius:0;box-shadow:none;display:flex;flex-direction:column;min-width:0}
-.library-ui .ui-detail-intro .detail-eyebrow{margin:0 0 13px;background:transparent;border:0;padding:0;font-size:.75rem;letter-spacing:.06em}
-.library-ui .ui-detail-intro .detail-title-row{gap:12px;align-items:center}
+.library-ui .ui-detail-intro .detail-eyebrow{margin:0 0 13px;background:transparent;border:0;padding:0;font-size:.75rem;letter-spacing:.06em;color:#6450c0;font-weight:750}
+.library-ui .ui-detail-intro .detail-title-row{display:flex;gap:12px;align-items:center}
 .library-ui .ui-detail-intro .detail-title-row img{width:47px;height:47px;border-radius:12px}
 .library-ui .ui-detail-intro h1{font-size:clamp(1.85rem,2.7vw,2.7rem);line-height:1.08;font-weight:820;color:#211b38;letter-spacing:-.045em;margin:0;padding:0}
 .library-ui .ui-detail-intro .detail-subtitle{font-size:1rem;line-height:1.55;color:#55516d;margin:16px 0 0}
-.library-ui .ui-detail-intro .detail-chips{gap:7px;margin-top:16px}
+.library-ui .ui-detail-intro .detail-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
 .library-ui .ui-detail-intro .app-chip{background:#fff;color:#544a70;border:1px solid #e4dcf4;font-size:.78rem;padding:6px 9px;border-radius:9px}
 .library-ui .ui-detail-intro .detail-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .library-ui .ui-detail-intro .detail-actions .button{min-height:48px;line-height:1.3;border-radius:11px;padding:12px 16px;text-decoration:none;font-size:.94rem;font-weight:750;display:inline-flex;justify-content:center;align-items:center}
@@ -122,12 +122,12 @@ body.library-ui{--ui-purple:#6753e6;--ui-ink:#171827;--ui-muted:#5f6278;backgrou
 .library-ui .ui-detail-intro .detail-actions .detail-secondary{background:#fff;color:#5944b7;border:1px solid #e1d9ef;flex:1;font-size:.86rem}
 .library-ui .ui-detail-intro .detail-note{font-size:.8rem;line-height:1.5;color:#655e79;margin:10px 0 0;overflow-wrap:anywhere}
 .library-ui .ui-detail-stats{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;border:0;margin:0;padding:17px 4px;font-size:.85rem}
-.library-ui .ui-detail-stats>div{min-width:0;display:flex;gap:7px;align-items:baseline}
+.library-ui .ui-detail-stats>div{min-width:0;display:flex;flex-direction:row;gap:7px;align-items:baseline}
 .library-ui .ui-detail-stats strong{font-size:.92rem;color:#39334d}
 .library-ui .ui-detail-stats span{font-size:.8rem;color:#6d667c}
 .library-ui .ui-detail-stats .detail-footnote{flex-basis:100%;font-size:.77rem;margin:0}
 .library-ui .ui-detail-stats .detail-share{margin:0;padding:8px 0;font-size:.84rem;min-height:44px;background:transparent;border:0;color:#5b42c9;cursor:pointer}
-.ui-download-info{border:1px solid #ded9ec;border-radius:12px;background:white;margin-top:4px;overflow:hidden}
+.ui-download-info{border:1px solid #ded9ec;border-radius:12px;background:white;margin-top:4px;overflow:hidden;padding:0}
 .ui-download-info>summary{cursor:pointer;padding:13px 16px;min-height:48px;font-size:.87rem;font-weight:700;color:#4f426a}
 .ui-download-info .seguridad-ficha{margin:0;border:0;border-top:1px solid #e6e2f0;border-radius:0;box-shadow:none}
 .ui-warning{color:#82521b!important;background:#fff7e8;border:1px solid #e9c992;border-radius:9px;padding:10px 13px;font-size:.84rem;margin:12px 0 0}
