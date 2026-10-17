@@ -41,7 +41,7 @@
         meta.append(mk('span',null,'Gratuito'));
         if(typeof a.version==='string' && a.version.trim())meta.append(mk('span',null,'Versión '+a.version.trim().slice(0,22)));
         content.append(meta);
-        const link=mk('a',null,'Ver aplicación y descarga →');
+        const link=mk('a',null,a.disponible===false?'Ver ficha · descarga suspendida →':'Ver aplicación y descarga →');
         link.href=href;link.rel='noopener noreferrer';
         if(new URL(href).origin!==location.origin)link.target='_blank';
         content.append(link);article.append(content);slot.append(article);
