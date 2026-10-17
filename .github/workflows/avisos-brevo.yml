@@ -2,8 +2,8 @@ name: Biblioteca - Preparar avisos Brevo
 
 on:
   schedule:
-    # Comprobación aproximada cada seis horas; GitHub puede retrasarla.
-    - cron: '17 */6 * * *'
+    # Comprobación diaria a las 08:17 UTC; GitHub puede retrasarla.
+    - cron: '17 8 * * *'
   workflow_dispatch:
 
 permissions:
