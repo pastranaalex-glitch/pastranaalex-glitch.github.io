@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="t d">
+<title id="t">Jardín de Joyas</title><desc id="d">Tres joyas luminosas sobre un jardín de colores</desc>
+<defs><linearGradient id="f" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#291665"/><stop offset=".53" stop-color="#6431a6"/><stop offset="1" stop-color="#126978"/></linearGradient><linearGradient id="j" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fbe9ff"/><stop offset=".45" stop-color="#ef74cf"/><stop offset="1" stop-color="#ad318e"/></linearGradient><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c4fbf4"/><stop offset="1" stop-color="#16b9a7"/></linearGradient></defs>
+<rect width="128" height="128" rx="28" fill="url(#f)"/>
+<path d="M15 108c24-17 44-16 58-11 17 7 28 5 40-1" stroke="#a6ee91" stroke-width="6" stroke-linecap="round" opacity=".75" fill="none"/>
+<path d="M64 18 90 38 84 70 64 87 40 70 36 40Z" fill="url(#j)" stroke="#fff0ff" stroke-width="3"/><path d="m64 18-7 22 7 47 20-17 6-32ZM36 40h54L64 87" fill="none" stroke="white" stroke-width="3" opacity=".55"/>
+<path d="m24 66 17 6 4 20-19 12-17-18Z" fill="url(#g)" stroke="white" stroke-width="2.5" opacity=".96"/>
+<path d="m99 70 15 10-4 18-17 6-12-16Z" fill="#f9d56f" stroke="#fff4ca" stroke-width="2.5"/>
+<path d="M102 18v16M94 26h16M23 29v12M17 35h12" stroke="#fffbd7" stroke-width="3.5" stroke-linecap="round"/>
+</svg>
