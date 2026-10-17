@@ -176,6 +176,23 @@
       "imagen": "",
       "icono": "icono-en-familia.svg",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io"
+    },
+    {
+      "nombre": "Jardín de Joyas",
+      "plataforma": "android",
+      "publicado": false,
+      "version": "1.4.1",
+      "descripcion": "Juego de combinar joyas para Android, con efectos visuales coloridos y controles táctiles cómodos.",
+      "enlace": "https://pastranaalex-glitch.github.io/jardin-de-joyas.html",
+      "slug": "jardin-de-joyas",
+      "categorias": [
+        "juegos"
+      ],
+      "etiqueta": "JUEGO DE JOYAS",
+      "eslogan": "Un jardín lleno de brillo.",
+      "imagen": "",
+      "icono": "icono-jardin-de-joyas.svg",
+      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io"
     }
   ]
 }
