@@ -48,7 +48,7 @@ if(release.draft||release.prerelease||release.tag_name!==tag||!a)throw Error('Ar
 btn.href=a.browser_download_url;btn.removeAttribute('aria-disabled');btn.removeAttribute('tabindex');btn.textContent='↓ Descargar APK · 1.4.1';
 info.textContent='Descarga oficial desde GitHub Releases. Comprueba el nombre y la versión.';
 counter.textContent=(Number(a.download_count)||0).toLocaleString('es-ES')+' descargas registradas en GitHub Releases';
-}).catch(()=>{btn.textContent='Descarga pendiente de publicación';info.textContent='Estamos terminando de publicar esta versión. El botón se activará cuando el archivo exacto esté disponible.';counter.textContent='El contador aparecerá al publicarse el APK.'});
+}).catch(()=>{info.textContent='La descarga directa sigue disponible. No se pudo actualizar la información de GitHub.';counter.textContent='Contador no disponible temporalmente.';});
 })();
 </script>
 </body></html>
