@@ -17,7 +17,13 @@
       "imagen": "captura-01-inicio.webp",
       "icono": "icono-lector.svg",
       "repo": "pastranaalex-glitch/lector-facil",
-      "portada": "lector-facil-portada-realista.webp"
+      "portada": "lector-facil-portada-realista.webp",
+      "descarga": {
+        "version": "1.0.1",
+        "tag": "1.0.1",
+        "archivo": "LectorFacil-v1.0.1.apk",
+        "sha256": "104b0b6537e2564e38291aebc233a3429dc1e3c733d620cd905bba80355c2dd9"
+      }
     },
     {
       "nombre": "Recetario Fácil",
@@ -35,7 +41,13 @@
       "imagen": "recetario-01-inicio.webp",
       "icono": "icono-recetario.svg",
       "repo": "pastranaalex-glitch/recetario-facil",
-      "portada": "recetario-facil-portada-realista.webp"
+      "portada": "recetario-facil-portada-realista.webp",
+      "descarga": {
+        "version": "1.20.0",
+        "tag": "v1.20.0",
+        "archivo": "RecetarioFacil-v1.20.0.apk",
+        "sha256": "d657d6543f9c2996c3157162391ab9dcdbe808e396828f3b107ab65bab73fd72"
+      }
     },
     {
       "nombre": "Cocina Clara",
@@ -53,7 +65,13 @@
       "imagen": "",
       "icono": "icono-clara.svg",
       "repo": "pastranaalex-glitch/cocina-clara",
-      "portada": "cocina-clara-portada-realista.webp"
+      "portada": "cocina-clara-portada-realista.webp",
+      "descarga": {
+        "version": "1.6.0",
+        "tag": "v1.6.0",
+        "archivo": "CocinaClara_Setup_1.6.0.exe",
+        "sha256": "416b13a599a4859650402f57413acf4bd3a2c7e390b48fdc85145bed20610e2e"
+      }
     },
     {
       "nombre": "Cocina a Punto",
@@ -72,7 +90,13 @@
       "imagen": "cocina-punto-02-simultaneos.webp",
       "icono": "icono-punto.svg",
       "repo": "pastranaalex-glitch/cocina-a-punto",
-      "portada": "cocina-a-punto-portada-realista.webp"
+      "portada": "cocina-a-punto-portada-realista.webp",
+      "descarga": {
+        "version": "1.4.1",
+        "tag": "v1.4.1",
+        "archivo": "CocinaAPunto-v1.4.1.apk",
+        "sha256": "c6f3357a7b342095d2c50d376239fb71f3b3c1e69a615d8365aedd94f930fe37"
+      }
     },
     {
       "nombre": "Rutas a Pie",
@@ -90,7 +114,13 @@
       "imagen": "WhatsApp Image 2026-10-12 at 18.21.56.jpeg",
       "icono": "icono-rutas.svg",
       "repo": "pastranaalex-glitch/rutas-a-pie",
-      "portada": "rutas-a-pie-portada-realista.webp"
+      "portada": "rutas-a-pie-portada-realista.webp",
+      "descarga": {
+        "version": "1.5.1",
+        "tag": "v1.5.1",
+        "archivo": "RutasAPie_1.5.1.apk",
+        "sha256": "f4b9f6d2442d1785bebf96c3d58e32e107591a443b58c0b6d8a121a8501fc74b"
+      }
     },
     {
       "nombre": "Documentos de Casa",
@@ -109,7 +139,13 @@
       "imagen": "",
       "icono": "icono-documentos.svg",
       "repo": "pastranaalex-glitch/documentos-de-casa",
-      "portada": "documentos-de-casa-portada-realista.webp"
+      "portada": "documentos-de-casa-portada-realista.webp",
+      "descarga": {
+        "version": "1.7.6",
+        "tag": "V1.7.6",
+        "archivo": "DOCUMENTOS.DE.CASA.1.7.6.apk",
+        "sha256": "bb3878f8d68a54adb944aabd915a85892a9e7cae85dd74daec99839343e5c859"
+      }
     },
     {
       "nombre": "Menú y Compra",
@@ -128,7 +164,13 @@
       "imagen": "menu-compra-semana.jpg",
       "icono": "icono-menu.svg",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
-      "portada": "menu-y-compra-portada-realista.webp"
+      "portada": "menu-y-compra-portada-realista.webp",
+      "descarga": {
+        "version": "1.4.3",
+        "tag": "v.1.4.3",
+        "archivo": "Menu_y_Compra_1.4.3_Publicacion_Firmada.3.apk",
+        "sha256": "b33d1715d4bdc45a9b493171c590ee8111ce4e740e4ff64d810b9a9687888200"
+      }
     },
     {
       "nombre": "Mi Salud Familiar",
@@ -185,7 +227,13 @@
       "imagen": "",
       "icono": "icono-en-familia.svg",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
-      "portada": "en-familia-portada-realista.webp"
+      "portada": "en-familia-portada-realista.webp",
+      "descarga": {
+        "version": "1.7.2",
+        "tag": "en-familia-v1.7.2",
+        "archivo": "En_Familia_1.7.2_Publicacion_Firmada.apk",
+        "sha256": "ca60248d387a2b928e1745becb0332f576229e23b451759bb61bb4e07a9deb0e"
+      }
     },
     {
       "nombre": "Jardín de Joyas",
@@ -202,7 +250,13 @@
       "eslogan": "Un jardín lleno de brillo.",
       "imagen": "jardin-joyas-portada.png",
       "icono": "icono-jardin-de-joyas.svg",
-      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io"
+      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
+      "descarga": {
+        "version": "1.4.1",
+        "tag": "V.1.4.1",
+        "archivo": "Jardin_de_Joyas_Pack_6_1_4_1.apk",
+        "sha256": "8e0abb545467d53e19adcbb13ed4aab48d21567c8046b45a0d619bfabbfb70d6"
+      }
     }
   ]
 }
