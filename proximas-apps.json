@@ -97,6 +97,23 @@
       "sha256Aprobado": "8e0abb545467d53e19adcbb13ed4aab48d21567c8046b45a0d619bfabbfb70d6",
       "apkSubido": true,
       "icono": "icono-jardin-de-joyas.svg"
+    },
+    {
+      "slug": "mente-activa-pro",
+      "nombre": "Mente Activa PRO",
+      "fechaEstreno": null,
+      "repo": null,
+      "plataforma": "android",
+      "versionAprobada": null,
+      "revisionAprobada": false,
+      "publicacionAutomatica": false,
+      "categorias": [
+        "educacion",
+        "bienestar"
+      ],
+      "descripcion": "Próxima aplicación gratuita de ejercicios para practicar la memoria, la atención, la concentración, el razonamiento y la agilidad mental, con distintos niveles e historial personal. No es una herramienta sanitaria ni cuenta con validación clínica.",
+      "etiqueta": "ENTRENAMIENTO MENTAL",
+      "eslogan": "Pequeños retos para mantener la mente activa."
     }
   ]
 }
