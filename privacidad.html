@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="dark"><meta name="theme-color" content="#0b1020">
+  <meta name="color-scheme" content="light"><meta name="theme-color" content="#f8f9fc">
   <meta name="robots" content="index,follow"><link rel="canonical" href="https://pastranaalex-glitch.github.io/privacidad.html">
   <meta name="description" content="Información sobre la privacidad, el formulario de opiniones y la moderación en Biblioteca de herramientas.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg"><title>Privacidad y opiniones | Biblioteca de herramientas</title>
@@ -13,13 +13,15 @@
     .brand{text-decoration:none;font-weight:800;font-size:1.06rem;color:var(--ink);}.access-tools{display:flex;gap:6px;}.access-tools button{font:inherit;color:#fff;background:#263850;border:1px solid #657c95;padding:7px 12px;border-radius:8px;cursor:pointer;}
     main{padding:53px 0 70px;}h1{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.04em;line-height:1.15;margin:0 0 10px;}.lead{color:var(--muted);font-size:1.05rem;}h2{margin-top:0;font-size:1.3rem;}section{background:#121d30;border:1px solid #354966;border-radius:17px;padding:23px 25px;margin:18px 0;}section p,li{color:#c6d4e4;}ul{padding-left:23px;}footer{border-top:1px solid #33455f;padding:22px 0;color:#b3c4d9;font-size:.9rem;}.skip-link{position:absolute;top:-100px;left:12px;padding:10px 16px;background:#e2faff;color:#102030;z-index:60;}.skip-link:focus{top:8px;}@media(max-width:500px){main{padding:38px 0;}section{padding:18px;}}
   </style>
+<link rel="stylesheet" href="biblioteca-ui.css?v=20261017-1">
+<script src="biblioteca-ui.js?v=20261017-1" defer></script>
 </head>
-<body>
+<body class="library-ui library-privacy">
 <a href="#contenido" class="skip-link">Saltar al contenido</a>
-<header><div class="wrap nav"><a class="brand" href="index.html">⌘ Biblioteca de herramientas</a><div class="access-tools" role="group" aria-label="Tamaño de letra"><button type="button" data-text-size="down" aria-label="Reducir tamaño de letra">A−</button><button type="button" data-text-size="up" aria-label="Ampliar tamaño de letra">A+</button></div></div></header>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="Biblioteca de herramientas, ir al inicio"><span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><rect x="7" y="7" width="9" height="9" rx="3" fill="white"/><rect x="20" y="7" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="7" y="20" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="20" y="20" width="9" height="9" rx="3" fill="white"/></svg></span><span class="brand-name">Biblioteca<span class="brand-suffix">de herramientas</span></span></a><button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú de navegación"><span aria-hidden="true">☰</span> Menú</button><nav class="site-nav" id="menu-principal" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="proximamente.html">Próximamente</a><a href="index.html#proyecto">El proyecto</a><a href="avisos.html">Avisos</a><a class="nav-cta" href="catalogo.html">Explorar apps →</a></nav></div></header>
 <main class="wrap" id="contenido">
 <p><a href="index.html">Inicio</a> › Privacidad y opiniones</p>
-<h1>Privacidad y opiniones</h1>
+<div class="access-tools" role="group" aria-label="Tamaño de letra"><button type="button" data-text-size="down" aria-label="Reducir tamaño de letra">A−</button><button type="button" data-text-size="up" aria-label="Ampliar tamaño de letra">A+</button></div><h1>Privacidad y opiniones</h1>
 <p class="lead">Información sobre opiniones, privacidad y avisos por correo de la Biblioteca de herramientas.</p>
 <section><h2>Visitar y descargar</h2><p>Esta web está alojada en GitHub Pages. Los archivos APK se distribuyen mediante GitHub Releases. La Biblioteca no incorpora anuncios, tienda ni herramientas propias de seguimiento de visitantes.</p><p>GitHub puede tratar datos técnicos para prestar y proteger sus servicios; consulta su <a href="https://docs.github.com/es/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">información de privacidad</a>.</p></section>
 <section><h2>Enviar una valoración</h2><p>El formulario externo de Google Forms solicita una puntuación, tipo de mensaje, comentario y versión de la aplicación. El nombre o apodo es opcional y puedes elegir si autorizas que tu comentario se publique.</p><p>Al utilizar el formulario, las respuestas se envían a Google, sujeto a sus condiciones y políticas de privacidad. No incluyas teléfonos, direcciones, contraseñas, correos ni información personal de otras personas.</p><p><a href="https://docs.google.com/forms/d/e/1FAIpQLSf3Wyhp_aEpYp8kmQg4fzJ0esjjwAXSPOwjaQp1xX-adLFiwg/viewform" target="_blank" rel="noopener noreferrer">Abrir formulario de opiniones ↗</a></p></section>
@@ -38,7 +40,7 @@
   <p>Usamos Cloudflare Web Analytics para conocer el uso general de esta web. Este servicio no utiliza cookies para realizar estas estadisticas. Puedes consultar la <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">politica de privacidad de Cloudflare</a>.</p>
 </section>
 </main>
-<footer><div class="wrap">Biblioteca de herramientas · Proyecto personal sin ánimo de lucro · <a href="index.html">Inicio</a></div></footer>
+<footer class="site-footer"><div class="container footer-inner"><div><strong>Biblioteca de herramientas</strong><p>Aplicaciones gratuitas para Android y Windows, compartidas por afición.</p><p>Sin anuncios, pagos ni donaciones.</p></div><div class="footer-links"><a href="catalogo.html">Catálogo</a><a href="proximamente.html">Próximamente</a><a href="index.html#proyecto">El proyecto</a><a href="sugerir-app.html">Sugerir una app</a><a href="avisos.html">Avisos por correo</a><a href="seguridad.html">Seguridad y análisis</a><a href="privacidad.html">Privacidad</a></div></div></footer>
 <script src="biblioteca.js" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"c3b3255ee9e649dea45b5127eef74fdd"}'></script>

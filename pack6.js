@@ -4,16 +4,6 @@ const owner='pastranaalex-glitch', slot=document.querySelector('[data-catalog-sl
 const fmt=n=>Number(n).toLocaleString('es-ES');
 const normalize=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('es-ES');
 const safe=(v)=>typeof v==='string'?v:'';
-const menuToggle=document.getElementById('menu-toggle'),menu=document.getElementById('menu-principal');
-if(menuToggle&&menu){
- document.documentElement.classList.add('has-v2-menu');
- const close=()=>{menu.classList.remove('is-open');menuToggle.setAttribute('aria-expanded','false');};
- menuToggle.addEventListener('click',()=>{let open=menu.classList.toggle('is-open');menuToggle.setAttribute('aria-expanded',String(open));});
- menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
- document.addEventListener('pointerdown',e=>{if(!menu.contains(e.target)&&!menuToggle.contains(e.target))close();});
- document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
- window.addEventListener('resize',()=>{if(innerWidth>700)close();});
-}
 if(!slot)return;
 const fallback=document.getElementById('catalog-fallback');
 const validApp=a=>a&&a.publicado===true&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&(a.repo===owner+'/'+a.slug||(['menu-y-compra','mi-salud-familiar','mi-dinero-real','en-familia','jardin-de-joyas'].includes(a.slug)&&a.repo===owner+'/'+owner+'.github.io'))&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
@@ -28,11 +18,12 @@ function card(a){
  if(image&&/^[\w\s.()-]+\.(webp|jpeg|jpg|png)$/i.test(image)){const holder=mk('div','card-phone card-phone-'+a.slug);const img=mk('img');img.src=image;img.alt=(a.portada?'Portada promocional de ':'Captura real de ')+a.nombre;img.loading='lazy';img.decoding='async';holder.append(img);art.append(holder);}else{const holder=mk('div','pack6-art-logo');const mark=mk('img');mark.src=a.icono;mark.alt='';mark.loading='lazy';mark.decoding='async';holder.append(mark);art.append(holder);}
  const body=mk('div','card-body'),identity=mk('div','app-identity'),icon=mk('img','app-icon');icon.src=a.icono;icon.alt='';icon.loading='lazy';icon.width=54;icon.height=54;
  const names=mk('div');names.append(mk('h3',null,a.nombre),mk('p',null,(a.plataforma==='windows'?'Windows':'Android')+' · '+((a.categorias||[])[0]||'Herramientas')));identity.append(icon,names,mk('span','free-label','Gratis'));
- const desc=mk('p','app-description',a.descripcion),meta=mk('div','app-meta');meta.append(mk('span',null,'Versión '+(a.version||'actual')),mk('span',null,a.plataforma==='windows'?'Windows':'Android'));
+ const short={'lector-facil':'Lee PDF y Word, prepara exposiciones y guarda marcadores.','recetario-facil':'52 recetas ilustradas, con búsqueda y preparación paso a paso.','rutas-a-pie':'Explora 225 rutas por España y graba tus recorridos con GPS.'};
+ const desc=mk('p','app-description',isHome&&short[a.slug]?short[a.slug]:a.descripcion),meta=mk('div','app-meta');meta.append(mk('span',null,'Versión '+(a.version||'actual')),mk('span',null,a.plataforma==='windows'?'Windows':'Android'));
  const footer=mk('div','card-footer'),stats=mk('div','downloads'),strong=mk('strong',null,'—'),label=mk('span',null,'Consultando descargas'),small=mk('small',null,'GitHub Releases');stats.append(strong,label,small);
- const actions=mk('div','card-actions'),detail=mk('a','button button-outline','Ver ficha'),dl=mk('a','button button-dark','Descargar ↓');detail.href=a.enlace;
+ const actions=mk('div','card-actions'),detail=mk('a','button button-outline','Ver aplicación →'),dl=mk('a','button button-dark','Descargar ↓');detail.href=a.enlace;
  dl.href=a.slug==='jardin-de-joyas'?'https://github.com/'+a.repo+'/releases/download/V.1.4.1/Jardin_de_Joyas_Pack_6_1_4_1.apk':a.slug==='mi-dinero-real'?'MiDineroReal2_2.5.1_Publicacion_Firmada.apk':a.slug==='menu-y-compra'?'Menu_y_Compra_1.4.3_Publicacion_Firmada.apk':a.slug==='mi-salud-familiar'?'https://github.com/'+a.repo+'/releases/tag/mi-salud-familiar-v2.9':a.slug==='en-familia'?'https://github.com/'+a.repo+'/releases/tag/en-familia-v1.7.2':'https://github.com/'+a.repo+'/releases/latest';dl.rel='noopener noreferrer';if(a.plataforma==='windows')dl.target='_blank';
- actions.append(detail,dl);footer.append(stats,actions);body.append(identity,desc,meta,footer);article.append(art,body);
+ actions.append(detail,dl);footer.append(stats,actions);body.append(identity,desc);if(a.slug==='cocina-a-punto'){const notice=mk('a','ui-warning','1 detección en VirusTotal · En revisión');notice.href='cocina-a-punto.html#informacion-descarga';body.append(notice);}body.append(meta,footer);article.append(art,body);
  a.node=article;a.stat=strong;a.label=label;a.downloadLink=dl;return article;
 }
 function filters(){
@@ -62,10 +53,8 @@ async function github(a){
 }
 function updateLink(a){if(!a.node)return;if(a.count!==undefined){a.stat.textContent=fmt(a.count);a.label.textContent=a.count===1?'Descarga pública':'Descargas públicas';}else a.label.textContent='Consultar en GitHub';if(a.slug==='mi-dinero-real'){a.downloadLink.href='MiDineroReal2_2.5.1_Publicacion_Firmada.apk';a.downloadLink.setAttribute('download','MiDineroReal2_2.5.1_Publicacion_Firmada.apk');a.label.textContent='Descarga directa';a.stat.textContent='APK';}else if(a.slug==='menu-y-compra'){if(a.url){a.downloadLink.href=a.url;a.downloadLink.removeAttribute('download');}else{a.downloadLink.href='Menu_y_Compra_1.4.3_Publicacion_Firmada.apk';a.downloadLink.setAttribute('download','Menu_y_Compra_1.4.3_Publicacion_Firmada.apk');a.label.textContent='Descarga directa';a.stat.textContent='APK';}}else if(a.url){a.downloadLink.href=a.url;}}
 function featureList(){
- const valid=apps.filter(a=>a.hasRelease),windows=valid.filter(a=>a.plataforma==='windows').sort((a,b)=>b.count-a.count),byDate=[...valid].sort((a,b)=>b.date-a.date),byCount=[...valid].sort((a,b)=>b.count-a.count);
- const selected=[];const add=a=>{if(a&&!selected.includes(a))selected.push(a);};
- add(byDate[0]);add(byCount[0]);add(windows[0]);
- [...byDate,...byCount,...apps].forEach(a=>{if(selected.length<3)add(a);});
+ const selected=['lector-facil','recetario-facil','rutas-a-pie'].map(slug=>apps.find(a=>a.slug===slug)).filter(Boolean);
+ for(const a of apps){if(selected.length<3&&a.slug!=='jardin-de-joyas'&&!selected.includes(a))selected.push(a);}
  return selected.slice(0,3);
 }
 function headline(){const latest=apps.filter(a=>a.hasRelease).sort((a,b)=>b.date-a.date)[0];if(!latest)return;
@@ -87,13 +76,13 @@ async function start(){
  const menu=data.aplicaciones.find(a=>a.slug==='menu-y-compra');
  if(menu&&!menu.publicado){try{const f=await fetch('Menu_y_Compra_1.4.3_Publicacion_Firmada.apk',{method:'HEAD',cache:'no-store'});if(f.ok)menu.publicado=true;}catch(_){}}
  apps=data.aplicaciones.filter(validApp).slice(0,60);if(!apps.length)throw Error('Sin apps');
- if(isHome){const defaults=[apps.find(a=>a.slug==='rutas-a-pie'),apps.find(a=>a.slug==='recetario-facil'),apps.find(a=>a.slug==='cocina-clara')].filter(Boolean);defaults.forEach(a=>slot.append(card(a)));}
+ if(isHome){slot.replaceChildren(...featureList().map(card));}
  else apps.forEach(a=>slot.append(card(a)));
  if(fallback)fallback.remove();
  const set=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=String(v);};
  set('total-apps',apps.length);set('hero-apps',apps.length);set('android-apps',apps.filter(a=>a.plataforma==='android').length);set('windows-apps',apps.filter(a=>a.plataforma==='windows').length);
  const count=document.querySelector('[data-filter-count="todos"]');if(count)count.textContent=apps.length;
- if(!isHome){wire();filters();}
+ if(!isHome){const params=new URLSearchParams(location.search);const raw=(params.get('q')||'').slice(0,120);query=normalize(raw);const search=document.getElementById('search-apps');if(search)search.value=raw;const p=params.get('platform'),c=params.get('category');if(['android','windows'].includes(p))platform=p;if(apps.some(a=>(a.categorias||[]).includes(c)))category=c;wire();filters();}
  await Promise.all(apps.map(github));
  if(isHome){const featured=featureList();slot.replaceChildren(...featured.map(a=>{if(!a.node)card(a);return a.node;}));}
  apps.forEach(updateLink);totals();if(isHome)headline();
@@ -101,4 +90,5 @@ async function start(){
 }
 start();
 })();
+
 

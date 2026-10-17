@@ -18,31 +18,14 @@
   <link rel="stylesheet" href="portada-v2.css">
   <link rel="stylesheet" href="sugerencias-banner.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Catálogo de aplicaciones","url":"https://pastranaalex-glitch.github.io/catalogo.html"}</script>
-  <script src="pack6.js?v=portadas-20261017" defer></script>
+  <script src="pack6.js?v=20261017-ui-1" defer></script>
 <link rel="stylesheet" href="portadas-apps.css?v=20261017">
+<link rel="stylesheet" href="biblioteca-ui.css?v=20261017-1">
+<script src="biblioteca-ui.js?v=20261017-1" defer></script>
 </head>
-<body data-pack6-page="catalogo">
+<body class="library-ui" data-pack6-page="catalogo">
   <a class="skip-link" href="#aplicaciones">Saltar al catálogo de aplicaciones</a>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Biblioteca de herramientas, ir al inicio">
-        <span class="brand-logo" aria-hidden="true">
-          <svg viewBox="0 0 36 36" fill="none"><rect x="7" y="7" width="9" height="9" rx="3" fill="white"/><rect x="20" y="7" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="7" y="20" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="20" y="20" width="9" height="9" rx="3" fill="white"/></svg>
-        </span>
-        <span class="brand-name">Biblioteca<span class="brand-suffix"> de herramientas</span></span>
-      </a>
-      <button type="button" class="menu-toggle" id="menu-toggle" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú de navegación"><span aria-hidden="true" class="menu-symbol">☰</span> Menú</button>
-      <nav class="site-nav" id="menu-principal" aria-label="Navegación principal">
-        <a href="index.html">Inicio</a>
-        <a href="catalogo.html">Catálogo</a>
-        <a href="proximamente.html">Próximamente</a>
-        <a href="index.html#proyecto">Quién está detrás</a>
-        <a href="sugerir-app.html">💡 Sugerir app</a>
-        <a href="avisos.html">Avisos</a>
-        <a class="nav-cta" href="catalogo.html">Explorar <span aria-hidden="true">↗</span></a>
-      </nav>
-    </div>
-  </header>
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="Biblioteca de herramientas, ir al inicio"><span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><rect x="7" y="7" width="9" height="9" rx="3" fill="white"/><rect x="20" y="7" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="7" y="20" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="20" y="20" width="9" height="9" rx="3" fill="white"/></svg></span><span class="brand-name">Biblioteca<span class="brand-suffix">de herramientas</span></span></a><button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú de navegación"><span aria-hidden="true">☰</span> Menú</button><nav class="site-nav" id="menu-principal" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="catalogo.html" aria-current="page">Catálogo</a><a href="proximamente.html">Próximamente</a><a href="index.html#proyecto">El proyecto</a><a href="avisos.html">Avisos</a><a class="nav-cta" href="catalogo.html">Explorar apps →</a></nav></div></header>
 
   <main id="contenido">
     <section class="pack6-subhero"><div class="container"><p class="section-kicker">EXPLORA A TU RITMO</p><h1>El catálogo completo.</h1><p>Aplicaciones gratuitas para Android y Windows. Busca, compara y descarga desde GitHub.</p></div></section>
@@ -51,16 +34,16 @@
         <div class="section-heading">
           <div>
             <p class="section-kicker">NUESTRA COLECCIÓN</p>
-            <h2 id="catalog-title">Encuentra tu próxima herramienta favorita<span class="title-star" aria-hidden="true">✳</span></h2>
-            <p class="section-subtitle">Explora las aplicaciones disponibles y conoce lo que hace cada una.</p>
+            <h2 id="catalog-title">Aplicaciones disponibles</h2>
+
           </div>
-          <span class="collection-count"><span id="total-apps">7</span> aplicaciones</span>
+          <span class="collection-count"><span id="total-apps">9</span> aplicaciones</span>
         </div>
 
         <div class="catalog-toolbar">
           <div class="filters" role="group" aria-label="Filtrar por sistema operativo">
-            <button class="filter-button is-active" data-filter="todos" aria-pressed="true" type="button">Todas <span data-filter-count="todos">7</span></button>
-            <button class="filter-button" data-filter="android" aria-pressed="false" type="button">Android <span id="android-apps">6</span></button>
+            <button class="filter-button is-active" data-filter="todos" aria-pressed="true" type="button">Todas <span data-filter-count="todos">9</span></button>
+            <button class="filter-button" data-filter="android" aria-pressed="false" type="button">Android <span id="android-apps">8</span></button>
             <button class="filter-button" data-filter="windows" aria-pressed="false" type="button">Windows <span id="windows-apps">1</span></button>
           </div>
           <div class="toolbar-side"><div class="search-wrap">
@@ -113,12 +96,13 @@
     </section>
   </main>
 
-  <footer class="site-footer"><div class="container footer-inner"><div><strong>Biblioteca de herramientas</strong><p>Aplicaciones gratuitas para Android y Windows, compartidas por afición.</p></div><div class="footer-links"><a href="index.html">Inicio</a><a href="proximamente.html">Próximamente</a><a href="#contenido">Volver arriba ↑</a><a href="privacidad.html">Privacidad</a><a href="sugerir-app.html">Sugerir una app</a><a href="avisos.html">Avisos por correo</a><span>Sin publicidad · Sin ánimo de lucro</span></div></div></footer>
+  <footer class="site-footer"><div class="container footer-inner"><div><strong>Biblioteca de herramientas</strong><p>Aplicaciones gratuitas para Android y Windows, compartidas por afición.</p><p>Sin anuncios, pagos ni donaciones.</p></div><div class="footer-links"><a href="catalogo.html">Catálogo</a><a href="proximamente.html">Próximamente</a><a href="index.html#proyecto">El proyecto</a><a href="sugerir-app.html">Sugerir una app</a><a href="avisos.html">Avisos por correo</a><a href="seguridad.html">Seguridad y análisis</a><a href="privacidad.html">Privacidad</a></div></div></footer>
 
 <!-- Cloudflare Web Analytics: estadísticas sin cookies -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"c3b3255ee9e649dea45b5127eef74fdd"}'></script>
 <!-- Fin de Cloudflare Web Analytics -->
 </body>
 </html>
+
 
 

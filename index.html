@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8f9fd">
-  <meta name="description" content="Siete aplicaciones gratuitas para Android y Windows, con recetas, lectura, rutas, documentos y organización. Descargas oficiales, sin anuncios, pagos ni donaciones.">
+  <meta name="description" content="Aplicaciones gratuitas para Android y Windows, con recetas, lectura, rutas, documentos y organización. Descargas oficiales, sin anuncios, pagos ni donaciones.">
   <meta name="robots" content="index,follow">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Biblioteca de herramientas | Apps gratuitas para Android y Windows">
@@ -62,77 +62,23 @@
     @media(max-width:650px){.seguridad-aviso-interior{padding:13px;gap:10px}.seguridad-aviso-texto{flex-basis:100%;order:2;font-size:.87rem}.seguridad-aviso-enlace{order:3;width:100%}.seguridad-aviso-nuevo{order:1}}
   </style>
   <style>.values-intro>a+a{margin-left:16px}@media(max-width:700px){.values-intro>a{display:inline-block;margin-bottom:8px}.values-intro>a+a{margin-left:0;display:block}} .values-intro>p strong{color:#44405f;font-weight:750}</style>
-  <script src="pack6.js?v=portadas-20261017" defer></script>
+  <script src="pack6.js?v=20261017-ui-1" defer></script>
 <link rel="stylesheet" href="portadas-apps.css?v=20261017">
+<link rel="stylesheet" href="biblioteca-ui.css?v=20261017-1">
+<script src="biblioteca-ui.js?v=20261017-1" defer></script>
 </head>
-<body data-pack6-page="inicio">
+<body class="library-ui" data-pack6-page="inicio">
   <a class="skip-link" href="#aplicaciones">Saltar a las aplicaciones destacadas</a>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#inicio" aria-label="Biblioteca de herramientas, ir al inicio">
-        <span class="brand-logo" aria-hidden="true">
-          <svg viewBox="0 0 36 36" fill="none"><rect x="7" y="7" width="9" height="9" rx="3" fill="white"/><rect x="20" y="7" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="7" y="20" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="20" y="20" width="9" height="9" rx="3" fill="white"/></svg>
-        </span>
-        <span class="brand-name">Biblioteca<span class="brand-suffix"> de herramientas</span></span>
-      </a>
-      <button type="button" class="menu-toggle" id="menu-toggle" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú de navegación"><span aria-hidden="true" class="menu-symbol">☰</span> Menú</button>
-      <nav class="site-nav" id="menu-principal" aria-label="Navegación principal">
-        <a href="index.html">Inicio</a>
-        <a href="catalogo.html">Catálogo</a>
-        <a href="proximamente.html">Próximamente</a>
-        <a href="index.html#proyecto">Quién está detrás</a>
-        <a href="sugerir-app.html">💡 Sugerir app</a>
-        <a href="avisos.html">Avisos</a>
-        <a class="nav-cta" href="catalogo.html">Explorar <span aria-hidden="true">↗</span></a>
-      </nav>
-    </div>
-  </header>
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="Biblioteca de herramientas, ir al inicio"><span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><rect x="7" y="7" width="9" height="9" rx="3" fill="white"/><rect x="20" y="7" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="7" y="20" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="20" y="20" width="9" height="9" rx="3" fill="white"/></svg></span><span class="brand-name">Biblioteca<span class="brand-suffix">de herramientas</span></span></a><button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú de navegación"><span aria-hidden="true">☰</span> Menú</button><nav class="site-nav" id="menu-principal" aria-label="Navegación principal"><a href="index.html" aria-current="page">Inicio</a><a href="catalogo.html">Catálogo</a><a href="proximamente.html">Próximamente</a><a href="index.html#proyecto">El proyecto</a><a href="avisos.html">Avisos</a><a class="nav-cta" href="catalogo.html">Explorar apps →</a></nav></div></header>
 
-  <aside class="seguridad-aviso" aria-label="Novedad: verificación de descargas">
-    <div class="container">
-      <div class="seguridad-aviso-interior">
-        <span class="seguridad-aviso-nuevo"><span class="seguridad-aviso-punto" aria-hidden="true"></span> NOVEDAD · 8 APPS ANALIZADAS</span>
-        <div class="seguridad-aviso-texto">
-          <strong>🛡️ Más transparencia en las descargas.</strong>
-          <small>Siete aplicaciones, incluido En Familia 1.7.2, tienen 0 detecciones en VirusTotal. Cocina a Punto presenta 1 detección de 68 y sigue en revisión. Consulta los informes y las huellas SHA-256 de cada archivo.</small>
-        </div>
-        <a class="seguridad-aviso-enlace" href="seguridad.html">Ver los informes →</a>
-      </div>
-    </div>
-  </aside>
+
 
   <main id="inicio">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container">
-        <div class="hero-surface">
-          <div class="hero-copy">
-            <span class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Programas útiles, gratis de verdad</span>
-            <h1 id="hero-title">Las herramientas que necesitas.<br><span>Sin pagar por ellas.</span></h1>
-            <p class="hero-lead">Aplicaciones para Android y Windows hechas por afición, pensadas para facilitarte las cosas. Sin publicidad, sin pagos y sin donaciones.</p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="catalogo.html">Descubrir aplicaciones <span aria-hidden="true">→</span></a>
-              <a class="button button-text" href="#confianza">¿Por qué son gratis? <span aria-hidden="true">↗</span></a>
-            </div>
-            <div class="hero-proof" aria-label="Datos de la biblioteca">
-              <span><strong id="hero-apps">7</strong> aplicaciones</span>
-              <i aria-hidden="true"></i>
-              <span><strong>100 %</strong> gratuitas</span>
-              <i aria-hidden="true"></i>
-              <span><strong id="hero-downloads" aria-label="Mínimo de descargas registradas en GitHub">—</strong> descargas en GitHub</span>
-            </div>
-          </div>
-          <div class="hero-art" aria-label="Vistas reales de Lector Fácil, Recetario Fácil y Cocina a Punto">
-            <div class="orb orb-one" aria-hidden="true"></div><div class="orb orb-two" aria-hidden="true"></div>
-            <div class="hero-phone hero-phone-back"><img src="recetario-01-inicio.webp" alt="Pantalla de Recetario Fácil con buscador y recetas" width="691" height="1536" decoding="async"></div>
-            <div class="hero-phone hero-phone-front"><img src="captura-01-inicio.webp" alt="Pantalla de inicio de Lector Fácil" width="691" height="1391" fetchpriority="high"></div>
-            <div class="hero-float hero-float-top" aria-hidden="true"><span>✦</span> Hechas para ayudarte</div>
-            <div class="hero-float hero-float-bottom" aria-hidden="true"><span class="float-icon">✓</span><span>Descargas en GitHub<br><small>versiones publicadas</small></span></div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="ui-home-hero" aria-labelledby="hero-title"><div class="container"><div class="ui-home-surface"><div class="ui-home-copy"><h1 id="hero-title">Pequeñas apps.<br><span>Grandes ayudas.</span></h1><p>Para Android y Windows. Gratis y sin anuncios.</p><a class="button button-primary" href="#aplicaciones">Ver aplicaciones →</a></div><article class="ui-feature" aria-labelledby="feature-title"><a class="ui-feature-art" href="jardin-de-joyas.html" aria-label="Descubrir Jardín de Joyas"><img src="jardin-joyas-portada.png" alt="Ilustración promocional de Jardín de Joyas, con joyas en un jardín mágico" width="1672" height="941" fetchpriority="high" decoding="async"></a><span class="ui-feature-tag">NUEVO EN LA BIBLIOTECA</span><div class="ui-feature-info"><img src="icono-jardin-de-joyas.svg" alt="" width="43" height="43"><div><h2 id="feature-title">Jardín de Joyas</h2><p>Un pequeño mundo lleno de brillo.</p></div><a href="jardin-de-joyas.html">Ver el juego →</a></div></article></div><div class="ui-benefits" aria-label="Una biblioteca gratuita"><div class="ui-benefit"><span class="ui-benefit-icon" aria-hidden="true">✦</span><div><strong>Gratis de verdad</strong><p>Sin pagos ni donaciones.</p></div></div><div class="ui-benefit"><span class="ui-benefit-icon" aria-hidden="true">⊘</span><div><strong>Sin publicidad</strong><p>Apps sin anuncios.</p></div></div><div class="ui-benefit"><span class="ui-benefit-icon" aria-hidden="true">↗</span><div><strong>Descargas desde GitHub</strong><p>Versiones publicadas.</p></div></div></div></div></section>
 
-    <section class="confianza-section" id="confianza" aria-labelledby="confianza-title">
+
+
+    <section class="catalog-section pack6-featured ui-home-apps" id="aplicaciones" aria-labelledby="featured-title"><div class="container"><div class="ui-collection-head"><h2 id="featured-title">Encuentra tu próxima app</h2><form class="ui-home-search" role="search" action="catalogo.html" method="get"><div class="search-wrap"><label class="visually-hidden" for="home-search">Buscar en todas las aplicaciones</label><input type="search" id="home-search" name="q" placeholder="Buscar una aplicación…" maxlength="120"></div><button class="button button-primary" type="submit">Buscar</button></form></div><nav class="ui-discover-filters" aria-label="Explorar aplicaciones por sistema y tema"><a href="catalogo.html">Todas</a><a href="catalogo.html?platform=android">Android</a><a href="catalogo.html?platform=windows">Windows</a><span class="ui-filter-divider" aria-hidden="true"></span><a href="catalogo.html?category=lectura">Lectura</a><a href="catalogo.html?category=cocina">Cocina</a><a href="catalogo.html?category=rutas">Rutas</a><a href="catalogo.html?category=juegos">Juegos</a></nav><div class="apps-grid" id="apps-grid" data-catalog-slot="destacados"><article class="app-card"><div class="card-art is-promo-cover"><div class="card-phone"><img src="lector-facil-portada-realista.webp" alt="Portada promocional de Lector Fácil" width="1672" height="941" loading="lazy" decoding="async"></div></div><div class="card-body"><div class="app-identity"><img class="app-icon" src="icono-lector.svg" alt="" width="43" height="43"><div><h3>Lector Fácil</h3><p>Android · Lectura</p></div><span class="free-label">Gratis</span></div><p class="app-description">Lee PDF y Word, prepara exposiciones y guarda marcadores.</p><div class="card-footer"><div class="card-actions"><a class="button button-outline" href="lector-facil.html">Ver aplicación →</a></div></div></div></article><article class="app-card"><div class="card-art is-promo-cover"><div class="card-phone"><img src="recetario-facil-portada-realista.webp" alt="Portada promocional de Recetario Fácil" width="1672" height="941" loading="lazy" decoding="async"></div></div><div class="card-body"><div class="app-identity"><img class="app-icon" src="icono-recetario.svg" alt="" width="43" height="43"><div><h3>Recetario Fácil</h3><p>Android · Cocina</p></div><span class="free-label">Gratis</span></div><p class="app-description">52 recetas ilustradas, con búsqueda y preparación paso a paso.</p><div class="card-footer"><div class="card-actions"><a class="button button-outline" href="recetario-facil.html">Ver aplicación →</a></div></div></div></article><article class="app-card"><div class="card-art is-promo-cover"><div class="card-phone"><img src="rutas-a-pie-portada-realista.webp" alt="Portada promocional de Rutas a Pie" width="1672" height="941" loading="lazy" decoding="async"></div></div><div class="card-body"><div class="app-identity"><img class="app-icon" src="icono-rutas.svg" alt="" width="43" height="43"><div><h3>Rutas a Pie</h3><p>Android · Rutas</p></div><span class="free-label">Gratis</span></div><p class="app-description">Explora 225 rutas por España y graba tus recorridos con GPS.</p><div class="card-footer"><div class="card-actions"><a class="button button-outline" href="rutas-a-pie.html">Ver aplicación →</a></div></div></div></article></div><div class="ui-more-apps"><a class="button button-outline" href="catalogo.html">Ver todo el catálogo →</a></div></div></section><div class="container"><aside class="ui-security-note" aria-label="Información sobre las descargas"><span><strong>Descarga con información.</strong> Consulta los análisis de cada archivo. Cocina a Punto tiene una alerta en revisión.</span><a href="seguridad.html">Ver informes →</a></aside></div><section class="confianza-section" id="confianza" aria-labelledby="confianza-title">
       <div class="container">
         <div class="confianza-panel">
           <div class="confianza-intro">
@@ -150,19 +96,6 @@
         </div>
       </div>
     </section>
-
-    <section class="catalog-section pack6-featured" id="aplicaciones" aria-labelledby="featured-title">
-      <div class="container">
-        <div class="section-heading pack6-section-heading">
-          <div><p class="section-kicker">SELECCIÓN DE LA BIBLIOTECA</p><h2 id="featured-title">Tres aplicaciones para empezar<span class="title-star" aria-hidden="true">✳</span></h2><p class="section-subtitle">Selección que se actualiza con las versiones y descargas registradas por GitHub.</p></div>
-          <a class="button button-outline" href="catalogo.html">Ver catálogo completo →</a>
-        </div>
-        <div class="apps-grid" id="apps-grid" data-catalog-slot="destacados">
-          <div class="pack6-fallback" id="catalog-fallback">Explora nuestras aplicaciones: <a href="rutas-a-pie.html">Rutas a Pie</a>, <a href="recetario-facil.html">Recetario Fácil</a> y <a href="cocina-clara.html">Cocina Clara</a>.</div>
-        </div>
-        <div class="pack6-view-all"><a class="button button-primary" href="catalogo.html">Ver todas las aplicaciones →</a></div>
-      </div>
-    </section>
     <section class="idea-invite" aria-labelledby="idea-invite-title">
       <div class="container">
         <div class="idea-invite-inner">
@@ -177,12 +110,9 @@
         </div>
       </div>
     </section>
-    <section class="pack6-news" id="novedades" aria-labelledby="news-title"><div class="container"><div class="pack6-news-panel">
-      <div><p class="section-kicker">NOVEDADES</p><h2 id="news-title">Lo último en la Biblioteca</h2><p id="latest-news-description">Puedes consultar las últimas versiones en el catálogo completo.</p></div>
-      <a class="button button-outline" id="latest-news-link" href="catalogo.html">Ver catálogo →</a>
-    </div></div></section>
+
     <section class="pack6-coming-preview" aria-labelledby="coming-preview-title"><div class="container"><div class="pack6-coming-panel">
-      <div><p class="section-kicker">EN PREPARACIÓN</p><h2 id="coming-preview-title">Lo próximo está tomando forma.</h2><p>Además de Mi Salud Familiar y Mi Dinero Real 2, preparamos En familia: dibuja, actúa y adivina. Un juego de mímica, dibujos y pistas para compartir risas entre pequeños y mayores.</p></div>
+      <div><p class="section-kicker">EN PREPARACIÓN</p><h2 id="coming-preview-title">Lo próximo está tomando forma.</h2><p>Preparamos Mi Salud Familiar y Mi Dinero Real 2: nuevas herramientas para organizar la salud y las cuentas del hogar.</p></div>
       <a class="button button-outline" href="proximamente.html">Ver proyectos →</a>
     </div></div></section>
 
@@ -222,12 +152,13 @@
     </section>
   </main>
 
-  <footer class="site-footer"><div class="container footer-inner"><div><strong>Biblioteca de herramientas</strong><p>Aplicaciones gratuitas para Android y Windows, compartidas por afición.</p></div><div class="footer-links"><a href="catalogo.html">Catálogo</a><a href="proximamente.html">Próximamente</a><a href="#inicio">Volver arriba ↑</a><a href="privacidad.html">Privacidad</a><a href="seguridad.html">Seguridad</a><a href="#proyecto">Quién está detrás</a><a href="sugerir-app.html">Sugerir una app</a><a href="avisos.html">Avisos por correo</a><span>Sin publicidad · Sin ánimo de lucro</span></div></div></footer>
+  <footer class="site-footer"><div class="container footer-inner"><div><strong>Biblioteca de herramientas</strong><p>Aplicaciones gratuitas para Android y Windows, compartidas por afición.</p><p>Sin anuncios, pagos ni donaciones.</p></div><div class="footer-links"><a href="catalogo.html">Catálogo</a><a href="proximamente.html">Próximamente</a><a href="index.html#proyecto">El proyecto</a><a href="sugerir-app.html">Sugerir una app</a><a href="avisos.html">Avisos por correo</a><a href="seguridad.html">Seguridad y análisis</a><a href="privacidad.html">Privacidad</a></div></div></footer>
 
 <!-- Cloudflare Web Analytics: estadísticas sin cookies -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"c3b3255ee9e649dea45b5127eef74fdd"}'></script>
 <!-- Fin de Cloudflare Web Analytics -->
 </body>
 </html>
+
 
 
