@@ -24,7 +24,7 @@
       "fechaEstreno": "2026-10-18T00:00:00+02:00",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "plataforma": "android",
-      "versionAprobada": "2.9",
+      "versionAprobada": "mi-salud-familiar-v2.9",
       "revisionAprobada": true,
       "publicacionAutomatica": true,
       "categorias": [
@@ -34,7 +34,10 @@
       "descripcion": "Organiza información de salud, tratamientos y citas de la familia de forma sencilla.",
       "etiqueta": "SALUD Y ORGANIZACIÓN",
       "eslogan": "Tu salud, organizada.",
-      "apkSubido": true
+      "apkSubido": true,
+      "archivoAprobado": "MiSaludFamiliar_2.9_Publicacion_Firmada.apk",
+      "sha256Aprobado": "bc749053460064f8a85c9d6bf1af5ef1b4ac34a532e6fc915c3bda4dd276d749",
+      "releasePublicada": true
     },
     {
       "slug": "mi-dinero-real",
