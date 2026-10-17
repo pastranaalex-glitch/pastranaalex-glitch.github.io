@@ -526,9 +526,10 @@ button.button{font-family:inherit;cursor:pointer;}
   const downloads = $('download-count');
   const caption = $('download-caption');
   const button = $('download-link');
-  const validApk = a => a && typeof a.name === 'string' && /\.apk$/i.test(a.name)
-    && typeof a.browser_download_url === 'string'
-    && a.browser_download_url.startsWith(`https://github.com/${repo}/releases/download/`);
+  const validApk = a => a && a.state === 'uploaded'
+    && a.name === 'LectorFacil-v1.0.1.apk'
+    && a.digest === 'sha256:104b0b6537e2564e38291aebc233a3429dc1e3c733d620cd905bba80355c2dd9'
+    && a.browser_download_url === fallback;
   async function update() {
     try {
       const response = await fetch(`https://api.github.com/repos/${repo}/releases?per_page=100`,
@@ -536,7 +537,7 @@ button.button{font-family:inherit;cursor:pointer;}
       if (!response.ok) throw new Error('GitHub API no disponible');
       const result = await response.json();
       if (!Array.isArray(result)) throw new Error('Respuesta inválida');
-      const releases = result.filter(r => r && !r.draft && !r.prerelease);
+      const releases = result.filter(r => r && !r.draft && !r.prerelease && r.tag_name === '1.0.1');
       const latest = releases.find(r => Array.isArray(r.assets) && r.assets.some(validApk));
       if (!latest) throw new Error('Sin archivos APK publicados');
       const apk = latest.assets.find(validApk);
@@ -550,8 +551,8 @@ button.button{font-family:inherit;cursor:pointer;}
       caption.textContent = 'Descargas públicas de archivos APK. No equivalen a instalaciones únicas.';
       button.href = apk.browser_download_url;
     } catch (_) {
-      version.textContent = 'Ver en GitHub';
-      size.textContent = 'Ver en GitHub';
+      version.textContent = '1.0.1';
+      size.textContent = '20,3 MB';
       downloads.textContent = 'No disponible';
       caption.textContent = 'Las estadísticas no están disponibles temporalmente. La descarga sigue accesible.';
       button.href = fallback;
