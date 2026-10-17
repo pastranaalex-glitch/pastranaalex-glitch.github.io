@@ -246,7 +246,7 @@
       "plataforma": "android",
       "publicado": true,
       "version": "1.4.1",
-      "descripcion": "Combina joyas en 200 niveles, crea bombas y rayos y disfruta del modo Relax. Gratis, sin anuncios y sin conexión.",
+      "descripcion": "Combina joyas en 200 niveles y disfruta del modo Relax. Descarga temporalmente suspendida mientras se repara y comprueba una versión actualizada.",
       "enlace": "https://pastranaalex-glitch.github.io/jardin-de-joyas.html",
       "slug": "jardin-de-joyas",
       "categorias": [
@@ -257,12 +257,8 @@
       "imagen": "jardin-joyas-portada.png",
       "icono": "icono-jardin-de-joyas.svg",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
-      "descarga": {
-        "version": "1.4.1",
-        "tag": "V.1.4.1",
-        "archivo": "Jardin_de_Joyas_Pack_6_1_4_1.apk",
-        "sha256": "8e0abb545467d53e19adcbb13ed4aab48d21567c8046b45a0d619bfabbfb70d6"
-      }
+      "disponible": false,
+      "estado": "En reparación"
     }
   ]
 }
