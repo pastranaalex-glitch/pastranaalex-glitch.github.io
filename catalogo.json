@@ -16,7 +16,8 @@
       "eslogan": "Lee a tu manera.",
       "imagen": "captura-01-inicio.webp",
       "icono": "icono-lector.svg",
-      "repo": "pastranaalex-glitch/lector-facil"
+      "repo": "pastranaalex-glitch/lector-facil",
+      "portada": "lector-facil-portada-realista.webp"
     },
     {
       "nombre": "Recetario Fácil",
@@ -33,7 +34,8 @@
       "eslogan": "El gusto de cocinar.",
       "imagen": "recetario-01-inicio.webp",
       "icono": "icono-recetario.svg",
-      "repo": "pastranaalex-glitch/recetario-facil"
+      "repo": "pastranaalex-glitch/recetario-facil",
+      "portada": "recetario-facil-portada-realista.webp"
     },
     {
       "nombre": "Cocina Clara",
@@ -50,7 +52,8 @@
       "eslogan": "Todo más claro.",
       "imagen": "",
       "icono": "icono-clara.svg",
-      "repo": "pastranaalex-glitch/cocina-clara"
+      "repo": "pastranaalex-glitch/cocina-clara",
+      "portada": "cocina-clara-portada-realista.webp"
     },
     {
       "nombre": "Cocina a Punto",
@@ -68,7 +71,8 @@
       "eslogan": "Todo a su tiempo.",
       "imagen": "cocina-punto-02-simultaneos.webp",
       "icono": "icono-punto.svg",
-      "repo": "pastranaalex-glitch/cocina-a-punto"
+      "repo": "pastranaalex-glitch/cocina-a-punto",
+      "portada": "cocina-a-punto-portada-realista.webp"
     },
     {
       "nombre": "Rutas a Pie",
@@ -85,7 +89,8 @@
       "eslogan": "Tu próxima ruta.",
       "imagen": "WhatsApp Image 2026-10-12 at 18.21.56.jpeg",
       "icono": "icono-rutas.svg",
-      "repo": "pastranaalex-glitch/rutas-a-pie"
+      "repo": "pastranaalex-glitch/rutas-a-pie",
+      "portada": "rutas-a-pie-portada-realista.webp"
     },
     {
       "nombre": "Documentos de Casa",
@@ -103,7 +108,8 @@
       "eslogan": "Tus documentos, protegidos.",
       "imagen": "",
       "icono": "icono-documentos.svg",
-      "repo": "pastranaalex-glitch/documentos-de-casa"
+      "repo": "pastranaalex-glitch/documentos-de-casa",
+      "portada": "documentos-de-casa-portada-realista.webp"
     },
     {
       "nombre": "Menú y Compra",
@@ -121,7 +127,8 @@
       "eslogan": "Organiza tu semana.",
       "imagen": "menu-compra-semana.jpg",
       "icono": "icono-menu.svg",
-      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io"
+      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
+      "portada": "menu-y-compra-portada-realista.webp"
     },
     {
       "nombre": "Mi Salud Familiar",
@@ -139,7 +146,8 @@
       "eslogan": "Tu salud, organizada.",
       "imagen": "",
       "icono": "icono-salud.svg",
-      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io"
+      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
+      "portada": "mi-salud-familiar-portada-realista.webp"
     },
     {
       "nombre": "Mi Dinero Real 2",
@@ -157,7 +165,8 @@
       "eslogan": "Tus cuentas, más claras.",
       "imagen": "",
       "icono": "icono-mi-dinero-real.svg",
-      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io"
+      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
+      "portada": "mi-dinero-real-portada-realista.webp"
     },
     {
       "nombre": "En Familia",
@@ -175,7 +184,8 @@
       "eslogan": "500 retos para jugar juntos.",
       "imagen": "",
       "icono": "icono-en-familia.svg",
-      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io"
+      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
+      "portada": "en-familia-portada-realista.webp"
     },
     {
       "nombre": "Jardín de Joyas",
