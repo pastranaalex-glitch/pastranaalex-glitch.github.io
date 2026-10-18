@@ -9,6 +9,7 @@ function make(tag,cls,txt){const x=document.createElement(tag);if(cls)x.classNam
 function redraw(){
  for(const c of cards()){
   const s=c.dataset.appSlug;let row=c.querySelector('.bv-line');
+  if(!ready){if(row)row.remove();continue;}
   if(!row){
    row=make('div','bv-line');
    const buttons=make('span','bv-stars');
