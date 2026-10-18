@@ -1,0 +1,26 @@
+name: Comprobar valoraciones web
+on:
+  pull_request:
+    paths:
+      - 'valoraciones*'
+      - 'valoraciones-worker/**'
+      - 'pack6.js'
+      - '.github/workflows/probar-valoraciones.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verificar sintaxis JavaScript
+        run: |
+          node --check valoraciones.js
+          node --check pack6.js
+          node --check valoraciones-worker/src/index.js
+      - name: Pruebas de seguridad de API
+        run: node --test valoraciones-worker/tests/api.test.mjs

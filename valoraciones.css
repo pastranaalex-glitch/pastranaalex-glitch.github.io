@@ -1,0 +1,21 @@
+.bv-line{display:flex;flex-wrap:wrap;align-items:center;gap:5px 9px;margin:0 0 12px;font-size:.83rem;color:#5e5a70}
+.bv-stars{display:inline-flex;align-items:center}.bv-star,.bv-modalstars button{appearance:none;background:transparent;border:0;color:#c3c1cc;cursor:pointer;line-height:1;font-family:inherit}
+.bv-star{font-size:24px;min-width:28px;min-height:32px;padding:3px 1px}
+.bv-star.bv-filled,.bv-star:not(:disabled):hover,.bv-star:not(:disabled):focus-visible{color:#bf8314}
+.bv-star:disabled{cursor:default;opacity:.65}.bv-info{font-size:.78rem}
+.bv-dialog{max-width:min(440px,calc(100vw - 24px));width:100%;border:1px solid #e2dcea;border-radius:19px;padding:24px;color:#252438;box-shadow:0 24px 70px #21183450;background:#fff}
+.bv-dialog::backdrop{background:#1d183b99}.bv-title{font-size:1.3rem;margin:0 0 4px;color:#2d254f}
+.bv-appname{font-weight:800;margin:0 0 12px}.bv-modalstars{display:flex;justify-content:center;gap:3px}
+.bv-modalstars button{font-size:35px;min-width:45px;min-height:45px}
+.bv-modalstars button.bv-active,.bv-modalstars button:hover,.bv-modalstars button:focus-visible{color:#bf8314}
+.bv-star:focus-visible,.bv-modalstars button:focus-visible{outline:3px solid #7462e2;outline-offset:2px;border-radius:5px}
+.bv-privacy{font-size:.82rem;line-height:1.55;color:#68637a}
+.bv-captcha{min-height:46px;margin:12px 0}.bv-message{font-size:.9rem;min-height:1.3em;margin:9px 0}
+.bv-low{background:#f4f0ff;border:1px solid #e4dcff;padding:12px;border-radius:12px;font-size:.91rem}
+.bv-low p{margin:0 0 10px}.bv-form-link{color:#5c47bf;font-weight:800}
+.bv-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:15px;flex-wrap:wrap}
+.bv-send,.bv-close{font:inherit;border:0;border-radius:10px;padding:12px 16px;cursor:pointer}
+.bv-send{background:#6651d6;color:white;font-weight:750}.bv-send:disabled{opacity:.5;cursor:not-allowed}
+.bv-close{background:#eeedf4;color:#3d3955}
+@media(max-width:420px){.bv-line{gap:3px 7px}.bv-star{font-size:22px;min-width:27px}.bv-dialog{padding:18px}.bv-modalstars button{min-width:40px}}
+.bv-ficha-rating{margin:14px 0 20px}.bv-ficha-rating .bv-line{font-size:.92rem}
