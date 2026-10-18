@@ -1,0 +1,11 @@
+name = "biblioteca-valoraciones"
+main = "src/index.js"
+compatibility_date = "2026-10-18"
+workers_dev = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "biblioteca-valoraciones"
+# Sustituir por el UUID devuelto por: npx wrangler d1 create biblioteca-valoraciones
+database_id = "REEMPLAZAR_CON_UUID_DE_D1"
+migrations_dir = "migrations"
