@@ -49,7 +49,7 @@ export default {
     const url = new URL(request.url);
     if (!env.DB) return reply({error:'Base de datos no configurada'},503);
     if(request.method === 'GET' && url.pathname === '/ratings') {
-      try { return reply({ratings:await stats(env.DB)}); }
+      try { return reply({enabled:Boolean(env.TURNSTILE_SECRET && env.VOTE_HASH_KEY),ratings:await stats(env.DB)}); }
       catch { return reply({error:'Estadísticas temporalmente no disponibles'},503); }
     }
     if(request.method !== 'POST' || url.pathname !== '/vote') return reply({error:'Ruta no encontrada'},404);
