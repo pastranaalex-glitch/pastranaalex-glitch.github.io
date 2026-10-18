@@ -1,6 +1,6 @@
 /* Valoraciones anónimas en web: un voto por navegador y app; sin identificar instalaciones. */
 (()=>{'use strict';
-const key='biblioteca-estrellas-identificador-v1',selector='[data-app-card][data-app-slug]';
+const key='biblioteca-estrellas-identificador-v1',selector='[data-app-card][data-app-slug],[data-rating-ficha][data-app-slug]';
 const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 let api='',siteKey='',ratings={},ready=false,formUrl='',modal=null,slug='',selected=0,token='',widget=null,loadPromise=null;
 let message,submitButton,starRow,captcha,low,feedback;
@@ -19,6 +19,7 @@ function redraw(){
    row.append(buttons,make('span','bv-info'));
    const desc=c.querySelector('.app-description');
    if(desc)desc.insertAdjacentElement('afterend',row);
+   else if(c.hasAttribute('data-rating-ficha'))c.append(row);
    else c.querySelector('.card-body')?.prepend(row);
   }
   const data=ratings[s],count=Number(data?.count)||0,avg=Number(data?.average)||0;
@@ -77,7 +78,7 @@ async function captchaStart(){
 }
 function open(s,n){
  if(!ready)return;buildModal();slug=s;
- modal.querySelector('.bv-appname').textContent=Array.from(cards()).find(c=>c.dataset.appSlug===s)?.querySelector('h3')?.textContent||s;
+ modal.querySelector('.bv-appname').textContent=Array.from(cards()).find(c=>c.dataset.appSlug===s)?.querySelector('h3')?.textContent||document.querySelector('main h1')?.textContent||s;
  message.textContent='';low.hidden=true;feedback.hidden=!formUrl;if(formUrl)feedback.href=formUrl;
  submitButton.hidden=false;modal.showModal();choose(n);captchaStart();
 }
@@ -105,6 +106,13 @@ async function send(){
  }
 }
 async function start(){
+ if(!document.querySelector('[data-catalog-slot]')){
+  const name=location.pathname.split('/').pop().replace(/\.html$/,'');
+  if(document.querySelector('main h1')&&/^[a-z0-9-]+$/.test(name)){
+   const spot=make('div','bv-ficha-rating');spot.dataset.ratingFicha='';spot.dataset.appSlug=name;
+   document.querySelector('main h1').insertAdjacentElement('afterend',spot);
+  }
+ }
  document.addEventListener('biblioteca:cards-ready',redraw);redraw();
  try{
   const [config,op]=await Promise.all([fetch('valoraciones-config.json',{cache:'no-store'}),fetch('config-opiniones.json',{cache:'no-store'}).catch(()=>null)]);
