@@ -18,3 +18,4 @@
 .bv-send{background:#6651d6;color:white;font-weight:750}.bv-send:disabled{opacity:.5;cursor:not-allowed}
 .bv-close{background:#eeedf4;color:#3d3955}
 @media(max-width:420px){.bv-line{gap:3px 7px}.bv-star{font-size:22px;min-width:27px}.bv-dialog{padding:18px}.bv-modalstars button{min-width:40px}}
+.bv-ficha-rating{margin:14px 0 20px}.bv-ficha-rating .bv-line{font-size:.92rem}
