@@ -1,4 +1,4 @@
 {
-  "apiUrl": "",
-  "turnstileSiteKey": ""
+  "apiUrl": "https://biblioteca-valoraciones.pastranaalex.workers.dev",
+  "turnstileSiteKey": "0x4AAAAAAFaAWwXglixoImyI"
 }
