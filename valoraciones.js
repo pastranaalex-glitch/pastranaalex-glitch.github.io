@@ -116,7 +116,7 @@ async function start(){
   api=parsed.href.replace(/\/$/,'');siteKey=settings.turnstileSiteKey;
   const response=await fetch(api+'/ratings',{cache:'no-store'});if(!response.ok)throw Error('API no disponible');
   const data=await response.json();if(typeof data.ratings!=='object'||!data.ratings)throw Error('Respuesta incorrecta');
-  ratings=data.ratings;ready=true;redraw();
+  ratings=data.ratings;ready=data.enabled===true;redraw();
  }catch{ready=false;redraw();}
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
