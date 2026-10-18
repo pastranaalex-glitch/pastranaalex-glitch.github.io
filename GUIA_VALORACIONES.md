@@ -1,7 +1,7 @@
 # Valoraciones por estrellas sin actualizar las apps
 
-La portada y el catálogo están preparados, pero los botones permanecen inactivos
-hasta configurar el servicio Cloudflare. No se muestran valoraciones ficticias.
+La portada, el catálogo y las fichas están preparados, pero las estrellas se
+mantienen ocultas hasta activar el servicio Cloudflare. No se muestran valoraciones ficticias.
 
 - Un voto activo por navegador y aplicación. Votar otra vez cambia la nota, no suma votos.
 - Si votan con 1 o 2 estrellas, aparece el enlace opcional a Google Forms.
