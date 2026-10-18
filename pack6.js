@@ -30,7 +30,7 @@ const mk=(tag,cls,text)=>{const el=document.createElement(tag);if(cls)el.classNa
 let apps=[],platform='todos',category='todas',query='',compact=false;
 function card(a){
  const paused=a.disponible===false;
- const article=mk('article','app-card');article.dataset.appCard='';article.dataset.platform=a.plataforma;article.dataset.categories=(a.categorias||[]).join(' ');article.dataset.search=normalize(a.nombre+' '+a.descripcion+' '+(a.categorias||[]).join(' '));article.dataset.repo=a.repo;
+ const article=mk('article','app-card');article.dataset.appCard='';article.dataset.appSlug=a.slug;article.dataset.platform=a.plataforma;article.dataset.categories=(a.categorias||[]).join(' ');article.dataset.search=normalize(a.nombre+' '+a.descripcion+' '+(a.categorias||[]).join(' '));article.dataset.repo=a.repo;
  const art=mk('div','card-art card-art-'+a.slug);
  const copy=mk('div','card-art-copy');copy.append(mk('span','art-tag',a.etiqueta||'APP GRATUITA'),mk('strong',null,a.eslogan||a.nombre),mk('span',null,a.plataforma==='windows'?'Para tu ordenador':'Para tu móvil'));art.append(copy);
  const image=a.portada||a.imagen,isCover=Boolean(a.portada)||a.slug==='jardin-de-joyas';if(isCover)art.classList.add('is-promo-cover');
@@ -132,12 +132,14 @@ async function start(){
  if(isHome){slot.replaceChildren(...featureList().map(card));}
  else apps.forEach(a=>slot.append(card(a)));
  if(fallback)fallback.remove();
+ document.dispatchEvent(new Event('biblioteca:cards-ready'));
  const set=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=String(v);};
  set('total-apps',apps.length);set('hero-apps',apps.length);set('android-apps',apps.filter(a=>a.plataforma==='android').length);set('windows-apps',apps.filter(a=>a.plataforma==='windows').length);
  const count=document.querySelector('[data-filter-count="todos"]');if(count)count.textContent=apps.length;
  if(!isHome){const params=new URLSearchParams(location.search);const raw=(params.get('q')||'').slice(0,120);query=normalize(raw);const search=document.getElementById('search-apps');if(search)search.value=raw;const p=params.get('platform'),c=params.get('category');if(['android','windows'].includes(p))platform=p;if(apps.some(a=>(a.categorias||[]).includes(c)))category=c;wire();filters();}
  await Promise.all(apps.map(async a=>{await github(a);updateLink(a);}));
  if(isHome){const featured=featureList();slot.replaceChildren(...featured.map(a=>{if(!a.node)card(a);return a.node;}));}
+ document.dispatchEvent(new Event('biblioteca:cards-ready'));
  totals();if(isHome)headline();
  }catch(e){console.warn('La Biblioteca conserva sus enlaces alternativos.',e);}
 }
