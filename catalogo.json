@@ -257,8 +257,8 @@
       "imagen": "jardin-joyas-portada.png",
       "icono": "icono-jardin-de-joyas.svg",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
-      "disponible": true,
-      "estado": "Disponible",
+      "disponible": false,
+      "estado": "En mantenimiento",
       "descarga": {
         "version": "1.6.0",
         "tag": "jardin-de-joyas-v1.6.0",
