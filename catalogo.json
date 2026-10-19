@@ -5,8 +5,8 @@
       "nombre": "Lector Fácil",
       "plataforma": "android",
       "publicado": true,
-      "version": "1.0.1",
-      "descripcion": "Lectura de PDF y Word con opciones para exposiciones, marcadores y herramientas para compartir e imprimir.",
+      "version": "1.0.4",
+      "descripcion": "Lee PDF y Word con zoom táctil, lectura adaptable y reconocimiento de texto OCR sin conexión; incluye marcadores y opciones para exposiciones.",
       "enlace": "https://pastranaalex-glitch.github.io/lector-facil.html",
       "slug": "lector-facil",
       "categorias": [
@@ -19,10 +19,10 @@
       "repo": "pastranaalex-glitch/lector-facil",
       "portada": "lector-facil-portada-realista.webp",
       "descarga": {
-        "version": "1.0.1",
-        "tag": "1.0.1",
-        "archivo": "LectorFacil-v1.0.1.apk",
-        "sha256": "104b0b6537e2564e38291aebc233a3429dc1e3c733d620cd905bba80355c2dd9"
+        "version": "1.0.4",
+        "tag": "v.1.0.4",
+        "archivo": "LectorFacil-v1.0.4.apk",
+        "sha256": "b940e62928a80787223c2e66f707af8cebbd7fc3fcfb2a63c6937a8c80798fb3"
       }
     },
     {
