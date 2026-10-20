@@ -46,8 +46,8 @@
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "plataforma": "android",
       "versionAprobada": "2.5.1",
-      "revisionAprobada": true,
-      "publicacionAutomatica": true,
+      "revisionAprobada": false,
+      "publicacionAutomatica": false,
       "categorias": [
         "finanzas",
         "utilidades"
@@ -56,7 +56,9 @@
       "etiqueta": "FINANZAS PERSONALES",
       "eslogan": "Tus cuentas, claras.",
       "apkSubido": true,
-      "sha256Aprobado": "c7f35b29e0fa46ccf91c349ca53360dd9c204f988eabcf8c6eed3a30eff9d69c"
+      "sha256Aprobado": "c7f35b29e0fa46ccf91c349ca53360dd9c204f988eabcf8c6eed3a30eff9d69c",
+      "descargaBloqueada": true,
+      "motivoBloqueo": "Descarga suspendida temporalmente por decisión del autor"
     },
     {
       "slug": "en-familia",
