@@ -1,6 +1,13 @@
 name: Biblioteca - Preparar avisos Brevo
 
 on:
+  # Verificar cambios del sistema de avisos sin crear campañas durante un push.
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/avisos_brevo.py'
+      - 'tests/test_avisos.py'
+      - '.github/workflows/avisos-brevo.yml'
   schedule:
     # Comprobación diaria a las 08:17 UTC; GitHub puede retrasarla.
     - cron: '17 8 * * *'
@@ -29,6 +36,7 @@ jobs:
       - name: Pruebas locales de seguridad y detección
         run: python -m unittest discover -s tests -v
       - name: Verificar novedades y crear borradores (no enviar)
+        if: github.event_name != 'push'
         env:
           GH_TOKEN: ${{ github.token }}
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
@@ -36,6 +44,7 @@ jobs:
           BREVO_LIST_ID: '3'
         run: python scripts/avisos_brevo.py
       - name: Guardar versiones ya procesadas
+        if: github.event_name != 'push'
         run: |
           git add -- .github/avisos_estado.json
           if git diff --cached --quiet -- .github/avisos_estado.json; then
