@@ -120,6 +120,23 @@
       "versionCodeAprobado": 6,
       "archivoAprobado": "Mente_Activa_PRO_1_5_0_PACK6.apk",
       "icono": "icono-mente-activa-pro.svg"
+    },
+    {
+      "slug": "suite-antivirus",
+      "nombre": "Suite Antivirus",
+      "fechaEstreno": "2026-11-01T00:00:00+01:00",
+      "repo": null,
+      "plataforma": "windows",
+      "versionAprobada": null,
+      "revisionAprobada": false,
+      "publicacionAutomatica": false,
+      "categorias": [
+        "seguridad",
+        "utilidades"
+      ],
+      "descripcion": "Suite de seguridad para Windows en desarrollo, centrada en el análisis de archivos, la cuarentena y el historial de resultados.",
+      "etiqueta": "SEGURIDAD PARA WINDOWS",
+      "eslogan": "Analiza con claridad."
     }
   ]
 }
