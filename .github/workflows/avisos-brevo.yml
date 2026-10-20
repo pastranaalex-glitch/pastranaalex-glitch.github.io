@@ -35,6 +35,11 @@ jobs:
           python-version: '3.12'
       - name: Pruebas locales de seguridad y detección
         run: python -m unittest discover -s tests -v
+      - name: Validar novedades reales sin crear correos
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/avisos_brevo.py --dry-run
       - name: Verificar novedades y crear borradores (no enviar)
         if: github.event_name != 'push'
         env:
