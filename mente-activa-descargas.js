@@ -19,7 +19,7 @@
   try{
    const data=await readJSON('catalogo.json'),matches=(data.aplicaciones||[]).filter(a=>a.slug===slug);
    a=matches.length===1?matches[0]:null;download=approved(a);
-   if(!download){status.textContent='La versión está probada en móvil. La descarga se activará cuando su APK esté publicado y comprobado en GitHub.';return;}
+   if(!download){const pending=document.createElement('button');pending.type='button';pending.className='button';pending.disabled=true;pending.textContent='Descarga pendiente de publicación';actions.replaceChildren(pending);status.textContent='La versión está probada en móvil. La descarga se activará cuando su APK esté publicado y comprobado en GitHub.';return;}
   }catch(_){status.textContent='No se ha podido consultar la publicación. Vuelve a intentarlo más tarde.';return;}
   const link=document.createElement('a');link.className='button';link.textContent='Descargar Mente Activa PRO '+a.version+' ↓';link.href=download.url;link.rel='noopener noreferrer';actions.replaceChildren(link);
   document.querySelectorAll('[data-ma-version]').forEach(el=>el.textContent=a.version);
