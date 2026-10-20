@@ -31,8 +31,23 @@
    if(release.draft||release.prerelease||release.tag_name!==download.d.tag)throw Error('Release');
    const asset=(release.assets||[]).find(x=>x.state==='uploaded'&&x.name===download.d.archivo&&x.digest==='sha256:'+download.d.sha256&&x.browser_download_url===download.url);
    if(!asset)throw Error('Asset');
-   const count=Math.max(0,Number(asset.download_count)||0);
-   if(counter)counter.textContent=count.toLocaleString('es-ES')+' '+(count===1?'descarga de esta versión':'descargas de esta versión')+' · GitHub Releases';
+   const releases=await readJSON('https://api.github.com/repos/'+repo+'/releases?per_page=100');
+   if(!Array.isArray(releases)||releases.length===100)throw Error('Historial incompleto');
+   const ids=new Set();let count=0;
+   for(const r of releases){
+    if(!r||r.draft||!/^mente-activa-pro-v/i.test(String(r.tag_name||'')))continue;
+    for(const file of (r.assets||[])){
+     if(file?.state!=='uploaded'||!/^Mente[_-]Activa[_-]PRO/i.test(file.name||'')
+       ||!/\.apk$/i.test(file.name||'')||/debug|unsigned|sin[._-]?firmar/i.test(file.name||'')
+       ||typeof file.browser_download_url!=='string'
+       ||!file.browser_download_url.startsWith('https://github.com/'+repo+'/releases/download/'))continue;
+     const key=file.id??(r.tag_name+':'+file.name);
+     if(ids.has(key))continue;ids.add(key);
+     count+=Math.max(0,Number(file.download_count)||0);
+    }
+   }
+   if(!ids.size)throw Error('Sin APK públicas');
+   if(counter)counter.textContent=count.toLocaleString('es-ES')+' '+(count===1?'descarga acumulada':'descargas acumuladas')+' · GitHub Releases';
   }catch(_){if(counter)counter.textContent='Contador temporalmente no disponible. La descarga sigue activa.';}
  }
  start();
