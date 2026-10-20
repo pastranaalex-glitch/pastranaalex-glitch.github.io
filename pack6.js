@@ -47,7 +47,7 @@ function card(a){
  else if(direct){dl.href=direct;dl.title='Descargar la versión '+a.version+' desde GitHub Releases';}
  else{dl.href=a.enlace;dl.textContent='Ver descarga →';dl.title='Consultar la ficha antes de descargar';}
  if(!paused){dl.rel='noopener noreferrer';if(a.plataforma==='windows')dl.target='_blank';}
- actions.append(detail,dl);footer.append(stats,actions);body.append(identity,desc);if(paused){body.append(mk('p','ui-warning','Temporalmente no disponible hasta completar la reparación.'));strong.textContent='—';label.textContent='Descarga suspendida';small.textContent='En revisión';}if(a.slug==='cocina-a-punto'){const notice=mk('a','ui-warning','1 detección en VirusTotal · En revisión');notice.href='cocina-a-punto.html#informacion-descarga';body.append(notice);}body.append(meta,footer);article.append(art,body);
+ actions.append(detail,dl);footer.append(stats,actions);body.append(identity,desc);if(paused){body.append(mk('p','ui-warning','Temporalmente no disponible hasta completar la reparación.'));strong.textContent='—';label.textContent='Consultando historial';small.textContent='GitHub Releases';}if(a.slug==='cocina-a-punto'){const notice=mk('a','ui-warning','1 detección en VirusTotal · En revisión');notice.href='cocina-a-punto.html#informacion-descarga';body.append(notice);}body.append(meta,footer);article.append(art,body);
  a.node=article;a.stat=strong;a.label=label;a.downloadLink=dl;return article;
 }
 function filters(){
@@ -64,49 +64,103 @@ function wire(){
  const reset=document.getElementById('reset-search');if(reset)reset.addEventListener('click',()=>{platform='todos';category='todas';query='';if(search){search.value='';search.focus();}filters();});
  const view=document.getElementById('view-toggle');if(view)view.addEventListener('click',()=>{compact=!compact;slot.classList.toggle('is-compact',compact);view.setAttribute('aria-pressed',String(compact));view.textContent=compact?'▦ Mostrar imágenes':'☷ Vista compacta';});
 }
-/* Las aplicaciones que comparten repositorio comparten también la consulta,
-   evitando solicitudes repetidas y retrasos innecesarios en móvil. */
+/* Contadores acumulados de GitHub Releases.
+   Suma todas las publicaciones públicas aún disponibles, no solo la versión actual.
+   Los APK de aplicaciones distintas alojadas en el mismo repositorio no se mezclan.
+   Cada repositorio se consulta una sola vez, con paginación para conservar el historial. */
+const sharedRepo=owner+'/'+owner+'.github.io';
 const releaseRequests=new Map();
+const extraRepos={'rutas-a-pie':[sharedRepo]};
 function listReleases(repo){
  if(!releaseRequests.has(repo)){
   releaseRequests.set(repo,(async()=>{
-   const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),7000);
-   try{
-    const response=await fetch('https://api.github.com/repos/'+repo+'/releases?per_page=30',{headers:{Accept:'application/vnd.github+json'},signal:ctrl.signal});
-    if(!response.ok)throw Error('API '+response.status);
-    const result=await response.json();
-    if(!Array.isArray(result))throw Error('Respuesta de GitHub no válida');
-    return result;
-   }finally{clearTimeout(timer);}
+   const all=[];
+   for(let page=1;page<=10;page++){
+    const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),8500);
+    let response;
+    try{
+     response=await fetch('https://api.github.com/repos/'+repo+'/releases?per_page=100&page='+page,
+      {headers:{Accept:'application/vnd.github+json'},signal:ctrl.signal});
+    }finally{clearTimeout(timer);}
+    if(!response.ok)throw Error('GitHub API '+response.status);
+    const chunk=await response.json();
+    if(!Array.isArray(chunk))throw Error('Respuesta de GitHub no válida');
+    all.push(...chunk);
+    if(chunk.length<100)return all;
+   }
+   throw Error('Hay más páginas de las que se han podido consultar');
   })());
  }
  return releaseRequests.get(repo);
 }
+function belongsToApp(asset,release,a,repo){
+ if(!asset||asset.state!=='uploaded'||typeof asset.name!=='string'
+  ||typeof asset.browser_download_url!=='string')return false;
+ const name=asset.name,tag=String(release.tag_name||'');
+ if(!/\.(apk|exe|msi|zip)$/i.test(name)||/debug|unsigned|sin[._-]?firmar/i.test(name))return false;
+ if(!asset.browser_download_url.startsWith('https://github.com/'+repo+'/releases/download/'))return false;
+ if(a.plataforma==='android'?!/\.apk$/i.test(name):!/\.(exe|msi|zip)$/i.test(name))return false;
+ if(repo!==sharedRepo)return repo===a.repo;
+ switch(a.slug){
+  case 'jardin-de-joyas':
+   return (/^jardin-de-joyas-v/i.test(tag)||tag==='V.1.4.1')&&/^Jardin[_-]de[_-]Joyas/i.test(name);
+  case 'mente-activa-pro':
+   return /^mente-activa-pro-v/i.test(tag)&&/^Mente[_-]Activa[_-]PRO/i.test(name);
+  case 'en-familia':
+   return /^en-familia-v/i.test(tag)&&/^En[_-]Familia/i.test(name);
+  case 'mi-salud-familiar':
+   return /^mi-salud-familiar-v/i.test(tag)&&/^Mi[_-]?Salud[_-]?Familiar/i.test(name);
+  case 'menu-y-compra':
+   return (/^menu-y-compra-v/i.test(tag)||tag==='v.1.4.3')&&/^Menu[_-]y[_-]Compra/i.test(name);
+  case 'rutas-a-pie':
+   return tag==='v.1.5.1'&&name==='RutasAPie_1.5.1.apk';
+  default:return false;
+ }
+}
 async function github(a){
- if(a.disponible===false)return;
- if(!approvedDownload(a)){a.failed=true;return;}
  try{
-  const releases=await listReleases(a.repo);
-  const release=releases.find(r=>r&&!r.draft&&!r.prerelease&&r.tag_name===a.descarga.tag);
-  const asset=release?.assets?.find(x=>assetValid(x,a));
-  if(!asset){a.failed=true;return;}
-  a.count=Math.max(0,Number(asset.download_count)||0);
-  a.date=Date.parse(release.published_at||release.created_at||'')||0;
-  a.releaseName=release.name||release.tag_name||a.nombre;
-  a.hasRelease=true;
+  const repos=[a.repo,...(extraRepos[a.slug]||[])];
+  const sources=await Promise.all(repos.map(async repo=>({repo,releases:await listReleases(repo)})));
+  const ids=new Set(),usedRepos=new Set();let total=0;
+  for(const source of sources){
+   for(const release of source.releases){
+    if(!release||release.draft||release.prerelease)continue;
+    for(const asset of (Array.isArray(release.assets)?release.assets:[])){
+     if(!belongsToApp(asset,release,a,source.repo))continue;
+     const id=source.repo+':'+(asset.id??(release.tag_name+':'+asset.name));
+     if(ids.has(id))continue;
+     ids.add(id);usedRepos.add(source.repo);
+     const n=Number(asset.download_count);
+     if(Number.isFinite(n)&&n>=0)total+=n;
+    }
+   }
+  }
+  if(!ids.size){a.failed=true;return;}
+  a.count=total;a.countedAssets=ids.size;a.countedRepos=usedRepos.size;
+  const current=sources[0].releases.find(r=>r&&!r.draft&&!r.prerelease&&r.tag_name===a.descarga?.tag);
+  const verified=current?.assets?.find(x=>assetValid(x,a));
+  if(verified){
+   a.date=Date.parse(current.published_at||current.created_at||'')||0;
+   a.releaseName=current.name||current.tag_name||a.nombre;a.hasRelease=true;
+  }
  }catch(_){a.failed=true;}
 }
 function updateLink(a){
- if(!a.node || a.disponible===false)return;
- if(a.count!==undefined){
+ if(!a.node)return;
+ if(Number.isFinite(a.count)){
   a.stat.textContent=fmt(a.count);
-  a.label.textContent=a.count===1?'Descarga de esta versión':'Descargas de esta versión';
+  a.label.textContent=a.count===1?'Descarga acumulada':'Descargas acumuladas';
+  const releases=a.countedAssets;
+  a.node.querySelector('.downloads small').textContent=
+   'GitHub · '+releases+' archivo'+(releases===1?'':'s')+(a.countedRepos>1?' · '+a.countedRepos+' repos':'');
+  a.node.querySelector('.downloads').title=
+   'Todas las versiones disponibles en GitHub Releases. No incluye descargas directas desde la web ni publicaciones eliminadas. No son instalaciones únicas.';
  }else{
-  a.stat.textContent='—';
-  a.label.textContent='Contador no disponible';
+  a.stat.textContent='—';a.label.textContent='Contador no disponible';
+  a.node.querySelector('.downloads small').textContent='La descarga sigue disponible';
  }
  const direct=approvedDownload(a);
- if(direct)a.downloadLink.href=direct;
+ if(direct&&a.downloadLink?.tagName==='A')a.downloadLink.href=direct;
 }
 function featureList(){
  const selected=['lector-facil','recetario-facil','rutas-a-pie'].map(slug=>apps.find(a=>a.slug===slug)).filter(Boolean);
@@ -124,7 +178,7 @@ function totals(){
  if(!known.length){el.textContent='—';el.title='GitHub no ha proporcionado datos de descargas';return;}
  const counted=known.reduce((n,a)=>n+a.count,0);
  el.textContent='≥ '+fmt(counted);
- el.title='Suma de descargas de las versiones actuales en GitHub Releases. No incluye otros enlaces ni los datos no disponibles.';
+ el.title='Suma de descargas acumuladas de todas las versiones todavía publicadas en GitHub Releases. No incluye descargas directas, publicaciones eliminadas ni usuarios únicos.';
 }
 async function start(){
  try{
