@@ -104,19 +104,22 @@
     {
       "slug": "mente-activa-pro",
       "nombre": "Mente Activa PRO",
-      "fechaEstreno": null,
-      "repo": null,
+      "fechaEstreno": "2026-10-20T00:00:00+02:00",
+      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "plataforma": "android",
-      "versionAprobada": null,
-      "revisionAprobada": false,
-      "publicacionAutomatica": false,
+      "versionAprobada": "mente-activa-pro-v1.5.0",
+      "revisionAprobada": true,
+      "publicacionAutomatica": true,
       "categorias": [
-        "educacion",
-        "bienestar"
+        "juegos"
       ],
-      "descripcion": "Próxima aplicación gratuita de ejercicios para practicar la memoria, la atención, la concentración, el razonamiento y la agilidad mental, con distintos niveles e historial personal. No es una herramienta sanitaria ni cuenta con validación clínica.",
-      "etiqueta": "ENTRENAMIENTO MENTAL",
-      "eslogan": "Pequeños retos para mantener la mente activa."
+      "descripcion": "16 juegos de entretenimiento de memoria, atención, palabras, cálculo y lógica. Tres dificultades, selección diaria, favoritos e historial. Gratis y sin anuncios; los juegos funcionan sin conexión.",
+      "etiqueta": "JUEGOS A TU RITMO",
+      "eslogan": "Dale juego a tu día.",
+      "versionVisible": "1.5.0",
+      "versionCodeAprobado": 6,
+      "archivoAprobado": "Mente_Activa_PRO_1_5_0_PACK6.apk",
+      "icono": "icono-mente-activa-pro.svg"
     }
   ]
 }

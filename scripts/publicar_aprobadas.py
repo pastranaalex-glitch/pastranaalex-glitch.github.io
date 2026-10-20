@@ -88,12 +88,12 @@ def main():
         if not isinstance(slug, str) or not SLUG_RE.fullmatch(slug):
             continue
         existente = next((x for x in apps if x.get("slug") == slug), None)
-        if existente is not None and not (slug == "jardin-de-joyas" and existente.get("publicado") is False):
+        if existente is not None and not (slug in ("jardin-de-joyas", "mente-activa-pro") and existente.get("publicado") is False):
             continue
         if app.get("publicacionAutomatica") is not True or app.get("revisionAprobada") is not True:
             continue
         repo, tag, date = app.get("repo"), app.get("versionAprobada"), app.get("fechaEstreno")
-        if not isinstance(repo, str) or not (REPO_RE.fullmatch(repo) or (slug in ("en-familia", "jardin-de-joyas") and repo == OWNER + "/" + OWNER + ".github.io")) or not isinstance(tag, str) or not tag or not isinstance(date, str):
+        if not isinstance(repo, str) or not (REPO_RE.fullmatch(repo) or (slug in ("en-familia", "jardin-de-joyas", "mente-activa-pro") and repo == OWNER + "/" + OWNER + ".github.io")) or not isinstance(tag, str) or not tag or not isinstance(date, str):
             continue
         if app.get("plataforma") not in ("android", "windows") or not all(
             isinstance(app.get(k), str) and app[k].strip() for k in ("nombre", "descripcion", "etiqueta", "eslogan")
@@ -114,19 +114,33 @@ def main():
         if not valid_release(app, release):
             print("Sin archivos válidos aprobados:", slug)
             continue
+        verified_download = None
+        if slug == "mente-activa-pro":
+            try:
+                from verificar_mente_apk import verify_approved_apk
+                verified_download = verify_approved_apk(app, release)
+            except Exception as exc:
+                print("Mente Activa PRO pendiente de verificar:", str(exc))
+                continue
         page_path = BASE / (slug + ".html")
         if page_path.exists():
             # En Familia cuenta con una ficha detallada y verificada ya preparada.
             # No permitir que una ficha ajena o distinta se considere publicada.
-            if slug not in ("en-familia", "jardin-de-joyas") or ('data-publication-preview="' + slug + '"') not in page_path.read_text(encoding="utf-8"):
+            if slug not in ("en-familia", "jardin-de-joyas", "mente-activa-pro") or ('data-publication-preview="' + slug + '"') not in page_path.read_text(encoding="utf-8"):
                 print("No se modifica una ficha ya existente:", slug)
                 continue
         else:
             page_path.write_text(page(app, release), encoding="utf-8")
+        new_entry = entry(app)
+        if verified_download is not None:
+            new_entry["icono"] = "icono-mente-activa-pro.svg"
+            new_entry["descarga"] = verified_download
+            new_entry["disponible"] = True
+            new_entry["estado"] = "Disponible"
         if existente is None:
-            apps.append(entry(app))
+            apps.append(new_entry)
         else:
-            apps[apps.index(existente)] = entry(app)
+            apps[apps.index(existente)] = new_entry
         changes.append(slug)
     if changes:
         CATALOG.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
