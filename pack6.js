@@ -96,24 +96,22 @@ function listReleases(repo){
 function belongsToApp(asset,release,a,repo){
  if(!asset||asset.state!=='uploaded'||typeof asset.name!=='string'
   ||typeof asset.browser_download_url!=='string')return false;
- const name=asset.name,tag=String(release.tag_name||'');
+ const name=asset.name;
  if(!/\.(apk|exe|msi|zip)$/i.test(name)||/debug|unsigned|sin[._-]?firmar/i.test(name))return false;
  if(!asset.browser_download_url.startsWith('https://github.com/'+repo+'/releases/download/'))return false;
  if(a.plataforma==='android'?!/\.apk$/i.test(name):!/\.(exe|msi|zip)$/i.test(name))return false;
  if(repo!==sharedRepo)return repo===a.repo;
+ // Las aplicaciones del repositorio compartido se distinguen por el prefijo
+ // exclusivo del archivo, no por un formato concreto de etiqueta de versión.
+ // GitHub registra descargas independientes por activo, incluso si dos APK
+ // tienen el mismo contenido en repositorios o lanzamientos diferentes.
  switch(a.slug){
-  case 'jardin-de-joyas':
-   return (/^jardin-de-joyas-v/i.test(tag)||tag==='V.1.4.1')&&/^Jardin[_-]de[_-]Joyas/i.test(name);
-  case 'mente-activa-pro':
-   return /^mente-activa-pro-v/i.test(tag)&&/^Mente[_-]Activa[_-]PRO/i.test(name);
-  case 'en-familia':
-   return /^en-familia-v/i.test(tag)&&/^En[_-]Familia/i.test(name);
-  case 'mi-salud-familiar':
-   return /^mi-salud-familiar-v/i.test(tag)&&/^Mi[_-]?Salud[_-]?Familiar/i.test(name);
-  case 'menu-y-compra':
-   return (/^menu-y-compra-v/i.test(tag)||tag==='v.1.4.3')&&/^Menu[_-]y[_-]Compra/i.test(name);
-  case 'rutas-a-pie':
-   return tag==='v.1.5.1'&&name==='RutasAPie_1.5.1.apk';
+  case 'jardin-de-joyas':return /^Jardin[_-]de[_-]Joyas(?:[._-]|[0-9])/i.test(name);
+  case 'mente-activa-pro':return /^Mente[_-]Activa[_-]PRO(?:[._-]|[0-9])/i.test(name);
+  case 'en-familia':return /^En[_-]Familia(?:[._-]|[0-9])/i.test(name);
+  case 'mi-salud-familiar':return /^Mi[_-]?Salud[_-]?Familiar(?:[._-]|[0-9])/i.test(name);
+  case 'menu-y-compra':return /^Menu[_-]y[_-]Compra(?:[._-]|[0-9])/i.test(name);
+  case 'rutas-a-pie':return /^RutasAPie(?:[._-]|[0-9])/i.test(name);
   default:return false;
  }
 }
@@ -136,7 +134,12 @@ async function github(a){
    }
   }
   if(!ids.size){a.failed=true;return;}
-  a.count=total;a.countedAssets=ids.size;a.countedRepos=usedRepos.size;a.countSnapshotDate=null;
+  // No sumar respaldo y API: pueden contener las mismas descargas.
+  // Si se retira un lanzamiento, conservamos el mínimo histórico confirmado.
+  const minimo=Number.isSafeInteger(a.count)&&a.countSnapshotDate?a.count:0;
+  a.countedAssets=ids.size;a.countedRepos=usedRepos.size;
+  if(total>=minimo){a.count=total;a.countSnapshotDate=null;}
+  else{a.count=minimo;a.countPreserved=true;}
   const current=sources[0].releases.find(r=>r&&!r.draft&&!r.prerelease&&r.tag_name===a.descarga?.tag);
   const verified=current?.assets?.find(x=>assetValid(x,a));
   if(verified){
@@ -148,14 +151,14 @@ async function github(a){
 function updateLink(a){
  if(!a.node)return;
  if(Number.isFinite(a.count)){
-  a.stat.textContent=fmt(a.count);
+  a.stat.textContent=(a.countSnapshotDate?'≥ ':'')+fmt(a.count);
   a.label.textContent=a.count===1?'Descarga acumulada':'Descargas acumuladas';
   const releases=a.countedAssets;
   a.node.querySelector('.downloads small').textContent=a.countSnapshotDate
-   ? 'Corte '+a.countSnapshotDate+' · GitHub'
+   ? 'Mínimo · corte '+a.countSnapshotDate
    : 'GitHub · '+releases+' archivo'+(releases===1?'':'s')+(a.countedRepos>1?' · '+a.countedRepos+' repos':'');
   a.node.querySelector('.downloads').title=a.countSnapshotDate
-   ? 'Dato de respaldo del '+a.countSnapshotDate+'. GitHub no ha respondido aún con una cifra actualizada. No incluye descargas directas.'
+   ? 'Mínimo confirmado hasta '+a.countSnapshotDate+'. El total actual puede ser mayor. No incluye descargas directas.'
    : 'Todas las versiones disponibles en GitHub Releases. No incluye descargas directas desde la web ni publicaciones eliminadas. No son instalaciones únicas.';
  }else{
   a.stat.textContent='—';a.label.textContent='Contador no disponible';
@@ -210,7 +213,8 @@ async function start(){
    }
   }
  }catch(_){/* La API en directo sigue funcionando sin el respaldo. */}
- await Promise.all(apps.map(async a=>{await github(a);updateLink(a);}));
+ totals(); // Mostrar el mínimo de la portada mientras GitHub responde.
+ await Promise.all(apps.map(async a=>{await github(a);updateLink(a);totals();}));
  if(isHome){const featured=featureList();slot.replaceChildren(...featured.map(a=>{if(!a.node)card(a);return a.node;}));}
  document.dispatchEvent(new Event('biblioteca:cards-ready'));
  totals();if(isHome)headline();
