@@ -200,7 +200,7 @@
     {
       "nombre": "Mi Dinero Real 2",
       "plataforma": "android",
-      "publicado": true,
+      "publicado": false,
       "version": "2.5.1",
       "descripcion": "Controla los ingresos y gastos del hogar, comida por separado, presupuestos, pagos recurrentes e informes PDF y Word. Sin anuncios.",
       "enlace": "https://pastranaalex-glitch.github.io/mi-dinero-real.html",
@@ -215,11 +215,8 @@
       "icono": "icono-mi-dinero-real.svg",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "portada": "mi-dinero-real-portada-realista.webp",
-      "descargaDirecta": {
-        "version": "2.5.1",
-        "archivo": "MiDineroReal2_2.5.1_Publicacion_Firmada.apk",
-        "sha256": "c7f35b29e0fa46ccf91c349ca53360dd9c204f988eabcf8c6eed3a30eff9d69c"
-      }
+      "disponible": false,
+      "descargasBloqueadas": true
     },
     {
       "nombre": "En Familia",
