@@ -7,6 +7,7 @@ Se ejecuta desde el repositorio de GitHub Pages de la Biblioteca.
 from __future__ import annotations
 
 import argparse
+import hashlib
 from html import escape
 from html.parser import HTMLParser
 import json
@@ -99,8 +100,43 @@ def get_catalogue():
 
         repo = record.get('repo')
         if repo == shared_repo:
-            # No se puede identificar una app concreta solo por latest release:
-            # hacerlo ocasionaría avisos duplicados o sobre la app equivocada.
+            # En el repositorio compartido NUNCA se usa /releases/latest:
+            # cada ficha debe identificar de forma inequívoca su propio APK.
+            slug = record.get('slug')
+            name = record.get('nombre')
+            if not isinstance(slug, str) or not re.fullmatch(r'[a-z0-9-]+', slug):
+                raise ValueError('Slug compartido inválido')
+            if not isinstance(name, str) or not name.strip():
+                raise ValueError('Nombre compartido inválido')
+            ficha = SITE + slug + '.html'
+            if record.get('enlace') != ficha:
+                raise ValueError('Enlace de ficha inesperado para ' + name)
+            descriptor = record.get('descarga') or record.get('descargaDirecta')
+            if not isinstance(descriptor, dict) or descriptor.get('version') != record.get('version'):
+                continue
+            sha = descriptor.get('sha256')
+            filename = descriptor.get('archivo')
+            if not isinstance(sha, str) or not re.fullmatch(r'[0-9a-f]{64}', sha):
+                continue
+            if not isinstance(filename, str) or not re.fullmatch(r'[A-Za-z0-9._()-]+\.(?:apk|exe|msi|zip)', filename, re.I):
+                continue
+            mode = 'shared-release' if descriptor is record.get('descarga') else 'shared-direct'
+            tag = descriptor.get('tag') if mode == 'shared-release' else ''
+            if mode == 'shared-release' and (not isinstance(tag, str) or not re.fullmatch(r'[A-Za-z0-9._-]+', tag)):
+                continue
+            # En modalidad directa solo se anuncia el APK previamente aprobado.
+            if mode == 'shared-direct' and (
+                slug != 'mi-dinero-real'
+                or filename != 'MiDineroReal2_2.5.1_Publicacion_Firmada.apk'
+                or sha != 'c7f35b29e0fa46ccf91c349ca53360dd9c204f988eabcf8c6eed3a30eff9d69c'
+            ):
+                continue
+            apps.append({
+                'repo': repo, 'key': repo + '#' + slug, 'slug': slug,
+                'nombre': name.strip(), 'ficha': ficha, 'mode': mode,
+                'archivo': filename, 'sha256': sha, 'tag': tag,
+                'version': record['version']
+            })
             continue
         if not isinstance(repo, str) or not re.fullmatch(
                 r'pastranaalex-glitch/[A-Za-z0-9_.-]+', repo):
@@ -166,6 +202,73 @@ def get_release(repo):
     if not isinstance(release.get('id'), int):
         raise ValueError('Release sin ID correcto: ' + repo)
     return release
+
+
+def get_release_for_app(app):
+    """Obtiene una versión pública inequívoca y comprobada, sin mezclar aplicaciones."""
+    mode = app.get('mode')
+    if mode == 'shared-direct':
+        # No crear un aviso basándose solo en la fecha o el catálogo:
+        # el APK debe existir y coincidir byte a byte con la versión autorizada.
+        configuration = json.loads((BASE / 'proximas-apps.json').read_text(encoding='utf-8'))
+        approved = [x for x in configuration.get('aplicaciones', [])
+                    if x.get('slug') == app['slug']]
+        if len(approved) != 1:
+            return None
+        approved = approved[0]
+        if (approved.get('publicacionAutomatica') is not True
+                or approved.get('revisionAprobada') is not True
+                or approved.get('sha256Aprobado') != app['sha256']
+                or approved.get('versionAprobada') != app['version']):
+            return None
+        path = BASE / app['archivo']
+        if not path.is_file() or path.stat().st_size < 10000:
+            return None
+        digest = hashlib.sha256()
+        with path.open('rb') as stream:
+            for chunk in iter(lambda: stream.read(1048576), b''):
+                digest.update(chunk)
+        if digest.hexdigest() != app['sha256']:
+            print('AVISO: el APK directo no coincide con el SHA-256 aprobado:', app['slug'])
+            return None
+        # Identificador estable por contenido: una actualización crea otro borrador,
+        # pero nunca repetirá un aviso para los mismos bytes.
+        release_id = int(app['sha256'][:13], 16)
+        return {
+            'id': release_id, 'tag_name': 'v' + app['version'],
+            'body': 'Nueva versión de ' + app['nombre'] + ' publicada en la Biblioteca. Consulta la ficha para conocer sus funciones.',
+            'html_url': app['ficha'],
+            'assets': [{
+                'state': 'uploaded', 'name': app['archivo'],
+                'browser_download_url': SITE + app['archivo']
+            }]
+        }
+    if mode == 'shared-release':
+        url = ('https://api.github.com/repos/' + app['repo'] + '/releases/tags/'
+               + quote(app['tag'], safe=''))
+        headers = {'Accept': 'application/vnd.github+json',
+                   'X-GitHub-Api-Version': '2022-11-28'}
+        token = os.getenv('GH_TOKEN', '').strip()
+        if token:
+            headers['Authorization'] = 'Bearer ' + token
+        release = request_json(url, headers=headers)
+        if not release or release.get('draft') or release.get('prerelease'):
+            return None
+        if release.get('tag_name') != app['tag'] or not isinstance(release.get('id'), int):
+            return None
+        if not release.get('html_url', '').startswith(
+                'https://github.com/' + app['repo'] + '/releases/'):
+            return None
+        url_prefix = ('https://github.com/' + app['repo'] + '/releases/download/'
+                      + app['tag'] + '/')
+        if not any(asset.get('state') == 'uploaded'
+                   and asset.get('name') == app['archivo']
+                   and asset.get('digest') == 'sha256:' + app['sha256']
+                   and asset.get('browser_download_url') == url_prefix + app['archivo']
+                   for asset in release.get('assets', [])):
+            return None
+        return release
+    return get_release(app['repo'])
 
 
 def compact_notes(value, limit=360):
@@ -283,11 +386,11 @@ def run(dry_run=False):
     state = read_state()
     print(f'Fichas detectadas: {len(apps)}. Estado inicializado: {bool(state.get("initialized"))}.')
     # Consulta primero las versiones públicas sin alterar los datos.
-    releases = {app['repo']: get_release(app['repo']) for app in apps}
+    releases = {app.get('key', app['repo']): get_release_for_app(app) for app in apps}
     if not state.get('initialized'):
         print('PRIMERA EJECUCIÓN: solo se guardan versiones de referencia; no se crean borradores.')
         if not dry_run:
-            state['repos'] = {app['repo']: new_state_record(app, releases[app['repo']]) for app in apps}
+            state['repos'] = {app.get('key', app['repo']): new_state_record(app, releases[app.get('key', app['repo'])]) for app in apps}
             state['initialized'] = True
             save_state(state)
         return
@@ -295,10 +398,11 @@ def run(dry_run=False):
     created = 0
     for app in apps:
         repo = app['repo']
-        release = releases[repo]
+        key = app.get('key', repo)
+        release = releases[key]
         if release is None:
             continue
-        previous = state['repos'].get(repo)
+        previous = state['repos'].get(key)
         if previous and previous.get('ultima_release_id') == release['id']:
             continue
         kind = 'nueva' if previous is None else 'actualizacion'
@@ -310,7 +414,7 @@ def run(dry_run=False):
             break
         create_draft(app, release, kind)
         # SOLO registrar la versión si Brevo confirmó creación/existencia del borrador.
-        state['repos'][repo] = new_state_record(app, release)
+        state['repos'][key] = new_state_record(app, release)
         save_state(state)
         created += 1
     if not created:
