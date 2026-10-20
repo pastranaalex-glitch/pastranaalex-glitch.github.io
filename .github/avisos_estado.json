@@ -25,6 +25,31 @@
       "nombre": "Rutas a Pie",
       "ultima_etiqueta": null,
       "ultima_release_id": null
+    },
+    "pastranaalex-glitch/pastranaalex-glitch.github.io#menu-y-compra": {
+      "nombre": "Menú y Compra",
+      "ultima_etiqueta": "v.1.4.3",
+      "ultima_release_id": 414212782
+    },
+    "pastranaalex-glitch/pastranaalex-glitch.github.io#mi-salud-familiar": {
+      "nombre": "Mi Salud Familiar",
+      "ultima_etiqueta": "mi-salud-familiar-v2.9",
+      "ultima_release_id": 413559556
+    },
+    "pastranaalex-glitch/pastranaalex-glitch.github.io#en-familia": {
+      "nombre": "En Familia",
+      "ultima_etiqueta": "en-familia-v1.7.2",
+      "ultima_release_id": 415399083
+    },
+    "pastranaalex-glitch/pastranaalex-glitch.github.io#jardin-de-joyas": {
+      "nombre": "Jardín de Joyas",
+      "ultima_etiqueta": "jardin-de-joyas-v1.7.5",
+      "ultima_release_id": 418552671
+    },
+    "pastranaalex-glitch/pastranaalex-glitch.github.io#mente-activa-pro": {
+      "nombre": "Mente Activa PRO",
+      "ultima_etiqueta": "mente-activa-pro-v1.5.0",
+      "ultima_release_id": 418662045
     }
   },
   "version": 1
