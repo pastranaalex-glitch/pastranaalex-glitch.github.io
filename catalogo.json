@@ -265,6 +265,32 @@
         "archivo": "Jardin_de_Joyas_1_7_5_PACK25_FIRMA_EXISTENTE.apk",
         "sha256": "946be6f35d5cd216ea55f97159519055503627e24c7822af61b86e441514126f"
       }
+    },
+    {
+      "nombre": "Mente Activa PRO",
+      "plataforma": "android",
+      "publicado": true,
+      "version": "1.5.0",
+      "descripcion": "16 juegos de entretenimiento de memoria, atención, palabras, cálculo y lógica. Tres dificultades, selección diaria, favoritos e historial. Gratis y sin anuncios; los juegos funcionan sin conexión.",
+      "enlace": "https://pastranaalex-glitch.github.io/mente-activa-pro.html",
+      "slug": "mente-activa-pro",
+      "categorias": [
+        "juegos"
+      ],
+      "etiqueta": "JUEGOS A TU RITMO",
+      "eslogan": "Dale juego a tu día.",
+      "imagen": "",
+      "icono": "icono-mente-activa-pro.svg",
+      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
+      "descarga": {
+        "version": "1.5.0",
+        "tag": "mente-activa-pro-v1.5.0",
+        "archivo": "Mente_Activa_PRO_1_5_0_PACK6.apk",
+        "sha256": "efca9487bd4d39fb533252b8927c00585fc73095ac3c92cb1b993fafac1d3b40"
+      },
+      "disponible": true,
+      "estado": "Disponible",
+      "valoracionesDisponibles": false
     }
   ]
 }
