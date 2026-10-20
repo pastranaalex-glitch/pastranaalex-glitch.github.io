@@ -1,0 +1,17 @@
+{
+  "fecha": "2026-10-20",
+  "descripcion": "Ultimo recuento de respaldo confirmado en los activos descargables de las publicaciones publicas de GitHub Releases. No equivale a instalaciones ni incluye enlaces de descarga directa fuera de Releases.",
+  "conteos": {
+    "lector-facil": 18,
+    "recetario-facil": 19,
+    "cocina-clara": 11,
+    "cocina-a-punto": 11,
+    "rutas-a-pie": 29,
+    "documentos-de-casa": 5,
+    "menu-y-compra": 0,
+    "mi-salud-familiar": 36,
+    "en-familia": 0,
+    "jardin-de-joyas": 11,
+    "mente-activa-pro": 13
+  }
+}
