@@ -124,7 +124,7 @@ async function github(a){
   const ids=new Set(),usedRepos=new Set();let total=0;
   for(const source of sources){
    for(const release of source.releases){
-    if(!release||release.draft||release.prerelease)continue;
+    if(!release||release.draft)continue; // Las versiones preliminares públicas también registran descargas.
     for(const asset of (Array.isArray(release.assets)?release.assets:[])){
      if(!belongsToApp(asset,release,a,source.repo))continue;
      const id=source.repo+':'+(asset.id??(release.tag_name+':'+asset.name));
