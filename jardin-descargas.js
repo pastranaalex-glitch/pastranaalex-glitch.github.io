@@ -19,7 +19,7 @@ try{
    if(!asset||asset.state!=='uploaded'||ids.has(asset.id))continue;
    const name=String(asset.name||'');
    if(!/\.apk$/i.test(name))continue;
-   if(!/^jardin-de-joyas-v/i.test(tag)&&!/^Jardin_de_Joyas[_-.]/i.test(name))continue;
+   if(!/^jardin-de-joyas-v/i.test(tag)&&!/^Jardin_de_Joyas[_.-]/i.test(name))continue;
    ids.add(asset.id);
    archivos++;suma+=Math.max(0,Number(asset.download_count)||0);
   }
