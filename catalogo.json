@@ -290,7 +290,8 @@
       },
       "disponible": true,
       "estado": "Disponible",
-      "valoracionesDisponibles": false
+      "valoracionesDisponibles": false,
+      "portada": "mente-activa-pro-portada-realista.png"
     }
   ]
 }
