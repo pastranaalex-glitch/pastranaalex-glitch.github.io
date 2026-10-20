@@ -100,7 +100,7 @@ async function github(a){
      if(!archivo||archivo.state!=='uploaded'||ya.has(archivo.id))continue;
      const nombre=String(archivo.name||'');
      if(!/\.apk$/i.test(nombre))continue;
-     if(!/^jardin-de-joyas-v/i.test(etiqueta)&&!/^Jardin_de_Joyas[_-.]/i.test(nombre))continue;
+     if(!/^jardin-de-joyas-v/i.test(etiqueta)&&!/^Jardin_de_Joyas[_.-]/i.test(nombre))continue;
      ya.add(archivo.id);
      total+=Math.max(0,Number(archivo.download_count)||0);
     }
