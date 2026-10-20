@@ -71,7 +71,7 @@ function listReleases(repo){
   releaseRequests.set(repo,(async()=>{
    const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),7000);
    try{
-    const response=await fetch('https://api.github.com/repos/'+repo+'/releases?per_page=100',{headers:{Accept:'application/vnd.github+json'},signal:ctrl.signal});
+    const response=await fetch('https://api.github.com/repos/'+repo+'/releases?per_page=30',{headers:{Accept:'application/vnd.github+json'},signal:ctrl.signal});
     if(!response.ok)throw Error('API '+response.status);
     const result=await response.json();
     if(!Array.isArray(result))throw Error('Respuesta de GitHub no válida');
@@ -90,24 +90,6 @@ async function github(a){
   const asset=release?.assets?.find(x=>assetValid(x,a));
   if(!asset){a.failed=true;return;}
   a.count=Math.max(0,Number(asset.download_count)||0);
-  if(a.slug==='jardin-de-joyas'){
-   // Sumar las APK publicadas de Jardin de Joyas, sin mezclar otras apps del repositorio.
-   const ya=new Set();let total=0;
-   for(const publicacion of releases){
-    if(publicacion.draft||publicacion.prerelease)continue;
-    const etiqueta=String(publicacion.tag_name||'');
-    for(const archivo of (Array.isArray(publicacion.assets)?publicacion.assets:[])){
-     if(!archivo||archivo.state!=='uploaded'||ya.has(archivo.id))continue;
-     const nombre=String(archivo.name||'');
-     if(!/\.apk$/i.test(nombre))continue;
-     if(!/^jardin-de-joyas-v/i.test(etiqueta)&&!/^Jardin_de_Joyas[_.-]/i.test(nombre))continue;
-     ya.add(archivo.id);
-     total+=Math.max(0,Number(archivo.download_count)||0);
-    }
-   }
-   a.countVersion=a.count;
-   a.count=Math.max(a.count,total);
-  }
   a.date=Date.parse(release.published_at||release.created_at||'')||0;
   a.releaseName=release.name||release.tag_name||a.nombre;
   a.hasRelease=true;
@@ -117,8 +99,7 @@ function updateLink(a){
  if(!a.node || a.disponible===false)return;
  if(a.count!==undefined){
   a.stat.textContent=fmt(a.count);
-  a.label.textContent=a.slug==='jardin-de-joyas'?'Descargas acumuladas del juego':(a.count===1?'Descarga de esta versión':'Descargas de esta versión');
-  if(a.slug==='jardin-de-joyas')a.node.querySelector('.downloads small').textContent='Versión actual: '+fmt(a.countVersion||0)+' · GitHub Releases';
+  a.label.textContent=a.count===1?'Descarga de esta versión':'Descargas de esta versión';
  }else{
   a.stat.textContent='—';
   a.label.textContent='Contador no disponible';
@@ -142,7 +123,7 @@ function totals(){
  if(!known.length){el.textContent='—';el.title='GitHub no ha proporcionado datos de descargas';return;}
  const counted=known.reduce((n,a)=>n+a.count,0);
  el.textContent='≥ '+fmt(counted);
- el.title='Suma de descargas mostradas por aplicación. Jardín de Joyas suma sus APK publicadas; otras apps muestran su versión actual.';
+ el.title='Suma de descargas de las versiones actuales en GitHub Releases. No incluye otros enlaces ni los datos no disponibles.';
 }
 async function start(){
  try{
