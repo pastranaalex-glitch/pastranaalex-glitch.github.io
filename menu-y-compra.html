@@ -95,8 +95,8 @@
 (async function(){
   const counter=document.getElementById('menu-download-count');
   const status=document.getElementById('menu-download-status');
-  /* El enlace local funciona sin JavaScript. El contador refleja exclusivamente
-     las descargas del archivo concreto en GitHub Releases. */
+  /* El enlace local funciona sin JavaScript. El contador suma todas las versiones
+     disponibles en GitHub Releases, sin contar la descarga directa local. */
   try{
     const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),7000);
     let response;
@@ -115,8 +115,29 @@
       &&a.browser_download_url==='https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/v.1.4.3/Menu_y_Compra_1.4.3_Publicacion_Firmada.3.apk'
     );
     if(!file)throw new Error('Archivo no verificado');
-    if(counter)counter.textContent=Math.max(0,Number(file.download_count)||0).toLocaleString('es-ES');
-    if(status)status.textContent='Descarga directa disponible. El contador refleja solo GitHub Releases, no las descargas desde esta página.';
+    const historyResponse=await fetch('https://api.github.com/repos/pastranaalex-glitch/pastranaalex-glitch.github.io/releases?per_page=100',
+      {headers:{Accept:'application/vnd.github+json'}});
+    if(!historyResponse.ok)throw Error('Historial no disponible');
+    const releases=await historyResponse.json();
+    if(!Array.isArray(releases)||releases.length===100)throw Error('Historial incompleto');
+    const ids=new Set();let total=0;
+    for(const version of releases){
+      if(!version||version.draft)continue;
+      const tag=String(version.tag_name||'');
+      if(!/^menu-y-compra-v/i.test(tag)&&tag!=='v.1.4.3')continue;
+      for(const asset of version.assets||[]){
+        if(asset?.state!=='uploaded'||!/^Menu[_-]y[_-]Compra/i.test(asset.name||'')
+          ||!/\.apk$/i.test(asset.name||'')
+          ||typeof asset.browser_download_url!=='string'
+          ||!asset.browser_download_url.startsWith('https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/'))continue;
+        const id=asset.id??(version.tag_name+':'+asset.name);
+        if(ids.has(id))continue;ids.add(id);
+        total+=Math.max(0,Number(asset.download_count)||0);
+      }
+    }
+    if(!ids.size)throw Error('Sin archivos publicados');
+    if(counter){counter.textContent=total.toLocaleString('es-ES');counter.title='Descargas acumuladas de todas las versiones en GitHub Releases; no incluye descargas directas desde esta web';}
+    if(status)status.textContent='Descarga directa disponible. El contador suma las versiones de GitHub Releases, no las descargas desde esta página.';
   }catch(_){
     if(counter)counter.textContent='—';
     if(status)status.textContent='La descarga directa sigue disponible. No se pudo actualizar el contador.';
