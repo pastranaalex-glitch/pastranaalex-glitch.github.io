@@ -62,7 +62,7 @@ def verify_approved_apk(app, release):
         signature = run([str(build_tools / "apksigner"), "verify", "--verbose", "--print-certs", str(apk)])
         # Newer apksigner versions label signers with their supported SDK range.
         print(signature)
-        certs = re.findall(r"^Signer[^\n]* certificate SHA-256 digest: ([a-f0-9]{64})\s*$", signature, re.MULTILINE)
+        certs = re.findall(r"^(?:V[0-9.]+ )?Signer[^\n]*certificate SHA-256 digest:\s*([a-f0-9]{64})\s*$", signature, re.MULTILINE)
         if not certs or set(certs) != {CERTIFICATE}:
             raise ValueError("Unexpected Mente Activa PRO signing certificate: " + ", ".join(certs))
         badging = run([str(build_tools / "aapt"), "dump", "badging", str(apk)])

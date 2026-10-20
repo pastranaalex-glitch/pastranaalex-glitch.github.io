@@ -140,6 +140,7 @@ def main():
             new_entry["descarga"] = verified_download
             new_entry["disponible"] = True
             new_entry["estado"] = "Disponible"
+            new_entry["valoracionesDisponibles"] = False
         if existente is None:
             apps.append(new_entry)
         else:

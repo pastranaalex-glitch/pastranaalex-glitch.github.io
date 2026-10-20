@@ -4,7 +4,7 @@ const key='biblioteca-estrellas-identificador-v1',selector='[data-app-card][data
 const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 let api='',siteKey='',ratings={},ready=false,formUrl='',modal=null,slug='',selected=0,token='',widget=null,loadPromise=null;
 let message,submitButton,starRow,captcha,low,feedback;
-function cards(){return document.querySelectorAll(selector);}
+function cards(){return [...document.querySelectorAll(selector)].filter(c=>c.dataset.ratingDisabled!=='true');}
 function make(tag,cls,txt){const x=document.createElement(tag);if(cls)x.className=cls;if(txt!==undefined)x.textContent=txt;return x;}
 function redraw(){
  for(const c of cards()){

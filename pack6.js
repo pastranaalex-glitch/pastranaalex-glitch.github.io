@@ -31,6 +31,7 @@ let apps=[],platform='todos',category='todas',query='',compact=false;
 function card(a){
  const paused=a.disponible===false;
  const article=mk('article','app-card');article.dataset.appCard='';article.dataset.appSlug=a.slug;article.dataset.platform=a.plataforma;article.dataset.categories=(a.categorias||[]).join(' ');article.dataset.search=normalize(a.nombre+' '+a.descripcion+' '+(a.categorias||[]).join(' '));article.dataset.repo=a.repo;
+ if(a.valoracionesDisponibles===false)article.dataset.ratingDisabled='true';
  const art=mk('div','card-art card-art-'+a.slug);
  const copy=mk('div','card-art-copy');copy.append(mk('span','art-tag',a.etiqueta||'APP GRATUITA'),mk('strong',null,a.eslogan||a.nombre),mk('span',null,a.plataforma==='windows'?'Para tu ordenador':'Para tu móvil'));art.append(copy);
  const image=a.portada||a.imagen,isCover=Boolean(a.portada)||a.slug==='jardin-de-joyas';if(isCover)art.classList.add('is-promo-cover');
