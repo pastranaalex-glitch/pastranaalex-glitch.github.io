@@ -60,9 +60,11 @@ def verify_approved_apk(app, release):
             raise ValueError("Downloaded APK differs from release metadata")
         run = lambda args: subprocess.check_output(args, text=True, stderr=subprocess.STDOUT, timeout=60)
         signature = run([str(build_tools / "apksigner"), "verify", "--verbose", "--print-certs", str(apk)])
-        certs = re.findall(r"Signer #[0-9]+ certificate SHA-256 digest: ([a-f0-9]+)", signature)
-        if certs != [CERTIFICATE]:
-            raise ValueError("The APK does not use Mente Activa PRO's original certificate")
+        # Newer apksigner versions label signers with their supported SDK range.
+        print(signature)
+        certs = re.findall(r"^Signer[^\n]* certificate SHA-256 digest: ([a-f0-9]{64})\s*$", signature, re.MULTILINE)
+        if not certs or set(certs) != {CERTIFICATE}:
+            raise ValueError("Unexpected Mente Activa PRO signing certificate: " + ", ".join(certs))
         badging = run([str(build_tools / "aapt"), "dump", "badging", str(apk)])
         package = next((line for line in badging.splitlines() if line.startswith("package:")), "")
         if "name='es.bibliotecaherramientas.menteactiva'" not in package:

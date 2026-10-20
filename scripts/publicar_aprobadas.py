@@ -105,6 +105,9 @@ def main():
                 continue
         except ValueError:
             continue
+        if slug == "mente-activa-pro":
+            # Load the scoped verifier even while waiting for its release.
+            from verificar_mente_apk import verify_approved_apk
         # Limit published assets to a release of the exact approved repository and tag.
         try:
             release = get_release(repo, tag)
