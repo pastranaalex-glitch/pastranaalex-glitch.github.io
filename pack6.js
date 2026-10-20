@@ -11,6 +11,11 @@ const validApp=a=>a&&a.publicado===true&&['android','windows'].includes(a.plataf
    Fijamos versión, nombre y SHA-256 a los metadatos verificados del catálogo. */
 const approvedDownload=a=>{
  if(a&&a.disponible===false)return '';
+ // APK firmada directamente en GitHub Pages: nunca depender del estado de GitHub API.
+ const local=a&&a.descargaDirecta;
+ if(a?.slug==='mi-dinero-real'&&a.publicado===true&&local&&local.version===a.version&&
+    local.archivo==='MiDineroReal2_2.5.1_Publicacion_Firmada.apk'&&
+    local.sha256==='c7f35b29e0fa46ccf91c349ca53360dd9c204f988eabcf8c6eed3a30eff9d69c')return local.archivo;
  const d=a&&a.descarga;
  if(!d||d.version!==a.version||typeof a.repo!=='string'
    ||!/^[a-zA-Z0-9._-]+$/.test(d.tag||'')
@@ -44,7 +49,7 @@ function card(a){
  const actions=mk('div','card-actions'),detail=mk('a','button button-outline','Ver aplicación →'),dl=mk(paused?'button':'a','button button-dark',paused?'Descarga suspendida':'Descargar ↓');detail.href=a.enlace;
  const direct=approvedDownload(a);
  if(paused){dl.type='button';dl.disabled=true;dl.setAttribute('aria-disabled','true');dl.title='Jardín de Joyas temporalmente no disponible hasta completar la reparación';dl.style.opacity='0.65';dl.style.cursor='not-allowed';}
- else if(direct){dl.href=direct;dl.title='Descargar la versión '+a.version+' desde GitHub Releases';}
+ else if(direct){dl.href=direct;dl.title='Descargar la versión '+a.version+(a.descargaDirecta?' desde la Biblioteca':' desde GitHub Releases');}
  else{dl.href=a.enlace;dl.textContent='Ver descarga →';dl.title='Consultar la ficha antes de descargar';}
  if(!paused){dl.rel='noopener noreferrer';if(a.plataforma==='windows')dl.target='_blank';}
  actions.append(detail,dl);footer.append(stats,actions);body.append(identity,desc);if(paused){body.append(mk('p','ui-warning','Temporalmente no disponible hasta completar la reparación.'));strong.textContent='—';label.textContent='Consultando historial';small.textContent='GitHub Releases';}if(a.slug==='cocina-a-punto'){const notice=mk('a','ui-warning','1 detección en VirusTotal · En revisión');notice.href='cocina-a-punto.html#informacion-descarga';body.append(notice);}body.append(meta,footer);article.append(art,body);
