@@ -136,7 +136,7 @@ async function github(a){
    }
   }
   if(!ids.size){a.failed=true;return;}
-  a.count=total;a.countedAssets=ids.size;a.countedRepos=usedRepos.size;
+  a.count=total;a.countedAssets=ids.size;a.countedRepos=usedRepos.size;a.countSnapshotDate=null;
   const current=sources[0].releases.find(r=>r&&!r.draft&&!r.prerelease&&r.tag_name===a.descarga?.tag);
   const verified=current?.assets?.find(x=>assetValid(x,a));
   if(verified){
@@ -151,10 +151,12 @@ function updateLink(a){
   a.stat.textContent=fmt(a.count);
   a.label.textContent=a.count===1?'Descarga acumulada':'Descargas acumuladas';
   const releases=a.countedAssets;
-  a.node.querySelector('.downloads small').textContent=
-   'GitHub · '+releases+' archivo'+(releases===1?'':'s')+(a.countedRepos>1?' · '+a.countedRepos+' repos':'');
-  a.node.querySelector('.downloads').title=
-   'Todas las versiones disponibles en GitHub Releases. No incluye descargas directas desde la web ni publicaciones eliminadas. No son instalaciones únicas.';
+  a.node.querySelector('.downloads small').textContent=a.countSnapshotDate
+   ? 'Corte '+a.countSnapshotDate+' · GitHub'
+   : 'GitHub · '+releases+' archivo'+(releases===1?'':'s')+(a.countedRepos>1?' · '+a.countedRepos+' repos':'');
+  a.node.querySelector('.downloads').title=a.countSnapshotDate
+   ? 'Dato de respaldo del '+a.countSnapshotDate+'. GitHub no ha respondido aún con una cifra actualizada. No incluye descargas directas.'
+   : 'Todas las versiones disponibles en GitHub Releases. No incluye descargas directas desde la web ni publicaciones eliminadas. No son instalaciones únicas.';
  }else{
   a.stat.textContent='—';a.label.textContent='Contador no disponible';
   a.node.querySelector('.downloads small').textContent='La descarga sigue disponible';
@@ -192,6 +194,22 @@ async function start(){
  set('total-apps',apps.length);set('hero-apps',apps.length);set('android-apps',apps.filter(a=>a.plataforma==='android').length);set('windows-apps',apps.filter(a=>a.plataforma==='windows').length);
  const count=document.querySelector('[data-filter-count="todos"]');if(count)count.textContent=apps.length;
  if(!isHome){const params=new URLSearchParams(location.search);const raw=(params.get('q')||'').slice(0,120);query=normalize(raw);const search=document.getElementById('search-apps');if(search)search.value=raw;const p=params.get('platform'),c=params.get('category');if(['android','windows'].includes(p))platform=p;if(apps.some(a=>(a.categorias||[]).includes(c)))category=c;wire();filters();}
+ // Respaldo de todos los lanzamientos revisados: visible si GitHub limita la API.
+ try{
+  const response=await fetch('descargas-acumuladas.json');
+  if(response.ok){
+   const snapshot=await response.json();
+   if(snapshot&&snapshot.conteos&&/^\d{4}-\d{2}-\d{2}$/.test(snapshot.fecha||'')){
+    for(const a of apps){
+     const n=snapshot.conteos[a.slug];
+     if(Number.isSafeInteger(n)&&n>=0){
+      a.count=n;a.countSnapshotDate=snapshot.fecha;
+      updateLink(a);
+     }
+    }
+   }
+  }
+ }catch(_){/* La API en directo sigue funcionando sin el respaldo. */}
  await Promise.all(apps.map(async a=>{await github(a);updateLink(a);}));
  if(isHome){const featured=featureList();slot.replaceChildren(...featured.map(a=>{if(!a.node)card(a);return a.node;}));}
  document.dispatchEvent(new Event('biblioteca:cards-ready'));
