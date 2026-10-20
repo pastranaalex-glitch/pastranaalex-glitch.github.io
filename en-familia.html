@@ -49,7 +49,26 @@
 fetch(url,{headers:{Accept:'application/vnd.github+json'}}).then(r=>{if(!r.ok)throw Error('No hay lanzamiento publicado');return r.json()}).then(release=>{
 const asset=(release.assets||[]).find(a=>a.name===name&&a.state==='uploaded'&&a.digest==='sha256:'+sha&&typeof a.browser_download_url==='string'&&a.browser_download_url.startsWith('https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/en-familia-v1.7.2/'));
 if(release.draft||release.prerelease||release.tag_name!=='en-familia-v1.7.2'||!asset)throw Error('La APK aprobada todavía no está disponible');
-button.href=asset.browser_download_url;button.removeAttribute('aria-disabled');button.removeAttribute('tabindex');button.textContent='↓ Descargar APK firmado · 1.7.2';state.textContent='Descarga oficial de la versión aprobada, alojada en GitHub Releases.';count.textContent=(Number(asset.download_count)||0).toLocaleString('es-ES')+' descargas públicas en GitHub Releases';
+button.href=asset.browser_download_url;button.removeAttribute('aria-disabled');button.removeAttribute('tabindex');button.textContent='↓ Descargar APK firmado · 1.7.2';state.textContent='Descarga oficial de la versión aprobada, alojada en GitHub Releases.';count.textContent='Consultando descargas acumuladas…';
+fetch('https://api.github.com/repos/pastranaalex-glitch/pastranaalex-glitch.github.io/releases?per_page=100',
+ {headers:{Accept:'application/vnd.github+json'}})
+.then(r=>{if(!r.ok)throw Error('API');return r.json()})
+.then(list=>{
+ if(!Array.isArray(list)||list.length===100)throw Error('Historial incompleto');
+ let total=0,found=0;const ids=new Set();
+ for(const rel of list){
+  if(!rel||rel.draft||!/^en-familia-v/i.test(String(rel.tag_name||'')))continue;
+  for(const file of (rel.assets||[])){
+   if(file?.state!=='uploaded'||!/^En[_-]Familia/i.test(file.name||'')
+     ||!/\\.apk$/i.test(file.name||'')||typeof file.browser_download_url!=='string'
+     ||!file.browser_download_url.startsWith('https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/'))continue;
+   const id=file.id??(rel.tag_name+':'+file.name);if(ids.has(id))continue;
+   ids.add(id);found++;total+=Math.max(0,Number(file.download_count)||0);
+  }
+ }
+ if(!found)throw Error('Sin APK');
+ count.textContent=total.toLocaleString('es-ES')+' descargas acumuladas · GitHub Releases';
+}).catch(()=>{count.textContent='Contador no disponible. La descarga sigue disponible.';});
 }).catch(()=>{state.textContent='La descarga directa sigue disponible. No se pudo actualizar la información de GitHub.';count.textContent='Contador no disponible temporalmente.';});
 })();
 </script>
