@@ -547,18 +547,22 @@ button.button{font-family:inherit;cursor:pointer;}
       if (!response.ok) throw new Error('GitHub API no disponible');
       const result = await response.json();
       if (!Array.isArray(result)) throw new Error('Respuesta inválida');
-      const releases = result.filter(r => r && !r.draft && !r.prerelease && verifiedReleases.has(r.tag_name));
+      const releases = result.filter(r => r && !r.draft);
       const latest = releases.find(r => r.tag_name === 'v.1.0.4' && verifiedApk(r));
       if (!latest) throw new Error('Sin APK 1.0.4 verificado');
       const apk = verifiedApk(latest);
-      const allApks = releases.map(verifiedApk).filter(Boolean);
+      const allApks = releases.flatMap(r => (Array.isArray(r.assets)?r.assets:[]).filter(a =>
+        a && a.state === 'uploaded' && /^LectorFacil[-_.]/i.test(a.name||'')
+        && /\.apk$/i.test(a.name||'') && !/debug|unsigned|sin[._-]?firmar/i.test(a.name||'')
+        && typeof a.browser_download_url === 'string'
+        && a.browser_download_url.startsWith('https://github.com/'+repo+'/releases/download/')));
       const total = allApks.reduce((sum, a) => sum + (Number(a.download_count) || 0), 0);
       version.textContent = '1.0.4';
       size.textContent = Number(apk.size) > 0
         ? (Number(apk.size) / (1024 * 1024)).toLocaleString('es-ES', {maximumFractionDigits: 1}) + ' MB'
         : 'Ver en GitHub';
       downloads.textContent = total.toLocaleString('es-ES');
-      caption.textContent = 'Descargas públicas de APK 1.0.1 y 1.0.4. No equivalen a instalaciones únicas.';
+      caption.textContent = 'Descargas acumuladas de todas las versiones APK disponibles en GitHub Releases. No equivalen a instalaciones únicas.';
       button.href = apk.browser_download_url;
     } catch (_) {
       version.textContent = '1.0.4';
