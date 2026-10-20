@@ -216,7 +216,8 @@
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "portada": "mi-dinero-real-portada-realista.webp",
       "disponible": false,
-      "descargasBloqueadas": true
+      "descargasBloqueadas": true,
+      "estado": "Descarga suspendida temporalmente"
     },
     {
       "nombre": "En Familia",
