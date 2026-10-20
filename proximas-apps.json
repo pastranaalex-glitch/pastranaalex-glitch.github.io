@@ -55,10 +55,10 @@
       "descripcion": "Control de ingresos, gastos y presupuestos para gestionar mejor la economía cotidiana.",
       "etiqueta": "FINANZAS PERSONALES",
       "eslogan": "Tus cuentas, claras.",
-      "apkSubido": true,
+      "apkSubido": false,
       "sha256Aprobado": "c7f35b29e0fa46ccf91c349ca53360dd9c204f988eabcf8c6eed3a30eff9d69c",
       "descargaBloqueada": true,
-      "motivoBloqueo": "Descarga suspendida temporalmente por decisión del autor",
+      "motivoBloqueo": "Descargas suspendidas por decisión del autor",
       "descargasBloqueadas": true
     },
     {
