@@ -131,4 +131,61 @@ class TestAvisos(unittest.TestCase):
             self.assertFalse(mod.STATE_FILE.exists())
             create.assert_not_called()
 
+
+    def test_shared_release_uses_exact_tag_and_sha(self):
+        repo = 'pastranaalex-glitch/pastranaalex-glitch.github.io'
+        digest = 'a' * 64
+        self.catalogue['aplicaciones'].append({
+            'nombre': 'App Compartida', 'slug': 'app-compartida', 'publicado': True,
+            'repo': repo,
+            'enlace': 'https://pastranaalex-glitch.github.io/app-compartida.html',
+            'version': '2.0.0',
+            'descarga': {'version': '2.0.0', 'tag': 'app-compartida-v2.0.0',
+                         'archivo': 'AppCompartida-v2.0.0.apk', 'sha256': digest}
+        })
+        self.save_catalogue()
+        app = next(a for a in mod.get_catalogue() if a.get('slug') == 'app-compartida')
+        self.assertEqual(app['mode'], 'shared-release')
+        self.assertEqual(app['key'], repo + '#app-compartida')
+        release = {
+            'id': 1234, 'tag_name': 'app-compartida-v2.0.0',
+            'draft': False, 'prerelease': False,
+            'html_url': 'https://github.com/' + repo + '/releases/tag/app-compartida-v2.0.0',
+            'assets': [{'state': 'uploaded', 'name': 'AppCompartida-v2.0.0.apk',
+                        'digest': 'sha256:' + digest,
+                        'browser_download_url': 'https://github.com/' + repo
+                        + '/releases/download/app-compartida-v2.0.0/AppCompartida-v2.0.0.apk'}]
+        }
+        with patch.object(mod, 'request_json', return_value=release):
+            self.assertEqual(mod.get_release_for_app(app)['id'], 1234)
+            release['assets'][0]['digest'] = 'sha256:' + ('b' * 64)
+            self.assertIsNone(mod.get_release_for_app(app))
+
+    def test_shared_direct_requires_approved_real_apk(self):
+        import json
+        filename = 'MiDineroReal2_2.5.1_Publicacion_Firmada.apk'
+        sha = 'c7f35b29e0fa46ccf91c349ca53360dd9c204f988eabcf8c6eed3a30eff9d69c'
+        self.catalogue['aplicaciones'].append({
+            'nombre': 'Mi Dinero Real 2', 'slug': 'mi-dinero-real',
+            'publicado': True, 'version': '2.5.1',
+            'repo': 'pastranaalex-glitch/pastranaalex-glitch.github.io',
+            'enlace': 'https://pastranaalex-glitch.github.io/mi-dinero-real.html',
+            'descargaDirecta': {'version': '2.5.1', 'archivo': filename, 'sha256': sha}
+        })
+        self.save_catalogue()
+        (self.root / 'proximas-apps.json').write_text(json.dumps({'aplicaciones': [{
+            'slug': 'mi-dinero-real', 'publicacionAutomatica': True,
+            'revisionAprobada': True, 'sha256Aprobado': sha,
+            'versionAprobada': '2.5.1'
+        }]}), encoding='utf-8')
+        shutil.copyfile(ROOT / filename, self.root / filename)
+        app = next(a for a in mod.get_catalogue() if a.get('slug') == 'mi-dinero-real')
+        release = mod.get_release_for_app(app)
+        self.assertIsNotNone(release)
+        self.assertEqual(release['tag_name'], 'v2.5.1')
+        self.assertEqual(release['html_url'], app['ficha'])
+        (self.root / filename).write_bytes(b'alterado' * 2000)
+        self.assertIsNone(mod.get_release_for_app(app))
+
+
 if __name__ == '__main__': unittest.main()
