@@ -202,14 +202,14 @@
       "plataforma": "android",
       "publicado": false,
       "version": "2.5.1",
-      "descripcion": "Controla los ingresos y gastos del hogar, comida por separado, presupuestos, pagos recurrentes e informes PDF y Word. Sin anuncios.",
+      "descripcion": "Organiza los ingresos, gastos del hogar y alimentación, analiza tus movimientos y exporta informes. En reparación; descarga temporalmente suspendida.",
       "enlace": "https://pastranaalex-glitch.github.io/mi-dinero-real.html",
       "slug": "mi-dinero-real",
       "categorias": [
         "economia",
         "utilidades"
       ],
-      "etiqueta": "ECONOMÍA DEL HOGAR",
+      "etiqueta": "EN REPARACIÓN",
       "eslogan": "Tus cuentas, más claras.",
       "imagen": "",
       "icono": "icono-mi-dinero-real.svg",
@@ -217,7 +217,7 @@
       "portada": "mi-dinero-real-portada-realista.webp",
       "disponible": false,
       "descargasBloqueadas": true,
-      "estado": "Descarga suspendida temporalmente"
+      "estado": "En reparación · descargas suspendidas"
     },
     {
       "nombre": "En Familia",
