@@ -5,8 +5,8 @@
       "nombre": "Lector Fácil",
       "plataforma": "android",
       "publicado": true,
-      "version": "1.0.4",
-      "descripcion": "Lee PDF y Word con zoom táctil, lectura adaptable y reconocimiento de texto OCR sin conexión; incluye marcadores y opciones para exposiciones.",
+      "version": "1.0.5",
+      "descripcion": "Lee PDF y Word con zoom táctil, lectura adaptable y OCR sin conexión; incluye marcadores, herramientas para exposiciones y avisos de actualizaciones dentro de la app.",
       "enlace": "https://pastranaalex-glitch.github.io/lector-facil.html",
       "slug": "lector-facil",
       "categorias": [
@@ -19,11 +19,12 @@
       "repo": "pastranaalex-glitch/lector-facil",
       "portada": "lector-facil-portada-realista.webp",
       "descarga": {
-        "version": "1.0.4",
-        "tag": "v.1.0.4",
-        "archivo": "LectorFacil-v1.0.4.apk",
-        "sha256": "b940e62928a80787223c2e66f707af8cebbd7fc3fcfb2a63c6937a8c80798fb3"
-      }
+        "version": "1.0.5",
+        "tag": "v.1.0.5",
+        "archivo": "LectorFacil-v1.0.5.apk",
+        "sha256": "e0d456ca85592f47b13098001142cba6e1a513511b993627e1bf22637d2075e7"
+      },
+      "disponible": true
     },
     {
       "nombre": "Recetario Fácil",
