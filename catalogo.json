@@ -218,7 +218,8 @@
       "portada": "mi-dinero-real-portada-realista.webp",
       "disponible": false,
       "descargasBloqueadas": true,
-      "estado": "En reparación · descargas suspendidas"
+      "estado": "En reparación · sin descargas",
+      "visibleEnCatalogo": true
     },
     {
       "nombre": "En Familia",
