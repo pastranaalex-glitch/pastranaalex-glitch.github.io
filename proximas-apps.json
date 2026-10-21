@@ -3,8 +3,8 @@
   "aplicaciones": [
     {
       "slug": "menu-y-compra",
-      "nombre": "Men\u00FA y Compra",
-      "fechaEstreno": "2026-10-16T00:00:00\u002B02:00",
+      "nombre": "Menú y Compra",
+      "fechaEstreno": "2026-10-16T00:00:00+02:00",
       "repo": null,
       "plataforma": "android",
       "versionAprobada": null,
@@ -14,14 +14,14 @@
         "cocina",
         "utilidades"
       ],
-      "descripcion": "Organiza men\u00FAs semanales y listas de la compra para preparar las comidas de forma pr\u00E1ctica.",
-      "etiqueta": "MEN\u00DAS Y COMPRAS",
+      "descripcion": "Organiza menús semanales y listas de la compra para preparar las comidas de forma práctica.",
+      "etiqueta": "MENÚS Y COMPRAS",
       "eslogan": "Planifica con sencillez."
     },
     {
       "slug": "mi-salud-familiar",
       "nombre": "Mi Salud Familiar",
-      "fechaEstreno": "2026-10-18T00:00:00\u002B02:00",
+      "fechaEstreno": "2026-10-18T00:00:00+02:00",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "plataforma": "android",
       "versionAprobada": "2.9",
@@ -31,8 +31,8 @@
         "salud",
         "utilidades"
       ],
-      "descripcion": "Organiza informaci\u00F3n de salud, tratamientos y citas de la familia de forma sencilla.",
-      "etiqueta": "SALUD Y ORGANIZACI\u00D3N",
+      "descripcion": "Organiza información de salud, tratamientos y citas de la familia de forma sencilla.",
+      "etiqueta": "SALUD Y ORGANIZACIÓN",
       "eslogan": "Tu salud, organizada.",
       "apkSubido": true,
       "archivoAprobado": "MiSaludFamiliar_2.9_Publicacion_Firmada.apk",
@@ -52,19 +52,19 @@
         "finanzas",
         "utilidades"
       ],
-      "descripcion": "Aplicaci\u00F3n para la econom\u00EDa del hogar: ingresos, gastos, comida, an\u00E1lisis e informes. En reparaci\u00F3n, con descarga temporalmente suspendida.",
+      "descripcion": "Aplicación para la economía del hogar: ingresos, gastos, comida, análisis e informes. En reparación, con descarga temporalmente suspendida.",
       "etiqueta": "FINANZAS PERSONALES",
       "eslogan": "Tus cuentas, claras.",
       "apkSubido": false,
       "sha256Aprobado": "c7f35b29e0fa46ccf91c349ca53360dd9c204f988eabcf8c6eed3a30eff9d69c",
       "descargaBloqueada": true,
-      "motivoBloqueo": "En reparaci\u00F3n: descarga suspendida hasta revisar y probar la nueva versi\u00F3n",
+      "motivoBloqueo": "En reparación: descarga suspendida hasta revisar y probar la nueva versión",
       "descargasBloqueadas": true
     },
     {
       "slug": "en-familia",
       "nombre": "En Familia",
-      "fechaEstreno": "2026-10-16T00:00:00\u002B02:00",
+      "fechaEstreno": "2026-10-16T00:00:00+02:00",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "plataforma": "android",
       "versionAprobada": "en-familia-v1.7.2",
@@ -74,7 +74,7 @@
         "juegos",
         "familia"
       ],
-      "descripcion": "Juego educativo y familiar con 500 pruebas de m\u00EDmica, dibujo, pistas, historias, vocalizaci\u00F3n y preguntas, con historial entre jornadas y modos cooperativo o por equipos.",
+      "descripcion": "Juego educativo y familiar con 500 pruebas de mímica, dibujo, pistas, historias, vocalización y preguntas, con historial entre jornadas y modos cooperativo o por equipos.",
       "etiqueta": "JUEGO EDUCATIVO",
       "eslogan": "500 retos para jugar juntos.",
       "versionVisible": "1.7.2",
@@ -85,8 +85,8 @@
     },
     {
       "slug": "jardin-de-joyas",
-      "nombre": "Jard\u00EDn de Joyas",
-      "fechaEstreno": "2026-10-17T00:00:00\u002B02:00",
+      "nombre": "Jardín de Joyas",
+      "fechaEstreno": "2026-10-17T00:00:00+02:00",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "plataforma": "android",
       "versionAprobada": "jardin-de-joyas-v1.8.7",
@@ -96,9 +96,9 @@
       "categorias": [
         "juegos"
       ],
-      "descripcion": "Combina joyas en 200 niveles, crea bombas y rayos y disfruta del modo Relax. Gratis, sin anuncios y sin conexi\u00F3n.",
+      "descripcion": "Combina joyas en 200 niveles, crea bombas y rayos y disfruta del modo Relax. Gratis, sin anuncios y sin conexión.",
       "etiqueta": "JUEGO DE JOYAS",
-      "eslogan": "Un jard\u00EDn lleno de brillo.",
+      "eslogan": "Un jardín lleno de brillo.",
       "archivoAprobado": "Jardin_de_Joyas_1_8_7_PACK37_FIRMA_EXISTENTE.apk",
       "sha256Aprobado": "47f59f813cdddd8d579e840081d27a8a5b2de134ad6876b3241d510f3fe6004a",
       "apkSubido": true,
@@ -107,7 +107,7 @@
     {
       "slug": "mente-activa-pro",
       "nombre": "Mente Activa PRO",
-      "fechaEstreno": "2026-10-20T00:00:00\u002B02:00",
+      "fechaEstreno": "2026-10-20T00:00:00+02:00",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "plataforma": "android",
       "versionAprobada": "mente-activa-pro-v1.5.0",
@@ -116,9 +116,9 @@
       "categorias": [
         "juegos"
       ],
-      "descripcion": "16 juegos de entretenimiento de memoria, atenci\u00F3n, palabras, c\u00E1lculo y l\u00F3gica. Tres dificultades, selecci\u00F3n diaria, favoritos e historial. Gratis y sin anuncios; los juegos funcionan sin conexi\u00F3n.",
+      "descripcion": "16 juegos de entretenimiento de memoria, atención, palabras, cálculo y lógica. Tres dificultades, selección diaria, favoritos e historial. Gratis y sin anuncios; los juegos funcionan sin conexión.",
       "etiqueta": "JUEGOS A TU RITMO",
-      "eslogan": "Dale juego a tu d\u00EDa.",
+      "eslogan": "Dale juego a tu día.",
       "versionVisible": "1.5.0",
       "versionCodeAprobado": 6,
       "archivoAprobado": "Mente_Activa_PRO_1_5_0_PACK6.apk",
@@ -127,7 +127,7 @@
     {
       "slug": "suite-antivirus",
       "nombre": "Suite Antivirus",
-      "fechaEstreno": "2026-11-10T00:00:00\u002B01:00",
+      "fechaEstreno": "2026-11-10T00:00:00+01:00",
       "repo": null,
       "plataforma": "windows",
       "versionAprobada": null,
@@ -137,13 +137,13 @@
         "seguridad",
         "utilidades"
       ],
-      "descripcion": "Suite de seguridad para Windows en desarrollo, centrada en el an\u00E1lisis de archivos, la cuarentena y el historial de resultados.",
+      "descripcion": "Suite de seguridad para Windows en desarrollo, centrada en el análisis de archivos, la cuarentena y el historial de resultados.",
       "etiqueta": "SEGURIDAD PARA WINDOWS",
       "eslogan": "Analiza con claridad."
     },
     {
       "slug": "texto-facil",
-      "nombre": "Texto F\u00E1cil",
+      "nombre": "Texto Fácil",
       "fechaEstreno": null,
       "repo": null,
       "plataforma": "windows",
@@ -154,7 +154,7 @@
         "ofimatica",
         "utilidades"
       ],
-      "descripcion": "Procesador de textos gratuito para Windows, sencillo y pr\u00E1ctico, para escribir, editar y dar formato a documentos cotidianos sin complicaciones.",
+      "descripcion": "Procesador de textos gratuito para Windows, sencillo y práctico, para escribir, editar y dar formato a documentos cotidianos sin complicaciones.",
       "etiqueta": "PROCESADOR DE TEXTOS",
       "eslogan": "Escribe con sencillez.",
       "imagen": "texto-facil-portada-realista.webp"
