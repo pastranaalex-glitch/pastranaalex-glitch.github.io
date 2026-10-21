@@ -89,8 +89,8 @@
       "fechaEstreno": "2026-10-17T00:00:00+02:00",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "plataforma": "android",
-      "versionAprobada": "V.1.4.1",
-      "versionVisible": "1.4.1",
+      "versionAprobada": "jardin-de-joyas-v1.8.6",
+      "versionVisible": "1.8.6",
       "revisionAprobada": true,
       "publicacionAutomatica": true,
       "categorias": [
@@ -99,9 +99,9 @@
       "descripcion": "Combina joyas en 200 niveles, crea bombas y rayos y disfruta del modo Relax. Gratis, sin anuncios y sin conexión.",
       "etiqueta": "JUEGO DE JOYAS",
       "eslogan": "Un jardín lleno de brillo.",
-      "archivoAprobado": "Jardin_de_Joyas_Pack_6_1_4_1.apk",
-      "sha256Aprobado": "8e0abb545467d53e19adcbb13ed4aab48d21567c8046b45a0d619bfabbfb70d6",
-      "apkSubido": true,
+      "archivoAprobado": "Jardin_de_Joyas_1_8_6_PACK36_FIRMA_EXISTENTE.apk",
+      "sha256Aprobado": "67e42d3021ea05c192f5473374eb45338827d904a299be66bf6e8629cda21469",
+      "apkSubido": false,
       "icono": "icono-jardin-de-joyas.svg"
     },
     {
