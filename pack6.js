@@ -53,6 +53,14 @@ function card(a){
  else{dl.href=a.enlace;dl.textContent='Ver descarga →';dl.title='Consultar la ficha antes de descargar';}
  if(!paused){dl.rel='noopener noreferrer';if(a.plataforma==='windows')dl.target='_blank';}
  actions.append(detail,dl);footer.append(stats,actions);body.append(identity,desc);if(paused){body.append(mk('p','ui-warning','Temporalmente no disponible hasta completar la reparación.'));strong.textContent='—';label.textContent='Consultando historial';small.textContent='GitHub Releases';}if(a.slug==='cocina-a-punto'){const notice=mk('a','ui-warning','1 detección en VirusTotal · En revisión');notice.href='cocina-a-punto.html#informacion-descarga';body.append(notice);}body.append(meta,footer);article.append(art,body);
+ const upcoming=a.anuncioActualizacion;
+ if(upcoming&&safe(upcoming.titulo)&&safe(upcoming.texto)){
+  const notice=mk('aside','jj-update-card');
+  notice.setAttribute('aria-label','Próxima actualización de '+a.nombre);
+  const more=mk('a',null,'Descubre las mejoras →');more.href=a.enlace+'#proxima-actualizacion';
+  notice.append(mk('strong',null,upcoming.titulo),mk('p',null,upcoming.texto),more);
+  body.insertBefore(notice,meta);
+ }
  a.node=article;a.stat=strong;a.label=label;a.downloadLink=dl;return article;
 }
 function filters(){
@@ -227,5 +235,6 @@ async function start(){
 }
 start();
 })();
+
 
 

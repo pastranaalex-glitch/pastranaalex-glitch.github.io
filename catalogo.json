@@ -267,6 +267,10 @@
         "tag": "jardin-de-joyas-v1.7.5",
         "archivo": "Jardin_de_Joyas_1_7_5_PACK25_FIRMA_EXISTENTE.apk",
         "sha256": "946be6f35d5cd216ea55f97159519055503627e24c7822af61b86e441514126f"
+      },
+      "anuncioActualizacion": {
+        "titulo": "Próximamente: una gran actualización",
+        "texto": "Joyas más definidas, combos más potentes y un tablero más grande. También renovamos el Jardín Vivo y su estatua."
       }
     },
     {

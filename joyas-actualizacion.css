@@ -1,0 +1,20 @@
+/* Anuncio de la próxima actualización de Jardín de Joyas. */
+.jj-upcoming-feature{border-color:#d8c4eb}
+.jj-upcoming-feature .ui-feature-tag{background:#ffedbd;color:#512c70;max-width:calc(100% - 24px)}
+.jj-upcoming-feature .ui-feature-info{display:grid;grid-template-columns:43px minmax(0,1fr);align-items:start;gap:8px 11px}
+.jj-upcoming-feature .ui-feature-info p{line-height:1.55}
+.jj-upcoming-feature .ui-feature-info p strong{display:block;color:#603d85;margin-bottom:3px}
+.jj-upcoming-feature .ui-feature-info>a{grid-column:2;margin:0;min-height:40px}
+.jj-update-card{margin:0 0 16px;padding:13px 15px 7px;border:1px solid #e0d3ef;border-left:3px solid #8b60b5;border-radius:12px;background:#faf6ff;color:#514163;line-height:1.55}
+.jj-update-card>strong{display:block;font-size:.86rem;color:#603d85}
+.jj-update-card>p{font-size:.86rem;margin:6px 0 3px}
+.jj-update-card>a{display:inline-flex;align-items:center;min-height:44px;font-size:.85rem;font-weight:750;color:#6240a0;text-underline-offset:3px}
+.jj-update-section{padding:28px 0 36px;scroll-margin-top:95px}
+.jj-update-panel{padding:clamp(22px,4vw,38px);border:1px solid #ded0ed;border-radius:20px;background:linear-gradient(120deg,#faf5ff,#fffaf0);color:#4f435e}
+.jj-update-kicker{display:inline-block;margin:0 0 12px;padding:6px 11px;border-radius:8px;background:#ffedbd;color:#58306f;font-size:.73rem;font-weight:850;letter-spacing:.05em}
+.jj-update-panel h2{margin:0 0 12px;color:#39234e;font-size:clamp(1.5rem,3vw,2rem);line-height:1.2;letter-spacing:-.025em}
+.jj-update-lead{max-width:760px;margin:0 0 20px;font-size:1.03rem;line-height:1.7}
+.jj-update-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px 30px;margin:0;padding-left:20px;line-height:1.65}
+.jj-update-list strong{color:#4f316d}
+.jj-update-note{margin:22px 0 0;font-size:.9rem;color:#685970;line-height:1.65}
+@media(max-width:640px){.jj-update-list{grid-template-columns:1fr;gap:12px}.jj-update-section{padding:18px 0 26px}.jj-update-panel{border-radius:15px}.jj-upcoming-feature .ui-feature-info{grid-template-columns:35px minmax(0,1fr);gap:7px 8px}.jj-upcoming-feature .ui-feature-info>a{min-height:44px}}
