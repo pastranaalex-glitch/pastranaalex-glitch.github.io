@@ -6,7 +6,8 @@ const normalize=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'')
 const safe=(v)=>typeof v==='string'?v:'';
 if(!slot)return;
 const fallback=document.getElementById('catalog-fallback');
-const validApp=a=>a&&a.publicado===true&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&(a.repo===owner+'/'+a.slug||(['menu-y-compra','mi-salud-familiar','mi-dinero-real','en-familia','jardin-de-joyas','mente-activa-pro'].includes(a.slug)&&a.repo===owner+'/'+owner+'.github.io'))&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
+const visibleInCatalog=a=>a&&(a.publicado===true||(a.visibleEnCatalogo===true&&a.disponible===false&&a.descargasBloqueadas===true));
+const validApp=a=>a&&visibleInCatalog(a)&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&(a.repo===owner+'/'+a.slug||(['menu-y-compra','mi-salud-familiar','mi-dinero-real','en-familia','jardin-de-joyas','mente-activa-pro'].includes(a.slug)&&a.repo===owner+'/'+owner+'.github.io'))&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
 /* La descarga nunca depende de una consulta a la API de GitHub.
    Fijamos versión, nombre y SHA-256 a los metadatos verificados del catálogo. */
 const approvedDownload=a=>{
@@ -48,11 +49,11 @@ function card(a){
  const footer=mk('div','card-footer'),stats=mk('div','downloads'),strong=mk('strong',null,'—'),label=mk('span',null,'Consultando descargas'),small=mk('small',null,'GitHub Releases');stats.append(strong,label,small);
  const actions=mk('div','card-actions'),detail=mk('a','button button-outline','Ver aplicación →'),dl=mk(paused?'button':'a','button button-dark',paused?'Descarga suspendida':'Descargar ↓');detail.href=a.enlace;
  const direct=approvedDownload(a);
- if(paused){dl.type='button';dl.disabled=true;dl.setAttribute('aria-disabled','true');dl.title='Jardín de Joyas temporalmente no disponible hasta completar la reparación';dl.style.opacity='0.65';dl.style.cursor='not-allowed';}
+ if(paused){dl.type='button';dl.disabled=true;dl.setAttribute('aria-disabled','true');dl.title=a.nombre+' en reparación: descarga temporalmente desactivada';dl.style.opacity='0.65';dl.style.cursor='not-allowed';}
  else if(direct){dl.href=direct;dl.title='Descargar la versión '+a.version+(a.descargaDirecta?' desde la Biblioteca':' desde GitHub Releases');}
  else{dl.href=a.enlace;dl.textContent='Ver descarga →';dl.title='Consultar la ficha antes de descargar';}
  if(!paused){dl.rel='noopener noreferrer';if(a.plataforma==='windows')dl.target='_blank';}
- actions.append(detail,dl);footer.append(stats,actions);body.append(identity,desc);if(paused){body.append(mk('p','ui-warning','Temporalmente no disponible hasta completar la reparación.'));strong.textContent='—';label.textContent='Consultando historial';small.textContent='GitHub Releases';}if(a.slug==='cocina-a-punto'){const notice=mk('a','ui-warning','1 detección en VirusTotal · En revisión');notice.href='cocina-a-punto.html#informacion-descarga';body.append(notice);}body.append(meta,footer);article.append(art,body);
+ actions.append(detail,dl);footer.append(stats,actions);body.append(identity,desc);if(paused){body.append(mk('p','ui-warning','Temporalmente no disponible hasta completar la reparación.'));strong.textContent='—';label.textContent='En reparación';small.textContent='Descarga desactivada';}if(a.slug==='cocina-a-punto'){const notice=mk('a','ui-warning','1 detección en VirusTotal · En revisión');notice.href='cocina-a-punto.html#informacion-descarga';body.append(notice);}body.append(meta,footer);article.append(art,body);
  const upcoming=a.anuncioActualizacion;
  if(upcoming&&safe(upcoming.titulo)&&safe(upcoming.texto)){
   const notice=mk('aside','jj-update-card');
@@ -163,6 +164,7 @@ async function github(a){
 }
 function updateLink(a){
  if(!a.node)return;
+ if(a.disponible===false){a.stat.textContent='—';a.label.textContent='En reparación';a.node.querySelector('.downloads small').textContent='Descarga desactivada';return;}
  if(Number.isFinite(a.count)){
   a.stat.textContent=(a.countSnapshotDate?'≥ ':'')+fmt(a.count);
   a.label.textContent=a.count===1?'Descarga acumulada':'Descargas acumuladas';
@@ -227,7 +229,7 @@ async function start(){
   }
  }catch(_){/* La API en directo sigue funcionando sin el respaldo. */}
  totals(); // Mostrar el mínimo de la portada mientras GitHub responde.
- await Promise.all(apps.map(async a=>{await github(a);updateLink(a);totals();}));
+ await Promise.all(apps.map(async a=>{if(a.disponible!==false)await github(a);updateLink(a);totals();}));
  if(isHome){const featured=featureList();slot.replaceChildren(...featured.map(a=>{if(!a.node)card(a);return a.node;}));}
  document.dispatchEvent(new Event('biblioteca:cards-ready'));
  totals();if(isHome)headline();
