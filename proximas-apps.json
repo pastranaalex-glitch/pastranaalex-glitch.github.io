@@ -42,7 +42,7 @@
     {
       "slug": "mi-dinero-real",
       "nombre": "Mi Dinero Real 2",
-      "fechaEstreno": "2026-10-21T00:00:00+02:00",
+      "fechaEstreno": null,
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "plataforma": "android",
       "versionAprobada": "2.5.1",
@@ -52,13 +52,13 @@
         "finanzas",
         "utilidades"
       ],
-      "descripcion": "Control de ingresos, gastos y presupuestos para gestionar mejor la economía cotidiana.",
+      "descripcion": "Aplicación para la economía del hogar: ingresos, gastos, comida, análisis e informes. En reparación, con descarga temporalmente suspendida.",
       "etiqueta": "FINANZAS PERSONALES",
       "eslogan": "Tus cuentas, claras.",
       "apkSubido": false,
       "sha256Aprobado": "c7f35b29e0fa46ccf91c349ca53360dd9c204f988eabcf8c6eed3a30eff9d69c",
       "descargaBloqueada": true,
-      "motivoBloqueo": "Descargas suspendidas por decisión del autor",
+      "motivoBloqueo": "En reparación: descarga suspendida hasta revisar y probar la nueva versión",
       "descargasBloqueadas": true
     },
     {
