@@ -1,0 +1,24 @@
+/* Noticias compactas de la portada. Dos tarjetas, sin JavaScript ni dependencias. */
+.library-ui .biblio-news{padding:17px 0 0}
+.library-ui .biblio-news-header{display:flex;align-items:end;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:11px}
+.library-ui .biblio-news-kicker{margin:0 0 2px;color:#6650c0;font-size:.72rem;font-weight:850;letter-spacing:.075em;text-transform:uppercase}
+.library-ui .biblio-news-header h2{margin:0;color:#242239;font-size:clamp(1.25rem,2.2vw,1.53rem);line-height:1.25;letter-spacing:-.035em}
+.library-ui .biblio-news-helper{margin:0 0 2px;color:#66697b;font-size:.79rem}
+.library-ui .biblio-news-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.library-ui .biblio-news-card{display:grid;grid-template-columns:132px minmax(0,1fr);gap:15px;align-items:center;min-width:0;padding:13px;background:#fff;border:1px solid #e6e5ee;border-radius:16px;box-shadow:0 5px 19px rgba(41,31,78,.045)}
+.library-ui .biblio-news-card--joyas{background:linear-gradient(120deg,#fff8f4,#fff 65%);border-color:#eedee8}
+.library-ui .biblio-news-card--lector{background:linear-gradient(120deg,#f0fbff,#fff 65%);border-color:#cfe7ec}
+.library-ui .biblio-news-picture{display:block;border-radius:11px;overflow:hidden;background:#f0eff8;height:136px;min-width:0}
+.library-ui .biblio-news-picture img{display:block;width:100%;height:100%;object-fit:cover}
+.library-ui .biblio-news-card--joyas .biblio-news-picture img{object-position:center}
+.library-ui .biblio-news-card--lector .biblio-news-picture img{object-position:center}
+.library-ui .biblio-news-content{min-width:0;align-self:center}
+.library-ui .biblio-news-state{display:inline-flex;align-items:center;gap:6px;margin:0 0 4px;color:#714275;font-weight:850;letter-spacing:.025em;font-size:.69rem;text-transform:uppercase}
+.library-ui .biblio-news-card--lector .biblio-news-state{color:#155b74}
+.library-ui .biblio-news-content h3{margin:0 0 5px;color:#242239;font-size:1.08rem;line-height:1.24;letter-spacing:-.025em}
+.library-ui .biblio-news-content p:not(.biblio-news-state){margin:0;color:#59596f;font-size:.81rem;line-height:1.5}
+.library-ui .biblio-news-link{display:inline-flex;align-items:center;min-height:34px;margin-top:6px;color:#5843b5!important;font-size:.81rem;font-weight:850;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.library-ui .biblio-news-link:hover{color:#3e2e9a!important}
+@media(max-width:980px){.library-ui .biblio-news-card{grid-template-columns:106px minmax(0,1fr);gap:12px;padding:11px}.library-ui .biblio-news-picture{height:124px}}
+@media(max-width:760px){.library-ui .biblio-news{padding-top:12px}.library-ui .biblio-news-grid{grid-template-columns:1fr;gap:9px}.library-ui .biblio-news-card{grid-template-columns:122px minmax(0,1fr);padding:11px;gap:13px}.library-ui .biblio-news-picture{height:120px}.library-ui .biblio-news-helper{display:none}}
+@media(max-width:420px){.library-ui .biblio-news-card{grid-template-columns:93px minmax(0,1fr);gap:11px}.library-ui .biblio-news-picture{height:113px}.library-ui .biblio-news-content h3{font-size:1rem}.library-ui .biblio-news-content p:not(.biblio-news-state){font-size:.77rem}.library-ui .biblio-news-state{font-size:.65rem}}
