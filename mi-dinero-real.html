@@ -43,6 +43,16 @@
 .ficha-app .fin-section-note{font-size:.87rem;color:#6e7b88}
 @media(max-width:850px){.ficha-app .fin-intro-grid{grid-template-columns:1fr}.ficha-app .fin-intro-visual{display:none}.ficha-app .fin-features{grid-template-columns:repeat(2,minmax(0,1fr))}.ficha-app .fin-sample{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.ficha-app .fin-features{grid-template-columns:1fr}.ficha-app .fin-intro{padding:35px 0}.ficha-app .fin-buttons{flex-direction:column}.ficha-app .fin-button{width:100%}.ficha-app .fin-container{padding:33px 16px}.ficha-app .fin-card{padding:17px}.ficha-app .fin-table td,.ficha-app .fin-table th{padding:10px 6px;font-size:.83rem}}
+
+.ficha-app .fin-repair-banner{background:#fff2d6;border:1px solid #e9c26b;color:#7c4d05;padding:15px 19px;border-radius:12px;font-weight:700;line-height:1.5;margin:18px 0 0}
+.ficha-app .fin-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start}
+.ficha-app .fin-gallery figure{margin:0;padding:12px;background:#fff;border:1px solid var(--line);border-radius:17px;box-shadow:0 7px 20px rgba(19,56,82,.07)}
+.ficha-app .fin-gallery a{display:block}
+.ficha-app .fin-gallery img{display:block;width:100%;height:auto;border-radius:12px}
+.ficha-app .fin-gallery figcaption{color:#40566d;font-weight:700;text-align:center;padding:12px 3px 2px;font-size:.92rem}
+.ficha-app .fin-gallery-pending{padding:16px;border:1px dashed #c6d5df;border-radius:12px;color:#50647a;background:#fff}
+@media(max-width:760px){.ficha-app .fin-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+@media(max-width:520px){.ficha-app .fin-gallery{grid-template-columns:1fr;max-width:400px;margin:0 auto}}
 </style>
 <link rel="stylesheet" href="portadas-apps.css?v=20261017">
 </head>
@@ -52,9 +62,9 @@
 <main id="contenido">
 <div class="app-promo-wrap"><figure class="app-promo-cover"><img src="mi-dinero-real-portada-realista.webp" alt="Portada promocional de Mi Dinero Real 2" width="1440" height="810" fetchpriority="high" decoding="async"><figcaption>Imagen promocional · Mi Dinero Real 2</figcaption></figure></div>
 <section class="fin-intro"><div class="container fin-intro-grid"><div>
-<p class="fin-kicker">Android · Finanzas domésticas · 100 % gratis</p><h1>Mi Dinero Real 2</h1>
+<p class="fin-kicker">Android · Finanzas domésticas · En reparación</p><h1>Mi Dinero Real 2</h1>
 <p class="fin-lead">Controla los ingresos y gastos de tu hogar sin complicaciones. Distingue lo que gastas en comida, descubre adónde se va el dinero y prepara informes profesionales cuando los necesites.</p>
-<div class="fin-tags"><span>Android 8.0+</span><span>Versión 2.5.1</span><span>Sin anuncios</span><span>Sin cuenta</span><span>Funciona sin Internet</span></div>
+<p class="fin-repair-banner" role="status">🛠️ <strong>EN REPARACIÓN.</strong> Estamos revisando Mi Dinero Real 2 antes de volver a ofrecer su descarga. Las descargas permanecen suspendidas hasta completar las pruebas.</p>\n<div class="fin-tags"><span>Android 8.0+</span><span>Versión 2.5.1</span><span>Sin anuncios</span><span>Sin cuenta</span><span>Funciona sin Internet</span></div>
 <div class="fin-buttons"><span class="fin-button fin-primary" role="status" aria-disabled="true" style="background:#64748b;cursor:not-allowed">Descarga temporalmente suspendida</span><a class="fin-button fin-secondary" href="#funciones">Descubrir funciones →</a></div>
 <p class="fin-section-note">La descarga está suspendida temporalmente. La ficha permanece disponible como información del proyecto.</p>
 <p class="fin-section-note"><strong>🔔 Avisos de actualizaciones:</strong> <a href="avisos.html">suscríbete gratuitamente por correo</a> para enterarte de nuevas versiones. La suscripción es opcional y los correos se revisan antes de enviarse.</p>
@@ -68,6 +78,16 @@
 <article class="fin-card fin-feature"><span class="fin-symbol" aria-hidden="true">🔁</span><h3>Movimientos recurrentes</h3><p>Programa ingresos y pagos mensuales, trimestrales, semestrales o anuales.</p></article>
 <article class="fin-card fin-feature"><span class="fin-symbol" aria-hidden="true">📄</span><h3>Informes PDF y Word</h3><p>Exporta informes de un mes, trimestre, semestre, año o varios años, resumidos o detallados.</p></article>
 </div></section>
+<section class="fin-container" id="capturas" aria-labelledby="capturas-title">
+<h2 id="capturas-title">Capturas reales de la aplicación</h2>
+<p class="fin-subtext">Conoce las pantallas de inicio, análisis de tu economía y gastos de comida. Las pantallas muestran una sesión de uso de la aplicación.</p>
+<div class="fin-gallery" aria-label="Tres capturas de Mi Dinero Real 2">
+<figure hidden><a href="mi-dinero-real-01-inicio.webp" target="_blank" rel="noopener"><img src="mi-dinero-real-01-inicio.webp" alt="Pantalla real de Mi Dinero Real 2 con balance, ingresos y gastos" width="691" height="1536" loading="lazy" decoding="async" onload="this.closest('figure').hidden=false;document.getElementById('capturas-pendientes').hidden=true" onerror="this.closest('figure').hidden=true"></a><figcaption>Inicio y balance</figcaption></figure>
+<figure hidden><a href="mi-dinero-real-02-analisis.webp" target="_blank" rel="noopener"><img src="mi-dinero-real-02-analisis.webp" alt="Pantalla real de análisis de ingresos y gastos por período" width="691" height="1536" loading="lazy" decoding="async" onload="this.closest('figure').hidden=false;document.getElementById('capturas-pendientes').hidden=true" onerror="this.closest('figure').hidden=true"></a><figcaption>Análisis económico</figcaption></figure>
+<figure hidden><a href="mi-dinero-real-03-comida.webp" target="_blank" rel="noopener"><img src="mi-dinero-real-03-comida.webp" alt="Pantalla real de gastos de comida y registro de compras" width="691" height="1536" loading="lazy" decoding="async" onload="this.closest('figure').hidden=false;document.getElementById('capturas-pendientes').hidden=true" onerror="this.closest('figure').hidden=true"></a><figcaption>Gastos de comida</figcaption></figure>
+</div>
+<p class="fin-gallery-pending" id="capturas-pendientes">Estamos incorporando las capturas de la aplicación.</p>
+</section>
 <section class="fin-container" id="informe"><h2>Ejemplo de informe mensual</h2><p class="fin-subtext">Así se organizan los ingresos, gastos generales y comida. <strong>Datos totalmente ficticios</strong>, usados solo para mostrar la presentación.</p>
 <div class="fin-card"><div class="fin-sample">
 <div class="fin-metric fin-green">Ingresos<strong>2.340,00 €</strong></div>
