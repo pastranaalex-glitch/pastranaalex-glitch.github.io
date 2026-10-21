@@ -140,6 +140,24 @@
       "descripcion": "Suite de seguridad para Windows en desarrollo, centrada en el análisis de archivos, la cuarentena y el historial de resultados.",
       "etiqueta": "SEGURIDAD PARA WINDOWS",
       "eslogan": "Analiza con claridad."
+    },
+    {
+      "slug": "texto-facil",
+      "nombre": "Texto Fácil",
+      "fechaEstreno": null,
+      "repo": null,
+      "plataforma": "windows",
+      "versionAprobada": null,
+      "revisionAprobada": false,
+      "publicacionAutomatica": false,
+      "categorias": [
+        "ofimatica",
+        "utilidades"
+      ],
+      "descripcion": "Procesador de textos gratuito para Windows, sencillo y práctico, para escribir, editar y dar formato a documentos cotidianos sin complicaciones.",
+      "etiqueta": "PROCESADOR DE TEXTOS",
+      "eslogan": "Escribe con sencillez.",
+      "imagen": "texto-facil-portada-realista.webp"
     }
   ]
 }
