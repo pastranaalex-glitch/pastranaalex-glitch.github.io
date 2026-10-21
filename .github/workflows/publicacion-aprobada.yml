@@ -7,6 +7,8 @@ on:
       - 'proximas-apps.json'
       - 'scripts/publicar_aprobadas.py'
       - 'scripts/publicar_jardin_186.py'
+      - 'scripts/publicar_jardin_187.py'
+      - 'tests/test_publicacion_jardin_187.py'
       - 'tests/test_publicacion_jardin.py'
       - '.github/workflows/publicacion-aprobada.yml'
   release:
@@ -44,6 +46,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/publicar_jardin_186.py
+      - name: Comprobar publicación del Pack 37
+        run: python -m unittest discover -s tests -p 'test_publicacion_jardin_187.py' -v
+      - name: Activar Pack 37 tras verificar la APK pública
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/publicar_jardin_187.py
       - name: Guardar nuevas fichas publicadas
         id: cambios
         run: |
@@ -66,5 +74,6 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh api --method POST "repos/${{ github.repository }}/pages/builds" > /dev/null
+
 
 
