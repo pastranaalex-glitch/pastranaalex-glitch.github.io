@@ -356,43 +356,6 @@ button.button{font-family:inherit;cursor:pointer;}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Biblioteca de herramientas","item":"https://pastranaalex-glitch.github.io/"},{"@type":"ListItem","position":2,"name":"Lector Fácil","item":"https://pastranaalex-glitch.github.io/lector-facil.html"}]}</script>
 
-<!-- Reproductor de demostraciones: el vídeo se añade al abrir y se pausa al cerrar. -->
-<dialog class="lector-video-dialog" id="video-lector-dialog" aria-labelledby="video-lector-title">
-  <div class="lector-video-top">
-    <strong id="video-lector-title">Lector Fácil · vídeo de presentación</strong>
-    <button class="lector-video-close" type="button" id="video-lector-close" aria-label="Cerrar vídeo">✕ Cerrar</button>
-  </div>
-  <video class="lector-video-player" id="video-lector-player" controls playsinline preload="none" poster="lector-facil-portada-realista.webp">Tu navegador no admite la reproducción de vídeo.</video>
-</dialog>
-<script>
-(function(){
-  'use strict';
-  const path='videos/lector-facil.mp4';
-  const button=document.getElementById('video-lector-open');
-  const dialog=document.getElementById('video-lector-dialog');
-  const player=document.getElementById('video-lector-player');
-  const close=document.getElementById('video-lector-close');
-  if(!button || !dialog || !player || !close)return;
-  // Un vídeo sin subir nunca genera un botón ni un enlace roto.
-  fetch(path,{method:'HEAD',cache:'no-store'}).then(r=>{
-    if(r.ok)button.hidden=false;
-  }).catch(()=>{});
-  button.addEventListener('click',()=>{
-    if(typeof dialog.showModal!=='function'){
-      window.open(path,'_blank','noopener,noreferrer');
-      return;
-    }
-    player.src=path;
-    dialog.showModal();
-    player.play().catch(()=>{});
-  });
-  close.addEventListener('click',()=>dialog.close());
-  dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});
-  dialog.addEventListener('close',()=>{
-    player.pause();player.removeAttribute('src');player.load();button.focus();
-  });
-})();
-</script>
 <!-- Cloudflare Web Analytics -->
 <script data-cf-beacon='{"token":"c3b3255ee9e649dea45b5127eef74fdd"}' src="https://static.cloudflareinsights.com/beacon.min.js" type="module"></script>
 <!-- End Cloudflare Web Analytics -->
@@ -404,7 +367,7 @@ button.button{font-family:inherit;cursor:pointer;}
 
 <style id="lector-video-presentation">
 /* Vídeo de presentación: disponible únicamente cuando existe el MP4 publicado. */
-#video-lector-open[hidden]{display:none!important}
+#video-lector-open{display:inline-flex;align-items:center;justify-content:center;gap:7px}
 .lector-video-dialog{border:1px solid #3e6681;border-radius:18px;padding:0;width:min(94vw,900px);max-width:900px;max-height:94vh;background:#102033;color:#f3fbff;box-shadow:0 28px 90px #0009;overflow:hidden}
 .lector-video-dialog::backdrop{background:rgba(4,12,26,.84)}
 .lector-video-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 17px}
@@ -422,7 +385,7 @@ button.button{font-family:inherit;cursor:pointer;}
 
 <div class="wrap breadcrumb"><a href="index.html">Inicio</a> › Lector Fácil</div>
 <section class="app-detail-hero ui-detail-hero"><div class="container"><a class="ui-breadcrumb" href="catalogo.html">← Catálogo de aplicaciones</a><div class="ui-detail-grid"><figure class="app-promo-cover"><img src="lector-facil-portada-realista.webp" alt="Portada promocional de Lector Fácil" width="1440" height="810" fetchpriority="high" decoding="async"><figcaption>Imagen promocional · Lector Fácil</figcaption></figure><div class="detail-intro ui-detail-intro"><p class="detail-eyebrow"><span class="eyebrow-dot"></span> Android · Gratis de verdad</p><div class="detail-title-row"><img alt="" aria-hidden="true" height="65" src="icono-lector.svg" width="65"/><h1>Lector Fácil</h1></div><p class="detail-subtitle">Lee PDF y Word con zoom de dos dedos y texto adaptable. Reconoce las letras de PDF sin texto mediante OCR sin conexión, y conserva las herramientas de exposiciones y marcadores.</p><div class="detail-chips"><span class="app-chip">Android 8.0 o superior</span><span class="app-chip">PDF y Word</span><span class="app-chip">6 capturas reales</span></div>
-<div class="detail-actions"><a class="button detail-primary" href="https://github.com/pastranaalex-glitch/lector-facil/releases/download/v.1.0.5/LectorFacil-v1.0.5.apk" id="download-link" rel="noopener noreferrer">↓ Descargar gratis</a><button class="button detail-secondary" id="video-lector-open" type="button" hidden aria-haspopup="dialog" aria-controls="video-lector-dialog">▶ Ver vídeo</button><a class="button detail-secondary" href="#capturas">Ver capturas reales ↗</a><a class="button detail-secondary" href="#opiniones">★ Opiniones</a></div><p class="detail-note">Descarga oficial desde GitHub Releases. Sin anuncios, cuotas ni donaciones.</p><p class="note-inline"><strong>Ya disponible: Lector Fácil 1.0.5.</strong> Avisos de nuevas versiones dentro de la aplicación y búsqueda manual desde Configuración.</p></div></div><div class="detail-stats ui-detail-stats"><div><span>Última versión</span><strong id="version-metric">1.0.5</strong></div><div><span>Descargas públicas</span><strong id="download-count">Consultando…</strong></div><span class="detail-special-size">Tamaño APK: <strong id="apk-size">Consultando…</strong></span><p class="detail-footnote" id="download-caption">Descargas contabilizadas en todas las versiones publicadas.</p><button class="detail-share" data-share="site" data-share-title="Lector Fácil: aplicación gratuita para Android" data-share-url="https://pastranaalex-glitch.github.io/lector-facil.html" type="button">Compartir página ↗</button></div><details class="ui-download-info" id="informacion-descarga"><summary>Comprobaciones del APK 1.0.5 · firma original e integridad</summary><aside class="seguridad-ficha" aria-label="Comprobaciones de Lector Fácil 1.0.5"><span class="seguridad-ficha-icon" aria-hidden="true">🛡</span><div class="seguridad-ficha-body"><div class="seguridad-ficha-top"><strong class="seguridad-ficha-title">Lector Fácil · versión 1.0.5</strong><span class="seguridad-ficha-status seguridad-ficha-status--revisado">Firma original verificada</span></div><p class="seguridad-ficha-text">Se ha comprobado que el APK mantiene el identificador de la aplicación y la misma firma que la versión 1.0.4. La huella SHA-256 coincide con el archivo probado y publicado en GitHub Releases.</p><details class="seguridad-ficha-hash"><summary>Ver huella SHA-256 del APK 1.0.5</summary><code>e0d456ca85592f47b13098001142cba6e1a513511b993627e1bf22637d2075e7</code></details></div></aside><details><summary>Informe anterior: versión 1.0.4</summary><aside class="seguridad-ficha" aria-label="Análisis antivirus de Lector Fácil 1.0.4">
+<div class="detail-actions"><a class="button detail-primary" href="https://github.com/pastranaalex-glitch/lector-facil/releases/download/v.1.0.5/LectorFacil-v1.0.5.apk" id="download-link" rel="noopener noreferrer">↓ Descargar gratis</a><a class="button detail-secondary" id="video-lector-open" href="videos/lector-facil.mp4" aria-haspopup="dialog" aria-controls="video-lector-dialog">▶ Ver vídeo</a><a class="button detail-secondary" href="#capturas">Ver capturas reales ↗</a><a class="button detail-secondary" href="#opiniones">★ Opiniones</a></div><p class="detail-note">Descarga oficial desde GitHub Releases. Sin anuncios, cuotas ni donaciones.</p><p class="note-inline"><strong>Ya disponible: Lector Fácil 1.0.5.</strong> Avisos de nuevas versiones dentro de la aplicación y búsqueda manual desde Configuración.</p></div></div><div class="detail-stats ui-detail-stats"><div><span>Última versión</span><strong id="version-metric">1.0.5</strong></div><div><span>Descargas públicas</span><strong id="download-count">Consultando…</strong></div><span class="detail-special-size">Tamaño APK: <strong id="apk-size">Consultando…</strong></span><p class="detail-footnote" id="download-caption">Descargas contabilizadas en todas las versiones publicadas.</p><button class="detail-share" data-share="site" data-share-title="Lector Fácil: aplicación gratuita para Android" data-share-url="https://pastranaalex-glitch.github.io/lector-facil.html" type="button">Compartir página ↗</button></div><details class="ui-download-info" id="informacion-descarga"><summary>Comprobaciones del APK 1.0.5 · firma original e integridad</summary><aside class="seguridad-ficha" aria-label="Comprobaciones de Lector Fácil 1.0.5"><span class="seguridad-ficha-icon" aria-hidden="true">🛡</span><div class="seguridad-ficha-body"><div class="seguridad-ficha-top"><strong class="seguridad-ficha-title">Lector Fácil · versión 1.0.5</strong><span class="seguridad-ficha-status seguridad-ficha-status--revisado">Firma original verificada</span></div><p class="seguridad-ficha-text">Se ha comprobado que el APK mantiene el identificador de la aplicación y la misma firma que la versión 1.0.4. La huella SHA-256 coincide con el archivo probado y publicado en GitHub Releases.</p><details class="seguridad-ficha-hash"><summary>Ver huella SHA-256 del APK 1.0.5</summary><code>e0d456ca85592f47b13098001142cba6e1a513511b993627e1bf22637d2075e7</code></details></div></aside><details><summary>Informe anterior: versión 1.0.4</summary><aside class="seguridad-ficha" aria-label="Análisis antivirus de Lector Fácil 1.0.4">
   <span class="seguridad-ficha-icon" aria-hidden="true">🛡</span>
   <div class="seguridad-ficha-body">
     <div class="seguridad-ficha-top"><strong class="seguridad-ficha-title">Lector Fácil · versión 1.0.4</strong><span class="seguridad-ficha-status seguridad-ficha-status--revisado">0 de 66 detecciones</span></div>
@@ -665,6 +628,42 @@ button.button{font-family:inherit;cursor:pointer;}
 <!-- Cloudflare Web Analytics -->
 <!-- End Cloudflare Web Analytics -->
 <script src="valoraciones.js?v=1" defer></script>
+
+<!-- Vídeo promocional de Lector Fácil: reproductor accesible y enlace directo alternativo -->
+<dialog class="lector-video-dialog" id="video-lector-dialog" aria-labelledby="video-lector-title">
+  <div class="lector-video-top">
+    <strong id="video-lector-title">Lector Fácil · vídeo de presentación</strong>
+    <button class="lector-video-close" type="button" id="video-lector-close" aria-label="Cerrar vídeo">✕ Cerrar</button>
+  </div>
+  <video class="lector-video-player" id="video-lector-player" controls playsinline preload="metadata" poster="lector-facil-portada-realista.webp">
+    Tu navegador no admite la reproducción de vídeo. <a href="videos/lector-facil.mp4">Abrir vídeo directamente</a>.
+  </video>
+</dialog>
+<script>
+(function(){
+  'use strict';
+  const open=document.getElementById('video-lector-open');
+  const modal=document.getElementById('video-lector-dialog');
+  const video=document.getElementById('video-lector-player');
+  const close=document.getElementById('video-lector-close');
+  if(!open||!modal||!video||!close)return; // El enlace directo sigue funcionando.
+  open.addEventListener('click',function(event){
+    if(typeof modal.showModal!=='function')return;
+    event.preventDefault();
+    video.src=open.href;
+    modal.showModal();
+    video.play().catch(()=>{});
+  });
+  close.addEventListener('click',()=>modal.close());
+  modal.addEventListener('click',e=>{if(e.target===modal)modal.close()});
+  modal.addEventListener('close',()=>{
+    video.pause();
+    video.removeAttribute('src');
+    video.load();
+    open.focus();
+  });
+})();
+</script>
 </body>
 </html>
 
