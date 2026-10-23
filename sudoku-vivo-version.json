@@ -2,7 +2,7 @@
   "app": "sudoku-vivo",
   "version": "0.7.0",
   "versionCode": 7,
-  "published": false,
+  "published": true,
   "url": "https://pastranaalex-glitch.github.io/sudoku-vivo.html",
   "apk": "SudokuVivo_0.7.0_CANDIDATO_FIRMADO.apk",
   "sha256": "dff3ae105cae60e823bd2daac9ddb50389159962a389bf972b9489d9b10ec426",
