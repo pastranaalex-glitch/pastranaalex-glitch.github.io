@@ -1,0 +1,37 @@
+name: Publicar Mi Dinero Real 2.5.2 verificada
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'MiDineroReal2_2_5_2_FIRMA_PERMANENTE.apk'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publicar-mi-dinero-real-252
+  cancel-in-progress: false
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Comprobar APK y preparar publicacion
+        run: python3 .github/scripts/publicar_mi_dinero_real_252.py
+      - name: Confirmar publicacion en Biblioteca
+        run: |
+          git add -- catalogo.json actualizaciones-mi-dinero-real.json proximas-apps.json pack6.js mi-dinero-real.html index.html catalogo.html proximamente.html sitemap.xml
+          if git diff --cached --quiet; then
+            echo "Sin cambios pendientes"
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publicar Mi Dinero Real 2.5.2 verificada [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
