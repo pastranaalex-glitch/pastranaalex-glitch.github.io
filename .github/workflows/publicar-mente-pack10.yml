@@ -1,0 +1,68 @@
+name: Publicar Mente Activa PRO Pack 10 probado
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publicar-mente-pack10.yml'
+      - 'distribuciones/mente-activa-pro/1.9.0/**'
+      - 'scripts/publicar_mente_pack10.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: biblioteca-publicacion-aprobada
+  cancel-in-progress: false
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Publicar únicamente el APK probado por el autor
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          apk='distribuciones/mente-activa-pro/1.9.0/Mente_Activa_PRO_1_9_0_PACK10.apk'
+          echo "08d49dc63b0ebf736b3316fee52bbbecf08fe089603ec807b409fa1d8529fe06  $apk" | sha256sum -c -
+          tag='mente-activa-pro-v1.9.0'
+          if ! gh release view "$tag" > /dev/null 2>&1; then
+            gh release create "$tag" --target "$GITHUB_SHA" --title 'Mente Activa PRO 1.9.0 · Pack 10' --notes-file distribuciones/mente-activa-pro/1.9.0/NOTAS.md --draft --latest=false
+          fi
+          if ! gh api "repos/$GITHUB_REPOSITORY/releases/tags/$tag" --jq '.assets[].name' | grep -Fxq 'Mente_Activa_PRO_1_9_0_PACK10.apk'; then
+            gh release upload "$tag" "$apk"
+          fi
+          gh api "repos/$GITHUB_REPOSITORY/releases/tags/$tag" > /tmp/mente-release.json
+          python - <<'PY'
+          import json
+          r=json.load(open('/tmp/mente-release.json'))
+          a=[a for a in r['assets'] if a['name']=='Mente_Activa_PRO_1_9_0_PACK10.apk']
+          assert len(a)==1 and a[0]['digest']=='sha256:08d49dc63b0ebf736b3316fee52bbbecf08fe089603ec807b409fa1d8529fe06'
+          PY
+          gh release edit "$tag" --draft=false --latest=false
+      - name: Verificar descarga pública, firma original y actualizar la Biblioteca
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/publicar_mente_pack10.py
+      - name: Publicar ficha, novedades y catálogo verificados
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -- catalogo.json mente-activa-pro.html index.html privacidad.html
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Publicar Mente Activa PRO 1.9.0 Pack 10 probado'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+          gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" > /dev/null
