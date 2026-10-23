@@ -201,25 +201,30 @@
     {
       "nombre": "Mi Dinero Real 2",
       "plataforma": "android",
-      "publicado": false,
-      "version": "2.5.1",
-      "descripcion": "Organiza los ingresos, gastos del hogar y alimentación, analiza tus movimientos y exporta informes. En reparación; descarga temporalmente suspendida.",
+      "publicado": true,
+      "version": "2.5.2",
+      "descripcion": "Controla ingresos, gastos, alimentación y presupuestos. Incluye análisis, informes y avisos de nuevas versiones. Gratis y sin anuncios.",
       "enlace": "https://pastranaalex-glitch.github.io/mi-dinero-real.html",
       "slug": "mi-dinero-real",
       "categorias": [
         "economia",
         "utilidades"
       ],
-      "etiqueta": "EN REPARACIÓN",
+      "etiqueta": "ECONOMÍA DEL HOGAR",
       "eslogan": "Tus cuentas, más claras.",
       "imagen": "",
       "icono": "icono-mi-dinero-real.svg",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "portada": "mi-dinero-real-portada-realista.webp",
-      "disponible": false,
-      "descargasBloqueadas": true,
-      "estado": "En reparación · sin descargas",
-      "visibleEnCatalogo": true
+      "disponible": true,
+      "descargasBloqueadas": false,
+      "estado": "Disponible",
+      "visibleEnCatalogo": true,
+      "descargaDirecta": {
+        "version": "2.5.2",
+        "archivo": "MiDineroReal2_2_5_2_FIRMA_PERMANENTE.apk",
+        "sha256": "d0d3e6c0e42b42c956e0e5227bb5bfde35b21c2175324906a71c986d6398ea16"
+      }
     },
     {
       "nombre": "En Familia",

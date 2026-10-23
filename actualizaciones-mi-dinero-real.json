@@ -1,9 +1,9 @@
 {
   "paquete": "com.alex.midineroreal",
-  "disponible": false,
-  "versionCode": 8,
-  "versionName": "2.5.1",
-  "apkUrl": "",
-  "sha256": "",
-  "notas": "Las descargas de Mi Dinero Real 2 están suspendidas temporalmente por decisión del autor. No hay actualizaciones disponibles para descargar."
+  "disponible": true,
+  "versionCode": 9,
+  "versionName": "2.5.2",
+  "apkUrl": "https://pastranaalex-glitch.github.io/MiDineroReal2_2_5_2_FIRMA_PERMANENTE.apk",
+  "sha256": "d0d3e6c0e42b42c956e0e5227bb5bfde35b21c2175324906a71c986d6398ea16",
+  "notas": "Versión 2.5.2 disponible: avisos de actualización integrados y mejoras de estabilidad."
 }

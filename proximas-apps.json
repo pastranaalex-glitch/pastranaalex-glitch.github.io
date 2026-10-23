@@ -45,21 +45,21 @@
       "fechaEstreno": null,
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "plataforma": "android",
-      "versionAprobada": "2.5.1",
-      "revisionAprobada": false,
+      "versionAprobada": "2.5.2",
+      "revisionAprobada": true,
       "publicacionAutomatica": false,
       "categorias": [
         "finanzas",
         "utilidades"
       ],
-      "descripcion": "Aplicación para la economía del hogar: ingresos, gastos, comida, análisis e informes. En reparación, con descarga temporalmente suspendida.",
+      "descripcion": "Mi Dinero Real 2.5.2 publicada y disponible en el catálogo.",
       "etiqueta": "FINANZAS PERSONALES",
       "eslogan": "Tus cuentas, claras.",
-      "apkSubido": false,
-      "sha256Aprobado": "c7f35b29e0fa46ccf91c349ca53360dd9c204f988eabcf8c6eed3a30eff9d69c",
-      "descargaBloqueada": true,
-      "motivoBloqueo": "En reparación: descarga suspendida hasta revisar y probar la nueva versión",
-      "descargasBloqueadas": true
+      "apkSubido": true,
+      "sha256Aprobado": "d0d3e6c0e42b42c956e0e5227bb5bfde35b21c2175324906a71c986d6398ea16",
+      "descargaBloqueada": false,
+      "motivoBloqueo": "",
+      "descargasBloqueadas": false
     },
     {
       "slug": "en-familia",

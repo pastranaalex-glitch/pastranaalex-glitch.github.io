@@ -15,8 +15,8 @@ const approvedDownload=a=>{
  // APK firmada directamente en GitHub Pages: nunca depender del estado de GitHub API.
  const local=a&&a.descargaDirecta;
  if(a?.slug==='mi-dinero-real'&&a.publicado===true&&local&&local.version===a.version&&
-    local.archivo==='MiDineroReal2_2.5.1_Publicacion_Firmada.apk'&&
-    local.sha256==='c7f35b29e0fa46ccf91c349ca53360dd9c204f988eabcf8c6eed3a30eff9d69c')return local.archivo;
+    local.archivo==='MiDineroReal2_2_5_2_FIRMA_PERMANENTE.apk'&&
+    local.sha256==='d0d3e6c0e42b42c956e0e5227bb5bfde35b21c2175324906a71c986d6398ea16')return local.archivo;
  const d=a&&a.descarga;
  if(!d||d.version!==a.version||typeof a.repo!=='string'
    ||!/^[a-zA-Z0-9._-]+$/.test(d.tag||'')
