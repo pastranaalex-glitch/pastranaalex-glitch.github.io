@@ -1,0 +1,46 @@
+name: Habilitar contador de descargas Mi Dinero Real 2.5.2
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/contador-mi-dinero-real-252.yml'
+      - 'MiDineroReal2_2_5_2_FIRMA_PERMANENTE.apk'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  registrar-apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: mi-dinero-real-v2.5.2
+      APK: MiDineroReal2_2_5_2_FIRMA_PERMANENTE.apk
+      EXPECTED_SHA256: d0d3e6c0e42b42c956e0e5227bb5bfde35b21c2175324906a71c986d6398ea16
+    steps:
+      - name: Obtener proyecto sin modificar APK
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verificar APK original mediante SHA-256
+        shell: bash
+        run: |
+          test -s "$APK"
+          echo "$EXPECTED_SHA256  $APK" | sha256sum --check --status
+          echo "Archivo original verificado"
+      - name: Publicar archivo en GitHub Releases para registrar descargas
+        shell: bash
+        run: |
+          if ! gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$TAG" "$APK" \
+              --repo "$GITHUB_REPOSITORY" \
+              --target main \
+              --title "Mi Dinero Real 2  ·  versión 2.5.2" \
+              --notes "APK de publicación firmada y probada. El contador de descargas comienza al usar este archivo de GitHub Releases. No incluye descargas antiguas de GitHub Pages." \
+              --latest=false
+          elif ! gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' | grep -Fxq "$APK"; then
+            gh release upload "$TAG" "$APK" --repo "$GITHUB_REPOSITORY"
+          else
+            echo "La APK ya estaba publicada como archivo de Release. No reiniciamos el contador."
+          fi
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[] | {name: .name, size: .size, downloadCount: .downloadCount}'
