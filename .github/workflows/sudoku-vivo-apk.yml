@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - 'sudoku-vivo-src.zip'
+      - '.github/workflows/sudoku-vivo-apk.yml'
 
 permissions:
   contents: read
@@ -47,12 +48,34 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Configurar SDK de Android
-        uses: android-actions/setup-android@v3
+      - name: Configurar SDK de Android del ejecutor
+        shell: bash
+        run: |
+          set -euo pipefail
+          SDK_DIR="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}}"
+          if [ ! -d "$SDK_DIR" ]; then
+            echo "::error::No se encontro el SDK de Android preinstalado en $SDK_DIR"
+            exit 1
+          fi
+          echo "ANDROID_HOME=$SDK_DIR" >> "$GITHUB_ENV"
+          echo "ANDROID_SDK_ROOT=$SDK_DIR" >> "$GITHUB_ENV"
+          echo "ANDROID SDK localizado en $SDK_DIR"
+          if [ -x "$SDK_DIR/cmdline-tools/latest/bin/sdkmanager" ]; then
+            echo "$SDK_DIR/cmdline-tools/latest/bin" >> "$GITHUB_PATH"
+            SDK_MANAGER="$SDK_DIR/cmdline-tools/latest/bin/sdkmanager"
+          else
+            SDK_MANAGER="$(command -v sdkmanager || true)"
+          fi
+          if [ -z "$SDK_MANAGER" ]; then
+            echo "::error::El runner no contiene sdkmanager; se requiere una imagen con Android SDK."
+            exit 1
+          fi
+          "$SDK_MANAGER" --version
 
       - name: Instalar Android API 35
         shell: bash
         run: |
+          set -euo pipefail
           sdkmanager --install "platforms;android-35" "build-tools;35.0.0"
 
       - name: Preparar Gradle 8.7
