@@ -18,18 +18,18 @@
   <link rel="stylesheet" href="portada-v2.css">
   <link rel="stylesheet" href="sugerencias-banner.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Catálogo de aplicaciones","url":"https://pastranaalex-glitch.github.io/catalogo.html"}</script>
-  <script src="pack6.js?v=20261023-contador-real-v2" defer></script>
+  <script src="pack6.js?v=20261023-categorias-v1" defer></script>
 
 <link rel="stylesheet" href="portadas-apps.css?v=20261017">
 <link rel="stylesheet" href="biblioteca-ui.css?v=20261017-2">
 <script src="biblioteca-ui.js?v=20261017-1" defer></script>
 <link rel="stylesheet" href="valoraciones.css?v=1">
 <script src="valoraciones.js?v=20261020-apps-habilitadas" defer></script>
-<link rel="stylesheet" href="joyas-actualizacion.css?v=20261021-1">
+<link rel="stylesheet" href="joyas-actualizacion.css?v=20261021-1"><style>.catalog-kind{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 22px}.catalog-kind .filter-button{font-size:1rem;padding:12px 20px}</style>
 </head>
 <body class="library-ui" data-pack6-page="catalogo">
   <a class="skip-link" href="#aplicaciones">Saltar al catálogo de aplicaciones</a>
-  <header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="Biblioteca de herramientas, ir al inicio"><span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><rect x="7" y="7" width="9" height="9" rx="3" fill="white"/><rect x="20" y="7" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="7" y="20" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="20" y="20" width="9" height="9" rx="3" fill="white"/></svg></span><span class="brand-name">Biblioteca<span class="brand-suffix">de herramientas</span></span></a><button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú de navegación"><span aria-hidden="true">☰</span> Menú</button><nav class="site-nav" id="menu-principal" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="catalogo.html" aria-current="page">Catálogo</a><a href="proximamente.html">Próximamente</a><a href="index.html#proyecto">El proyecto</a><a href="avisos.html">Avisos</a><a class="nav-cta" href="catalogo.html">Explorar apps →</a></nav></div></header>
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="Biblioteca de herramientas, ir al inicio"><span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><rect x="7" y="7" width="9" height="9" rx="3" fill="white"/><rect x="20" y="7" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="7" y="20" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="20" y="20" width="9" height="9" rx="3" fill="white"/></svg></span><span class="brand-name">Biblioteca<span class="brand-suffix">de herramientas</span></span></a><button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú de navegación"><span aria-hidden="true">☰</span> Menú</button><nav class="site-nav" id="menu-principal" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="catalogo.html?type=programas">Programas</a><a href="catalogo.html?type=juegos">Juegos</a><a href="catalogo.html" aria-current="page">Catálogo</a><a href="proximamente.html">Próximamente</a><a href="index.html#proyecto">El proyecto</a><a href="avisos.html">Avisos</a><a class="nav-cta" href="catalogo.html">Explorar apps →</a></nav></div></header>
 
   <main id="contenido">
     <section class="pack6-subhero"><div class="container"><p class="section-kicker">EXPLORA A TU RITMO</p><h1>El catálogo completo.</h1><p>Aplicaciones gratuitas para Android y Windows. Busca, compara y descarga desde GitHub.</p></div></section>
@@ -44,6 +44,7 @@
           <span class="collection-count"><span id="total-apps">11</span> aplicaciones</span>
         </div>
 
+        <div class="catalog-kind" role="group" aria-label="Tipo de aplicación"><button class="filter-button is-active" data-kind-filter="todos" aria-pressed="true" type="button">📚 Todo</button><button class="filter-button" data-kind-filter="programas" aria-pressed="false" type="button">💻 Programas</button><button class="filter-button" data-kind-filter="juegos" aria-pressed="false" type="button">🎮 Juegos</button></div>
         <div class="catalog-toolbar">
           <div class="filters" role="group" aria-label="Filtrar por sistema operativo">
             <button class="filter-button is-active" data-filter="todos" aria-pressed="true" type="button">Todas <span data-filter-count="todos">11</span></button>
