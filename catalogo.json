@@ -275,8 +275,8 @@
       "nombre": "Mente Activa PRO",
       "plataforma": "android",
       "publicado": true,
-      "version": "1.5.0",
-      "descripcion": "16 juegos de entretenimiento de memoria, atención, palabras, cálculo y lógica. Tres dificultades, selección diaria, favoritos e historial. Gratis y sin anuncios; los juegos funcionan sin conexión.",
+      "version": "1.9.0",
+      "descripcion": "22 juegos de entretenimiento, con retos de razonamiento, descifrado de códigos y correspondencias por pistas. Portada realista de 5 segundos que puedes saltar o desactivar. Tres dificultades, historial y aviso de actualizaciones. Gratis y sin anuncios; juegos sin conexión.",
       "enlace": "https://pastranaalex-glitch.github.io/mente-activa-pro.html",
       "slug": "mente-activa-pro",
       "categorias": [
@@ -288,15 +288,15 @@
       "icono": "icono-mente-activa-pro.svg",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "descarga": {
-        "version": "1.5.0",
-        "tag": "mente-activa-pro-v1.5.0",
-        "archivo": "Mente_Activa_PRO_1_5_0_PACK6.apk",
-        "sha256": "efca9487bd4d39fb533252b8927c00585fc73095ac3c92cb1b993fafac1d3b40"
+        "version": "1.9.0",
+        "tag": "mente-activa-pro-v1.9.0",
+        "archivo": "Mente_Activa_PRO_1_9_0_PACK10.apk",
+        "sha256": "08d49dc63b0ebf736b3316fee52bbbecf08fe089603ec807b409fa1d8529fe06"
       },
       "disponible": true,
       "estado": "Disponible",
       "valoracionesDisponibles": false,
-      "portada": "mente-activa-pro-portada-realista.png"
+      "portada": "mente-activa-pro-pack10-portada.png"
     }
   ]
 }
