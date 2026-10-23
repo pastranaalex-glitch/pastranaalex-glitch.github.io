@@ -116,10 +116,17 @@ def detail(html):
     return html
 
 def home(html):
-    html = re.sub(r'<aside class="mdr-repair-promo"\b.*?</aside>', '',
-                  html, count=1, flags=re.S)
-    html = re.sub(r'<style id="mi-dinero-real-aviso-css">.*?</style>\s*', '',
-                  html, count=1, flags=re.S)
+    # Al publicarse, la tarjeta de la portada sigue visible como anuncio de la nueva version.
+    html = html.replace('aria-label="Mi Dinero Real 2 en reparación"',
+                        'aria-label="Mi Dinero Real 2 disponible"')
+    html = html.replace('🛠️ EN REPARACIÓN', '✅ DISPONIBLE · 2.5.2')
+    html = html.replace(
+        'Control de gastos, ingresos y economía del hogar. Puedes consultar la aplicación mientras revisamos su próxima versión.',
+        'Control de gastos, ingresos y economía del hogar. Nueva versión 2.5.2, con avisos de actualizaciones.'
+    )
+    html = html.replace('Ver la aplicación y su estado →', 'Ver y descargar la versión 2.5.2 →')
+    html = html.replace('Descargas desactivadas hasta terminar la revisión.',
+                        'Gratis, firmada y sin anuncios.')
     html = html.replace("pack6.js?v=20261021-mi-dinero-reparacion",
                         "pack6.js?v=20261023-mi-dinero-252")
     return html
