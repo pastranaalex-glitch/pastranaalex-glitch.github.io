@@ -307,8 +307,8 @@
     {
       "nombre": "Sudoku Vivo",
       "plataforma": "android",
-      "publicado": false,
-      "disponible": false,
+      "publicado": true,
+      "disponible": true,
       "version": "0.7.0",
       "descripcion": "Sudokus clásicos generados automáticamente, tres mundos de aventura visual con imágenes ocultas y escuela interactiva con diez lecciones y un profesor que enseña lógica paso a paso. Seis temas de color, estadísticas y copias de progreso. Gratis, sin anuncios y jugable sin conexión.",
       "enlace": "https://pastranaalex-glitch.github.io/sudoku-vivo.html",
@@ -320,7 +320,7 @@
       "eslogan": "Aprende, resuelve y descubre.",
       "imagen": "sudoku-vivo-portada.svg",
       "portada": "sudoku-vivo-portada.svg",
-      "icono": "favicon.svg",
+      "icono": "icono-sudoku-vivo.svg",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "descarga": {
         "version": "0.7.0",
@@ -328,7 +328,7 @@
         "archivo": "SudokuVivo_0.7.0_CANDIDATO_FIRMADO.apk",
         "sha256": "dff3ae105cae60e823bd2daac9ddb50389159962a389bf972b9489d9b10ec426"
       },
-      "estado": "Pendiente de publicación"
+      "estado": "Disponible previa comprobación de archivo en GitHub"
     }
   ]
 }
