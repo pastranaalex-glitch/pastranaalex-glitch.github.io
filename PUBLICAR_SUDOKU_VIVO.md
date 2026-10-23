@@ -1,3 +1,7 @@
+## Actualización tras confirmación del usuario
+
+El usuario confirma que ya ha subido la APK y el repositorio contiene la etiqueta `sudoku-vivo-v0.7.0`. Catálogo y ficha activados el 23/10/2026. La descarga se habilita en el navegador únicamente al validar el archivo remoto, su nombre y digest SHA-256. La verificación directa del asset de GitHub Releases no ha sido posible desde el conector disponible.
+
 # Publicación de Sudoku Vivo 0.7.0
 
 **Estado:** ficha preparada; APK todavía pendiente de subir a GitHub Releases.
