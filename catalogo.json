@@ -256,8 +256,8 @@
       "nombre": "Jardín de Joyas",
       "plataforma": "android",
       "publicado": true,
-      "version": "1.9.7",
-      "descripcion": "Juego gratuito sin anuncios con 200 niveles y modo Relax, nueve melodías, sonidos naturales, combinaciones especiales y ayuda visual. Gana ayudas al superar nuevos niveles y cofres cada cinco victorias.",
+      "version": "1.9.8",
+      "descripcion": "Juego gratuito sin anuncios con 200 niveles más equilibrados, apoyo progresivo, modo Relax, sonidos naturales y ayuda visual. Juega en vertical u horizontal y gana ayudas al superar niveles.",
       "enlace": "https://pastranaalex-glitch.github.io/jardin-de-joyas.html",
       "slug": "jardin-de-joyas",
       "categorias": [
@@ -271,10 +271,10 @@
       "disponible": true,
       "estado": "Disponible",
       "descarga": {
-        "version": "1.9.7",
-        "tag": "jardin-de-joyas-v1.9.7",
-        "archivo": "Jardin_de_Joyas_1_9_7_PACK47_FIRMA_EXISTENTE.apk",
-        "sha256": "5bcc53960232256bc4432b94b5653d4a2329877e00ca258284feba804e3b13d4"
+        "version": "1.9.8",
+        "tag": "jardin-de-joyas-v1.9.8",
+        "archivo": "Jardin_de_Joyas_1_9_8_PACK48_FIRMA_EXISTENTE.apk",
+        "sha256": "08a58733e52d501c0fcc702cf7be0ca49ac5be00b98b75e7101388041009d4cb"
       }
     },
     {
