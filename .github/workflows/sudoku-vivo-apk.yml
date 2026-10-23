@@ -1,0 +1,86 @@
+name: Sudoku Vivo - Compilar APK de pruebas
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'sudoku-vivo-src.zip'
+      - '.github/workflows/sudoku-vivo-apk.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  android:
+    name: Compilar APK Android
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Obtener repositorio
+        uses: actions/checkout@v4
+
+      - name: Comprobar el archivo fuente
+        shell: bash
+        run: |
+          if [ ! -f sudoku-vivo-src.zip ]; then
+            echo "::error::Falta sudoku-vivo-src.zip. Hay que subir el ZIP original del Pack 2 al repositorio con ese nombre."
+            exit 1
+          fi
+          unzip -t sudoku-vivo-src.zip >/dev/null
+
+      - name: Extraer el proyecto Android
+        shell: bash
+        run: |
+          mkdir -p .sudoku-source
+          unzip -q sudoku-vivo-src.zip -d .sudoku-source
+          project="$(find "$GITHUB_WORKSPACE/.sudoku-source" -type f -path '*/Android/settings.gradle' -print -quit)"
+          if [ -z "$project" ]; then
+            echo "::error::No se encontro Android/settings.gradle dentro del ZIP."
+            exit 1
+          fi
+          project="$(dirname "$project")"
+          echo "SUDOKU_ANDROID_DIR=$project" >> "$GITHUB_ENV"
+          echo "Proyecto localizado en $project"
+
+      - name: Configurar Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Configurar SDK de Android
+        uses: android-actions/setup-android@v3
+
+      - name: Instalar Android API 35
+        shell: bash
+        run: |
+          sdkmanager --install "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Preparar Gradle 8.7
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+
+      - name: Compilar Sudoku Vivo
+        working-directory: ${{ env.SUDOKU_ANDROID_DIR }}
+        shell: bash
+        run: gradle --no-daemon --stacktrace :app:assembleDebug
+
+      - name: Preparar APK
+        shell: bash
+        run: |
+          mkdir -p .sudoku-apk
+          cp "$SUDOKU_ANDROID_DIR/app/build/outputs/apk/debug/app-debug.apk" .sudoku-apk/SudokuVivo_PACK2_Pruebas.apk
+          ls -lh .sudoku-apk/*.apk
+
+      - name: Guardar APK descargable en Actions
+        uses: actions/upload-artifact@v4
+        with:
+          name: SudokuVivo-Pack2-APK-Pruebas
+          path: .sudoku-apk/SudokuVivo_PACK2_Pruebas.apk
+          retention-days: 30
+          if-no-files-found: error
+
+# Compilación DEBUG: firma de depuración temporal de GitHub.
+# Para actualizar sin perder datos se usará la firma permanente
+# cuando esté configurada, sin guardar nunca la clave privada en el repositorio.
