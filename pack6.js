@@ -29,7 +29,8 @@ const assetValid=(asset,a)=>{
    &&asset.browser_download_url===url);
 };
 const mk=(tag,cls,text)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=String(text);return el;};
-let apps=[],platform='todos',category='todas',query='',compact=false;
+let apps=[],platform='todos',category='todas',kind='todos',query='',compact=false;
+const isGame=a=>(a.categorias||[]).includes('juegos');
 function card(a){
  const paused=a.disponible===false;
  const article=mk('article','app-card');article.dataset.appCard='';article.dataset.appSlug=a.slug;article.dataset.platform=a.plataforma;article.dataset.categories=(a.categorias||[]).join(' ');article.dataset.search=normalize(a.nombre+' '+a.descripcion+' '+(a.categorias||[]).join(' '));article.dataset.repo=a.repo;
@@ -61,17 +62,19 @@ function card(a){
  a.node=article;a.stat=strong;a.label=label;a.downloadLink=dl;return article;
 }
 function filters(){
- let visible=0;for(const a of apps){if(!a.node)continue;const match=(platform==='todos'||platform===a.plataforma)&&(category==='todas'||(a.categorias||[]).includes(category))&&query.split(/\s+/).filter(Boolean).every(w=>a.node.dataset.search.includes(w));a.node.hidden=!match;if(match)visible++;}
+ let visible=0;for(const a of apps){if(!a.node)continue;const match=(kind==='todos'||(kind==='juegos'?isGame(a):!isGame(a)))&&(platform==='todos'||platform===a.plataforma)&&(category==='todas'||(a.categorias||[]).includes(category))&&query.split(/\s+/).filter(Boolean).every(w=>a.node.dataset.search.includes(w));a.node.hidden=!match;if(match)visible++;}
+ document.querySelectorAll('[data-kind-filter]').forEach(b=>{const on=b.dataset.kindFilter===kind;b.classList.toggle('is-active',on);b.setAttribute('aria-pressed',String(on));});
  document.querySelectorAll('[data-filter]').forEach(b=>{const on=b.dataset.filter===platform;b.classList.toggle('is-active',on);b.setAttribute('aria-pressed',String(on));});
  document.querySelectorAll('[data-category-filter]').forEach(b=>{const on=b.dataset.categoryFilter===category;b.classList.toggle('is-active',on);b.setAttribute('aria-pressed',String(on));});
  const empty=document.getElementById('empty-results');if(empty)empty.hidden=visible!==0;
  const status=document.getElementById('results-status');if(status)status.textContent=visible===1?'1 aplicación encontrada':visible+' aplicaciones encontradas';
 }
 function wire(){
+ document.querySelectorAll('[data-kind-filter]').forEach(b=>b.addEventListener('click',()=>{kind=b.dataset.kindFilter;category='todas';filters();}));
  document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{platform=b.dataset.filter;filters();}));
  document.querySelectorAll('[data-category-filter]').forEach(b=>b.addEventListener('click',()=>{category=b.dataset.categoryFilter;filters();}));
  const search=document.getElementById('search-apps');if(search)search.addEventListener('input',()=>{query=normalize(search.value.trim());filters();});
- const reset=document.getElementById('reset-search');if(reset)reset.addEventListener('click',()=>{platform='todos';category='todas';query='';if(search){search.value='';search.focus();}filters();});
+ const reset=document.getElementById('reset-search');if(reset)reset.addEventListener('click',()=>{platform='todos';category='todas';kind='todos';query='';if(search){search.value='';search.focus();}filters();});
  const view=document.getElementById('view-toggle');if(view)view.addEventListener('click',()=>{compact=!compact;slot.classList.toggle('is-compact',compact);view.setAttribute('aria-pressed',String(compact));view.textContent=compact?'▦ Mostrar imágenes':'☷ Vista compacta';});
 }
 /* Contadores acumulados de GitHub Releases.
@@ -208,7 +211,7 @@ async function start(){
  const set=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=String(v);};
  set('total-apps',apps.length);set('hero-apps',apps.length);set('android-apps',apps.filter(a=>a.plataforma==='android').length);set('windows-apps',apps.filter(a=>a.plataforma==='windows').length);
  const count=document.querySelector('[data-filter-count="todos"]');if(count)count.textContent=apps.length;
- if(!isHome){const params=new URLSearchParams(location.search);const raw=(params.get('q')||'').slice(0,120);query=normalize(raw);const search=document.getElementById('search-apps');if(search)search.value=raw;const p=params.get('platform'),c=params.get('category');if(['android','windows'].includes(p))platform=p;if(apps.some(a=>(a.categorias||[]).includes(c)))category=c;wire();filters();}
+ if(!isHome){const params=new URLSearchParams(location.search);const raw=(params.get('q')||'').slice(0,120);query=normalize(raw);const search=document.getElementById('search-apps');if(search)search.value=raw;const p=params.get('platform'),c=params.get('category'),k=params.get('type');if(['programas','juegos'].includes(k))kind=k;if(['android','windows'].includes(p))platform=p;if(apps.some(a=>(a.categorias||[]).includes(c)))category=c;wire();filters();}
  // Respaldo de todos los lanzamientos revisados: visible si GitHub limita la API.
  try{
   const response=await fetch('descargas-acumuladas.json');
