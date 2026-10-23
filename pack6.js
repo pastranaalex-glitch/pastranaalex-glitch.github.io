@@ -12,11 +12,7 @@ const validApp=a=>a&&visibleInCatalog(a)&&['android','windows'].includes(a.plata
    Fijamos versión, nombre y SHA-256 a los metadatos verificados del catálogo. */
 const approvedDownload=a=>{
  if(a&&a.disponible===false)return '';
- // APK firmada directamente en GitHub Pages: nunca depender del estado de GitHub API.
- const local=a&&a.descargaDirecta;
- if(a?.slug==='mi-dinero-real'&&a.publicado===true&&local&&local.version===a.version&&
-    local.archivo==='MiDineroReal2_2_5_2_FIRMA_PERMANENTE.apk'&&
-    local.sha256==='d0d3e6c0e42b42c956e0e5227bb5bfde35b21c2175324906a71c986d6398ea16')return local.archivo;
+ // Descargas publicadas como archivos GitHub Releases permiten contar cada descarga.
  const d=a&&a.descarga;
  if(!d||d.version!==a.version||typeof a.repo!=='string'
    ||!/^[a-zA-Z0-9._-]+$/.test(d.tag||'')
@@ -125,6 +121,7 @@ function belongsToApp(asset,release,a,repo){
   case 'en-familia':return /^En[_-]Familia(?:[._-]|[0-9])/i.test(name);
   case 'mi-salud-familiar':return /^Mi[_-]?Salud[_-]?Familiar(?:[._-]|[0-9])/i.test(name);
   case 'menu-y-compra':return /^Menu[_-]y[_-]Compra(?:[._-]|[0-9])/i.test(name);
+  case 'mi-dinero-real':return /^MiDineroReal2_[0-9].*\.apk$/i.test(name);
   case 'rutas-a-pie':return /^RutasAPie(?:[._-]|[0-9])/i.test(name);
   default:return false;
  }
