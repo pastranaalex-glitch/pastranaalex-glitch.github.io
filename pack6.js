@@ -38,7 +38,7 @@ function card(a){
  const art=mk('div','card-art card-art-'+a.slug);
  const copy=mk('div','card-art-copy');copy.append(mk('span','art-tag',a.etiqueta||'APP GRATUITA'),mk('strong',null,a.eslogan||a.nombre),mk('span',null,a.plataforma==='windows'?'Para tu ordenador':'Para tu móvil'));art.append(copy);
  const image=a.portada||a.imagen,isCover=Boolean(a.portada)||a.slug==='jardin-de-joyas';if(isCover)art.classList.add('is-promo-cover');
- if(image&&/^[\w\s.()-]+\.(webp|jpeg|jpg|png)$/i.test(image)){const holder=mk('div','card-phone card-phone-'+a.slug);const img=mk('img');img.src=image;img.alt=(isCover?'Portada promocional de ':'Captura real de ')+a.nombre;img.loading='lazy';img.decoding='async';holder.append(img);art.append(holder);}else{const holder=mk('div','pack6-art-logo');const mark=mk('img');mark.src=a.icono;mark.alt='';mark.loading='lazy';mark.decoding='async';holder.append(mark);art.append(holder);}
+ if(image&&(/^[\w\s.()-]+\.(webp|jpeg|jpg|png)$/i.test(image)||(a.slug==='sudoku-vivo'&&image==='sudoku-vivo-portada.svg'))){const holder=mk('div','card-phone card-phone-'+a.slug);const img=mk('img');img.src=image;img.alt=(isCover?'Portada promocional de ':'Captura real de ')+a.nombre;img.loading='lazy';img.decoding='async';holder.append(img);art.append(holder);}else{const holder=mk('div','pack6-art-logo');const mark=mk('img');mark.src=a.icono;mark.alt='';mark.loading='lazy';mark.decoding='async';holder.append(mark);art.append(holder);}
  const body=mk('div','card-body'),identity=mk('div','app-identity'),icon=mk('img','app-icon');icon.src=a.icono;icon.alt='';icon.loading='lazy';icon.width=54;icon.height=54;
  const names=mk('div');names.append(mk('h3',null,a.nombre),mk('p',null,(a.plataforma==='windows'?'Windows':'Android')+' · '+((a.categorias||[])[0]||'Herramientas')));identity.append(icon,names,mk('span','free-label',paused?'En reparación':'Gratis'));
  const short={'lector-facil':'Lee PDF y Word, prepara exposiciones y guarda marcadores.','recetario-facil':'52 recetas ilustradas, con búsqueda y preparación paso a paso.','rutas-a-pie':'Explora 225 rutas por España y graba tus recorridos con GPS.'};
@@ -49,6 +49,8 @@ function card(a){
  if(paused){dl.type='button';dl.disabled=true;dl.setAttribute('aria-disabled','true');dl.title=a.nombre+' en reparación: descarga temporalmente desactivada';dl.style.opacity='0.65';dl.style.cursor='not-allowed';}
  else if(direct){dl.href=direct;dl.title='Descargar la versión '+a.version+(a.descargaDirecta?' desde la Biblioteca':' desde GitHub Releases');}
  else{dl.href=a.enlace;dl.textContent='Ver descarga →';dl.title='Consultar la ficha antes de descargar';}
+ // Sudoku Vivo sólo ofrecerá la APK cuando coincidan etiqueta, nombre y SHA256 en GitHub.
+ if(a.slug==='sudoku-vivo'&&!paused){dl.href=a.enlace+'#descarga';dl.textContent='Ver descarga →';dl.title='La descarga se activa tras comprobar la APK firmada en GitHub';}
  if(!paused){dl.rel='noopener noreferrer';if(a.plataforma==='windows')dl.target='_blank';}
  actions.append(detail,dl);footer.append(stats,actions);body.append(identity,desc);if(paused){body.append(mk('p','ui-warning','Temporalmente no disponible hasta completar la reparación.'));strong.textContent='—';label.textContent='En reparación';small.textContent='Descarga desactivada';}if(a.slug==='cocina-a-punto'){const notice=mk('a','ui-warning','1 detección en VirusTotal · En revisión');notice.href='cocina-a-punto.html#informacion-descarga';body.append(notice);}body.append(meta,footer);article.append(art,body);
  const upcoming=a.anuncioActualizacion;
@@ -181,7 +183,10 @@ function updateLink(a){
   a.node.querySelector('.downloads small').textContent='La descarga sigue disponible';
  }
  const direct=approvedDownload(a);
- if(direct&&a.downloadLink?.tagName==='A')a.downloadLink.href=direct;
+ if(a.slug==='sudoku-vivo'&&a.downloadLink?.tagName==='A'){
+  if(a.hasRelease&&direct){a.downloadLink.href=direct;a.downloadLink.textContent='Descargar ↓';a.downloadLink.title='APK firmada comprobada con GitHub Releases';}
+  else{a.downloadLink.href=a.enlace+'#descarga';a.downloadLink.textContent='Ver descarga →';a.downloadLink.title='Consultar disponibilidad y verificación en la ficha';}
+ }else if(direct&&a.downloadLink?.tagName==='A')a.downloadLink.href=direct;
 }
 function featureList(){
  const selected=['lector-facil','recetario-facil','rutas-a-pie'].map(slug=>apps.find(a=>a.slug===slug)).filter(Boolean);
