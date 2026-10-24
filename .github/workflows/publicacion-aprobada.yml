@@ -40,18 +40,9 @@ jobs:
           python-version: '3.12'
       - name: Revisar anuncios y versiones autorizadas
         run: python scripts/publicar_aprobadas.py
-      - name: Comprobar publicación de Jardín de Joyas
-        run: python -m unittest discover -s tests -p 'test_publicacion_jardin.py' -v
-      - name: Activar Jardín de Joyas solo tras verificar la APK pública
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: python scripts/publicar_jardin_186.py
-      - name: Comprobar publicación del Pack 37
-        run: python -m unittest discover -s tests -p 'test_publicacion_jardin_187.py' -v
-      - name: Activar Pack 37 tras verificar la APK pública
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: python scripts/publicar_jardin_187.py
+      # Las migraciones de Jardín 1.8.6 y 1.8.7 ya son históricas.
+      # La versión pública es posterior; no ejecutarlas en cada Release.
+      # Las aprobaciones nuevas pasan por scripts/publicar_aprobadas.py.
       - name: Guardar nuevas fichas publicadas
         id: cambios
         run: |
