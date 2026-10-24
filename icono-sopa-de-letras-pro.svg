@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Icono de Sopa de Letras PRO">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#132b55"/><stop offset="1" stop-color="#158b95"/></linearGradient><linearGradient id="h" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#61e0bb"/><stop offset="1" stop-color="#a6f3bc"/></linearGradient></defs>
+<rect width="512" height="512" rx="118" fill="url(#g)"/>
+<rect x="76" y="96" width="360" height="318" rx="35" fill="#effaff"/>
+<g font-family="Arial,sans-serif" font-size="68" font-weight="800" fill="#29495f" text-anchor="middle">
+<text x="134" y="190">S</text><text x="213" y="190">O</text><text x="291" y="190">P</text><text x="369" y="190">A</text>
+<text x="134" y="292">L</text><text x="213" y="292">E</text><text x="291" y="292">T</text><text x="369" y="292">R</text>
+<text x="134" y="389">J</text><text x="213" y="389">U</text><text x="291" y="389">E</text><text x="369" y="389">G</text>
+</g>
+<rect x="91" y="125" width="331" height="86" rx="43" fill="url(#h)" opacity=".82"/>
+<g font-family="Arial,sans-serif" font-size="68" font-weight="800" fill="#173b3a" text-anchor="middle"><text x="134" y="190">S</text><text x="213" y="190">O</text><text x="291" y="190">P</text><text x="369" y="190">A</text></g>
+<rect x="322" y="424" width="112" height="45" rx="22" fill="#ffe5a5"/><text x="378" y="456" text-anchor="middle" fill="#203e59" font-family="Arial,sans-serif" font-size="27" font-weight="900">PRO</text>
+</svg>
