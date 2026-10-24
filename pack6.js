@@ -7,7 +7,7 @@ const safe=(v)=>typeof v==='string'?v:'';
 if(!slot)return;
 const fallback=document.getElementById('catalog-fallback');
 const visibleInCatalog=a=>a&&(a.publicado===true||(a.visibleEnCatalogo===true&&a.disponible===false&&a.descargasBloqueadas===true));
-const validApp=a=>a&&visibleInCatalog(a)&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&(a.repo===owner+'/'+a.slug||(['menu-y-compra','mi-salud-familiar','mi-dinero-real','en-familia','jardin-de-joyas','mente-activa-pro','sudoku-vivo'].includes(a.slug)&&a.repo===owner+'/'+owner+'.github.io'))&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
+const validApp=a=>a&&visibleInCatalog(a)&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&(a.repo===owner+'/'+a.slug||(['menu-y-compra','mi-salud-familiar','mi-dinero-real','en-familia','jardin-de-joyas','mente-activa-pro','sudoku-vivo','sopa-de-letras-pro'].includes(a.slug)&&a.repo===owner+'/'+owner+'.github.io'))&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
 /* La descarga nunca depende de una consulta a la API de GitHub.
    Fijamos versión, nombre y SHA-256 a los metadatos verificados del catálogo. */
 const approvedDownload=a=>{
@@ -40,7 +40,7 @@ function card(a){
  const image=a.portada||a.imagen,isCover=Boolean(a.portada)||a.slug==='jardin-de-joyas';if(isCover)art.classList.add('is-promo-cover');
  if(image&&(/^[\w\s.()-]+\.(webp|jpeg|jpg|png)$/i.test(image)||(a.slug==='sudoku-vivo'&&image==='sudoku-vivo-portada.svg'))){const holder=mk('div','card-phone card-phone-'+a.slug);const img=mk('img');img.src=image;img.alt=(isCover?'Portada promocional de ':'Captura real de ')+a.nombre;img.loading='lazy';img.decoding='async';holder.append(img);art.append(holder);}else{const holder=mk('div','pack6-art-logo');const mark=mk('img');mark.src=a.icono;mark.alt='';mark.loading='lazy';mark.decoding='async';holder.append(mark);art.append(holder);}
  const body=mk('div','card-body'),identity=mk('div','app-identity'),icon=mk('img','app-icon');icon.src=a.icono;icon.alt='';icon.loading='lazy';icon.width=54;icon.height=54;
- const names=mk('div');names.append(mk('h3',null,a.nombre),mk('p',null,(a.plataforma==='windows'?'Windows':'Android')+' · '+((a.categorias||[])[0]||'Herramientas')));identity.append(icon,names,mk('span','free-label',paused?'En reparación':'Gratis'));
+ const names=mk('div');names.append(mk('h3',null,a.nombre),mk('p',null,(a.plataforma==='windows'?'Windows':'Android')+' · '+((a.categorias||[])[0]||'Herramientas')));identity.append(icon,names,mk('span','free-label',paused?'En reparación':a.slug==='sopa-de-letras-pro'?'Próximamente':'Gratis'));
  const short={'lector-facil':'Lee PDF y Word, prepara exposiciones y guarda marcadores.','recetario-facil':'52 recetas ilustradas, con búsqueda y preparación paso a paso.','rutas-a-pie':'Explora 225 rutas por España y graba tus recorridos con GPS.'};
  const desc=mk('p','app-description',isHome&&short[a.slug]?short[a.slug]:a.descripcion),meta=mk('div','app-meta');meta.append(mk('span',null,'Versión '+(a.version||'actual')),mk('span',null,a.plataforma==='windows'?'Windows':'Android'));
  const footer=mk('div','card-footer'),stats=mk('div','downloads'),strong=mk('strong',null,'—'),label=mk('span',null,'Consultando descargas'),small=mk('small',null,'GitHub Releases');stats.append(strong,label,small);
@@ -50,7 +50,7 @@ function card(a){
  else if(direct){dl.href=direct;dl.title='Descargar la versión '+a.version+(a.descargaDirecta?' desde la Biblioteca':' desde GitHub Releases');}
  else{dl.href=a.enlace;dl.textContent='Ver descarga →';dl.title='Consultar la ficha antes de descargar';}
  // Sudoku Vivo sólo ofrecerá la APK cuando coincidan etiqueta, nombre y SHA256 en GitHub.
- if(a.slug==='sudoku-vivo'&&!paused){dl.href=a.enlace+'#descarga';dl.textContent='Ver descarga →';dl.title='La descarga se activa tras comprobar la APK firmada en GitHub';}
+ if((a.slug==='sudoku-vivo'||a.slug==='sopa-de-letras-pro')&&!paused){dl.href=a.enlace+'#descarga';dl.textContent='Ver descarga →';dl.title='La descarga se activa tras comprobar la APK firmada en GitHub';}
  if(!paused){dl.rel='noopener noreferrer';if(a.plataforma==='windows')dl.target='_blank';}
  actions.append(detail,dl);footer.append(stats,actions);body.append(identity,desc);if(paused){body.append(mk('p','ui-warning','Temporalmente no disponible hasta completar la reparación.'));strong.textContent='—';label.textContent='En reparación';small.textContent='Descarga desactivada';}if(a.slug==='cocina-a-punto'){const notice=mk('a','ui-warning','1 detección en VirusTotal · En revisión');notice.href='cocina-a-punto.html#informacion-descarga';body.append(notice);}body.append(meta,footer);article.append(art,body);
  const upcoming=a.anuncioActualizacion;
@@ -124,6 +124,7 @@ function belongsToApp(asset,release,a,repo){
   case 'jardin-de-joyas':return /^Jardin[_-]de[_-]Joyas(?:[._-]|[0-9])/i.test(name);
   case 'mente-activa-pro':return /^Mente[_-]Activa[_-]PRO(?:[._-]|[0-9])/i.test(name);
   case 'sudoku-vivo':return /^SudokuVivo_[0-9].*\.apk$/i.test(name);
+  case 'sopa-de-letras-pro':return /^Sopa[_-]de[_-]Letras[_-]PRO[_-][0-9].*\.apk$/i.test(name);
   case 'en-familia':return /^En[_-]Familia(?:[._-]|[0-9])/i.test(name);
   case 'mi-salud-familiar':return /^Mi[_-]?Salud[_-]?Familiar(?:[._-]|[0-9])/i.test(name);
   case 'menu-y-compra':return /^Menu[_-]y[_-]Compra(?:[._-]|[0-9])/i.test(name);
@@ -167,6 +168,13 @@ async function github(a){
 }
 function updateLink(a){
  if(!a.node)return;
+ if(a.slug==='sopa-de-letras-pro'){
+  const label=a.node.querySelector('.free-label');
+  const dl=a.downloadLink;
+  const direct=approvedDownload(a);
+  if(a.hasRelease&&direct){if(label)label.textContent='Gratis';if(dl?.tagName==='A'){dl.href=direct;dl.textContent='Descargar ↓';dl.title='APK firmada y comprobada en GitHub Releases';}}
+  else{if(label)label.textContent='Próximamente';if(dl?.tagName==='A'){dl.href=a.enlace+'#descarga';dl.textContent='Ver descarga →';}a.stat.textContent='—';a.label.textContent='Archivo pendiente';a.node.querySelector('.downloads small').textContent='Sin descarga pública aún';return;}
+ }
  if(a.disponible===false){a.stat.textContent='—';a.label.textContent='En reparación';a.node.querySelector('.downloads small').textContent='Descarga desactivada';return;}
  if(Number.isFinite(a.count)){
   a.stat.textContent=(a.countSnapshotDate?'≥ ':'')+fmt(a.count);
