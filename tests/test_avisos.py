@@ -178,9 +178,17 @@ class TestAvisos(unittest.TestCase):
             'revisionAprobada': True, 'sha256Aprobado': sha,
             'versionAprobada': '2.5.1'
         }]}), encoding='utf-8')
-        shutil.copyfile(ROOT / filename, self.root / filename)
+        # La APK 2.5.1 se retiró de la Biblioteca; los tests NO deben
+        # depender de que siga existiendo un binario real en el repositorio.
         app = next(a for a in mod.get_catalogue() if a.get('slug') == 'mi-dinero-real')
-        release = mod.get_release_for_app(app)
+        self.assertIsNone(mod.get_release_for_app(app))  # Archivo ausente.
+        (self.root / filename).write_bytes(b'APK ficticia de prueba' * 1000)
+        self.assertIsNone(mod.get_release_for_app(app))  # Hash incorrecto.
+        # El hash aprobado solo se simula para probar el caso positivo.
+        # La comprobación criptográfica real del programa NO se modifica.
+        with patch.object(mod.hashlib, 'sha256') as digest:
+            digest.return_value.hexdigest.return_value = sha
+            release = mod.get_release_for_app(app)
         self.assertIsNotNone(release)
         self.assertEqual(release['tag_name'], 'v2.5.1')
         self.assertEqual(release['html_url'], app['ficha'])
