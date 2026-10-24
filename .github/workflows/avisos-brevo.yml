@@ -6,7 +6,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/avisos_brevo.py'
-      - 'tests/test_avisos.py'
+      - 'tests/**'
       - '.github/workflows/avisos-brevo.yml'
   schedule:
     # Comprobación diaria a las 08:17 UTC; GitHub puede retrasarla.
