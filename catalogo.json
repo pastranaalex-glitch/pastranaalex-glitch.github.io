@@ -354,7 +354,8 @@
       },
       "disponible": true,
       "pendientePublicacion": true,
-      "valoracionesDisponibles": false
+      "valoracionesDisponibles": false,
+      "portada": "sopa-de-letras-pro-portada-realista.webp"
     }
   ]
 }
