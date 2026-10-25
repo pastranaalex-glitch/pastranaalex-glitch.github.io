@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#132d4d">
-<meta name="description" content="Sopa de Letras PRO para Android. Sopas generadas automáticamente, desafíos diarios y semanales, niveles progresivos y estadísticas. Juego gratuito y sin anuncios.">
+<meta name="description" content="Sopa de Letras PRO 1.18.0 para Android. Modo Aventura con 40 misterios e imágenes desbloqueables, sopas ilimitadas, niveles progresivos y álbum. Gratis, sin anuncios y sin conexión.">
 <meta property="og:image" content="https://pastranaalex-glitch.github.io/sopa-de-letras-pro-portada-realista.webp">
 <meta property="og:title" content="Sopa de Letras PRO | Biblioteca de herramientas">
-<meta property="og:description" content="Encuentra palabras, supera retos y disfruta de partidas sin límite.">
+<meta property="og:description" content="Juega a sopas de letras y resuelve 40 misterios para desbloquear imágenes.">
 <meta property="og:url" content="https://pastranaalex-glitch.github.io/sopa-de-letras-pro.html">
 <link rel="canonical" href="https://pastranaalex-glitch.github.io/sopa-de-letras-pro.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -41,6 +41,7 @@
 .sopa-button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;background:#176a76;color:#fff;text-decoration:none;border-radius:12px;font-weight:800;padding:12px 22px;margin:10px 0}
 .sopa-button[hidden]{display:none}.sopa-muted{font-size:.88rem;color:#56677c;line-height:1.6}
 .sopa-checksum{overflow-wrap:anywhere;font-size:.78rem;color:#45556c;background:#eef3f6;padding:12px;border-radius:9px}
+.sopa-real-cover{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:23px;box-shadow:0 20px 45px #19365b30;background:#203950}.sopa-version{font-weight:650;color:#315a67}
 @media(max-width:720px){.sopa-grid,.sopa-features{grid-template-columns:1fr}.sopa-hero{padding:29px 0}.sopa-art{padding:14px}}
 </style>
 </head>
@@ -49,43 +50,31 @@
 <header class="site-header"><div class="container header-inner"><a class="brand" href="index.html"><span class="brand-name">Biblioteca<span class="brand-suffix">de herramientas</span></span></a><button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">☰ Menú</button><nav class="site-nav" id="menu-principal" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="catalogo.html?type=programas">Programas</a><a href="catalogo.html?type=juegos">Juegos</a><a href="catalogo.html">Catálogo</a><a href="proximamente.html">Próximamente</a></nav></div></header>
 <main id="contenido">
 <section class="sopa-hero"><div class="sopa-wrap sopa-grid">
-<div><a href="catalogo.html?type=juegos">← Todos los juegos</a><p class="sopa-kicker">ANDROID · JUEGO DE PALABRAS</p><h1>Sopa de Letras <span style="color:#137c82">PRO</span></h1><p class="sopa-lead">Una sopa nueva cada vez. Encuentra palabras, supera desafíos y ejercita la atención con un diseño cómodo y colorido.</p>
-<div class="sopa-tags"><span>Gratis</span><span>Sin anuncios</span><span>Sin internet</span><span>Android 7.0 o superior</span></div><p>Versión 1.8.0 · Generación automática de tableros · 10 categorías · 683 palabras</p></div>
-<div class="sopa-art" role="img" aria-label="Ilustración de un tablero de sopa de letras con una palabra resaltada">
-<div class="sopa-art-title"><span>🌿 NATURALEZA</span><small>3 / 8</small></div>
-<div class="sopa-board" aria-hidden="true">
-<span>A</span><span>R</span><span>B</span><span>O</span><span>L</span><span>N</span><span>C</span><span>P</span>
-<span>M</span><span>A</span><span>R</span><span>E</span><span>V</span><span>T</span><span>F</span><span>O</span>
-<span class="hot">B</span><span class="hot">O</span><span class="hot">S</span><span class="hot">Q</span><span class="hot">U</span><span class="hot">E</span><span>R</span><span>L</span>
-<span>S</span><span>O</span><span>L</span><span>T</span><span>H</span><span>E</span><span>P</span><span>A</span>
-<span>R</span><span>I</span><span>O</span><span>W</span><span>X</span><span>A</span><span>D</span><span>N</span>
-<span>L</span><span>F</span><span>Y</span><span>G</span><span>U</span><span>N</span><span>O</span><span>T</span>
-<span>A</span><span>V</span><span>I</span><span>E</span><span>J</span><span>R</span><span>B</span><span>A</span>
-<span>F</span><span>L</span><span>O</span><span>R</span><span>E</span><span>S</span><span>M</span><span>S</span>
-</div><div class="sopa-chips"><span>✓ BOSQUE</span><span>ÁRBOL</span><span>RÍO</span><span>FLORES</span></div>
-</div></div></section>
+<div><a href="catalogo.html?type=juegos">← Todos los juegos</a><p class="sopa-kicker">ANDROID · JUEGO DE PALABRAS</p><h1>Sopa de Letras <span style="color:#137c82">PRO</span></h1><p class="sopa-lead">Encuentra palabras, supera niveles y descubre las imágenes escondidas tras 40 misterios. Tres formas de jugar y un álbum de descubrimientos.</p>
+<div class="sopa-tags"><span>Gratis</span><span>Sin anuncios</span><span>Sin conexión</span><span>Android 7.0 o superior</span></div><p class="sopa-version">Versión 1.18.0 · 40 misterios · 40 imágenes incluidas · 10 categorías · 3 modos de juego</p></div>
+<div><img class="sopa-real-cover" src="sopa-de-letras-pro-portada-realista.webp" width="1000" height="750" loading="eager" decoding="async" alt="Portada realista de Sopa de Letras PRO con el juego en un teléfono móvil."></div></div></section>
 <section class="sopa-section"><div class="sopa-wrap"><h2>Mucho más que una sopa de letras</h2>
 <div class="sopa-features">
 <div class="sopa-feature"><strong>♾️ Partidas libres</strong><p>Tableros generados automáticamente y tres dificultades.</p></div>
 <div class="sopa-feature"><strong>📈 Niveles progresivos</strong><p>Avanza a tu ritmo, con dificultad creciente.</p></div>
-<div class="sopa-feature"><strong>📅 Retos diarios y semanales</strong><p>Una combinación nueva en cada periodo.</p></div>
-<div class="sopa-feature"><strong>💡 Pistas</strong><p>Ayudas opcionales para encontrar las palabras más difíciles.</p></div>
-<div class="sopa-feature"><strong>🏅 Logros y estadísticas</strong><p>Consulta partidas resueltas, tiempos, puntos y récords.</p></div>
+<div class="sopa-feature"><strong>🗺️ Aventura y Misterio</strong><p>40 enigmas. Encuentra las palabras, contesta la pregunta final y desbloquea la imagen de cada descubrimiento.</p></div>
+<div class="sopa-feature"><strong>🖼️ Álbum de descubrimientos</strong><p>Cuatro capítulos, imágenes desbloqueables y ampliación para disfrutar de cada escena.</p></div>
+<div class="sopa-feature"><strong>💡 Pistas, logros y estadísticas</strong><p>Ayudas opcionales, récords, progreso y recompensas por resolver misterios.</p></div>
 <div class="sopa-feature"><strong>💾 Guarda tu progreso</strong><p>Recuperación de partidas y copia de seguridad en un archivo local.</p></div>
 </div>
 <div class="sopa-download" id="descarga"><h2>Descargar Sopa de Letras PRO</h2>
-<p class="sopa-status" id="sopa-estado" role="status" aria-live="polite">Descarga pendiente de subir la APK firmada a GitHub Releases.</p>
-<a class="sopa-button" id="sopa-descarga" hidden>Descargar APK 1.8.0 ↓</a>
-<p class="sopa-muted">La descarga se activa exclusivamente cuando GitHub confirma el archivo firmado de la versión 1.8.0 y su SHA-256. No se ofrecen versiones de depuración.</p>
+<p class="sopa-status" id="sopa-estado" role="status" aria-live="polite">APK firmada comprobada. Falta adjuntar el archivo al lanzamiento de GitHub Releases.</p>
+<a class="sopa-button" id="sopa-descarga" hidden>Descargar APK 1.18.0 ↓</a>
+<p class="sopa-muted">La descarga se activa cuando GitHub confirma el archivo firmado de la versión 1.18.0 y su SHA-256. La aplicación incluye imágenes de descubrimiento creadas o adaptadas digitalmente, algunas con IA. No se ofrecen versiones de pruebas.</p>
 <p class="sopa-muted"><strong>SHA-256 de la APK verificada:</strong></p>
-<p class="sopa-checksum">e5a54b2c9f362963ebae324572ff86c5e4d74c0fb7561c3c8e902ed484980a2d</p>
+<p class="sopa-checksum">7b4ae37af015d461146a260e7f15808a75c067c97ec45bbcec95c69fd7837300</p>
 <p class="sopa-muted">Si tenías una versión de pruebas instalada, exporta primero el progreso: las firmas de prueba y de publicación son diferentes.</p>
 </div></div></section></main>
 <footer class="site-footer"><div class="container footer-inner"><div><strong>Biblioteca de herramientas</strong><p>Aplicaciones gratuitas para Android y Windows. Sin anuncios, pagos ni donaciones.</p></div><div class="footer-links"><a href="catalogo.html">Catálogo</a><a href="proximamente.html">Próximamente</a><a href="seguridad.html">Seguridad</a><a href="privacidad.html">Privacidad</a></div></div></footer>
 <script>
 (async()=>{
- const tag="sopa-de-letras-pro-v1.8.0", file="Sopa_de_Letras_PRO_1_8_0_PUBLICACION_FIRMADA.apk";
- const sha="e5a54b2c9f362963ebae324572ff86c5e4d74c0fb7561c3c8e902ed484980a2d";
+ const tag="sopa-de-letras-pro-v1.18.0", file="Sopa_de_Letras_PRO_1_18_0_PUBLICACION_FIRMADA.apk";
+ const sha="7b4ae37af015d461146a260e7f15808a75c067c97ec45bbcec95c69fd7837300";
  const repo="pastranaalex-glitch/pastranaalex-glitch.github.io";
  try{
   const response=await fetch("https://api.github.com/repos/"+repo+"/releases/tags/"+encodeURIComponent(tag),{headers:{Accept:"application/vnd.github+json"}});
