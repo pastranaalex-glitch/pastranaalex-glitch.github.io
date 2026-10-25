@@ -2,26 +2,6 @@
   "formato": 1,
   "aplicaciones": [
     {
-      "slug": "mi-asistente-diario",
-      "nombre": "Mi Asistente Diario",
-      "fechaEstreno": null,
-      "repo": null,
-      "plataforma": "android",
-      "versionAprobada": null,
-      "revisionAprobada": false,
-      "publicacionAutomatica": false,
-      "apkSubido": false,
-      "categorias": [
-        "utilidades",
-        "salud",
-        "organizacion"
-      ],
-      "descripcion": "Asistente personal gratuito y personalizable para Android: consulta el tiempo y recibe recomendaciones de ropa, organiza citas y tareas, recuerda la medicación y registra tensión arterial, pulsaciones y peso. Elige los módulos que necesitas y recibe resúmenes y avisos útiles sin complicaciones. En desarrollo; aún no disponible para descargar.",
-      "etiqueta": "ASISTENTE PERSONAL",
-      "eslogan": "Tu día, organizado a tu manera.",
-      "imagen": "mi-asistente-diario-portada.svg"
-    },
-    {
       "slug": "menu-y-compra",
       "nombre": "Menú y Compra",
       "fechaEstreno": "2026-10-16T00:00:00+02:00",
