@@ -103,8 +103,8 @@
       "nombre": "Rutas a Pie",
       "plataforma": "android",
       "publicado": true,
-      "version": "1.5.1",
-      "descripcion": "225 fichas en las 17 comunidades autónomas, mapa y grabación GPS, historial, GPX y ayuda sin conexión.",
+      "version": "1.7.0",
+      "descripcion": "400 fichas de senderismo por las 17 comunidades autónomas, con 100 rutas nuevas, mapa integrado, grabación GPS, historial, favoritos, GPX y ayuda senderista.",
       "enlace": "https://pastranaalex-glitch.github.io/rutas-a-pie.html",
       "slug": "rutas-a-pie",
       "categorias": [
@@ -117,11 +117,13 @@
       "repo": "pastranaalex-glitch/rutas-a-pie",
       "portada": "rutas-a-pie-portada-realista.webp",
       "descarga": {
-        "version": "1.5.1",
-        "tag": "v1.5.1",
-        "archivo": "RutasAPie_1.5.1.apk",
-        "sha256": "f4b9f6d2442d1785bebf96c3d58e32e107591a443b58c0b6d8a121a8501fc74b"
-      }
+        "version": "1.7.0",
+        "tag": "v1.7.0",
+        "archivo": "app-release.8.apk",
+        "sha256": ""
+      },
+      "estado": "Disponible",
+      "disponible": true
     },
     {
       "nombre": "Documentos de Casa",
