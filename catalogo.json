@@ -334,23 +334,23 @@
       "nombre": "Sopa de Letras PRO",
       "plataforma": "android",
       "publicado": true,
-      "version": "1.8.0",
-      "descripcion": "Sopas de letras que se generan automáticamente, con 10 temáticas, niveles progresivos, desafíos diarios y semanales, pistas, récords y partidas sin conexión.",
+      "version": "1.18.0",
+      "descripcion": "Sopa de letras gratuita para Android con partidas ilimitadas, niveles progresivos y modo Aventura con 40 misterios e imágenes que se desbloquean al resolverlos. Diez categorías, pistas, estadísticas y álbum. Funciona sin conexión y sin anuncios.",
       "enlace": "https://pastranaalex-glitch.github.io/sopa-de-letras-pro.html",
       "slug": "sopa-de-letras-pro",
       "categorias": [
         "juegos"
       ],
-      "etiqueta": "JUEGO DE PALABRAS",
-      "eslogan": "Un tablero nuevo cada vez.",
+      "etiqueta": "AVENTURA Y PALABRAS",
+      "eslogan": "40 misterios por descubrir",
       "imagen": "",
       "icono": "icono-sopa-de-letras-pro.svg",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "descarga": {
-        "version": "1.8.0",
-        "tag": "sopa-de-letras-pro-v1.8.0",
-        "archivo": "Sopa_de_Letras_PRO_1_8_0_PUBLICACION_FIRMADA.apk",
-        "sha256": "e5a54b2c9f362963ebae324572ff86c5e4d74c0fb7561c3c8e902ed484980a2d"
+        "version": "1.18.0",
+        "tag": "sopa-de-letras-pro-v1.18.0",
+        "archivo": "Sopa_de_Letras_PRO_1_18_0_PUBLICACION_FIRMADA.apk",
+        "sha256": "7b4ae37af015d461146a260e7f15808a75c067c97ec45bbcec95c69fd7837300"
       },
       "disponible": true,
       "pendientePublicacion": true,
