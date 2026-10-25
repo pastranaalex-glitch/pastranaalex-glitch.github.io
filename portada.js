@@ -92,7 +92,7 @@
   function validAsset(asset, repo) {
     if (!asset || typeof asset.name !== 'string' || typeof asset.browser_download_url !== 'string') return false;
     if (!asset.browser_download_url.startsWith(`https://github.com/${repo}/releases/download/`)) return false;
-    if (/rutas-a-pie$/.test(repo)) return /^RutasAPie_\d+(?:[._]\d+){1,3}\.apk$/i.test(asset.name);
+    if (/rutas-a-pie$/.test(repo)) return /^(?:RutasAPie_\d+(?:[._]\d+){1,3}|app-release(?:\.\d+)?)\.apk$/i.test(asset.name);
     return /cocina-clara$/.test(repo) ? /\.(zip|exe|msi)$/i.test(asset.name) : /\.apk$/i.test(asset.name);
   }
   async function loadCard(card) {
@@ -104,8 +104,7 @@
     const label = card.querySelector('[data-download-label]');
     const meta = card.querySelector('[data-download-meta]');
     const button = card.querySelector('[data-download-button]');
-    // Rutas a Pie aún no tiene repositorio público: nunca enviar a un enlace 404.
-    const pendingRutas = repo.endsWith('/rutas-a-pie');
+    const pendingRutas = false;
     const setRutasPending = () => {
       if (!pendingRutas || !button) return;
       button.removeAttribute('href');
