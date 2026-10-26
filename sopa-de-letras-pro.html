@@ -51,7 +51,7 @@
 <main id="contenido">
 <section class="sopa-hero"><div class="sopa-wrap sopa-grid">
 <div><a href="catalogo.html?type=juegos">← Todos los juegos</a><p class="sopa-kicker">ANDROID · JUEGO DE PALABRAS</p><h1>Sopa de Letras <span style="color:#137c82">PRO</span></h1><p class="sopa-lead">Encuentra palabras, supera niveles y descubre las imágenes escondidas tras 40 misterios. Tres formas de jugar y un álbum de descubrimientos.</p>
-<div class="sopa-tags"><span>Gratis</span><span>Sin anuncios</span><span>Sin conexión</span><span>Android 7.0 o superior</span></div><p class="sopa-version">Versión 1.18.0 · 40 misterios · 40 imágenes incluidas · 10 categorías · 3 modos de juego</p></div>
+<div class="sopa-tags"><span>Gratis</span><span>Sin anuncios</span><span>Sin conexión</span><span>Android 7.0 o superior</span></div><p class="sopa-version" id="sopa-version-visible">Versión 1.18.0 · 40 misterios · 40 imágenes incluidas · 10 categorías · 3 modos de juego</p></div>
 <div><img class="sopa-real-cover" src="sopa-de-letras-pro-portada-realista.webp" width="1000" height="750" loading="eager" decoding="async" alt="Portada realista de Sopa de Letras PRO con el juego en un teléfono móvil."></div></div></section>
 <section class="sopa-section"><div class="sopa-wrap"><h2>Mucho más que una sopa de letras</h2>
 <div class="sopa-features">
@@ -63,9 +63,10 @@
 <div class="sopa-feature"><strong>💾 Guarda tu progreso</strong><p>Recuperación de partidas y copia de seguridad en un archivo local.</p></div>
 </div>
 <div class="sopa-download" id="descarga"><h2>Descargar Sopa de Letras PRO</h2>
-<p class="sopa-status" id="sopa-estado" role="status" aria-live="polite">APK firmada comprobada. Falta adjuntar el archivo al lanzamiento de GitHub Releases.</p>
-<a class="sopa-button" id="sopa-descarga" hidden>Descargar APK 1.18.0 ↓</a>
-<p class="sopa-muted">La descarga se activa cuando GitHub confirma el archivo firmado de la versión 1.18.0 y su SHA-256. La aplicación incluye imágenes de descubrimiento creadas o adaptadas digitalmente, algunas con IA. No se ofrecen versiones de pruebas.</p>
+<p class="sopa-muted" id="sopa-novedades"><strong>Nueva actualización 1.19.0 preparada:</strong> abecedario español de 27 letras con Ñ, más vocabulario y 22 aventuras con palabras que incluyen Ñ. La versión 1.18.0 seguirá disponible hasta que GitHub confirme la nueva APK.</p>
+<p class="sopa-status" id="sopa-estado" role="status" aria-live="polite">Comprobando la versión firmada disponible en GitHub Releases...</p>
+<a class="sopa-button" id="sopa-descarga" hidden>Descargar APK ↓</a>
+<p class="sopa-muted">La descarga solo se activa cuando GitHub confirma el archivo firmado y su SHA-256. La aplicación incluye imágenes de descubrimiento creadas o adaptadas digitalmente, algunas con IA. No se ofrecen versiones de pruebas.</p>
 <p class="sopa-muted"><strong>SHA-256 de la APK verificada:</strong></p>
 <p class="sopa-checksum">7b4ae37af015d461146a260e7f15808a75c067c97ec45bbcec95c69fd7837300</p>
 <p class="sopa-muted">Si tenías una versión de pruebas instalada, exporta primero el progreso: las firmas de prueba y de publicación son diferentes.</p>
@@ -73,21 +74,33 @@
 <footer class="site-footer"><div class="container footer-inner"><div><strong>Biblioteca de herramientas</strong><p>Aplicaciones gratuitas para Android y Windows. Sin anuncios, pagos ni donaciones.</p></div><div class="footer-links"><a href="catalogo.html">Catálogo</a><a href="proximamente.html">Próximamente</a><a href="seguridad.html">Seguridad</a><a href="privacidad.html">Privacidad</a></div></div></footer>
 <script>
 (async()=>{
- const tag="sopa-de-letras-pro-v1.18.0", file="Sopa_de_Letras_PRO_1_18_0_PUBLICACION_FIRMADA.apk";
- const sha="7b4ae37af015d461146a260e7f15808a75c067c97ec45bbcec95c69fd7837300";
  const repo="pastranaalex-glitch/pastranaalex-glitch.github.io";
- try{
-  const response=await fetch("https://api.github.com/repos/"+repo+"/releases/tags/"+encodeURIComponent(tag),{headers:{Accept:"application/vnd.github+json"}});
-  if(!response.ok)return;
-  const release=await response.json();
-  if(release.draft||release.prerelease)return;
-  const asset=(release.assets||[]).find(a=>a.state==="uploaded"&&a.name===file&&a.digest==="sha256:"+sha&&a.browser_download_url==="https://github.com/"+repo+"/releases/download/"+tag+"/"+file);
-  if(!asset)return;
-  const link=document.getElementById("sopa-descarga"),status=document.getElementById("sopa-estado");
-  link.href=asset.browser_download_url;link.rel="noopener noreferrer";link.hidden=false;
-  status.textContent="Descarga verificada y disponible desde GitHub Releases.";
-  status.classList.add("ready");
- }catch(_){/* Mantener el aviso, nunca crear un enlace sin verificar. */}
+ const versions=[
+  {version:"1.19.0",tag:"sopa-de-letras-pro-v1.19.0",file:"Sopa_de_Letras_PRO_1_19_0_PUBLICACION_FIRMADA.apk",sha:"15183f461863ed5da08460116a1d305dd79350ff8f796db429af7108e52d27fd"},
+  {version:"1.18.0",tag:"sopa-de-letras-pro-v1.18.0",file:"Sopa_de_Letras_PRO_1_18_0_PUBLICACION_FIRMADA.apk",sha:"7b4ae37af015d461146a260e7f15808a75c067c97ec45bbcec95c69fd7837300"}
+ ];
+ const link=document.getElementById("sopa-descarga"),status=document.getElementById("sopa-estado");
+ for(const spec of versions){
+  try{
+   const response=await fetch("https://api.github.com/repos/"+repo+"/releases/tags/"+encodeURIComponent(spec.tag),{headers:{Accept:"application/vnd.github+json"}});
+   if(!response.ok)continue;
+   const release=await response.json();
+   if(release.draft||release.prerelease)continue;
+   const url="https://github.com/"+repo+"/releases/download/"+spec.tag+"/"+spec.file;
+   const verified=(release.assets||[]).some(a=>a.state==="uploaded"&&a.name===spec.file&&a.digest==="sha256:"+spec.sha&&a.browser_download_url===url);
+   if(!verified)continue;
+   link.href=url;link.rel="noopener noreferrer";link.hidden=false;
+   link.textContent="Descargar APK "+spec.version+" ↓";
+   status.classList.add("ready");
+   status.textContent=spec.version==="1.19.0"?"Versión 1.19.0 disponible y verificada en GitHub Releases.":"Versión 1.18.0 disponible. Actualización 1.19.0 pendiente de publicación.";
+   document.querySelector(".sopa-checksum").textContent=spec.sha;
+   document.getElementById("sopa-version-visible").textContent="Versión "+spec.version+" · 40 misterios · 40 imágenes incluidas · 10 categorías · 3 modos de juego";
+   const news=document.getElementById("sopa-novedades");
+   if(spec.version==="1.19.0")news.textContent="Novedades de la versión 1.19.0: letra Ñ incorporada al abecedario, más vocabulario español y palabras con Ñ también en el modo Aventura.";
+   return;
+  }catch(_){/* Buscar la versión anterior sin publicar enlaces no verificados. */}
+ }
+ status.textContent="No se ha podido comprobar la disponibilidad de GitHub Releases. Inténtalo de nuevo más tarde.";
 })();
 </script>
 </body></html>
