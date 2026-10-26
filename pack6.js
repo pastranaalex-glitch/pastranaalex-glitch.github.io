@@ -164,6 +164,31 @@ async function github(a){
    a.date=Date.parse(current.published_at||current.created_at||'')||0;
    a.releaseName=current.name||current.tag_name||a.nombre;a.hasRelease=true;
   }
+  // Sopa de Letras PRO: conservar la APK publicada hasta que la nueva
+  // actualización esté confirmada con el nombre y SHA-256 exactos.
+  const next=a.slug==='sopa-de-letras-pro'?a.actualizacionPendiente:null;
+  if(next && /^[a-f0-9]{64}$/.test(next.sha256||'')){
+   const newRelease=sources[0].releases.find(r=>r&&!r.draft&&!r.prerelease&&r.tag_name===next.tag);
+   const expected='https://github.com/'+a.repo+'/releases/download/'+next.tag+'/'+next.archivo;
+   const newAsset=newRelease?.assets?.find(x=>x.state==='uploaded' && x.name===next.archivo
+      &&x.digest==='sha256:'+next.sha256 && x.browser_download_url===expected);
+   if(newAsset){
+    a.version=next.version;
+    a.descarga={version:next.version,tag:next.tag,archivo:next.archivo,sha256:next.sha256};
+    a.descripcion=next.descripcion||a.descripcion;
+    a.eslogan=next.eslogan||a.eslogan;
+    a.date=Date.parse(newRelease.published_at||newRelease.created_at||'')||0;
+    a.releaseName=newRelease.name||next.tag;a.hasRelease=true;
+    if(a.node){
+     const ver=a.node.querySelector('.app-meta span');
+     if(ver)ver.textContent='Versión '+a.version;
+     const desc=a.node.querySelector('.app-description');
+     if(desc)desc.textContent=a.descripcion;
+     const heading=a.node.querySelector('.card-art-copy strong');
+     if(heading)heading.textContent=a.eslogan;
+    }
+   }
+  }
  }catch(_){a.failed=true;}
 }
 function updateLink(a){
