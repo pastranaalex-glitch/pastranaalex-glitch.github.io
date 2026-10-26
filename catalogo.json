@@ -357,7 +357,15 @@
       "disponible": true,
       "pendientePublicacion": true,
       "valoracionesDisponibles": false,
-      "portada": "sopa-de-letras-pro-portada-realista.webp"
+      "portada": "sopa-de-letras-pro-portada-realista.webp",
+      "actualizacionPendiente": {
+        "version": "1.19.0",
+        "tag": "sopa-de-letras-pro-v1.19.0",
+        "archivo": "Sopa_de_Letras_PRO_1_19_0_PUBLICACION_FIRMADA.apk",
+        "sha256": "15183f461863ed5da08460116a1d305dd79350ff8f796db429af7108e52d27fd",
+        "descripcion": "Sopa de letras gratuita para Android, con 913 entradas de vocabulario, más palabras con Ñ, partidas ilimitadas, niveles progresivos y Aventura con 40 misterios e imágenes desbloqueables. Incluye álbum, pistas, récords y estadísticas; sin anuncios ni conexión.",
+        "eslogan": "40 misterios y más palabras con Ñ"
+      }
     }
   ]
 }
