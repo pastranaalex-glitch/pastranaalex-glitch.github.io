@@ -7,7 +7,7 @@ const safe=(v)=>typeof v==='string'?v:'';
 if(!slot)return;
 const fallback=document.getElementById('catalog-fallback');
 const visibleInCatalog=a=>a&&(a.publicado===true||(a.visibleEnCatalogo===true&&a.disponible===false&&a.descargasBloqueadas===true));
-const validApp=a=>a&&visibleInCatalog(a)&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&(a.repo===owner+'/'+a.slug||(['menu-y-compra','mi-salud-familiar','mi-dinero-real','en-familia','jardin-de-joyas','mente-activa-pro','sudoku-vivo','sopa-de-letras-pro'].includes(a.slug)&&a.repo===owner+'/'+owner+'.github.io'))&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
+const validApp=a=>a&&visibleInCatalog(a)&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&(a.repo===owner+'/'+a.slug||(['menu-y-compra','mi-salud-familiar','mi-dinero-real','en-familia','jardin-de-joyas','mente-activa-pro','sudoku-vivo','sopa-de-letras-pro','texto-facil'].includes(a.slug)&&a.repo===owner+'/'+owner+'.github.io'))&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
 /* La descarga nunca depende de una consulta a la API de GitHub.
    Fijamos versión, nombre y SHA-256 a los metadatos verificados del catálogo. */
 const approvedDownload=a=>{
@@ -40,7 +40,7 @@ function card(a){
  const image=a.portada||a.imagen,isCover=Boolean(a.portada)||a.slug==='jardin-de-joyas';if(isCover)art.classList.add('is-promo-cover');
  if(image&&(/^[\w\s.()-]+\.(webp|jpeg|jpg|png)$/i.test(image)||(a.slug==='sudoku-vivo'&&image==='sudoku-vivo-portada.svg'))){const holder=mk('div','card-phone card-phone-'+a.slug);const img=mk('img');img.src=image;img.alt=(isCover?'Portada promocional de ':'Captura real de ')+a.nombre;img.loading='lazy';img.decoding='async';holder.append(img);art.append(holder);}else{const holder=mk('div','pack6-art-logo');const mark=mk('img');mark.src=a.icono;mark.alt='';mark.loading='lazy';mark.decoding='async';holder.append(mark);art.append(holder);}
  const body=mk('div','card-body'),identity=mk('div','app-identity'),icon=mk('img','app-icon');icon.src=a.icono;icon.alt='';icon.loading='lazy';icon.width=54;icon.height=54;
- const names=mk('div');names.append(mk('h3',null,a.nombre),mk('p',null,(a.plataforma==='windows'?'Windows':'Android')+' · '+((a.categorias||[])[0]||'Herramientas')));identity.append(icon,names,mk('span','free-label',paused?'En reparación':a.slug==='sopa-de-letras-pro'?'Próximamente':'Gratis'));
+ const names=mk('div');names.append(mk('h3',null,a.nombre),mk('p',null,(a.plataforma==='windows'?'Windows':'Android')+' · '+((a.categorias||[])[0]||'Herramientas')));identity.append(icon,names,mk('span','free-label',paused?'En reparación':a.estado==='BETA'?'BETA':a.slug==='sopa-de-letras-pro'?'Próximamente':'Gratis'));
  const short={'lector-facil':'Lee PDF y Word, prepara exposiciones y guarda marcadores.','recetario-facil':'52 recetas ilustradas, con búsqueda y preparación paso a paso.','rutas-a-pie':'Explora 225 rutas por España y graba tus recorridos con GPS.'};
  const desc=mk('p','app-description',isHome&&short[a.slug]?short[a.slug]:a.descripcion),meta=mk('div','app-meta');meta.append(mk('span',null,'Versión '+(a.version||'actual')),mk('span',null,a.plataforma==='windows'?'Windows':'Android'));
  const footer=mk('div','card-footer'),stats=mk('div','downloads'),strong=mk('strong',null,'—'),label=mk('span',null,'Consultando descargas'),small=mk('small',null,'GitHub Releases');stats.append(strong,label,small);
