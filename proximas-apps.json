@@ -129,10 +129,10 @@
       "slug": "texto-facil",
       "nombre": "Texto Fácil",
       "fechaEstreno": null,
-      "repo": null,
+      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "plataforma": "windows",
-      "versionAprobada": null,
-      "revisionAprobada": false,
+      "versionAprobada": "30.4.2",
+      "revisionAprobada": true,
       "publicacionAutomatica": false,
       "categorias": [
         "ofimatica",
@@ -141,7 +141,14 @@
       "descripcion": "Procesador de textos gratuito para Windows, sencillo y práctico, para escribir, editar y dar formato a documentos cotidianos sin complicaciones.",
       "etiqueta": "PROCESADOR DE TEXTOS",
       "eslogan": "Escribe con sencillez.",
-      "imagen": "texto-facil-portada-realista.webp"
+      "imagen": "texto-facil-portada-realista.webp",
+      "archivoAprobado": "TextoFacil_30.4.2_BETA.zip",
+      "sha256Aprobado": "d31eb9599ad4929ed109a2df1db69131dab7f04b10ff9bd8a7bcc93069eaa314",
+      "apkSubido": true,
+      "releasePublicada": true,
+      "estado": "BETA",
+      "descargasBloqueadas": false,
+      "motivoBloqueo": ""
     },
     {
       "slug": "hoja-de-calculo",
