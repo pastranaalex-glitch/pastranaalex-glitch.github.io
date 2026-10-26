@@ -358,6 +358,32 @@
       "pendientePublicacion": false,
       "valoracionesDisponibles": false,
       "portada": "sopa-de-letras-pro-portada-realista.webp"
+    },
+    {
+      "nombre": "Texto Fácil",
+      "plataforma": "windows",
+      "publicado": true,
+      "version": "30.4.2 BETA",
+      "descripcion": "Procesador de textos gratuito para Windows. Esta beta incluye edición cotidiana, vista previa de impresión, creación de PDF mediante impresora virtual, recuperación de borradores, historial de versiones y avisos de nuevas versiones.",
+      "enlace": "https://pastranaalex-glitch.github.io/texto-facil.html",
+      "slug": "texto-facil",
+      "categorias": [
+        "ofimatica",
+        "utilidades"
+      ],
+      "etiqueta": "BETA · PROCESADOR DE TEXTOS",
+      "eslogan": "Escribe con sencillez.",
+      "imagen": "",
+      "icono": "icono-texto-facil.svg",
+      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
+      "portada": "texto-facil-portada-realista.webp",
+      "descarga": {
+        "version": "30.4.2 BETA",
+        "tag": "texto-facil-v30.4.2-beta",
+        "archivo": "TextoFacil_30.4.2_BETA.zip",
+        "sha256": "d31eb9599ad4929ed109a2df1db69131dab7f04b10ff9bd8a7bcc93069eaa314"
+      },
+      "estado": "BETA"
     }
   ]
 }
