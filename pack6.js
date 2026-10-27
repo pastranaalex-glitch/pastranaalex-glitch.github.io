@@ -38,7 +38,7 @@ function card(a){
  const art=mk('div','card-art card-art-'+a.slug);
  const copy=mk('div','card-art-copy');copy.append(mk('span','art-tag',a.etiqueta||'APP GRATUITA'),mk('strong',null,a.eslogan||a.nombre),mk('span',null,a.plataforma==='windows'?'Para tu ordenador':'Para tu móvil'));art.append(copy);
  const image=a.portada||a.imagen,isCover=Boolean(a.portada)||a.slug==='jardin-de-joyas';if(isCover)art.classList.add('is-promo-cover');
- if(image&&(/^[\w\s.()-]+\.(webp|jpeg|jpg|png)$/i.test(image)||(a.slug==='sudoku-vivo'&&image==='sudoku-vivo-portada.svg'))){const holder=mk('div','card-phone card-phone-'+a.slug);const img=mk('img');img.src=image;img.alt=(isCover?'Portada promocional de ':'Captura real de ')+a.nombre;img.loading='lazy';img.decoding='async';holder.append(img);art.append(holder);}else{const holder=mk('div','pack6-art-logo');const mark=mk('img');mark.src=a.icono;mark.alt='';mark.loading='lazy';mark.decoding='async';holder.append(mark);art.append(holder);}
+ if(image&&(/^[\w\s.()-]+\.(webp|jpeg|jpg|png)$/i.test(image)||(a.slug==='sudoku-vivo'&&image==='sudoku-vivo-portada.svg'))){const holder=mk('div','card-phone card-phone-'+a.slug);const img=mk('img');img.src=image;img.width=1600;img.height=900;img.alt=(isCover?'Portada promocional de ':'Captura real de ')+a.nombre;img.loading='lazy';img.decoding='async';holder.append(img);art.append(holder);}else{const holder=mk('div','pack6-art-logo');const mark=mk('img');mark.src=a.icono;mark.width=64;mark.height=64;mark.alt='';mark.loading='lazy';mark.decoding='async';holder.append(mark);art.append(holder);}
  const body=mk('div','card-body'),identity=mk('div','app-identity'),icon=mk('img','app-icon');icon.src=a.icono;icon.alt='';icon.loading='lazy';icon.width=54;icon.height=54;
  const names=mk('div');names.append(mk('h3',null,a.nombre),mk('p',null,(a.plataforma==='windows'?'Windows':'Android')+' · '+((a.categorias||[])[0]||'Herramientas')));identity.append(icon,names,mk('span','free-label',paused?'En reparación':a.estado==='BETA'?'BETA':a.slug==='sopa-de-letras-pro'?'Próximamente':'Gratis'));
  const short={'lector-facil':'Lee PDF y Word, prepara exposiciones y guarda marcadores.','recetario-facil':'52 recetas ilustradas, con búsqueda y preparación paso a paso.','rutas-a-pie':'Explora 225 rutas por España y graba tus recorridos con GPS.'};
@@ -269,7 +269,7 @@ async function start(){
  }catch(_){/* La API en directo sigue funcionando sin el respaldo. */}
  totals(); // Mostrar el mínimo de la portada mientras GitHub responde.
  await Promise.all(apps.map(async a=>{if(a.disponible!==false)await github(a);updateLink(a);totals();}));
- if(isHome){const featured=featureList();slot.replaceChildren(...featured.map(a=>{if(!a.node)card(a);return a.node;}));}
+ // Mantener las tarjetas ya montadas: contadores y enlaces se actualizan sin reconstruir el DOM.
  document.dispatchEvent(new Event('biblioteca:cards-ready'));
  totals();if(isHome)headline();
  }catch(e){console.warn('La Biblioteca conserva sus enlaces alternativos.',e);}
