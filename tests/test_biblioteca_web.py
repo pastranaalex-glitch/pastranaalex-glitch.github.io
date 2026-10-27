@@ -1,5 +1,6 @@
 """Comprobaciones sin dependencias externas para la Biblioteca (GitHub Pages)."""
 import json
+import re
 import unittest
 from html.parser import HTMLParser
 from pathlib import Path
@@ -71,6 +72,16 @@ class BibliotecaWebTests(unittest.TestCase):
                 self.assertTrue((ROOT / (slug + ".html")).is_file())
                 self.assertEqual(app["version"], app["descarga"]["version"])
                 self.assertEqual(app["enlace"], BASE + slug + ".html")
+                self.assertRegex(app["descarga"]["sha256"], r"^[0-9a-f]{64}$")
+                expected = ("https://github.com/" + app["repo"] + "/releases/download/"
+                            + app["descarga"]["tag"] + "/" + app["descarga"]["archivo"])
+                page_text = (ROOT / (slug + ".html")).read_text(encoding="utf-8")
+                # Sudoku y Sopa de Letras verifican el enlace por JavaScript tras validar el APK.
+                if slug not in ("sudoku-vivo", "sopa-de-letras-pro"):
+                    self.assertIn(expected, page_text, "La ficha no ofrece el archivo publicado")
+                for url in re.findall(r"https://github[.]com/[A-Za-z0-9._/-]+/releases/download/[A-Za-z0-9._()-]+/[A-Za-z0-9._()-]+", page_text):
+                    if ("/releases/download/" + app["descarga"]["tag"] + "/") in url:
+                        self.assertEqual(url, expected, "Descarga incorrecta para versión actual")
 
     def test_local_assets_and_links_exist(self):
         for page in sorted(ROOT.glob("*.html")):
