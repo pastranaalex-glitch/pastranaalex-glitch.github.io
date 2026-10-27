@@ -36,22 +36,59 @@
 <body class="library-ui">
 <header class="site-header"><div class="container header-inner"><a class="brand" href="index.html"><span class="brand-name">Biblioteca<span class="brand-suffix">de herramientas</span></span></a><nav class="site-nav" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="proximamente.html">Próximamente</a><a href="avisos.html">Avisos</a></nav></div></header>
 <main>
-<section class="tf-hero"><div class="tf-wrap tf-grid"><div><span class="tf-badge">BETA · Windows · Versión 30.4.2</span><h1>Texto Fácil</h1><p>Un procesador de textos gratuito y sencillo para escribir, editar y dar formato a documentos cotidianos. Prueba la beta y ayúdanos a detectar mejoras antes de la publicación estable.</p><div class="tf-actions"><a class="button button-primary" href="https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/texto-facil-v30.4.2-beta/TextoFacil_30.4.2_BETA.zip" rel="noopener">Descargar Texto Fácil BETA (.zip) ↓</a><a class="button button-outline" href="https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/tag/texto-facil-v30.4.2-beta" rel="noopener">Ver versión y detalles</a></div><div class="tf-counter" aria-live="polite">⬇ Descargas del ZIP: <strong id="tf-download-count">Consultando…</strong></div></div><img class="tf-cover" src="texto-facil-portada-realista.webp" alt="Texto Fácil abierto en un ordenador." width="900" height="675"></div></section>
+<section class="tf-hero"><div class="tf-wrap tf-grid"><div><span class="tf-badge">BETA · Windows · Versión 30.4.2</span><h1>Texto Fácil</h1><p>Un procesador de textos gratuito y sencillo para escribir, editar y dar formato a documentos cotidianos. Prueba la beta y ayúdanos a detectar mejoras antes de la publicación estable.</p><div class="tf-actions"><a class="button button-primary" href="https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/texto-facil-v30.4.2-beta/TextoFacil_30.4.2_BETA.zip" rel="noopener">Descargar Texto Fácil BETA (.zip) ↓</a><a class="button button-outline" href="https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/tag/texto-facil-v30.4.2-beta" rel="noopener">Ver versión y detalles</a></div><div class="tf-counter" aria-live="polite">⬇ Descargas del ZIP: <strong id="tf-download-count">Consultando…</strong></div><p id="tf-download-status" class="tf-small" aria-live="polite">Consultando estadísticas de GitHub…</p></div><img class="tf-cover" src="texto-facil-portada-realista.webp" alt="Texto Fácil abierto en un ordenador." width="900" height="675"></div></section>
 <section class="tf-section"><div class="tf-wrap"><h2>Qué puedes probar</h2><div class="tf-cards"><article class="tf-card"><h3>Escritura diaria</h3><p>Abre y edita documentos con herramientas habituales de formato, tablas e imágenes.</p></article><article class="tf-card"><h3>Impresión y PDF</h3><p>Revisa las páginas en la vista previa y envía el documento a una impresora o a Microsoft Print to PDF.</p></article><article class="tf-card"><h3>Recuperación</h3><p>Usa el borrador de recuperación y el historial de versiones para proteger tu trabajo.</p></article></div></div></section>
 <section class="tf-section"><div class="tf-wrap"><div class="tf-note"><strong>Es una versión beta.</strong> Guarda copias de tus documentos importantes y comunica cualquier problema antes de usarla como herramienta principal.</div><h2>Actualizaciones dentro de la aplicación</h2><p>Texto Fácil puede avisar cuando exista una versión más reciente. Para activar la comprobación, abre <strong>Archivo → Opciones → Ayuda → Actualizaciones</strong> y pega esta dirección:</p><p><code>https://pastranaalex-glitch.github.io/texto-facil-version.json</code></p><p class="tf-small">La aplicación consulta el número de versión y abre la página de descarga solo si eliges hacerlo; no instala cambios automáticamente.</p><h2>Cómo instalar la beta</h2><ol><li>Descarga el ZIP y extrae su contenido en una carpeta.</li><li>Ejecuta <strong>TextoFacil.exe</strong> desde la carpeta extraída.</li><li>Para comprobar futuras versiones, configura el enlace HTTPS indicado arriba.</li></ol><p class="tf-small">Windows x64 · Programa autocontenido · Gratuito.</p><p><a href="https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/texto-facil-v30.4.2-beta/TextoFacil_30.4.2_BETA.zip" rel="noopener">Volver a descargar Texto Fácil 30.4.2 BETA</a></p></div></section>
 </main>
 <footer class="site-footer"><div class="container footer-inner"><div><strong>Biblioteca de herramientas</strong><p>Aplicaciones gratuitas para Android y Windows, compartidas por afición.</p><p>Sin anuncios, pagos ni donaciones.</p></div><div class="footer-links"><a href="catalogo.html">Catálogo</a><a href="proximamente.html">Próximamente</a><a href="privacidad.html">Privacidad</a></div></div></footer>
 <script>
+/* Contador del ZIP oficial de Texto Fácil en GitHub Releases.
+   El respaldo es un mínimo comprobado, no un total en tiempo real. */
 (async function(){
+ 'use strict';
  const output=document.getElementById('tf-download-count');
+ const details=document.getElementById('tf-download-status');
+ const repo='pastranaalex-glitch/pastranaalex-glitch.github.io';
+ const tag='texto-facil-v30.4.2-beta';
+ const archivo='TextoFacil_30.4.2_BETA.zip';
+ const sha256='d31eb9599ad4929ed109a2df1db69131dab7f04b10ff9bd8a7bcc93069eaa314';
+ const formatear=n=>n.toLocaleString('es-ES');
+ if(!output) return;
  try{
-  const response=await fetch('https://api.github.com/repos/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/tags/texto-facil-v30.4.2-beta',{cache:'no-store'});
-  if(!response.ok) throw new Error('contador no disponible');
+  const response=await fetch('texto-facil-descargas.json',{cache:'no-store'});
+  if(response.ok){
+   const snapshot=await response.json();
+   if(snapshot.slug==='texto-facil' && snapshot.tag===tag
+      &&snapshot.archivo===archivo && snapshot.sha256===sha256
+      &&/^\d{4}-\d{2}-\d{2}$/.test(snapshot.fecha||'')
+      &&Number.isSafeInteger(snapshot.conteoMinimoConfirmado)
+      &&snapshot.conteoMinimoConfirmado>=0){
+    output.textContent='≥ '+formatear(snapshot.conteoMinimoConfirmado);
+    if(details) details.textContent='Mínimo confirmado el '+new Date(snapshot.fecha+'T12:00:00').toLocaleDateString('es-ES')+'. GitHub puede mostrar una cifra más reciente.';
+   }
+  }
+ }catch(_){/* El contador en directo continúa disponible. */}
+ try{
+  const response=await fetch('https://api.github.com/repos/'+repo+'/releases/tags/'+tag,{
+   headers:{Accept:'application/vnd.github+json'},cache:'no-store'
+  });
+  if(!response.ok) throw new Error('GitHub '+response.status);
   const release=await response.json();
-  const asset=(release.assets||[]).find(item=>item.name==='TextoFacil_30.4.2_BETA.zip');
-  if(!asset) throw new Error('archivo no encontrado');
-  output.textContent=new Intl.NumberFormat('es-ES').format(asset.download_count);
- }catch(error){output.textContent='No disponible';}
+  if(release.tag_name!==tag || release.draft) throw new Error('Versión no verificada');
+  const url='https://github.com/'+repo+'/releases/download/'+tag+'/'+archivo;
+  const asset=(Array.isArray(release.assets)?release.assets:[]).find(item=>
+   item && item.name===archivo && item.state==='uploaded'
+   && item.digest==='sha256:'+sha256
+   && item.browser_download_url===url);
+  if(!asset || !Number.isSafeInteger(asset.download_count) || asset.download_count<0) throw new Error('Archivo no verificado');
+  output.textContent=formatear(asset.download_count);
+  if(details) details.textContent='Dato actual de GitHub Releases. Cuenta descargas del ZIP, no usuarios únicos ni instalaciones.';
+ }catch(_){
+  if(output.textContent==='Consultando…'){
+   output.textContent='No disponible';
+   if(details) details.textContent='GitHub no ha podido proporcionar el contador en este momento.';
+  }
+ }
 })();
 </script>
 </body></html>
