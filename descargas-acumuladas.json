@@ -1,17 +1,22 @@
 {
-  "fecha": "2026-10-20",
-  "descripcion": "Ultimo recuento de respaldo confirmado en los activos descargables de las publicaciones publicas de GitHub Releases. No equivale a instalaciones ni incluye enlaces de descarga directa fuera de Releases.",
+  "fecha": "2026-10-27",
+  "descripcion": "Mínimos confirmados de descargas en archivos de GitHub Releases. No equivalen a personas ni instalaciones y excluyen descargas directas fuera de Releases.",
   "conteos": {
-    "lector-facil": 18,
-    "recetario-facil": 19,
+    "lector-facil": 19,
+    "recetario-facil": 22,
     "cocina-clara": 11,
-    "cocina-a-punto": 11,
-    "rutas-a-pie": 29,
+    "cocina-a-punto": 12,
+    "rutas-a-pie": 30,
     "documentos-de-casa": 5,
     "menu-y-compra": 0,
-    "mi-salud-familiar": 36,
+    "mi-salud-familiar": 65,
     "en-familia": 0,
-    "jardin-de-joyas": 11,
-    "mente-activa-pro": 13
-  }
+    "jardin-de-joyas": 34,
+    "mente-activa-pro": 41,
+    "mi-dinero-real": 0,
+    "sudoku-vivo": 0,
+    "sopa-de-letras-pro": 7,
+    "texto-facil": 0
+  },
+  "actualizado": "2026-10-27T22:34:00+00:00"
 }

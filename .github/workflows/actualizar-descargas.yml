@@ -1,0 +1,40 @@
+name: Actualizar contadores de descargas de la Biblioteca
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/actualizar-descargas.yml'
+      - 'scripts/actualizar_descargas.py'
+permissions:
+  contents: write
+concurrency:
+  group: biblioteca-recuento-descargas-main
+  cancel-in-progress: false
+jobs:
+  contabilizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Obtener Biblioteca
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Recontar archivos de GitHub Releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/actualizar_descargas.py
+      - name: Publicar solo si cambian los contadores
+        run: |
+          if git diff --quiet -- descargas-acumuladas.json; then
+            echo "No hay descargas nuevas"
+            exit 0
+          fi
+          git config user.name "biblioteca-contador[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add descargas-acumuladas.json
+          git commit -m "Actualizar recuento verificado de descargas"
+          git pull --rebase origin main
+          git push origin HEAD:main
