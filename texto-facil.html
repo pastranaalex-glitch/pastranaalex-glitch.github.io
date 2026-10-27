@@ -46,12 +46,25 @@
  const out=document.getElementById('tf-download-count');if(!out)return;
  let confirmed=null;
  const fmt=n=>new Intl.NumberFormat('es-ES').format(n);
+ // Respaldo verificado del archivo de la versión publicada.
+ try{
+  const r=await fetch('texto-facil-descargas.json',{cache:'no-store'});
+  if(r.ok){
+   const data=await r.json();
+   if(data.slug==='texto-facil'&&data.tag==='texto-facil-v30.4.2-beta'
+      &&data.archivo==='TextoFacil_30.4.2_BETA.zip'
+      &&Number.isSafeInteger(data.conteoMinimoConfirmado)&&data.conteoMinimoConfirmado>=0){
+    confirmed=data.conteoMinimoConfirmado;
+    out.textContent=fmt(confirmed);
+   }
+  }
+ }catch(_){}
  try{
   const r=await fetch('descargas-acumuladas.json',{cache:'no-store'});
   if(r.ok){
    const data=await r.json(),n=data?.conteos?.['texto-facil'];
    if(Number.isSafeInteger(n)&&n>=0){
-    confirmed=n;out.textContent=fmt(n);
+    confirmed=Math.max(confirmed??0,n);out.textContent=fmt(confirmed);
     out.title='Descargas de GitHub Releases, recuento del '+(data.fecha||'último registro')+'. No son instalaciones únicas.';
    }
   }
