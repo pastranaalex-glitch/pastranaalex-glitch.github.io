@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://pastranaalex-glitch.github.io/sitemap.xml
-Sitemap: https://pastranaalex-glitch.github.io/sitemap.txt
