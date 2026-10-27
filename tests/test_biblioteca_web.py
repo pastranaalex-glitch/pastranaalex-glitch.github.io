@@ -120,7 +120,7 @@ class BibliotecaWebTests(unittest.TestCase):
         self.assertEqual(fallback["slug"], app["slug"])
         for key in ("tag", "archivo", "sha256"):
             self.assertEqual(fallback[key], app["descarga"][key])
-        self.assertRegex(fallback["fecha"], r"^\\d{4}-\\d{2}-\\d{2}$")
+        self.assertRegex(fallback["fecha"], r"^\d{4}-\d{2}-\d{2}$")
         self.assertIsInstance(fallback["conteoMinimoConfirmado"], int)
         self.assertGreaterEqual(fallback["conteoMinimoConfirmado"], 0)
         page = (ROOT / "texto-facil.html").read_text(encoding="utf-8")
