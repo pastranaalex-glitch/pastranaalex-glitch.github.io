@@ -33,7 +33,7 @@
   function tick() {
     const now = Date.now();
     cards.forEach(card => {
-      if (card.hidden) return;
+      if (card.dataset.publicado === 'true') return;
       const cfg = known.get(card.dataset.proxima);
       if (!cfg || typeof cfg.fechaEstreno !== 'string') return;
       const date = Date.parse(cfg.fechaEstreno);
@@ -66,20 +66,23 @@
       if (catalogueResponse.ok) {
         const catalogue = await catalogueResponse.json();
         const live = new Set((catalogue.aplicaciones || []).filter(a => a && a.publicado === true).map(a => a.slug));
-        try{const apk=await fetch('Menu_y_Compra_1.4.3_Publicacion_Firmada.apk',{method:'HEAD',cache:'no-store'});if(apk.ok)live.add('menu-y-compra');}catch(_){}
         cards.forEach(card => {
           if (!live.has(card.dataset.proxima)) return;
-          card.hidden = true;
-        });
-        if (cards.every(card => card.hidden)) {
-          const grid = document.querySelector('.pack6-coming-grid');
-          if (grid) {
-            const msg = document.createElement('p');
-            msg.className = 'pack6-all-published';
-            msg.textContent = '¡Las aplicaciones anunciadas ya están en el catálogo! Puedes encontrarlas en la sección de descargas.';
-            grid.after(msg);
+          card.dataset.publicado = 'true';
+          const status = card.querySelector('.pack6-status');
+          if (status) status.textContent = 'Ya disponible';
+          const timer = card.querySelector('.pack6-countdown');
+          if (timer) timer.hidden = true;
+          if (!card.querySelector('a[data-link-publicada]')) {
+            const link = document.createElement('a');
+            link.href = card.dataset.proxima + '.html';
+            link.className = 'button button-primary';
+            link.dataset.linkPublicada = 'true';
+            link.textContent = 'Ver aplicación y descargar →';
+            const footer = card.querySelector('.pack6-platform');
+            if (footer) footer.before(link); else card.append(link);
           }
-        }
+        });
       }
       if (!launchResponse.ok) throw Error('Fechas no disponibles');
       const config = await launchResponse.json();

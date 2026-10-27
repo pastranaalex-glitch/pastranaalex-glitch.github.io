@@ -1,0 +1,45 @@
+name: Verificar Biblioteca web
+on:
+  pull_request:
+    paths:
+      - "*.html"
+      - "*.js"
+      - "*.css"
+      - "catalogo.json"
+      - "sitemap.*"
+      - "robots.txt"
+      - "tests/test_biblioteca_web.py"
+      - ".github/workflows/verificar-biblioteca.yml"
+  push:
+    branches: [main]
+    paths:
+      - "*.html"
+      - "*.js"
+      - "*.css"
+      - "catalogo.json"
+      - "sitemap.*"
+      - "robots.txt"
+      - "tests/test_biblioteca_web.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  enlaces-y-seo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Descargar sitio
+        uses: actions/checkout@v4
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Comprobar enlaces internos, sitemap, catálogo y metadatos
+        run: python -m unittest discover -s tests -p 'test_biblioteca_web.py' -v
+      - name: Comprobar sintaxis de JavaScript
+        run: |
+          node --check pack6.js
+          node --check proximos.js
+          node --check noticias-portada.js
