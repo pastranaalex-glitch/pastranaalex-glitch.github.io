@@ -107,3 +107,7 @@ body[data-pack6-page="proximamente"] .pack6-project-card .pack6-mind-note{
 body[data-pack6-page="proximamente"] .pack6-project-card .pack6-mind-date{
   margin:10px 0 0;color:#315b9c;font-size:.82rem;font-weight:700;
 }
+
+/* Mantenimiento 2026-10-27: reservar anchura del contador durante la consulta a GitHub. */
+.library-ui .app-card .downloads strong{display:inline-block;min-width:5ch;font-variant-numeric:tabular-nums}
+.library-ui .app-card .downloads{min-height:3.7rem}
