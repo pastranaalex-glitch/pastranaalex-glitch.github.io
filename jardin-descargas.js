@@ -7,6 +7,13 @@
  const catalog=document.querySelector('[data-catalog-slot]');
  if(!out&&!catalog)return;
  let suma=null;
+ try{
+  const r=await fetch('descargas-acumuladas.json',{cache:'no-store'});
+  if(r.ok){
+   const data=await r.json(),n=data?.conteos?.['jardin-de-joyas'];
+   if(Number.isSafeInteger(n)&&n>=0){suma=n;if(out)out.textContent=n.toLocaleString('es-ES')+' descargas registradas · GitHub Releases';}
+  }
+ }catch(_){}
  function actualizarTarjetas(){
   if(!Number.isFinite(suma))return;
   for(const tarjeta of document.querySelectorAll('[data-app-slug="jardin-de-joyas"]')){
@@ -39,14 +46,14 @@
    }
   }
   if(archivos<1)throw Error('No hay APK disponibles');
-  suma=total;
+  suma=Math.max(suma??0,total);
   if(out){
    out.textContent=suma.toLocaleString('es-ES')+' descargas registradas en GitHub · '+archivos+' archivo'+(archivos===1?'':'s')+' de Jardín de Joyas';
    out.title='Suma de descargas de APK disponibles en GitHub Releases. Las versiones eliminadas pueden perderse del total. No representa jugadores únicos.';
   }
   actualizarTarjetas();
  }catch(_){
-  if(out)out.textContent='Contador temporalmente no disponible. No afecta a las descargas.';
+  if(out&&suma===null)out.textContent='Contador temporalmente no disponible. No afecta a las descargas.';
   // No interferir con las fichas ni con los botones de descarga.
  }
 })();

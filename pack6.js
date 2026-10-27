@@ -131,6 +131,7 @@ function belongsToApp(asset,release,a,repo){
   case 'mi-dinero-real':return /^MiDineroReal2_[0-9].*\.apk$/i.test(name);
   case 'texto-facil':return /^TextoFacil_[0-9].*\.zip$/i.test(name);
   case 'rutas-a-pie':return /^RutasAPie(?:[._-]|[0-9])/i.test(name);
+   case 'texto-facil':return /^TextoFacil[_-].*\.zip$/i.test(name);
   default:return false;
  }
 }
@@ -199,7 +200,7 @@ function updateLink(a){
   const dl=a.downloadLink;
   const direct=approvedDownload(a);
   if(a.hasRelease&&direct){if(label)label.textContent='Gratis';if(dl?.tagName==='A'){dl.href=direct;dl.textContent='Descargar ↓';dl.title='APK firmada y comprobada en GitHub Releases';}}
-  else{if(label)label.textContent='Próximamente';if(dl?.tagName==='A'){dl.href=a.enlace+'#descarga';dl.textContent='Ver descarga →';}a.stat.textContent='—';a.label.textContent='Archivo pendiente';a.node.querySelector('.downloads small').textContent='Sin descarga pública aún';return;}
+  else{if(label)label.textContent='Próximamente';if(dl?.tagName==='A'){dl.href=a.enlace+'#descarga';dl.textContent='Ver descarga →';}if(!Number.isFinite(a.count)){a.stat.textContent='—';a.label.textContent='Archivo pendiente';a.node.querySelector('.downloads small').textContent='Sin descarga pública aún';return;}}
  }
  if(a.disponible===false){a.stat.textContent='—';a.label.textContent='En reparación';a.node.querySelector('.downloads small').textContent='Descarga desactivada';return;}
  if(Number.isFinite(a.count)){
@@ -254,7 +255,7 @@ async function start(){
  if(!isHome){const params=new URLSearchParams(location.search);const raw=(params.get('q')||'').slice(0,120);query=normalize(raw);const search=document.getElementById('search-apps');if(search)search.value=raw;const p=params.get('platform'),c=params.get('category'),k=params.get('type');if(['programas','juegos'].includes(k))kind=k;if(['android','windows'].includes(p))platform=p;if(apps.some(a=>(a.categorias||[]).includes(c)))category=c;wire();filters();}
  // Respaldo de todos los lanzamientos revisados: visible si GitHub limita la API.
  try{
-  const response=await fetch('descargas-acumuladas.json');
+  const response=await fetch('descargas-acumuladas.json',{cache:'no-store'});
   if(response.ok){
    const snapshot=await response.json();
    if(snapshot&&snapshot.conteos&&/^\d{4}-\d{2}-\d{2}$/.test(snapshot.fecha||'')){

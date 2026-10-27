@@ -26,6 +26,14 @@
   status.textContent='Versión '+a.version+' disponible. APK con la firma permanente de Mente Activa PRO.';
   const file=document.getElementById('ma-file'),hash=document.getElementById('ma-hash'),label=document.getElementById('ma-hash-label');
   if(file)file.textContent='Archivo: '+download.d.archivo+'.';if(hash)hash.textContent=download.d.sha256;if(label)label.hidden=false;
+  let respaldo=null;
+  try{
+   const data=await readJSON('descargas-acumuladas.json'),n=data?.conteos?.['mente-activa-pro'];
+   if(Number.isSafeInteger(n)&&n>=0){
+    respaldo=n;
+    if(counter)counter.textContent=n.toLocaleString('es-ES')+' descargas acumuladas · GitHub Releases';
+   }
+  }catch(_){}
   try{
    const release=await readJSON('https://api.github.com/repos/'+repo+'/releases/tags/'+encodeURIComponent(download.d.tag));
    if(release.draft||release.prerelease||release.tag_name!==download.d.tag)throw Error('Release');
@@ -47,8 +55,9 @@
     }
    }
    if(!ids.size)throw Error('Sin APK públicas');
-   if(counter)counter.textContent=count.toLocaleString('es-ES')+' '+(count===1?'descarga acumulada':'descargas acumuladas')+' · GitHub Releases';
-  }catch(_){if(counter)counter.textContent='Contador temporalmente no disponible. La descarga sigue activa.';}
+   const shown=Math.max(respaldo??0,count);
+   if(counter)counter.textContent=shown.toLocaleString('es-ES')+' '+(shown===1?'descarga acumulada':'descargas acumuladas')+' · GitHub Releases';
+  }catch(_){if(counter&&respaldo===null)counter.textContent='Contador temporalmente no disponible. La descarga sigue activa.';}
  }
  start();
 })();

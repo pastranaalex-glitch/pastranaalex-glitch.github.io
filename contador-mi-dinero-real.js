@@ -11,6 +11,16 @@
   const digest = 'sha256:d0d3e6c0e42b42c956e0e5227bb5bfde35b21c2175324906a71c986d6398ea16';
   const update = (message) => nodes.forEach(node => { node.textContent = message; });
   (async () => {
+    let respaldo=null;
+    try{
+      const r=await fetch('descargas-acumuladas.json',{cache:'no-store'});
+      if(r.ok){
+        const data=await r.json(),n=data?.conteos?.['mi-dinero-real'];
+        if(Number.isSafeInteger(n)&&n>=0){
+          respaldo=n;update(n.toLocaleString('es-ES')+(n===1?' descarga registrada':' descargas registradas'));
+        }
+      }
+    }catch(_){}
     try {
       const response = await fetch('https://api.github.com/repos/' + repo + '/releases/tags/' + tag, {
         headers: {Accept: 'application/vnd.github+json'},
@@ -22,10 +32,10 @@
         ? release.assets.find(a => a && a.name === file && a.state === 'uploaded' && a.digest === digest)
         : null;
       if (!asset || !Number.isSafeInteger(asset.download_count)) throw new Error('Dato no verificado');
-      const n = asset.download_count;
+      const n = Math.max(respaldo??0,asset.download_count);
       update(n.toLocaleString('es-ES') + (n === 1 ? ' descarga registrada' : ' descargas registradas'));
     } catch (_) {
-      update('Estadística temporalmente no disponible');
+      if(respaldo===null)update('Estadística temporalmente no disponible');
     }
   })();
 })();
