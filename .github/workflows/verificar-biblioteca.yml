@@ -38,3 +38,8 @@ jobs:
           python-version: "3.12"
       - name: Comprobar enlaces internos, sitemap, catálogo y metadatos
         run: python -m unittest discover -s tests -p 'test_biblioteca_web.py' -v
+      - name: Comprobar sintaxis de JavaScript
+        run: |
+          node --check pack6.js
+          node --check proximos.js
+          node --check noticias-portada.js
