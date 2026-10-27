@@ -128,7 +128,7 @@ class BibliotecaWebTests(unittest.TestCase):
         self.assertIn("texto-facil-descargas.json", page)
         self.assertIn("texto-facil-descargas.json", js)
         self.assertIn("case 'texto-facil':return", js)
-        self.assertIn("item.download_count", page)
+        self.assertIn("asset.download_count", page)
         self.assertIn('tf-download-count', page)
 
     def test_no_duplicate_homepage(self):
