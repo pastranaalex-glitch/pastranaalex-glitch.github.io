@@ -16,8 +16,7 @@
     "recetario-facil": 22,
     "rutas-a-pie": 30,
     "sopa-de-letras-pro": 7,
-    "sudoku-vivo": 0,
-    "texto-facil": 0
+    "sudoku-vivo": 0
   },
   "activos": {
     "cocina-a-punto": {
@@ -78,9 +77,6 @@
     },
     "sudoku-vivo": {
       "pastranaalex-glitch/pastranaalex-glitch.github.io:670471932": 0
-    },
-    "texto-facil": {
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:679075622": 0
     }
   }
 }

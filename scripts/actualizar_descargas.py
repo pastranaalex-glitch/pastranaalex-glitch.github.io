@@ -22,7 +22,6 @@ RULES = {
     "menu-y-compra": r"^Menu[_-]y[_-]Compra(?:[._-]|[0-9])",
     "mi-dinero-real": r"^MiDineroReal2_[0-9].*\.apk$",
     "rutas-a-pie": r"^RutasAPie(?:[._-]|[0-9])",
-    "texto-facil": r"^TextoFacil[_-].*\.zip$",
 }
 
 def releases(repo: str) -> list[dict]:
@@ -111,24 +110,6 @@ def main() -> None:
         "activos": dict(sorted(activos.items()))
     }
     path.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    # Mantener actualizado el respaldo de la ficha Texto Fácil.
-    text_path = ROOT / "texto-facil-descargas.json"
-    if text_path.exists() and "texto-facil" in conteos:
-        legacy = json.loads(text_path.read_text(encoding="utf-8"))
-        app = next((a for a in apps if a["slug"] == "texto-facil"), None)
-        if app:
-            d = app.get("descarga", {})
-            if all(legacy.get(k) == d.get(k) for k in ("tag", "archivo", "sha256")):
-                legacy["fecha"] = now.date().isoformat()
-                legacy["conteoMinimoConfirmado"] = max(
-                    int(legacy.get("conteoMinimoConfirmado", 0)), conteos["texto-facil"])
-                legacy["descripcion"] = (
-                    "Descargas acumuladas confirmadas de Texto Fácil en GitHub Releases. "
-                    "No son instalaciones ni personas únicas.")
-                text_path.write_text(
-                    json.dumps(legacy, indent=2, ensure_ascii=False) + "\n",
-                    encoding="utf-8")
-
 
 if __name__ == "__main__":
     main()

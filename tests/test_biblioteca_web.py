@@ -114,22 +114,21 @@ class BibliotecaWebTests(unittest.TestCase):
         parser = parse_page(ROOT / "index.html")
         self.assertFalse(parser.images_without_size, parser.images_without_size)
 
-    def test_contador_texto_facil(self):
-        app = next(a for a in self.catalogue["aplicaciones"] if a["slug"] == "texto-facil")
-        fallback = json.loads((ROOT / "texto-facil-descargas.json").read_text(encoding="utf-8"))
-        self.assertEqual(fallback["slug"], app["slug"])
-        for key in ("tag", "archivo", "sha256"):
-            self.assertEqual(fallback[key], app["descarga"][key])
-        self.assertRegex(fallback["fecha"], r"^\d{4}-\d{2}-\d{2}$")
-        self.assertIsInstance(fallback["conteoMinimoConfirmado"], int)
-        self.assertGreaterEqual(fallback["conteoMinimoConfirmado"], 0)
-        page = (ROOT / "texto-facil.html").read_text(encoding="utf-8")
-        js = (ROOT / "pack6.js").read_text(encoding="utf-8")
-        self.assertIn("texto-facil-descargas.json", page)
-        self.assertIn("texto-facil-descargas.json", js)
-        self.assertIn("case 'texto-facil':return", js)
-        self.assertIn("asset.download_count", page)
-        self.assertIn('tf-download-count', page)
+    def test_unpublished_application_is_not_visible(self):
+        slug = "texto-facil"
+        self.assertNotIn(slug, [app["slug"] for app in self.catalogue["aplicaciones"]])
+        upcoming = json.loads((ROOT / "proximas-apps.json").read_text(encoding="utf-8"))
+        self.assertNotIn(slug, [app["slug"] for app in upcoming["aplicaciones"]])
+        self.assertNotIn(BASE + slug + ".html", self.sitemap)
+        self.assertFalse((ROOT / (slug + ".html")).exists())
+        self.assertFalse((ROOT / (slug + "-version.json")).exists())
+        self.assertFalse((ROOT / (slug + "-descargas.json")).exists())
+        stats = json.loads((ROOT / "descargas-acumuladas.json").read_text(encoding="utf-8"))
+        self.assertNotIn(slug, stats.get("conteos", {}))
+        self.assertNotIn(slug, stats.get("activos", {}))
+        for filename in ("index.html", "catalogo.html", "proximamente.html", "documentos-de-casa.html", "pack6.js"):
+            with self.subTest(filename=filename):
+                self.assertNotIn(slug, (ROOT / filename).read_text(encoding="utf-8"))
 
     def test_no_duplicate_homepage(self):
         self.assertFalse((ROOT / "index (1).html").exists())
