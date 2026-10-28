@@ -1,6 +1,6 @@
 <!doctype html><html lang="es"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f8f9fc">
-<meta name="robots" content="index,follow"><meta name="description" content="Descubre las próximas aplicaciones gratuitas para Android y Windows de la Biblioteca de herramientas, como Hoja de Cálculo y Paraíso de Aventuras, además de betas de programas disponibles.">
+<meta name="robots" content="index,follow"><meta name="description" content="Descubre las próximas aplicaciones gratuitas para Android y Windows de la Biblioteca de herramientas, como Mi Biblioteca Fácil y Paraíso de Aventuras, además de betas de programas disponibles.">
 <link rel="canonical" href="https://pastranaalex-glitch.github.io/proximamente.html"><meta property="og:type" content="website"><meta property="og:title" content="Próximamente | Biblioteca de herramientas"><meta property="og:url" content="https://pastranaalex-glitch.github.io/proximamente.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="portada.css"><link rel="stylesheet" href="pack6.css?v=20261017-mente">
 <title>Próximamente | Biblioteca de herramientas</title><script defer src="pack6.js?v=20261027-textofacil-contador1"></script><script defer src="proximos.js?v=3"></script><link rel="stylesheet" href="biblioteca-ui.css?v=20261026-compartir1">
@@ -27,12 +27,66 @@
 .pack6-project-sopa .pack6-sopa-lema{font-weight:750;color:#194f43}
 
 .pack6-project-sopa .pack6-sopa-cover{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:16px;margin:0 0 14px;background:#173653}
+
+/* Mi Biblioteca Fácil: propuesta visual del futuro lector y biblioteca personal. */
+body[data-pack6-page="proximamente"] .pack6-coming-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+body[data-pack6-page="proximamente"] .pack6-project-library{grid-column:1/-1;padding:clamp(18px,2.5vw,30px);border-color:#b9d8d3;background:linear-gradient(145deg,#f9fcfa 0%,#f8f8ff 95%)}
+.pack6-project-library .pack6-status{color:#1d6b69;background:#e3f4ed;padding:6px 12px;border-radius:999px}
+.pack6-project-library .library-project-main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:28px;align-items:center}
+.pack6-project-library .library-project-copy h2{font-size:clamp(1.9rem,3vw,2.4rem);margin:12px 0}
+.pack6-project-library .library-project-copy p{font-size:.96rem;max-width:65ch}
+.pack6-project-library .library-project-copy p.library-project-lead{font-weight:800;color:#1e596b;font-size:1.1rem;margin:7px 0 15px}
+.pack6-project-library .library-project-hero{display:block;border-radius:18px;overflow:hidden;box-shadow:0 14px 31px rgba(17,49,63,.16)}
+.pack6-project-library .library-project-hero img{width:100%;height:auto;display:block}
+.pack6-project-library .library-project-chips{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}
+.pack6-project-library .library-project-chips span{display:inline-flex;padding:8px 11px;border-radius:999px;background:#eaf3f1;border:1px solid #d7e9e4;font-size:.78rem;font-weight:700;color:#24596a}
+.pack6-project-library .library-project-highlight{padding:15px 17px;background:#e8f4ed;border-left:4px solid #29826b;border-radius:0 12px 12px 0;color:#28534e!important}
+.pack6-project-library .library-gallery-title{font-size:clamp(1.18rem,2vw,1.48rem);color:#1d4155;margin:26px 0 13px}
+.pack6-project-library .library-project-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.pack6-project-library .library-project-gallery figure{margin:0;min-width:0;background:#fff;border:1px solid #dbe6e8;border-radius:16px;overflow:hidden}
+.pack6-project-library .library-project-gallery a{display:block;background:#e5f0ee}
+.pack6-project-library .library-project-gallery img{width:100%;height:auto;display:block;aspect-ratio:680/900;object-fit:cover;transition:transform .25s ease}
+.pack6-project-library .library-project-gallery a:hover img{transform:scale(1.025)}
+.pack6-project-library .library-project-gallery figcaption{padding:12px 14px;color:#4f6371;font-size:.83rem;line-height:1.48}
+.pack6-project-library .library-project-gallery figcaption strong{color:#1e5262}
+.pack6-project-library .library-project-disclaimer{margin:16px 0 5px!important;font-size:.82rem!important;color:#67798a!important;max-width:none!important}
+body[data-pack6-page="proximamente"] .pack6-project-library .pack6-platform{font-weight:700;color:#236176;padding-top:12px}
+@media(max-width:900px){.pack6-project-library .library-project-main{grid-template-columns:1fr}}
+@media(max-width:700px){body[data-pack6-page="proximamente"] .pack6-coming-grid{grid-template-columns:1fr}.pack6-project-library .library-project-gallery{gap:8px}.pack6-project-library .library-project-gallery figcaption{font-size:.73rem;padding:9px}.pack6-project-library .library-project-gallery figcaption strong{display:block}.pack6-project-library .library-project-main{gap:15px}}
+@media(max-width:430px){.pack6-project-library .library-project-gallery{grid-template-columns:1fr 1fr}.pack6-project-library .library-project-gallery figure:last-child{grid-column:1/-1;max-width:240px;margin:auto}}
+@media(prefers-reduced-motion:reduce){.pack6-project-library .library-project-gallery img{transition:none}}
+
 </style>
 </head><body class="library-ui" data-pack6-page="proximamente"><a class="skip-link" href="#contenido">Saltar al contenido</a>
 <header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="Biblioteca de herramientas, ir al inicio"><span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><rect x="7" y="7" width="9" height="9" rx="3" fill="white"/><rect x="20" y="7" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="7" y="20" width="9" height="9" rx="3" fill="white" opacity=".65"/><rect x="20" y="20" width="9" height="9" rx="3" fill="white"/></svg></span><span class="brand-name">Biblioteca<span class="brand-suffix">de herramientas</span></span></a><button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú de navegación"><span aria-hidden="true">☰</span> Menú</button><nav class="site-nav" id="menu-principal" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="proximamente.html" aria-current="page">Próximamente</a><a href="index.html#proyecto">El proyecto</a><a href="avisos.html">Avisos</a><a class="nav-cta" href="catalogo.html">Explorar apps →</a></nav></div></header>
 <main id="contenido"><section class="pack6-subhero"><div class="container"><p class="section-kicker">EN DESARROLLO</p><h1>Próximamente y versiones de prueba.</h1><p>Conoce los nuevos proyectos en desarrollo y las versiones beta que ya puedes probar. Las descargas se ofrecen cuando están comprobadas.</p></div></section>
 <section class="pack6-coming-list"><div class="container">
 <div class="pack6-coming-grid">
+
+<article class="pack6-project-card pack6-project-library" data-proxima="mi-biblioteca-facil" id="mi-biblioteca-facil" aria-labelledby="mi-biblioteca-facil-titulo">
+  <div class="library-project-main">
+    <div class="library-project-copy">
+      <div class="pack6-status-line"><span class="pack6-status">En diseño · Próximamente</span></div>
+      <h2 id="mi-biblioteca-facil-titulo">Mi Biblioteca Fácil</h2>
+      <p class="library-project-lead">Tu rincón de lectura. Tus libros, siempre contigo.</p>
+      <p>Imagina abrir una estantería y encontrar todas tus lecturas reunidas. <strong>Mi Biblioteca Fácil</strong> será una aplicación gratuita para Android donde podrás descubrir libros del catálogo y también añadir los tuyos para formar una colección verdaderamente personal.</p>
+      <p>El proyecto busca que leer y organizar libros resulte agradable, con portadas, búsqueda, lectura cómoda y colecciones propias, sin menús interminables.</p>
+      <div class="library-project-chips" aria-label="Funciones previstas"><span>📚 Tu estantería</span><span>＋ Añade tus libros</span><span>🔖 Lectura a tu ritmo</span><span>🔒 Copias de seguridad</span></div>
+      <p class="library-project-highlight"><strong>Lo más importante:</strong> tus libros personales se guardarán por separado de los archivos de la aplicación. El diseño incluirá copias de seguridad y restauración para proteger tu colección al actualizar o cambiar de dispositivo.</p>
+    </div>
+    <a class="library-project-hero" href="mi-biblioteca-facil-portada.svg" target="_blank" rel="noopener" aria-label="Ver la imagen conceptual principal de Mi Biblioteca Fácil">
+      <img src="mi-biblioteca-facil-portada.svg" alt="Propuesta visual de Mi Biblioteca Fácil: estantería de libros en una aplicación Android, sobre fondo azul oscuro y dorado." width="1200" height="680" loading="lazy" decoding="async">
+    </a>
+  </div>
+  <h3 class="library-gallery-title">Así podría ser la aplicación</h3>
+  <div class="library-project-gallery">
+    <figure><a href="mi-biblioteca-facil-estanteria.svg" target="_blank" rel="noopener"><img src="mi-biblioteca-facil-estanteria.svg" width="680" height="900" loading="lazy" decoding="async" alt="Diseño conceptual de la estantería personal, con portadas, búsqueda y botón para añadir libros."></a><figcaption><strong>Tu estantería.</strong> Ordena, encuentra y añade tus propias lecturas.</figcaption></figure>
+    <figure><a href="mi-biblioteca-facil-lectura.svg" target="_blank" rel="noopener"><img src="mi-biblioteca-facil-lectura.svg" width="680" height="900" loading="lazy" decoding="async" alt="Diseño conceptual de un lector de libros, con página de lectura y controles de tamaño de texto."></a><figcaption><strong>Lectura cómoda.</strong> Una pantalla tranquila, con opciones para leer a tu gusto.</figcaption></figure>
+    <figure><a href="mi-biblioteca-facil-respaldo.svg" target="_blank" rel="noopener"><img src="mi-biblioteca-facil-respaldo.svg" width="680" height="900" loading="lazy" decoding="async" alt="Diseño conceptual de la pantalla de copias de seguridad y restauración de libros personales."></a><figcaption><strong>Protege tus libros.</strong> Copia y restauración previstas para conservar tu colección.</figcaption></figure>
+  </div>
+  <p class="library-project-disclaimer">Estas imágenes son propuestas de diseño, no capturas de una versión terminada. Las funciones y la interfaz se irán definiendo y comprobando durante el desarrollo. Fecha de lanzamiento por confirmar.</p>
+  <span class="pack6-platform">Android · Móvil y tableta · Lectura y biblioteca personal · Gratis</span>
+</article>
 
 <article class="pack6-project-card pack6-project-texto" data-proxima="paraiso-de-aventuras" id="paraiso-de-aventuras" aria-labelledby="paraiso-titulo">
   <a href="paraiso-tablero.webp" target="_blank" rel="noopener"><img class="pack6-project-cover" style="aspect-ratio:9/16;object-fit:contain;background:#117d99" src="paraiso-tablero.webp" alt="Diseño del tablero de Paraíso de Aventuras, con 42 casillas de agua, marco dorado y fondo tropical." width="720" height="1280" loading="lazy" decoding="async"></a>
@@ -48,31 +102,6 @@
   <p class="pack6-texto-nota">Imágenes del diseño del tablero y de los paisajes incluidos en el juego. Seguimos mejorando y probando la aplicación. Fecha de lanzamiento por confirmar.</p>
   <span class="pack6-platform">Android · Móvil y tableta · Combinar y construir</span>
 </article>
-
-<article class="pack6-project-card pack6-project-texto" data-proxima="hoja-de-calculo" id="hoja-de-calculo" aria-labelledby="hoja-de-calculo-titulo">
-  <svg class="pack6-project-cover" viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustración de una hoja de cálculo con tablas y un gráfico de barras">
-    <rect width="480" height="360" fill="#edf7f3"/>
-    <rect x="34" y="40" width="412" height="280" rx="18" fill="#ffffff" stroke="#c4dfd4" stroke-width="2"/>
-    <path d="M52 40h376a18 18 0 0 1 18 18v34H34V58a18 18 0 0 1 18-18" fill="#24785c"/>
-    <text x="55" y="74" fill="#fff" font-size="20" font-family="system-ui,sans-serif" font-weight="700">Hoja de Cálculo</text>
-    <rect x="54" y="108" width="372" height="30" rx="6" fill="#edf7f3"/>
-    <text x="66" y="129" fill="#24785c" font-size="15" font-family="system-ui,sans-serif">fx</text>
-    <rect x="54" y="154" width="218" height="144" rx="4" fill="#f8fbfa" stroke="#c4dfd4"/>
-    <path d="M54 154h218v29H54z" fill="#dcefe6"/>
-    <path d="M108 154v144m55-144v144m55-144v144M54 183h218M54 212h218M54 241h218M54 270h218" stroke="#c4dfd4" fill="none"/>
-    <g fill="#24785c" font-size="13" font-family="system-ui,sans-serif" text-anchor="middle"><text x="81" y="174">A</text><text x="136" y="174">B</text><text x="191" y="174">C</text><text x="245" y="174">D</text></g>
-    <rect x="164" y="213" width="53" height="27" fill="#d3f0df" stroke="#24785c" stroke-width="2"/>
-    <path d="M294 290h128" stroke="#a7c9ba" stroke-width="2"/>
-    <rect x="304" y="241" width="25" height="48" rx="4" fill="#99cdb8"/><rect x="345" y="209" width="25" height="80" rx="4" fill="#55a785"/><rect x="386" y="170" width="25" height="119" rx="4" fill="#24785c"/>
-  </svg>
-  <div class="pack6-status-line"><span class="pack6-status">En desarrollo</span></div>
-  <h2 id="hoja-de-calculo-titulo">Hoja de Cálculo</h2>
-  <p class="pack6-texto-lema">Tus datos y tus cuentas, en orden.</p>
-  <p>Estamos preparando un programa gratuito para Windows, pensado para organizar datos, preparar tablas y realizar cálculos cotidianos con sencillez. Una herramienta práctica para las cuentas de casa, listas y pequeños proyectos.</p>
-  <p class="pack6-texto-nota">Seguimos mejorándolo y comprobando su funcionamiento antes de publicarlo. Fecha de lanzamiento por confirmar.</p>
-  <span class="pack6-platform">Windows · Tablas y cálculos</span>
-</article>
-
 
 <article class="pack6-project-card pack6-project-texto" id="texto-facil" aria-labelledby="texto-facil-titulo">
   <img class="pack6-project-cover" src="texto-facil-portada-realista.webp" alt="Presentación de Texto Fácil: un ordenador con un procesador de textos abierto sobre un escritorio." width="360" height="270" loading="lazy" decoding="async">
