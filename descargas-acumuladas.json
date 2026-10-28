@@ -1,18 +1,18 @@
 {
   "fecha": "2026-10-28",
-  "actualizado": "2026-10-28T05:53:23+00:00",
+  "actualizado": "2026-10-28T13:09:34+00:00",
   "descripcion": "Mínimos de descargas de archivos publicados en GitHub Releases; no son instalaciones ni personas únicas y no incluyen archivos descargados directamente desde GitHub Pages.",
   "conteos": {
     "cocina-a-punto": 12,
     "cocina-clara": 11,
     "documentos-de-casa": 5,
     "en-familia": 0,
-    "jardin-de-joyas": 34,
+    "jardin-de-joyas": 36,
     "lector-facil": 19,
-    "mente-activa-pro": 41,
+    "mente-activa-pro": 44,
     "menu-y-compra": 1,
     "mi-dinero-real": 0,
-    "mi-salud-familiar": 65,
+    "mi-salud-familiar": 67,
     "recetario-facil": 22,
     "rutas-a-pie": 30,
     "sopa-de-letras-pro": 7,
@@ -41,7 +41,8 @@
       "pastranaalex-glitch/pastranaalex-glitch.github.io:663072897": 9,
       "pastranaalex-glitch/pastranaalex-glitch.github.io:668303809": 2,
       "pastranaalex-glitch/pastranaalex-glitch.github.io:670340177": 4,
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:672181770": 3
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:672181770": 4,
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:684920053": 1
     },
     "lector-facil": {
       "pastranaalex-glitch/lector-facil:628195428": 1,
@@ -50,7 +51,7 @@
       "pastranaalex-glitch/lector-facil:662406760": 0
     },
     "mente-activa-pro": {
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:659958115": 38,
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:659958115": 41,
       "pastranaalex-glitch/pastranaalex-glitch.github.io:669140886": 3
     },
     "menu-y-compra": {
@@ -60,7 +61,7 @@
       "pastranaalex-glitch/pastranaalex-glitch.github.io:669324838": 0
     },
     "mi-salud-familiar": {
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:643218063": 65
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:643218063": 67
     },
     "recetario-facil": {
       "pastranaalex-glitch/recetario-facil:630361356": 22
