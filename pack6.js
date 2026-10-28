@@ -7,7 +7,7 @@ const safe=(v)=>typeof v==='string'?v:'';
 if(!slot)return;
 const fallback=document.getElementById('catalog-fallback');
 const visibleInCatalog=a=>a&&(a.publicado===true||(a.visibleEnCatalogo===true&&a.disponible===false&&a.descargasBloqueadas===true));
-const validApp=a=>a&&visibleInCatalog(a)&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&(a.repo===owner+'/'+a.slug||(['menu-y-compra','mi-salud-familiar','mi-dinero-real','en-familia','jardin-de-joyas','mente-activa-pro','sudoku-vivo','sopa-de-letras-pro','texto-facil'].includes(a.slug)&&a.repo===owner+'/'+owner+'.github.io'))&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
+const validApp=a=>a&&visibleInCatalog(a)&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&(a.repo===owner+'/'+a.slug||(['menu-y-compra','mi-salud-familiar','mi-dinero-real','en-familia','jardin-de-joyas','mente-activa-pro','sudoku-vivo','sopa-de-letras-pro'].includes(a.slug)&&a.repo===owner+'/'+owner+'.github.io'))&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
 /* La descarga nunca depende de una consulta a la API de GitHub.
    Fijamos versión, nombre y SHA-256 a los metadatos verificados del catálogo. */
 const approvedDownload=a=>{
@@ -129,9 +129,7 @@ function belongsToApp(asset,release,a,repo){
   case 'mi-salud-familiar':return /^Mi[_-]?Salud[_-]?Familiar(?:[._-]|[0-9])/i.test(name);
   case 'menu-y-compra':return /^Menu[_-]y[_-]Compra(?:[._-]|[0-9])/i.test(name);
   case 'mi-dinero-real':return /^MiDineroReal2_[0-9].*\.apk$/i.test(name);
-  case 'texto-facil':return /^TextoFacil_[0-9].*\.zip$/i.test(name);
   case 'rutas-a-pie':return /^RutasAPie(?:[._-]|[0-9])/i.test(name);
-   case 'texto-facil':return /^TextoFacil[_-].*\.zip$/i.test(name);
   default:return false;
  }
 }
@@ -269,25 +267,6 @@ async function start(){
    }
   }
  }catch(_){/* La API en directo sigue funcionando sin el respaldo. */}
- // Respaldo verificado independiente para Texto Fácil.
- try {
-  const response=await fetch('texto-facil-descargas.json',{cache:'no-store'});
-  if(response.ok){
-   const snapshot=await response.json();
-   const app=apps.find(a=>a.slug==='texto-facil');
-   if(app && snapshot.slug==='texto-facil'
-       && snapshot.tag===app.descarga?.tag
-       && snapshot.archivo===app.descarga?.archivo
-       && snapshot.sha256===app.descarga?.sha256
-       && /^\d{4}-\d{2}-\d{2}$/.test(snapshot.fecha||'')
-       && Number.isSafeInteger(snapshot.conteoMinimoConfirmado)
-       && snapshot.conteoMinimoConfirmado>=0){
-    app.count=Math.max(Number.isSafeInteger(app.count)?app.count:0,snapshot.conteoMinimoConfirmado);
-    app.countSnapshotDate=snapshot.fecha;
-    updateLink(app);
-   }
-  }
- }catch(_){/* Si falla el respaldo, se utiliza GitHub directamente. */}
  totals(); // Mostrar el mínimo de la portada mientras GitHub responde.
  await Promise.all(apps.map(async a=>{if(a.disponible!==false)await github(a);updateLink(a);totals();}));
  // Mantener las tarjetas ya montadas: contadores y enlaces se actualizan sin reconstruir el DOM.
