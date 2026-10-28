@@ -1,6 +1,6 @@
 {
-  "fecha": "2026-10-27",
-  "actualizado": "2026-10-27T22:48:20+00:00",
+  "fecha": "2026-10-28",
+  "actualizado": "2026-10-28T05:53:23+00:00",
   "descripcion": "Mínimos de descargas de archivos publicados en GitHub Releases; no son instalaciones ni personas únicas y no incluyen archivos descargados directamente desde GitHub Pages.",
   "conteos": {
     "cocina-a-punto": 12,
@@ -10,7 +10,7 @@
     "jardin-de-joyas": 34,
     "lector-facil": 19,
     "mente-activa-pro": 41,
-    "menu-y-compra": 0,
+    "menu-y-compra": 1,
     "mi-dinero-real": 0,
     "mi-salud-familiar": 65,
     "recetario-facil": 22,
@@ -54,7 +54,7 @@
       "pastranaalex-glitch/pastranaalex-glitch.github.io:669140886": 3
     },
     "menu-y-compra": {
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:644989238": 0
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:644989238": 1
     },
     "mi-dinero-real": {
       "pastranaalex-glitch/pastranaalex-glitch.github.io:669324838": 0
