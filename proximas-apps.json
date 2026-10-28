@@ -151,21 +151,25 @@
       "motivoBloqueo": ""
     },
     {
-      "slug": "hoja-de-calculo",
-      "nombre": "Hoja de Cálculo",
+      "slug": "mi-biblioteca-facil",
+      "nombre": "Mi Biblioteca Fácil",
       "fechaEstreno": null,
       "repo": null,
-      "plataforma": "windows",
+      "plataforma": "android",
       "versionAprobada": null,
       "revisionAprobada": false,
       "publicacionAutomatica": false,
       "categorias": [
-        "ofimatica",
+        "lectura",
         "utilidades"
       ],
-      "descripcion": "Programa gratuito para Windows en desarrollo, pensado para organizar datos, preparar tablas y realizar cálculos cotidianos con sencillez.",
-      "etiqueta": "HOJA DE CÁLCULO",
-      "eslogan": "Tus datos y tus cuentas, en orden."
+      "descripcion": "Proyecto gratuito para Android: biblioteca personal para añadir libros propios, descubrir títulos del catálogo y disfrutar de una lectura cómoda. Almacenamiento separado de los libros y sistema previsto de copias de seguridad y restauración.",
+      "etiqueta": "BIBLIOTECA PERSONAL",
+      "eslogan": "Tus libros, siempre contigo.",
+      "imagen": "mi-biblioteca-facil-portada.svg",
+      "estado": "EN DISEÑO",
+      "descargasBloqueadas": true,
+      "motivoBloqueo": "Aplicación en diseño, sin versión descargable todavía."
     }
   ]
 }
