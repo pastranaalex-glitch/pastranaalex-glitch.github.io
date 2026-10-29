@@ -138,11 +138,11 @@
         "lectura",
         "utilidades"
       ],
-      "descripcion": "Proyecto gratuito para Android: biblioteca personal para añadir libros propios, descubrir títulos del catálogo y disfrutar de una lectura cómoda. Almacenamiento separado de los libros y sistema previsto de copias de seguridad y restauración.",
+      "descripcion": "Biblioteca y lector gratuito para Android con estanterías realistas, vista de portadas, catálogo de novelas, importación de libros personales y lectura cómoda. En desarrollo y sin descarga pública todavía.",
       "etiqueta": "BIBLIOTECA PERSONAL",
-      "eslogan": "Tus libros, siempre contigo.",
-      "imagen": "mi-biblioteca-facil-portada.svg",
-      "estado": "EN DISEÑO",
+      "eslogan": "Un rincón para tus historias.",
+      "imagen": "mi-biblioteca-facil-lomos-foto.svg",
+      "estado": "EN DESARROLLO",
       "descargasBloqueadas": true,
       "motivoBloqueo": "Aplicación en diseño, sin versión descargable todavía."
     }
