@@ -37,7 +37,8 @@ body[data-pack6-page="proximamente"] .pack6-project-library{grid-column:1/-1;pad
 .pack6-project-library .library-project-copy p{font-size:.96rem;max-width:65ch}
 .pack6-project-library .library-project-copy p.library-project-lead{font-weight:800;color:#1e596b;font-size:1.1rem;margin:7px 0 15px}
 .pack6-project-library .library-project-hero{display:block;border-radius:18px;overflow:hidden;box-shadow:0 14px 31px rgba(17,49,63,.16)}
-.pack6-project-library .library-project-hero img{width:100%;height:auto;display:block}
+.pack6-project-library .library-project-hero{max-width:390px;margin:0 auto;background:#25170e}
+.pack6-project-library .library-project-hero img{width:100%;height:auto;display:block;max-height:630px;object-fit:contain}
 .pack6-project-library .library-project-chips{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}
 .pack6-project-library .library-project-chips span{display:inline-flex;padding:8px 11px;border-radius:999px;background:#eaf3f1;border:1px solid #d7e9e4;font-size:.78rem;font-weight:700;color:#24596a}
 .pack6-project-library .library-project-highlight{padding:15px 17px;background:#e8f4ed;border-left:4px solid #29826b;border-radius:0 12px 12px 0;color:#28534e!important}
@@ -66,25 +67,21 @@ body[data-pack6-page="proximamente"] .pack6-project-library .pack6-platform{font
 <article class="pack6-project-card pack6-project-library" data-proxima="mi-biblioteca-facil" id="mi-biblioteca-facil" aria-labelledby="mi-biblioteca-facil-titulo">
   <div class="library-project-main">
     <div class="library-project-copy">
-      <div class="pack6-status-line"><span class="pack6-status">En diseño · Próximamente</span></div>
+      <div class="pack6-status-line"><span class="pack6-status">En desarrollo · Próximamente</span></div>
       <h2 id="mi-biblioteca-facil-titulo">Mi Biblioteca Fácil</h2>
       <p class="library-project-lead">Tu rincón de lectura. Tus libros, siempre contigo.</p>
-      <p>Imagina abrir una estantería y encontrar todas tus lecturas reunidas. <strong>Mi Biblioteca Fácil</strong> será una aplicación gratuita para Android donde podrás descubrir libros del catálogo y también añadir los tuyos para formar una colección verdaderamente personal.</p>
-      <p>El proyecto busca que leer y organizar libros resulte agradable, con portadas, búsqueda, lectura cómoda y colecciones propias, sin menús interminables.</p>
+      <p><strong>Mi Biblioteca Fácil</strong> es nuestro proyecto de biblioteca y lector gratuito para Android. Estamos preparando un salón de lectura con chimenea y estanterías de madera, donde podrás explorar las novelas de la colección y añadir tus propios libros.</p>
+      <p>Trabajamos en dos formas de explorar la colección: libros colocados de canto y portadas completas. También preparamos búsqueda, lectura cómoda, guardado del progreso y copias de seguridad.</p>
       <div class="library-project-chips" aria-label="Funciones previstas"><span>📚 Tu estantería</span><span>＋ Añade tus libros</span><span>🔖 Lectura a tu ritmo</span><span>🔒 Copias de seguridad</span></div>
       <p class="library-project-highlight"><strong>Lo más importante:</strong> tus libros personales se guardarán por separado de los archivos de la aplicación. El diseño incluirá copias de seguridad y restauración para proteger tu colección al actualizar o cambiar de dispositivo.</p>
     </div>
-    <a class="library-project-hero" href="mi-biblioteca-facil-portada.svg" target="_blank" rel="noopener" aria-label="Ver la imagen conceptual principal de Mi Biblioteca Fácil">
-      <img src="mi-biblioteca-facil-portada.svg" alt="Propuesta visual de Mi Biblioteca Fácil: estantería de libros en una aplicación Android, sobre fondo azul oscuro y dorado." width="1200" height="680" loading="lazy" decoding="async">
+    <a class="library-project-hero" href="mi-biblioteca-facil-lomos-foto.svg" target="_blank" rel="noopener" aria-label="Ver la imagen promocional de la librería con libros de canto">
+      <img src="mi-biblioteca-facil-lomos-foto.svg" alt="Imagen promocional de Mi Biblioteca Fácil: librería de madera iluminada con novelas colocadas de canto y plantas decorativas." width="420" height="747" loading="lazy" decoding="async">
     </a>
   </div>
-  <h3 class="library-gallery-title">Así podría ser la aplicación</h3>
-  <div class="library-project-gallery">
-    <figure><a href="mi-biblioteca-facil-estanteria.svg" target="_blank" rel="noopener"><img src="mi-biblioteca-facil-estanteria.svg" width="680" height="900" loading="lazy" decoding="async" alt="Diseño conceptual de la estantería personal, con portadas, búsqueda y botón para añadir libros."></a><figcaption><strong>Tu estantería.</strong> Ordena, encuentra y añade tus propias lecturas.</figcaption></figure>
-    <figure><a href="mi-biblioteca-facil-lectura.svg" target="_blank" rel="noopener"><img src="mi-biblioteca-facil-lectura.svg" width="680" height="900" loading="lazy" decoding="async" alt="Diseño conceptual de un lector de libros, con página de lectura y controles de tamaño de texto."></a><figcaption><strong>Lectura cómoda.</strong> Una pantalla tranquila, con opciones para leer a tu gusto.</figcaption></figure>
-    <figure><a href="mi-biblioteca-facil-respaldo.svg" target="_blank" rel="noopener"><img src="mi-biblioteca-facil-respaldo.svg" width="680" height="900" loading="lazy" decoding="async" alt="Diseño conceptual de la pantalla de copias de seguridad y restauración de libros personales."></a><figcaption><strong>Protege tus libros.</strong> Copia y restauración previstas para conservar tu colección.</figcaption></figure>
-  </div>
-  <p class="library-project-disclaimer">Estas imágenes son propuestas de diseño, no capturas de una versión terminada. Las funciones y la interfaz se irán definiendo y comprobando durante el desarrollo. Fecha de lanzamiento por confirmar.</p>
+  <h3 class="library-gallery-title">Una biblioteca para disfrutar de la lectura</h3>
+  <p>La imagen promocional muestra el ambiente de madera cálida y libros de canto que inspira la aplicación. El diseño real se está perfeccionando y se publicará cuando pase las pruebas.</p>
+  <p class="library-project-disclaimer">Imagen promocional de referencia, no una captura de pantalla. Aplicación Android en desarrollo; sin descarga disponible todavía. Fecha de publicación por confirmar.</p>
   <span class="pack6-platform">Android · Móvil y tableta · Lectura y biblioteca personal · Gratis</span>
 </article>
 
