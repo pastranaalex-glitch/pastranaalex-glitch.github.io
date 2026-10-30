@@ -1,6 +1,6 @@
 {
     "schema":  1,
-    "updatedAt":  "2026-10-30T20:52:15.8334054Z",
+    "updatedAt":  "2026-10-30T20:53:02.7253770Z",
     "books":  [
                   {
                       "id":  "catalog-helios-01",
@@ -81,6 +81,26 @@
                       "spineSha256":  "962a0d932c1332f960d9e9b36483423d39e76764a1718c20ca3e2ce10ab0c94b",
                       "backCoverSha256":  "c8e3f24960d2cf1efcde72f936324e4ee35b32b4bbf60e76c06c4709262ad637",
                       "updatedAt":  "2026-10-29T22:44:11.2861348Z"
+                  },
+                  {
+                      "id":  "catalog-helios-03",
+                      "title":  "Los no sincronizados",
+                      "author":  "Alexander Luis",
+                      "category":  "Coleccion",
+                      "synopsis":  "",
+                      "series":  "",
+                      "seriesOrder":  0,
+                      "type":  "epub",
+                      "url":  "https://pastranaalex-glitch.github.io/biblioteca-libros/archivos/catalog-helios-03-acc9bf75-54f3cd612e339461.epub",
+                      "coverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/portadas/catalog-helios-03-acc9bf75-255389c051dcdd89.jpg",
+                      "spineUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/lomos/catalog-helios-03-acc9bf75-22396bdf4cd6d37c.jpg",
+                      "backCoverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/contraportadas/catalog-helios-03-acc9bf75-0615ce7c13ddcebd.jpg",
+                      "sha256":  "54f3cd612e339461b432ea2dcc1874934c50cfe56b2ab0d727c429341359bf17",
+                      "sizeBytes":  41192,
+                      "coverSha256":  "255389c051dcdd89275e647d564282ff62408712cdf7a7af1082f4221c162a31",
+                      "spineSha256":  "22396bdf4cd6d37c8da45d19bf436c5f6efa05ddceae18f3e6535323329aa74a",
+                      "backCoverSha256":  "0615ce7c13ddcebd4eb11d66d6bab62941c8278d310f3f90d98d23126865eca8",
+                      "updatedAt":  "2026-10-29T21:54:23.0657553Z"
                   }
               ]
 }
