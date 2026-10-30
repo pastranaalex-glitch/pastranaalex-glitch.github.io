@@ -1,0 +1,5 @@
+{
+  "schema": 1,
+  "enabled": true,
+  "statsEndpoint": "https://mibiblioteca-estadisticas.pastranaalex.workers.dev"
+}
