@@ -1,6 +1,6 @@
 {
     "schema":  1,
-    "updatedAt":  "2026-10-29T23:51:04.8687763Z",
+    "updatedAt":  "2026-10-30T20:47:01.2805642Z",
     "books":  [
                   {
                       "id":  "libro-bd9ea7bcd21d4e76",
@@ -21,6 +21,26 @@
                       "spineSha256":  "962a0d932c1332f960d9e9b36483423d39e76764a1718c20ca3e2ce10ab0c94b",
                       "backCoverSha256":  "c8e3f24960d2cf1efcde72f936324e4ee35b32b4bbf60e76c06c4709262ad637",
                       "updatedAt":  "2026-10-29T22:44:11.2861348Z"
+                  },
+                  {
+                      "id":  "catalog-manuscrito-tiempo",
+                      "title":  "El Manuscrito del Tiempo",
+                      "author":  "Alexander Luis",
+                      "category":  "Coleccion",
+                      "synopsis":  "",
+                      "series":  "",
+                      "seriesOrder":  0,
+                      "type":  "epub",
+                      "url":  "https://pastranaalex-glitch.github.io/biblioteca-libros/archivos/catalog-manuscrito-tiempo-ce43ab11-2e302d4a90531d17.epub",
+                      "coverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/portadas/catalog-manuscrito-tiempo-ce43ab11-5b3e6551784d071c.jpg",
+                      "spineUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/lomos/catalog-manuscrito-tiempo-ce43ab11-eae6cb2fe23e05b0.jpg",
+                      "backCoverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/contraportadas/catalog-manuscrito-tiempo-ce43ab11-08773112c0c0151d.jpg",
+                      "sha256":  "2e302d4a90531d1763cdf25311c37ea2ce277e17af756b20370a129c5246a483",
+                      "sizeBytes":  67700,
+                      "coverSha256":  "5b3e6551784d071c5a57f76dfe59726ad788f0410e835b1aa4cabac0d2b7961c",
+                      "spineSha256":  "eae6cb2fe23e05b07378485d962a7f3af6205ce5b09493e1ff1614bd427322c4",
+                      "backCoverSha256":  "08773112c0c0151d1bd6ff6d51f2c6cac1e23b6d438987cc287da2fd6fa2b7b0",
+                      "updatedAt":  "2026-10-29T21:54:21.0091145Z"
                   }
               ]
 }
