@@ -1,17 +1,17 @@
 {
     "schema":  1,
-    "updatedAt":  "2026-10-30T22:40:54.5806531Z",
+    "updatedAt":  "2026-10-30T23:38:10.0549674Z",
     "shelves":  [
                     {
                         "bay":  1,
-                        "label":  "Misterio y Suspense"
+                        "label":  "Misterio y suspense"
                     }
                 ],
     "books":  [
                   {
                       "bookId":  "catalog-manuscrito-tiempo",
                       "bay":  1,
-                      "level":  3,
+                      "level":  1,
                       "slot":  4,
                       "genre":  "Misterio y suspense"
                   },
