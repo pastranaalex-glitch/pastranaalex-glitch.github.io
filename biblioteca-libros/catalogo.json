@@ -1,6 +1,6 @@
 {
     "schema":  1,
-    "updatedAt":  "2026-10-30T20:53:02.7253770Z",
+    "updatedAt":  "2026-10-30T21:00:50.4614561Z",
     "books":  [
                   {
                       "id":  "catalog-helios-01",
@@ -63,6 +63,26 @@
                       "updatedAt":  "2026-10-29T21:54:21.7094737Z"
                   },
                   {
+                      "id":  "catalog-helios-03",
+                      "title":  "Los no sincronizados",
+                      "author":  "Alexander Luis",
+                      "category":  "Coleccion",
+                      "synopsis":  "",
+                      "series":  "",
+                      "seriesOrder":  0,
+                      "type":  "epub",
+                      "url":  "https://pastranaalex-glitch.github.io/biblioteca-libros/archivos/catalog-helios-03-acc9bf75-54f3cd612e339461.epub",
+                      "coverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/portadas/catalog-helios-03-acc9bf75-255389c051dcdd89.jpg",
+                      "spineUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/lomos/catalog-helios-03-acc9bf75-22396bdf4cd6d37c.jpg",
+                      "backCoverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/contraportadas/catalog-helios-03-acc9bf75-0615ce7c13ddcebd.jpg",
+                      "sha256":  "54f3cd612e339461b432ea2dcc1874934c50cfe56b2ab0d727c429341359bf17",
+                      "sizeBytes":  41192,
+                      "coverSha256":  "255389c051dcdd89275e647d564282ff62408712cdf7a7af1082f4221c162a31",
+                      "spineSha256":  "22396bdf4cd6d37c8da45d19bf436c5f6efa05ddceae18f3e6535323329aa74a",
+                      "backCoverSha256":  "0615ce7c13ddcebd4eb11d66d6bab62941c8278d310f3f90d98d23126865eca8",
+                      "updatedAt":  "2026-10-29T21:54:23.0657553Z"
+                  },
+                  {
                       "id":  "libro-bd9ea7bcd21d4e76",
                       "title":  "No mires atrás",
                       "author":  "Alexander Luis",
@@ -83,24 +103,24 @@
                       "updatedAt":  "2026-10-29T22:44:11.2861348Z"
                   },
                   {
-                      "id":  "catalog-helios-03",
-                      "title":  "Los no sincronizados",
+                      "id":  "catalog-helios-02",
+                      "title":  "La Secuencia Origen",
                       "author":  "Alexander Luis",
                       "category":  "Coleccion",
                       "synopsis":  "",
                       "series":  "",
                       "seriesOrder":  0,
                       "type":  "epub",
-                      "url":  "https://pastranaalex-glitch.github.io/biblioteca-libros/archivos/catalog-helios-03-acc9bf75-54f3cd612e339461.epub",
-                      "coverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/portadas/catalog-helios-03-acc9bf75-255389c051dcdd89.jpg",
-                      "spineUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/lomos/catalog-helios-03-acc9bf75-22396bdf4cd6d37c.jpg",
-                      "backCoverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/contraportadas/catalog-helios-03-acc9bf75-0615ce7c13ddcebd.jpg",
-                      "sha256":  "54f3cd612e339461b432ea2dcc1874934c50cfe56b2ab0d727c429341359bf17",
-                      "sizeBytes":  41192,
-                      "coverSha256":  "255389c051dcdd89275e647d564282ff62408712cdf7a7af1082f4221c162a31",
-                      "spineSha256":  "22396bdf4cd6d37c8da45d19bf436c5f6efa05ddceae18f3e6535323329aa74a",
-                      "backCoverSha256":  "0615ce7c13ddcebd4eb11d66d6bab62941c8278d310f3f90d98d23126865eca8",
-                      "updatedAt":  "2026-10-29T21:54:23.0657553Z"
+                      "url":  "https://pastranaalex-glitch.github.io/biblioteca-libros/archivos/catalog-helios-02-3756b6b1-fe8185d4d72451da.epub",
+                      "coverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/portadas/catalog-helios-02-3756b6b1-89b23edaf60f5787.jpg",
+                      "spineUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/lomos/catalog-helios-02-3756b6b1-b5d8cdcc5927be4b.jpg",
+                      "backCoverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/contraportadas/catalog-helios-02-3756b6b1-fa2d87bb813c55ba.jpg",
+                      "sha256":  "fe8185d4d72451da5ccc800f1d3be736fd664931b89c1fb15b8a4b9600a36655",
+                      "sizeBytes":  45343,
+                      "coverSha256":  "89b23edaf60f5787c19d04317857e49a41c7d01f6dfb54f70fe963440832168f",
+                      "spineSha256":  "b5d8cdcc5927be4bcea90b2daa94e2a6259c75e22f76d0bbafa2752ed0170288",
+                      "backCoverSha256":  "fa2d87bb813c55ba2a6de2dd7991230c069492f902c0fb8e85527c270d4ca7b2",
+                      "updatedAt":  "2026-10-29T21:54:22.5933427Z"
                   }
               ]
 }
