@@ -1,6 +1,6 @@
 {
     "schema":  1,
-    "updatedAt":  "2026-10-30T20:47:44.6218554Z",
+    "updatedAt":  "2026-10-30T20:50:41.3881921Z",
     "books":  [
                   {
                       "id":  "catalog-manuscrito-tiempo",
@@ -23,6 +23,26 @@
                       "updatedAt":  "2026-10-29T21:54:21.0091145Z"
                   },
                   {
+                      "id":  "catalog-umbral-tiempo",
+                      "title":  "El Umbral del Tiempo",
+                      "author":  "Alexander Luis",
+                      "category":  "Coleccion",
+                      "synopsis":  "",
+                      "series":  "",
+                      "seriesOrder":  0,
+                      "type":  "epub",
+                      "url":  "https://pastranaalex-glitch.github.io/biblioteca-libros/archivos/catalog-umbral-tiempo-b6b41691-2f7bcc04fd2866de.epub",
+                      "coverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/portadas/catalog-umbral-tiempo-b6b41691-b939fd6f5dd5ba3a.jpg",
+                      "spineUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/lomos/catalog-umbral-tiempo-b6b41691-5747b4170bf23807.jpg",
+                      "backCoverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/contraportadas/catalog-umbral-tiempo-b6b41691-4547df038f9afb3f.jpg",
+                      "sha256":  "2f7bcc04fd2866decf83ee064086ee7eddbfb513cb327ddb235f2cca775bef50",
+                      "sizeBytes":  65493,
+                      "coverSha256":  "b939fd6f5dd5ba3a4c06286ecb0312aaf854b8d4cfd88c43579ff4d8112f8f7b",
+                      "spineSha256":  "5747b4170bf23807c9f31f86f697e118313b46b2595ab6def3038ce39fdf1620",
+                      "backCoverSha256":  "4547df038f9afb3f22cf57501eb23b9f7e29622d82e101233a6d42d93b5bf997",
+                      "updatedAt":  "2026-10-29T21:54:21.7094737Z"
+                  },
+                  {
                       "id":  "libro-bd9ea7bcd21d4e76",
                       "title":  "No mires atrás",
                       "author":  "Alexander Luis",
@@ -43,24 +63,24 @@
                       "updatedAt":  "2026-10-29T22:44:11.2861348Z"
                   },
                   {
-                      "id":  "catalog-umbral-tiempo",
-                      "title":  "El Umbral del Tiempo",
+                      "id":  "catalog-helios-01",
+                      "title":  "Cinco segundos antes del caos",
                       "author":  "Alexander Luis",
                       "category":  "Coleccion",
                       "synopsis":  "",
                       "series":  "",
                       "seriesOrder":  0,
                       "type":  "epub",
-                      "url":  "https://pastranaalex-glitch.github.io/biblioteca-libros/archivos/catalog-umbral-tiempo-b6b41691-2f7bcc04fd2866de.epub",
-                      "coverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/portadas/catalog-umbral-tiempo-b6b41691-b939fd6f5dd5ba3a.jpg",
-                      "spineUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/lomos/catalog-umbral-tiempo-b6b41691-5747b4170bf23807.jpg",
-                      "backCoverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/contraportadas/catalog-umbral-tiempo-b6b41691-4547df038f9afb3f.jpg",
-                      "sha256":  "2f7bcc04fd2866decf83ee064086ee7eddbfb513cb327ddb235f2cca775bef50",
-                      "sizeBytes":  65493,
-                      "coverSha256":  "b939fd6f5dd5ba3a4c06286ecb0312aaf854b8d4cfd88c43579ff4d8112f8f7b",
-                      "spineSha256":  "5747b4170bf23807c9f31f86f697e118313b46b2595ab6def3038ce39fdf1620",
-                      "backCoverSha256":  "4547df038f9afb3f22cf57501eb23b9f7e29622d82e101233a6d42d93b5bf997",
-                      "updatedAt":  "2026-10-29T21:54:21.7094737Z"
+                      "url":  "https://pastranaalex-glitch.github.io/biblioteca-libros/archivos/catalog-helios-01-9ae37d13-4026b6fdf5cde92c.epub",
+                      "coverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/portadas/catalog-helios-01-9ae37d13-b5bb8d0e14678601.jpg",
+                      "spineUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/lomos/catalog-helios-01-9ae37d13-2c9f1cb71af8a4c4.jpg",
+                      "backCoverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/contraportadas/catalog-helios-01-9ae37d13-a0a2962050819073.jpg",
+                      "sha256":  "4026b6fdf5cde92c9c6d6d0c90804ffb4a839fefdca996359e299bcc23a123db",
+                      "sizeBytes":  51076,
+                      "coverSha256":  "b5bb8d0e146786014c8ca1651c0a2a9e963c10387fa02eb154affac8e681eedf",
+                      "spineSha256":  "2c9f1cb71af8a4c4847ffc81bdad3d35d9c141657b112faf10dbec52fd82d479",
+                      "backCoverSha256":  "a0a2962050819073ba7e9d66f821d63a600ab4b8cd541f84b66f3148b4e639c1",
+                      "updatedAt":  "2026-10-29T21:54:22.1222515Z"
                   }
               ]
 }
