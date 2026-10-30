@@ -1,6 +1,6 @@
 {
     "schema":  1,
-    "updatedAt":  "2026-10-30T21:37:07.8787327Z",
+    "updatedAt":  "2026-10-30T21:38:02.6871712Z",
     "books":  [
                   {
                       "id":  "catalog-helios-01",
@@ -83,26 +83,6 @@
                       "updatedAt":  "2026-10-29T21:54:22.5933427Z"
                   },
                   {
-                      "id":  "libro-bd9ea7bcd21d4e76",
-                      "title":  "No mires atrás",
-                      "author":  "Alexander Luis",
-                      "category":  "Novela",
-                      "synopsis":  "# NO MIRES ATRÁS\r\n**Una novela de acción y suspense**\r\n\r\n*Una decisión puede cambiarte la vida. Un secreto puede costártela.*\r\n\r\nDaniel es un hombre corriente que nunca imaginó convertirse en el objetivo de una peligrosa persecución.\r\n\r\nTodo comienza una noche, en un aparcamiento subterráneo, cuando encuentra a un desconocido gravemente herido. Lo que parece un encuentro accidental se transforma en una pesadilla cuando aparece Clara, una misteriosa mujer que le advierte de que deben escapar inmediatamente.\r\n\r\nSin entender qué está ocurriendo ni en quién puede confiar, Daniel se ve arrastrado a una carrera contrarreloj en la que cada respuesta conduce a nuevos peligros.\r\n\r\nPronto descubrirá que detrás de aquella noche se esconde una poderosa red de secretos, manipulaciones y traiciones. Y que su presencia en el aparcamiento quizá no fue tan casual como parecía.\r\n\r\nPerseguido por personas dispuestas a cualquier cosa para proteger la verdad, Daniel tendrá que enfrentarse a una pregunta inquietante:\r\n\r\n**¿Qué harías si descubrieras que toda tu vida has sido una pieza en el juego de alguien más?**\r\n\r\n*Una historia de suspense, acción y giros inesperados donde el mayor peligro no siempre es quien te persigue, sino aquel en quien has confiado.*\r\n\r\n**Alexander Luis**",
-                      "series":  "",
-                      "seriesOrder":  0,
-                      "type":  "epub",
-                      "url":  "https://pastranaalex-glitch.github.io/biblioteca-libros/archivos/libro-bd9ea7bcd21d4e76-77353544-6cb5d7f0c1196d34.epub",
-                      "coverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/portadas/libro-bd9ea7bcd21d4e76-77353544-ee5e054d9f851337.jpg",
-                      "spineUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/lomos/libro-bd9ea7bcd21d4e76-77353544-962a0d932c1332f9.jpg",
-                      "backCoverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/contraportadas/libro-bd9ea7bcd21d4e76-77353544-c8e3f24960d2cf1e.jpg",
-                      "sha256":  "6cb5d7f0c1196d34e820c3b9fe8562563e9c2a2f4ac4fc3527054ff38253bd31",
-                      "sizeBytes":  87756,
-                      "coverSha256":  "ee5e054d9f851337b318049f91e4ebfb70f63a7fb5b1699c8457030f97a4ee17",
-                      "spineSha256":  "962a0d932c1332f960d9e9b36483423d39e76764a1718c20ca3e2ce10ab0c94b",
-                      "backCoverSha256":  "c8e3f24960d2cf1efcde72f936324e4ee35b32b4bbf60e76c06c4709262ad637",
-                      "updatedAt":  "2026-10-29T22:44:11.2861348Z"
-                  },
-                  {
                       "id":  "catalog-helios-03",
                       "title":  "Los no sincronizados",
                       "author":  "Alexander Luis",
@@ -121,6 +101,26 @@
                       "spineSha256":  "22396bdf4cd6d37c8da45d19bf436c5f6efa05ddceae18f3e6535323329aa74a",
                       "backCoverSha256":  "0615ce7c13ddcebd4eb11d66d6bab62941c8278d310f3f90d98d23126865eca8",
                       "updatedAt":  "2026-10-29T21:54:23.0657553Z"
+                  },
+                  {
+                      "id":  "libro-bd9ea7bcd21d4e76",
+                      "title":  "No mires atrás",
+                      "author":  "Alexander Luis",
+                      "category":  "Novela",
+                      "synopsis":  "# NO MIRES ATRÁS\r\n**Una novela de acción y suspense**\r\n\r\n*Una decisión puede cambiarte la vida. Un secreto puede costártela.*\r\n\r\nDaniel es un hombre corriente que nunca imaginó convertirse en el objetivo de una peligrosa persecución.\r\n\r\nTodo comienza una noche, en un aparcamiento subterráneo, cuando encuentra a un desconocido gravemente herido. Lo que parece un encuentro accidental se transforma en una pesadilla cuando aparece Clara, una misteriosa mujer que le advierte de que deben escapar inmediatamente.\r\n\r\nSin entender qué está ocurriendo ni en quién puede confiar, Daniel se ve arrastrado a una carrera contrarreloj en la que cada respuesta conduce a nuevos peligros.\r\n\r\nPronto descubrirá que detrás de aquella noche se esconde una poderosa red de secretos, manipulaciones y traiciones. Y que su presencia en el aparcamiento quizá no fue tan casual como parecía.\r\n\r\nPerseguido por personas dispuestas a cualquier cosa para proteger la verdad, Daniel tendrá que enfrentarse a una pregunta inquietante:\r\n\r\n**¿Qué harías si descubrieras que toda tu vida has sido una pieza en el juego de alguien más?**\r\n\r\n*Una historia de suspense, acción y giros inesperados donde el mayor peligro no siempre es quien te persigue, sino aquel en quien has confiado.*\r\n\r\n**Alexander Luis**",
+                      "series":  "",
+                      "seriesOrder":  0,
+                      "type":  "epub",
+                      "url":  "https://pastranaalex-glitch.github.io/biblioteca-libros/archivos/libro-bd9ea7bcd21d4e76-77353544-6cb5d7f0c1196d34.epub",
+                      "coverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/portadas/libro-bd9ea7bcd21d4e76-77353544-ee5e054d9f851337.jpg",
+                      "spineUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/lomos/libro-bd9ea7bcd21d4e76-77353544-962a0d932c1332f9.jpg",
+                      "backCoverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/contraportadas/libro-bd9ea7bcd21d4e76-77353544-c8e3f24960d2cf1e.jpg",
+                      "sha256":  "6cb5d7f0c1196d34e820c3b9fe8562563e9c2a2f4ac4fc3527054ff38253bd31",
+                      "sizeBytes":  87756,
+                      "coverSha256":  "ee5e054d9f851337b318049f91e4ebfb70f63a7fb5b1699c8457030f97a4ee17",
+                      "spineSha256":  "962a0d932c1332f960d9e9b36483423d39e76764a1718c20ca3e2ce10ab0c94b",
+                      "backCoverSha256":  "c8e3f24960d2cf1efcde72f936324e4ee35b32b4bbf60e76c06c4709262ad637",
+                      "updatedAt":  "2026-10-29T22:44:11.2861348Z"
                   }
               ]
 }
