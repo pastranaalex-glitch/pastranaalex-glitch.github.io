@@ -1,6 +1,6 @@
 {
     "schema":  1,
-    "updatedAt":  "2026-10-30T21:00:50.4614561Z",
+    "updatedAt":  "2026-10-30T21:33:52.0313604Z",
     "books":  [
                   {
                       "id":  "catalog-helios-01",
@@ -23,26 +23,6 @@
                       "updatedAt":  "2026-10-29T21:54:22.1222515Z"
                   },
                   {
-                      "id":  "catalog-manuscrito-tiempo",
-                      "title":  "El Manuscrito del Tiempo",
-                      "author":  "Alexander Luis",
-                      "category":  "Coleccion",
-                      "synopsis":  "",
-                      "series":  "",
-                      "seriesOrder":  0,
-                      "type":  "epub",
-                      "url":  "https://pastranaalex-glitch.github.io/biblioteca-libros/archivos/catalog-manuscrito-tiempo-ce43ab11-2e302d4a90531d17.epub",
-                      "coverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/portadas/catalog-manuscrito-tiempo-ce43ab11-5b3e6551784d071c.jpg",
-                      "spineUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/lomos/catalog-manuscrito-tiempo-ce43ab11-eae6cb2fe23e05b0.jpg",
-                      "backCoverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/contraportadas/catalog-manuscrito-tiempo-ce43ab11-08773112c0c0151d.jpg",
-                      "sha256":  "2e302d4a90531d1763cdf25311c37ea2ce277e17af756b20370a129c5246a483",
-                      "sizeBytes":  67700,
-                      "coverSha256":  "5b3e6551784d071c5a57f76dfe59726ad788f0410e835b1aa4cabac0d2b7961c",
-                      "spineSha256":  "eae6cb2fe23e05b07378485d962a7f3af6205ce5b09493e1ff1614bd427322c4",
-                      "backCoverSha256":  "08773112c0c0151d1bd6ff6d51f2c6cac1e23b6d438987cc287da2fd6fa2b7b0",
-                      "updatedAt":  "2026-10-29T21:54:21.0091145Z"
-                  },
-                  {
                       "id":  "catalog-umbral-tiempo",
                       "title":  "El Umbral del Tiempo",
                       "author":  "Alexander Luis",
@@ -61,6 +41,26 @@
                       "spineSha256":  "5747b4170bf23807c9f31f86f697e118313b46b2595ab6def3038ce39fdf1620",
                       "backCoverSha256":  "4547df038f9afb3f22cf57501eb23b9f7e29622d82e101233a6d42d93b5bf997",
                       "updatedAt":  "2026-10-29T21:54:21.7094737Z"
+                  },
+                  {
+                      "id":  "catalog-helios-02",
+                      "title":  "La Secuencia Origen",
+                      "author":  "Alexander Luis",
+                      "category":  "Coleccion",
+                      "synopsis":  "",
+                      "series":  "",
+                      "seriesOrder":  0,
+                      "type":  "epub",
+                      "url":  "https://pastranaalex-glitch.github.io/biblioteca-libros/archivos/catalog-helios-02-3756b6b1-fe8185d4d72451da.epub",
+                      "coverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/portadas/catalog-helios-02-3756b6b1-89b23edaf60f5787.jpg",
+                      "spineUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/lomos/catalog-helios-02-3756b6b1-b5d8cdcc5927be4b.jpg",
+                      "backCoverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/contraportadas/catalog-helios-02-3756b6b1-fa2d87bb813c55ba.jpg",
+                      "sha256":  "fe8185d4d72451da5ccc800f1d3be736fd664931b89c1fb15b8a4b9600a36655",
+                      "sizeBytes":  45343,
+                      "coverSha256":  "89b23edaf60f5787c19d04317857e49a41c7d01f6dfb54f70fe963440832168f",
+                      "spineSha256":  "b5d8cdcc5927be4bcea90b2daa94e2a6259c75e22f76d0bbafa2752ed0170288",
+                      "backCoverSha256":  "fa2d87bb813c55ba2a6de2dd7991230c069492f902c0fb8e85527c270d4ca7b2",
+                      "updatedAt":  "2026-10-29T21:54:22.5933427Z"
                   },
                   {
                       "id":  "catalog-helios-03",
@@ -103,24 +103,24 @@
                       "updatedAt":  "2026-10-29T22:44:11.2861348Z"
                   },
                   {
-                      "id":  "catalog-helios-02",
-                      "title":  "La Secuencia Origen",
+                      "id":  "catalog-manuscrito-tiempo",
+                      "title":  "El Manuscrito del Tiempo",
                       "author":  "Alexander Luis",
                       "category":  "Coleccion",
                       "synopsis":  "",
                       "series":  "",
                       "seriesOrder":  0,
                       "type":  "epub",
-                      "url":  "https://pastranaalex-glitch.github.io/biblioteca-libros/archivos/catalog-helios-02-3756b6b1-fe8185d4d72451da.epub",
-                      "coverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/portadas/catalog-helios-02-3756b6b1-89b23edaf60f5787.jpg",
-                      "spineUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/lomos/catalog-helios-02-3756b6b1-b5d8cdcc5927be4b.jpg",
-                      "backCoverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/contraportadas/catalog-helios-02-3756b6b1-fa2d87bb813c55ba.jpg",
-                      "sha256":  "fe8185d4d72451da5ccc800f1d3be736fd664931b89c1fb15b8a4b9600a36655",
-                      "sizeBytes":  45343,
-                      "coverSha256":  "89b23edaf60f5787c19d04317857e49a41c7d01f6dfb54f70fe963440832168f",
-                      "spineSha256":  "b5d8cdcc5927be4bcea90b2daa94e2a6259c75e22f76d0bbafa2752ed0170288",
-                      "backCoverSha256":  "fa2d87bb813c55ba2a6de2dd7991230c069492f902c0fb8e85527c270d4ca7b2",
-                      "updatedAt":  "2026-10-29T21:54:22.5933427Z"
+                      "url":  "https://pastranaalex-glitch.github.io/biblioteca-libros/archivos/catalog-manuscrito-tiempo-ce43ab11-2e302d4a90531d17.epub",
+                      "coverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/portadas/catalog-manuscrito-tiempo-ce43ab11-5b3e6551784d071c.jpg",
+                      "spineUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/lomos/catalog-manuscrito-tiempo-ce43ab11-eae6cb2fe23e05b0.jpg",
+                      "backCoverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/contraportadas/catalog-manuscrito-tiempo-ce43ab11-08773112c0c0151d.jpg",
+                      "sha256":  "2e302d4a90531d1763cdf25311c37ea2ce277e17af756b20370a129c5246a483",
+                      "sizeBytes":  67700,
+                      "coverSha256":  "5b3e6551784d071c5a57f76dfe59726ad788f0410e835b1aa4cabac0d2b7961c",
+                      "spineSha256":  "eae6cb2fe23e05b07378485d962a7f3af6205ce5b09493e1ff1614bd427322c4",
+                      "backCoverSha256":  "08773112c0c0151d1bd6ff6d51f2c6cac1e23b6d438987cc287da2fd6fa2b7b0",
+                      "updatedAt":  "2026-10-29T21:54:21.0091145Z"
                   }
               ]
 }
