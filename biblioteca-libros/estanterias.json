@@ -1,0 +1,54 @@
+{
+    "schema":  1,
+    "updatedAt":  "2026-10-30T22:40:54.5806531Z",
+    "shelves":  [
+                    {
+                        "bay":  1,
+                        "label":  "Misterio y Suspense"
+                    }
+                ],
+    "books":  [
+                  {
+                      "bookId":  "catalog-manuscrito-tiempo",
+                      "bay":  1,
+                      "level":  3,
+                      "slot":  4,
+                      "genre":  "Misterio y suspense"
+                  },
+                  {
+                      "bookId":  "catalog-umbral-tiempo",
+                      "bay":  1,
+                      "level":  1,
+                      "slot":  5,
+                      "genre":  "Misterio y suspense"
+                  },
+                  {
+                      "bookId":  "catalog-helios-01",
+                      "bay":  1,
+                      "level":  1,
+                      "slot":  1,
+                      "genre":  "Misterio y suspense"
+                  },
+                  {
+                      "bookId":  "catalog-helios-02",
+                      "bay":  1,
+                      "level":  1,
+                      "slot":  2,
+                      "genre":  "Misterio y suspense"
+                  },
+                  {
+                      "bookId":  "catalog-helios-03",
+                      "bay":  1,
+                      "level":  1,
+                      "slot":  3,
+                      "genre":  "Misterio y suspense"
+                  },
+                  {
+                      "bookId":  "libro-bd9ea7bcd21d4e76",
+                      "bay":  1,
+                      "level":  2,
+                      "slot":  1,
+                      "genre":  "Misterio y suspense"
+                  }
+              ]
+}
