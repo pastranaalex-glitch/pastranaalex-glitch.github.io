@@ -1,0 +1,69 @@
+name: Mi Biblioteca Fácil 1.37.0 - publicar APK verificada
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: biblioteca-publicacion-aprobada
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    if: github.event.release.tag_name == 'mi-biblioteca-facil-v1.37.0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Obtener la Biblioteca
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Descargar la APK de la publicación oficial
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p .apk-verificacion
+          gh release download 'mi-biblioteca-facil-v1.37.0' \
+            --repo "${{ github.repository }}" \
+            --pattern 'MiBibliotecaFacil_1.37.0_PUBLICA.apk' \
+            --dir .apk-verificacion \
+            --clobber
+          test -f '.apk-verificacion/MiBibliotecaFacil_1.37.0_PUBLICA.apk'
+          test "$(stat -c%s .apk-verificacion/MiBibliotecaFacil_1.37.0_PUBLICA.apk)" -eq 28177056
+          echo '0fdb6b7c4a8b361af0f1b26a4519d7d979649d8a5a41680a221c4cecf6d2e889  .apk-verificacion/MiBibliotecaFacil_1.37.0_PUBLICA.apk' | sha256sum -c
+          mkdir -p biblioteca-app/apk
+          cp '.apk-verificacion/MiBibliotecaFacil_1.37.0_PUBLICA.apk' 'biblioteca-app/apk/MiBibliotecaFacil_1.37.0_PUBLICA.apk'
+          rm -rf .apk-verificacion
+      - name: Activar la ficha y el canal de actualizaciones
+        run: |
+          set -euo pipefail
+          python3 scripts/publicar_mi_biblioteca_facil_1370.py
+      - name: Publicar cambios en main
+        run: |
+          set -euo pipefail
+          git add -- biblioteca-app/apk/MiBibliotecaFacil_1.37.0_PUBLICA.apk \
+            biblioteca-app/actualizacion-release.json \
+            catalogo.json proximas-apps.json \
+            pack6.js proximamente.html sitemap.xml
+          if git diff --cached --quiet; then
+            echo "La versión ya estaba publicada."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publicar Mi Biblioteca Fácil 1.37.0 verificada [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Solicitar actualización de GitHub Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST "repos/${{ github.repository }}/pages/builds" >/dev/null || \
+            echo "GitHub Pages revisará el contenido publicado en main."
