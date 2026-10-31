@@ -1,6 +1,6 @@
 {
     "schema":  1,
-    "updatedAt":  "2026-10-30T21:38:02.6871712Z",
+    "updatedAt":  "2026-10-31T14:03:05.9507071Z",
     "books":  [
                   {
                       "id":  "catalog-helios-01",
@@ -121,6 +121,26 @@
                       "spineSha256":  "962a0d932c1332f960d9e9b36483423d39e76764a1718c20ca3e2ce10ab0c94b",
                       "backCoverSha256":  "c8e3f24960d2cf1efcde72f936324e4ee35b32b4bbf60e76c06c4709262ad637",
                       "updatedAt":  "2026-10-29T22:44:11.2861348Z"
+                  },
+                  {
+                      "id":  "libro-da6304317db24f1d",
+                      "title":  "Rutas emblemáticas de España",
+                      "author":  "Alexander Luis",
+                      "category":  "Auto Ayuda",
+                      "synopsis":  "Faros frente al océano, pueblos marineros, acantilados, bosques y valles donde detenerse a disfrutar del paisaje. **Rutas del Cantábrico**, de Alexander Luis, reúne **45 itinerarios por carretera** para descubrir A Coruña, Asturias, Cantabria y Bizkaia sin prisas.\r\n\r\nDesde la Costa da Morte hasta Urdaibai, pasando por los Picos de Europa y los Valles Pasiegos, esta guía combina lugares emblemáticos con recorridos por el interior y paradas junto al mar. Cada ruta presenta una secuencia de localidades y lugares de interés, sus principales paradas y orientaciones para preparar la visita.\r\n\r\nPensado para quienes disfrutan tanto del trayecto como del destino, este libro ofrece propuestas para organizar escapadas, explorar nuevos paisajes y acercarse al patrimonio natural y cultural del norte de España.\r\n\r\nUna invitación a elegir tu camino, bajar el ritmo y dejar que el viaje también se llene de pequeñas paradas.",
+                      "series":  "",
+                      "seriesOrder":  0,
+                      "type":  "epub",
+                      "url":  "https://pastranaalex-glitch.github.io/biblioteca-libros/archivos/libro-da6304317db24f1d-215d5084-e8dd4d5f10004b3d.epub",
+                      "coverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/portadas/libro-da6304317db24f1d-215d5084-45aaeb1e1e8b1efd.jpg",
+                      "spineUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/lomos/libro-da6304317db24f1d-215d5084-73616c18a9d7bc1a.jpg",
+                      "backCoverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/contraportadas/libro-da6304317db24f1d-215d5084-bd2f609f9ba8267b.jpg",
+                      "sha256":  "e8dd4d5f10004b3ddc7bacc889f9f96e3d45759d3cdcde8b677b2919006dca35",
+                      "sizeBytes":  6506726,
+                      "coverSha256":  "45aaeb1e1e8b1efd659902c812686ada020e4c54d1d75823e09bdd1a9e00ec9d",
+                      "spineSha256":  "73616c18a9d7bc1a372ac1799dcc5f8238c259d5bd8326cd750f488caa89c203",
+                      "backCoverSha256":  "bd2f609f9ba8267bf7d075bcc9c14dae283b36db7fdc876d1fe3344b246207d7",
+                      "updatedAt":  "2026-10-31T13:59:31.2720510Z"
                   }
               ]
 }
