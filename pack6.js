@@ -7,7 +7,7 @@ const safe=(v)=>typeof v==='string'?v:'';
 if(!slot)return;
 const fallback=document.getElementById('catalog-fallback');
 const visibleInCatalog=a=>a&&(a.publicado===true||(a.visibleEnCatalogo===true&&a.disponible===false&&a.descargasBloqueadas===true));
-const validApp=a=>a&&visibleInCatalog(a)&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&(a.repo===owner+'/'+a.slug||(['menu-y-compra','mi-salud-familiar','mi-dinero-real','en-familia','jardin-de-joyas','mente-activa-pro','sudoku-vivo','sopa-de-letras-pro'].includes(a.slug)&&a.repo===owner+'/'+owner+'.github.io'))&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
+const validApp=a=>a&&visibleInCatalog(a)&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&(a.repo===owner+'/'+a.slug||(['menu-y-compra','mi-salud-familiar','mi-dinero-real','en-familia','jardin-de-joyas','mente-activa-pro','sudoku-vivo','sopa-de-letras-pro','mi-biblioteca-facil'].includes(a.slug)&&a.repo===owner+'/'+owner+'.github.io'))&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
 /* La descarga nunca depende de una consulta a la API de GitHub.
    Fijamos versión, nombre y SHA-256 a los metadatos verificados del catálogo. */
 const approvedDownload=a=>{

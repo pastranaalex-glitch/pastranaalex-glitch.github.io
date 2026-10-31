@@ -358,6 +358,32 @@
       "pendientePublicacion": false,
       "valoracionesDisponibles": false,
       "portada": "sopa-de-letras-pro-portada-realista.webp"
+    },
+    {
+      "nombre": "Mi Biblioteca Fácil",
+      "slug": "mi-biblioteca-facil",
+      "plataforma": "android",
+      "publicado": true,
+      "disponible": true,
+      "version": "1.37.0",
+      "descripcion": "Biblioteca digital gratuita con estanterías de madera, cinco libros iniciales, lector PDF y EPUB, portadas y sincronización de nuevos títulos.",
+      "enlace": "https://pastranaalex-glitch.github.io/mi-biblioteca-facil.html",
+      "categorias": [
+        "lectura",
+        "utilidades"
+      ],
+      "etiqueta": "BIBLIOTECA DIGITAL",
+      "eslogan": "Tu rincón de lectura.",
+      "imagen": "mi-biblioteca-facil-estanteria.svg",
+      "icono": "mi-biblioteca-facil-portada.svg",
+      "portada": "mi-biblioteca-facil-portada.svg",
+      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
+      "descarga": {
+        "version": "1.37.0",
+        "tag": "mi-biblioteca-facil-v1.37.0",
+        "archivo": "MiBibliotecaFacil_1.37.0_PUBLICA.apk",
+        "sha256": "0fdb6b7c4a8b361af0f1b26a4519d7d979649d8a5a41680a221c4cecf6d2e889"
+      }
     }
   ]
 }

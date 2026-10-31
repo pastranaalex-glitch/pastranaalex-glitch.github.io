@@ -131,8 +131,8 @@
       "fechaEstreno": null,
       "repo": null,
       "plataforma": "android",
-      "versionAprobada": null,
-      "revisionAprobada": false,
+      "versionAprobada": "1.37.0",
+      "revisionAprobada": true,
       "publicacionAutomatica": false,
       "categorias": [
         "lectura",
@@ -142,9 +142,14 @@
       "etiqueta": "BIBLIOTECA PERSONAL",
       "eslogan": "Un rincón para tus historias.",
       "imagen": "mi-biblioteca-facil-lomos-foto.svg",
-      "estado": "EN DESARROLLO",
-      "descargasBloqueadas": true,
-      "motivoBloqueo": "Aplicación en diseño, sin versión descargable todavía."
+      "estado": "PUBLICADA",
+      "descargasBloqueadas": false,
+      "motivoBloqueo": "",
+      "versionVisible": "1.37.0",
+      "apkSubido": true,
+      "releasePublicada": true,
+      "archivoAprobado": "MiBibliotecaFacil_1.37.0_PUBLICA.apk",
+      "sha256Aprobado": "0fdb6b7c4a8b361af0f1b26a4519d7d979649d8a5a41680a221c4cecf6d2e889"
     }
   ]
 }

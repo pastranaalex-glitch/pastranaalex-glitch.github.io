@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "versionCode": 52,
+  "versionName": "1.37.0",
+  "apkUrl": "https://pastranaalex-glitch.github.io/biblioteca-app/apk/MiBibliotecaFacil_1.37.0_PUBLICA.apk",
+  "sha256": "0fdb6b7c4a8b361af0f1b26a4519d7d979649d8a5a41680a221c4cecf6d2e889",
+  "sizeBytes": 28177056,
+  "notes": "Primera versión pública. Lectura EPUB/PDF, cinco libros iniciales y sincronización del catálogo."
+}
