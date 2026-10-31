@@ -103,6 +103,14 @@ if start>=0:
     block=html[start:end]
     block=block.replace('data-proxima="mi-biblioteca-facil"','data-proxima="mi-biblioteca-facil" data-publicado="true"',1)
     block=block.replace('En desarrollo · Próximamente','Disponible · Descarga gratuita',1)
+    block=block.replace('Estamos preparando un salón de lectura con chimenea y estanterías de madera, donde podrás explorar las novelas de la colección y añadir tus propios libros.',
+                        'Incluye un salón de lectura con chimenea y estanterías de madera, donde puedes explorar las novelas de la colección y añadir tus propios libros.',1)
+    block=block.replace('Trabajamos en dos formas de explorar la colección: libros colocados de canto y portadas completas. También preparamos búsqueda, lectura cómoda, guardado del progreso y copias de seguridad.',
+                        'Puedes explorar los libros de canto o por sus portadas, buscar títulos, leer y conservar tu progreso con copias de seguridad.',1)
+    block=block.replace('El diseño incluirá copias de seguridad y restauración para proteger tu colección al actualizar o cambiar de dispositivo.',
+                        'La aplicación incluye copias de seguridad y restauración para proteger tu colección al actualizar o cambiar de dispositivo.',1)
+    block=block.replace('El diseño real se está perfeccionando y se publicará cuando pase las pruebas.',
+                        'La versión pública 1.37.0 ya está disponible para descargar.',1)
     block=block.replace('Aplicación Android en desarrollo; sin descarga disponible todavía. Fecha de publicación por confirmar.',
                         'Aplicación disponible para Android. Imagen promocional ilustrativa, no captura de pantalla.',1)
     block=block.replace('</article>', '<p><a href="mi-biblioteca-facil.html"><strong>Ver ficha y descargar Mi Biblioteca Fácil</strong></a></p>\n</article>',1)
