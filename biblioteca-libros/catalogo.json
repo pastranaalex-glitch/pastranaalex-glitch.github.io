@@ -1,27 +1,7 @@
 {
     "schema":  1,
-    "updatedAt":  "2026-10-31T22:59:59.1768257Z",
+    "updatedAt":  "2026-10-31T23:00:42.7748943Z",
     "books":  [
-                  {
-                      "id":  "catalog-helios-01",
-                      "title":  "Cinco segundos antes del caos",
-                      "author":  "Alexander Luis",
-                      "category":  "Coleccion",
-                      "synopsis":  "",
-                      "series":  "",
-                      "seriesOrder":  0,
-                      "type":  "epub",
-                      "url":  "https://pastranaalex-glitch.github.io/biblioteca-libros/archivos/catalog-helios-01-9ae37d13-4026b6fdf5cde92c.epub",
-                      "coverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/portadas/catalog-helios-01-9ae37d13-b5bb8d0e14678601.jpg",
-                      "spineUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/lomos/catalog-helios-01-9ae37d13-2c9f1cb71af8a4c4.jpg",
-                      "backCoverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/contraportadas/catalog-helios-01-9ae37d13-a0a2962050819073.jpg",
-                      "sha256":  "4026b6fdf5cde92c9c6d6d0c90804ffb4a839fefdca996359e299bcc23a123db",
-                      "sizeBytes":  51076,
-                      "coverSha256":  "b5bb8d0e146786014c8ca1651c0a2a9e963c10387fa02eb154affac8e681eedf",
-                      "spineSha256":  "2c9f1cb71af8a4c4847ffc81bdad3d35d9c141657b112faf10dbec52fd82d479",
-                      "backCoverSha256":  "a0a2962050819073ba7e9d66f821d63a600ab4b8cd541f84b66f3148b4e639c1",
-                      "updatedAt":  "2026-10-29T21:54:22.1222515Z"
-                  },
                   {
                       "id":  "catalog-manuscrito-tiempo",
                       "title":  "El Manuscrito del Tiempo",
@@ -141,6 +121,26 @@
                       "spineSha256":  "73616c18a9d7bc1a372ac1799dcc5f8238c259d5bd8326cd750f488caa89c203",
                       "backCoverSha256":  "bd2f609f9ba8267bf7d075bcc9c14dae283b36db7fdc876d1fe3344b246207d7",
                       "updatedAt":  "2026-10-31T22:58:13.5836542Z"
+                  },
+                  {
+                      "id":  "catalog-helios-01",
+                      "title":  "Cinco segundos antes del caos",
+                      "author":  "Alexander Luis",
+                      "category":  "Coleccion",
+                      "synopsis":  "",
+                      "series":  "Helios",
+                      "seriesOrder":  1,
+                      "type":  "epub",
+                      "url":  "https://pastranaalex-glitch.github.io/biblioteca-libros/archivos/catalog-helios-01-9ae37d13-4026b6fdf5cde92c.epub",
+                      "coverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/portadas/catalog-helios-01-9ae37d13-b5bb8d0e14678601.jpg",
+                      "spineUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/lomos/catalog-helios-01-9ae37d13-2c9f1cb71af8a4c4.jpg",
+                      "backCoverUrl":  "https://pastranaalex-glitch.github.io/biblioteca-libros/contraportadas/catalog-helios-01-9ae37d13-a0a2962050819073.jpg",
+                      "sha256":  "4026b6fdf5cde92c9c6d6d0c90804ffb4a839fefdca996359e299bcc23a123db",
+                      "sizeBytes":  51076,
+                      "coverSha256":  "b5bb8d0e146786014c8ca1651c0a2a9e963c10387fa02eb154affac8e681eedf",
+                      "spineSha256":  "2c9f1cb71af8a4c4847ffc81bdad3d35d9c141657b112faf10dbec52fd82d479",
+                      "backCoverSha256":  "a0a2962050819073ba7e9d66f821d63a600ab4b8cd541f84b66f3148b4e639c1",
+                      "updatedAt":  "2026-10-31T22:53:56.2657948Z"
                   }
               ]
 }
