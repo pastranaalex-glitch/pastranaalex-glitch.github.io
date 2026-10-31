@@ -131,7 +131,7 @@
       "fechaEstreno": null,
       "repo": null,
       "plataforma": "android",
-      "versionAprobada": "1.37.0",
+      "versionAprobada": "1.37.1",
       "revisionAprobada": true,
       "publicacionAutomatica": false,
       "categorias": [
@@ -145,11 +145,11 @@
       "estado": "PUBLICADA",
       "descargasBloqueadas": false,
       "motivoBloqueo": "",
-      "versionVisible": "1.37.0",
+      "versionVisible": "1.37.1",
       "apkSubido": true,
       "releasePublicada": true,
-      "archivoAprobado": "MiBibliotecaFacil_1.37.0_PUBLICA.apk",
-      "sha256Aprobado": "0fdb6b7c4a8b361af0f1b26a4519d7d979649d8a5a41680a221c4cecf6d2e889"
+      "archivoAprobado": "MiBibliotecaFacil_1.37.1_PUBLICA.apk",
+      "sha256Aprobado": "74af334ce3790647bcdf935cbae700031f229e4f0d84d6dc6c2dc6f5d9e5101e"
     }
   ]
 }

@@ -365,7 +365,7 @@
       "plataforma": "android",
       "publicado": true,
       "disponible": true,
-      "version": "1.37.0",
+      "version": "1.37.1",
       "descripcion": "Biblioteca digital gratuita con estanterías de madera, cinco libros iniciales, lector PDF y EPUB, portadas y sincronización de nuevos títulos.",
       "enlace": "https://pastranaalex-glitch.github.io/mi-biblioteca-facil.html",
       "categorias": [
@@ -379,10 +379,10 @@
       "portada": "mi-biblioteca-facil-portada.svg",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "descarga": {
-        "version": "1.37.0",
-        "tag": "mi-biblioteca-facil-v1.37.0",
-        "archivo": "MiBibliotecaFacil_1.37.0_PUBLICA.apk",
-        "sha256": "0fdb6b7c4a8b361af0f1b26a4519d7d979649d8a5a41680a221c4cecf6d2e889"
+        "version": "1.37.1",
+        "tag": "mi-biblioteca-facil-v1.37.1",
+        "archivo": "MiBibliotecaFacil_1.37.1_PUBLICA.apk",
+        "sha256": "74af334ce3790647bcdf935cbae700031f229e4f0d84d6dc6c2dc6f5d9e5101e"
       }
     }
   ]
