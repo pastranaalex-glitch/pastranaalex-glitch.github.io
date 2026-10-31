@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "versionCode": 51,
+  "versionName": "1.36.1",
+  "apkUrl": "https://pastranaalex-glitch.github.io/biblioteca-app/apk/MiBibliotecaFacil_1.36.1_PRUEBA.apk",
+  "sha256": "90e6ed0c9fcce791ab363c67f0530ec6f623d27ec49cee241fa7658cbda8b8b6",
+  "sizeBytes": 28277390,
+  "notes": "Prueba del actualizador integrado. Mantiene los libros, las fotografias y el progreso de lectura."
+}
