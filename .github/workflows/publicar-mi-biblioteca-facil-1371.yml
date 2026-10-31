@@ -3,18 +3,22 @@ name: Mi Biblioteca Fácil 1.37.1 - publicar APK verificada
 on:
   release:
     types: [published]
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publicar-mi-biblioteca-facil-1371.yml'
 
 permissions:
   contents: write
   pages: write
 
 concurrency:
-  group: biblioteca-publicacion-aprobada
+  group: mi-biblioteca-facil-publicar-1371
   cancel-in-progress: false
 
 jobs:
   publicar:
-    if: github.event.release.tag_name == 'mi-biblioteca-facil-v1.37.1'
+    if: github.event_name == 'push' || github.event.release.tag_name == 'mi-biblioteca-facil-v1.37.1'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -32,15 +36,38 @@ jobs:
           mkdir -p .apk-verificacion
           gh release download 'mi-biblioteca-facil-v1.37.1' \
             --repo "${{ github.repository }}" \
-            --pattern 'MiBibliotecaFacil_1.37.1_PUBLICA.apk' \
+            --pattern 'MiBibliotecaFacil_1.37.1_PUBLICA.apk.zip' \
             --dir .apk-verificacion \
             --clobber
-          test -f '.apk-verificacion/MiBibliotecaFacil_1.37.1_PUBLICA.apk'
-          test "$(stat -c%s .apk-verificacion/MiBibliotecaFacil_1.37.1_PUBLICA.apk)" -eq 28177024
-          echo '74af334ce3790647bcdf935cbae700031f229e4f0d84d6dc6c2dc6f5d9e5101e  .apk-verificacion/MiBibliotecaFacil_1.37.1_PUBLICA.apk' | sha256sum -c
+          archivo='.apk-verificacion/MiBibliotecaFacil_1.37.1_PUBLICA.apk.zip'
+          test -f "$archivo"
+          test "$(stat -c%s "$archivo")" -eq 28177024
+          echo '74af334ce3790647bcdf935cbae700031f229e4f0d84d6dc6c2dc6f5d9e5101e  .apk-verificacion/MiBibliotecaFacil_1.37.1_PUBLICA.apk.zip' | sha256sum -c
+          # Aunque se subió con extensión .apk.zip, los bytes son un APK Android.
+          python3 - "$archivo" <<'PY'
+          import sys, zipfile
+          with zipfile.ZipFile(sys.argv[1]) as apk:
+              names = set(apk.namelist())
+              assert "AndroidManifest.xml" in names
+              assert "classes.dex" in names
+          PY
           mkdir -p biblioteca-app/apk
-          cp '.apk-verificacion/MiBibliotecaFacil_1.37.1_PUBLICA.apk' 'biblioteca-app/apk/MiBibliotecaFacil_1.37.1_PUBLICA.apk'
+          cp "$archivo" 'biblioteca-app/apk/MiBibliotecaFacil_1.37.1_PUBLICA.apk'
           rm -rf .apk-verificacion
+      - name: Publicar asset APK con su nombre correcto
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          etiqueta='mi-biblioteca-facil-v1.37.1'
+          archivo='biblioteca-app/apk/MiBibliotecaFacil_1.37.1_PUBLICA.apk'
+          if ! gh release view "$etiqueta" --repo "${{ github.repository }}" --json assets -q '.assets[].name' | grep -Fxq 'MiBibliotecaFacil_1.37.1_PUBLICA.apk'; then
+            gh release upload "$etiqueta" "$archivo" --repo "${{ github.repository }}"
+          fi
+          # Evitar que usuarios descarguen la copia mal nombrada por error.
+          if gh release view "$etiqueta" --repo "${{ github.repository }}" --json assets -q '.assets[].name' | grep -Fxq 'MiBibliotecaFacil_1.37.1_PUBLICA.apk.zip'; then
+            gh release delete-asset "$etiqueta" 'MiBibliotecaFacil_1.37.1_PUBLICA.apk.zip' --repo "${{ github.repository }}" --yes
+          fi
       - name: Activar la ficha y el canal de actualizaciones
         run: |
           set -euo pipefail
