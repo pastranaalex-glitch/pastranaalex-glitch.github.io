@@ -1,23 +1,23 @@
 {
   "fecha": "2026-11-01",
-  "actualizado": "2026-11-01T00:22:47.249Z",
+  "actualizado": "2026-11-01T06:21:13+00:00",
   "descripcion": "Mínimos de descargas de archivos publicados en GitHub Releases; no son instalaciones ni personas únicas y no incluyen archivos descargados directamente desde GitHub Pages.",
   "conteos": {
     "cocina-a-punto": 12,
     "cocina-clara": 11,
     "documentos-de-casa": 5,
-    "en-familia": 0,
-    "jardin-de-joyas": 36,
+    "en-familia": 1,
+    "jardin-de-joyas": 46,
     "lector-facil": 19,
-    "mente-activa-pro": 44,
-    "menu-y-compra": 1,
-    "mi-dinero-real": 0,
-    "mi-salud-familiar": 70,
+    "mente-activa-pro": 46,
+    "menu-y-compra": 2,
+    "mi-biblioteca-facil": 1,
+    "mi-dinero-real": 1,
+    "mi-salud-familiar": 71,
     "recetario-facil": 22,
-    "rutas-a-pie": 30,
-    "sopa-de-letras-pro": 7,
-    "sudoku-vivo": 0,
-    "mi-biblioteca-facil": 1
+    "rutas-a-pie": 31,
+    "sopa-de-letras-pro": 10,
+    "sudoku-vivo": 1
   },
   "activos": {
     "cocina-a-punto": {
@@ -30,19 +30,19 @@
       "pastranaalex-glitch/documentos-de-casa:638319711": 5
     },
     "en-familia": {
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:648690758": 0
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:648690758": 1
     },
     "jardin-de-joyas": {
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:649022177": 2,
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:653459507": 0,
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:659100773": 7,
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:659687226": 3,
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:662600395": 4,
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:663072897": 9,
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:668303809": 2,
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:670340177": 4,
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:672181770": 4,
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:684920053": 1
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:649022177": 3,
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:653459507": 1,
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:659100773": 8,
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:659687226": 4,
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:662600395": 5,
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:663072897": 10,
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:668303809": 3,
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:670340177": 5,
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:672181770": 5,
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:684920053": 2
     },
     "lector-facil": {
       "pastranaalex-glitch/lector-facil:628195428": 1,
@@ -51,36 +51,36 @@
       "pastranaalex-glitch/lector-facil:662406760": 0
     },
     "mente-activa-pro": {
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:659958115": 41,
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:669140886": 3
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:659958115": 42,
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:669140886": 4
     },
     "menu-y-compra": {
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:644989238": 1
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:644989238": 2
+    },
+    "mi-biblioteca-facil": {
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:696815863": 1
     },
     "mi-dinero-real": {
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:669324838": 0
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:669324838": 1
     },
     "mi-salud-familiar": {
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:643218063": 70
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:643218063": 71
     },
     "recetario-facil": {
       "pastranaalex-glitch/recetario-facil:630361356": 22
     },
     "rutas-a-pie": {
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:634270904": 12,
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:634270904": 13,
       "pastranaalex-glitch/rutas-a-pie:636587933": 18,
       "pastranaalex-glitch/rutas-a-pie:676255527": 0
     },
     "sopa-de-letras-pro": {
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:672440329": 5,
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:675777054": 1,
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:678381681": 1
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:672440329": 6,
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:675777054": 2,
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:678381681": 2
     },
     "sudoku-vivo": {
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:670471932": 0
-    },
-    "mi-biblioteca-facil": {
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:696815863": 1
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:670471932": 1
     }
   }
 }
