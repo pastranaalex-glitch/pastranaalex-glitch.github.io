@@ -7,7 +7,7 @@ const safe=(v)=>typeof v==='string'?v:'';
 if(!slot)return;
 const fallback=document.getElementById('catalog-fallback');
 const visibleInCatalog=a=>a&&(a.publicado===true||(a.visibleEnCatalogo===true&&a.disponible===false&&a.descargasBloqueadas===true));
-const validApp=a=>a&&visibleInCatalog(a)&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&(a.repo===owner+'/'+a.slug||(['menu-y-compra','mi-salud-familiar','mi-dinero-real','en-familia','jardin-de-joyas','mente-activa-pro','sudoku-vivo','sopa-de-letras-pro','mi-biblioteca-facil'].includes(a.slug)&&a.repo===owner+'/'+owner+'.github.io'))&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
+const validApp=a=>a&&visibleInCatalog(a)&&['android','windows'].includes(a.plataforma)&&/^[a-z0-9-]+$/.test(a.slug||'')&&(a.repo===owner+'/'+a.slug||(['menu-y-compra','mi-salud-familiar','mi-dinero-real','en-familia','jardin-de-joyas','mente-activa-pro','sudoku-vivo','sopa-de-letras-pro','mi-biblioteca-facil','cuadernos-faciles'].includes(a.slug)&&a.repo===owner+'/'+owner+'.github.io'))&&safe(a.nombre)&&safe(a.descripcion)&&safe(a.enlace)==='https://'+owner+'.github.io/'+a.slug+'.html';
 /* La descarga nunca depende de una consulta a la API de GitHub.
    Fijamos versión, nombre y SHA-256 a los metadatos verificados del catálogo. */
 const approvedDownload=a=>{
@@ -38,7 +38,7 @@ function card(a){
  const art=mk('div','card-art card-art-'+a.slug);
  const copy=mk('div','card-art-copy');copy.append(mk('span','art-tag',a.etiqueta||'APP GRATUITA'),mk('strong',null,a.eslogan||a.nombre),mk('span',null,a.plataforma==='windows'?'Para tu ordenador':'Para tu móvil'));art.append(copy);
  const image=a.portada||a.imagen,isCover=Boolean(a.portada)||a.slug==='jardin-de-joyas';if(isCover)art.classList.add('is-promo-cover');
- if(image&&(/^[\w\s.()-]+\.(webp|jpeg|jpg|png)$/i.test(image)||(a.slug==='sudoku-vivo'&&image==='sudoku-vivo-portada.svg'))){const holder=mk('div','card-phone card-phone-'+a.slug);const img=mk('img');img.src=image;img.width=1600;img.height=900;img.alt=(isCover?'Portada promocional de ':'Captura real de ')+a.nombre;img.loading='lazy';img.decoding='async';holder.append(img);art.append(holder);}else{const holder=mk('div','pack6-art-logo');const mark=mk('img');mark.src=a.icono;mark.width=64;mark.height=64;mark.alt='';mark.loading='lazy';mark.decoding='async';holder.append(mark);art.append(holder);}
+ if(image&&(/^[\w\s.()-]+\.(webp|jpeg|jpg|png)$/i.test(image)||(a.slug==='sudoku-vivo'&&image==='sudoku-vivo-portada.svg')||(a.slug==='cuadernos-faciles'&&image==='cuadernos-faciles-proximamente.svg'))){const holder=mk('div','card-phone card-phone-'+a.slug);const img=mk('img');img.src=image;img.width=1600;img.height=900;img.alt=(isCover?'Portada promocional de ':'Captura real de ')+a.nombre;img.loading='lazy';img.decoding='async';holder.append(img);art.append(holder);}else{const holder=mk('div','pack6-art-logo');const mark=mk('img');mark.src=a.icono;mark.width=64;mark.height=64;mark.alt='';mark.loading='lazy';mark.decoding='async';holder.append(mark);art.append(holder);}
  const body=mk('div','card-body'),identity=mk('div','app-identity'),icon=mk('img','app-icon');icon.src=a.icono;icon.alt='';icon.loading='lazy';icon.width=54;icon.height=54;
  const names=mk('div');names.append(mk('h3',null,a.nombre),mk('p',null,(a.plataforma==='windows'?'Windows':'Android')+' · '+((a.categorias||[])[0]||'Herramientas')));identity.append(icon,names,mk('span','free-label',paused?'En reparación':a.estado==='BETA'?'BETA':a.slug==='sopa-de-letras-pro'?'Próximamente':'Gratis'));
  const short={'lector-facil':'Lee PDF y Word, prepara exposiciones y guarda marcadores.','recetario-facil':'52 recetas ilustradas, con búsqueda y preparación paso a paso.','rutas-a-pie':'Explora 400 rutas por España y graba tus recorridos con GPS.'};
@@ -50,7 +50,7 @@ function card(a){
  else if(direct){dl.href=direct;dl.title='Descargar la versión '+a.version+(a.descargaDirecta?' desde la Biblioteca':' desde GitHub Releases');}
  else{dl.href=a.enlace;dl.textContent='Ver descarga →';dl.title='Consultar la ficha antes de descargar';}
  // Sudoku Vivo sólo ofrecerá la APK cuando coincidan etiqueta, nombre y SHA256 en GitHub.
- if((a.slug==='sudoku-vivo'||a.slug==='sopa-de-letras-pro')&&!paused){dl.href=a.enlace+'#descarga';dl.textContent='Ver descarga →';dl.title='La descarga se activa tras comprobar la APK firmada en GitHub';}
+ if((a.slug==='sudoku-vivo'||a.slug==='sopa-de-letras-pro'||a.slug==='cuadernos-faciles')&&!paused){dl.href=a.enlace+'#descarga';dl.textContent='Ver descarga →';dl.title='La descarga se activa tras comprobar la APK firmada en GitHub';}
  if(!paused){dl.rel='noopener noreferrer';if(a.plataforma==='windows')dl.target='_blank';}
  actions.append(detail,dl);footer.append(stats,actions);body.append(identity,desc);if(paused){body.append(mk('p','ui-warning','Temporalmente no disponible hasta completar la reparación.'));strong.textContent='—';label.textContent='En reparación';small.textContent='Descarga desactivada';}if(a.slug==='cocina-a-punto'){const notice=mk('a','ui-warning','1 detección en VirusTotal · En revisión');notice.href='cocina-a-punto.html#informacion-descarga';body.append(notice);}body.append(meta,footer);article.append(art,body);
  const upcoming=a.anuncioActualizacion;
@@ -130,6 +130,7 @@ function belongsToApp(asset,release,a,repo){
   case 'menu-y-compra':return /^Menu[_-]y[_-]Compra(?:[._-]|[0-9])/i.test(name);
   case 'mi-dinero-real':return /^MiDineroReal2_[0-9].*\.apk$/i.test(name);
   case 'rutas-a-pie':return /^RutasAPie(?:[._-]|[0-9])/i.test(name);
+  case 'cuadernos-faciles':return /^(Cuadernos_Faciles_PUBLICO_WINDOWS_3_0|CuadernosFaciles_3_Publico_Windows)\.zip$/i.test(name);
   default:return false;
  }
 }
@@ -159,7 +160,13 @@ async function github(a){
   if(total>=minimo){a.count=total;a.countSnapshotDate=null;}
   else{a.count=minimo;a.countPreserved=true;}
   const current=sources[0].releases.find(r=>r&&!r.draft&&!r.prerelease&&r.tag_name===a.descarga?.tag);
-  const verified=current?.assets?.find(x=>assetValid(x,a));
+  const verified=current?.assets?.find(x=>a.slug==='cuadernos-faciles'
+    ?(x.state==='uploaded'
+      &&['Cuadernos_Faciles_PUBLICO_WINDOWS_3_0.zip','CuadernosFaciles_3_Publico_Windows.zip'].includes(x.name)
+      &&x.digest==='sha256:'+a.descarga.sha256
+      &&x.browser_download_url==='https://github.com/'+a.repo+'/releases/download/'+a.descarga.tag+'/'+x.name)
+    :assetValid(x,a));
+  if(verified&&a.slug==='cuadernos-faciles')a.descarga.archivo=verified.name;
   if(verified){
    a.date=Date.parse(current.published_at||current.created_at||'')||0;
    a.releaseName=current.name||current.tag_name||a.nombre;a.hasRelease=true;
@@ -216,8 +223,8 @@ function updateLink(a){
   a.node.querySelector('.downloads small').textContent='La descarga sigue disponible';
  }
  const direct=approvedDownload(a);
- if(a.slug==='sudoku-vivo'&&a.downloadLink?.tagName==='A'){
-  if(a.hasRelease&&direct){a.downloadLink.href=direct;a.downloadLink.textContent='Descargar ↓';a.downloadLink.title='APK firmada comprobada con GitHub Releases';}
+ if((a.slug==='sudoku-vivo'||a.slug==='cuadernos-faciles')&&a.downloadLink?.tagName==='A'){
+  if(a.hasRelease&&direct){a.downloadLink.href=direct;a.downloadLink.textContent='Descargar ↓';a.downloadLink.title='Descarga comprobada con GitHub Releases';}
   else{a.downloadLink.href=a.enlace+'#descarga';a.downloadLink.textContent='Ver descarga →';a.downloadLink.title='Consultar disponibilidad y verificación en la ficha';}
  }else if(direct&&a.downloadLink?.tagName==='A')a.downloadLink.href=direct;
 }
