@@ -384,6 +384,34 @@
         "archivo": "MiBibliotecaFacil_1.37.1_PUBLICA.apk",
         "sha256": "74af334ce3790647bcdf935cbae700031f229e4f0d84d6dc6c2dc6f5d9e5101e"
       }
+    },
+    {
+      "nombre": "Cuadernos Fáciles",
+      "slug": "cuadernos-faciles",
+      "plataforma": "windows",
+      "publicado": true,
+      "disponible": true,
+      "version": "3.0.0",
+      "descripcion": "204 publicaciones y 595 páginas PDF de sudokus, sopas de letras, memoria, lógica y fichas educativas. Descarga e imprime actividades, guarda favoritos y crea tus propios cuadernos. Gratis, sin anuncios ni registro.",
+      "enlace": "https://pastranaalex-glitch.github.io/cuadernos-faciles.html",
+      "categorias": [
+        "utilidades",
+        "educacion"
+      ],
+      "etiqueta": "PASATIEMPOS Y CUADERNOS",
+      "eslogan": "Para ti y para toda la familia.",
+      "imagen": "cuadernos-faciles-proximamente.svg",
+      "portada": "cuadernos-faciles-proximamente.svg",
+      "icono": "cuadernos-faciles-icono.svg",
+      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
+      "descarga": {
+        "version": "3.0.0",
+        "tag": "cuadernos-faciles-publico-v3.0.0",
+        "archivo": "Cuadernos_Faciles_PUBLICO_WINDOWS_3_0.zip",
+        "sha256": "62020efa7da3c29ac48fce087d1d6994c637b5ca07eb579bc9f6735f3bc454c8"
+      },
+      "estado": "Publicación condicionada a verificación del archivo en GitHub Releases",
+      "valoracionesDisponibles": false
     }
   ]
 }
