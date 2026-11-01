@@ -124,25 +124,6 @@
       "versionCodeAprobado": 6,
       "archivoAprobado": "Mente_Activa_PRO_1_5_0_PACK6.apk",
       "icono": "icono-mente-activa-pro.svg"
-    },
-    {
-      "slug": "cuadernos-faciles",
-      "nombre": "Cuadernos Fáciles",
-      "fechaEstreno": null,
-      "repo": null,
-      "plataforma": "windows",
-      "versionAprobada": null,
-      "revisionAprobada": false,
-      "publicacionAutomatica": false,
-      "categorias": [
-        "pasatiempos",
-        "educacion",
-        "utilidades"
-      ],
-      "descripcion": "Pasatiempos, memoria, fichas y cuadernos imprimibles para adultos, jóvenes y familias. En desarrollo: no hay descarga pública ni fecha confirmada.",
-      "etiqueta": "CUADERNOS Y ACTIVIDADES",
-      "eslogan": "Para ti y para tu familia.",
-      "imagen": "cuadernos-faciles-proximamente.svg"
     }
   ]
 }
