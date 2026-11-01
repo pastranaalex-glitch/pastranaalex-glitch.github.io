@@ -126,30 +126,23 @@
       "icono": "icono-mente-activa-pro.svg"
     },
     {
-      "slug": "mi-biblioteca-facil",
-      "nombre": "Mi Biblioteca Fácil",
+      "slug": "cuadernos-faciles",
+      "nombre": "Cuadernos Fáciles",
       "fechaEstreno": null,
-      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
-      "plataforma": "android",
-      "versionAprobada": "1.37.1",
-      "revisionAprobada": true,
+      "repo": null,
+      "plataforma": "windows",
+      "versionAprobada": null,
+      "revisionAprobada": false,
       "publicacionAutomatica": false,
       "categorias": [
-        "lectura",
+        "pasatiempos",
+        "educacion",
         "utilidades"
       ],
-      "descripcion": "Mi Biblioteca Fácil 1.37.1 está publicada. Biblioteca gratuita para Android con estanterías de madera, cinco libros iniciales, lectura PDF/EPUB, sincronización y consentimiento voluntario para estadísticas agregadas.",
-      "etiqueta": "BIBLIOTECA DIGITAL",
-      "eslogan": "Un rincón para tus historias.",
-      "imagen": "mi-biblioteca-facil-lomos-foto.svg",
-      "estado": "PUBLICADA",
-      "descargasBloqueadas": false,
-      "motivoBloqueo": "",
-      "versionVisible": "1.37.1",
-      "apkSubido": true,
-      "releasePublicada": true,
-      "archivoAprobado": "MiBibliotecaFacil_1.37.1_PUBLICA.apk",
-      "sha256Aprobado": "74af334ce3790647bcdf935cbae700031f229e4f0d84d6dc6c2dc6f5d9e5101e"
+      "descripcion": "Pasatiempos, memoria, fichas y cuadernos imprimibles para adultos, jóvenes y familias. En desarrollo: no hay descarga pública ni fecha confirmada.",
+      "etiqueta": "CUADERNOS Y ACTIVIDADES",
+      "eslogan": "Para ti y para tu familia.",
+      "imagen": "cuadernos-faciles-proximamente.svg"
     }
   ]
 }
