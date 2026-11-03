@@ -26,7 +26,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A -- aprende-facil aprende-facil.html aprende-facil-portada.webp catalogo.json AprendeFacilPRO_PACK20_4_WEB_PUBLICAR.zip
+          git add -A -- aprende-facil aprende-facil.html aprende-facil-portada.webp catalogo.json pack6.js AprendeFacilPRO_PACK20_4_WEB_PUBLICAR.zip
           git diff --cached --quiet && exit 0
           git commit -m 'Publicar Aprende Fácil PRO 20.4 en la Biblioteca'
           git push origin HEAD:main
