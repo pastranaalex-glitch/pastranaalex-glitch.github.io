@@ -407,7 +407,7 @@
       "descarga": {
         "version": "3.0.0",
         "tag": "cuadernos-faciles-publico-v3.0.0",
-        "archivo": "Cuadernos_Faciles_PUBLICO_WINDOWS_3_0.zip",
+        "archivo": "CuadernosFaciles_3_Publico_Windows.zip",
         "sha256": "62020efa7da3c29ac48fce087d1d6994c637b5ca07eb579bc9f6735f3bc454c8"
       },
       "estado": "Publicación condicionada a verificación del archivo en GitHub Releases",
