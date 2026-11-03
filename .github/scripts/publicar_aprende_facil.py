@@ -20,7 +20,7 @@ def install():
         total=0
         for x in z.infolist():
             p=PurePosixPath(x.filename)
-            if (not p.parts or p.parts[0]!="aprende-facil" or
+            if (not p.parts or (p.parts[0]!="aprende-facil" and x.filename!="LEEME_PUBLICACION.txt") or
                 p.is_absolute() or ".." in p.parts or "\\" in x.filename or
                 ":" in x.filename or stat.S_ISLNK(x.external_attr>>16)):
                 raise ValueError("Archivo fuera de la carpeta autorizada: "+x.filename)
