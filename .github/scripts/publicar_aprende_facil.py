@@ -91,6 +91,33 @@ h1{font-size:clamp(30px,5vw,46px);margin:0}h2{font-size:1.1rem;margin:0}.lead{fo
       "valoracionesDisponibles":False
     })
     catfile.write_text(json.dumps(catalogue,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+
+    # La Biblioteca utiliza un catálogo centralizado en pack6.js.
+    # Activamos únicamente el nuevo slug y evitamos mostrar falsas descargas.
+    ui=Path("pack6.js")
+    js=ui.read_text(encoding="utf-8")
+    needle="'cuadernos-faciles'].includes(a.slug)"
+    replacement="'cuadernos-faciles','aprende-facil'].includes(a.slug)"
+    if needle in js:
+        js=js.replace(needle,replacement)
+    elif replacement not in js:
+        raise RuntimeError("No se encontró la lista de aplicaciones en pack6.js")
+    needle="if(a.disponible===false){a.stat.textContent='—';a.label.textContent='En reparación';"
+    replacement=("if(a.slug==='aprende-facil'){"
+                 "a.stat.textContent='6';a.label.textContent='Cursos gratuitos';"
+                 "a.node.querySelector('.downloads small').textContent='261 lecciones · Acceso web';return;}"
+                 +needle)
+    if needle in js and "a.label.textContent='Cursos gratuitos'" not in js:
+        js=js.replace(needle,replacement)
+    elif "a.label.textContent='Cursos gratuitos'" not in js:
+        raise RuntimeError("No se encontró la sección de estadísticas en pack6.js")
+    needle="dl.textContent='Ver descarga →';dl.title='Consultar la ficha antes de descargar';"
+    replacement=needle+"if(a.slug==='aprende-facil'){dl.textContent='Abrir cursos →';dl.title='Abrir la academia desde el navegador';}"
+    if needle in js and "dl.title='Abrir la academia desde el navegador'" not in js:
+        js=js.replace(needle,replacement)
+    elif "dl.title='Abrir la academia desde el navegador'" not in js:
+        raise RuntimeError("No se encontró el enlace de acceso en pack6.js")
+    ui.write_text(js,encoding="utf-8")
     ARCHIVE.unlink()
     print("Validado y preparado: 6 cursos, 261 lecciones y ficha en el catálogo.")
 
