@@ -68,10 +68,7 @@ footer{padding:24px 0;background:#132d40;color:#ecf2f5}footer a{color:white}
  'use strict';
  const repo = 'pastranaalex-glitch/pastranaalex-glitch.github.io';
  const tag = 'cuadernos-faciles-publico-v3.0.0';
- const descargas = [
-   'https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/cuadernos-faciles-publico-v3.0.0/Cuadernos_Faciles_PUBLICO_WINDOWS_3_0.zip',
-   'https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/cuadernos-faciles-publico-v3.0.0/CuadernosFaciles_3_Publico_Windows.zip'
- ];
+ const descarga = 'https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/cuadernos-faciles-publico-v3.0.0/CuadernosFaciles_3_Publico_Windows.zip';
  const sha = '62020efa7da3c29ac48fce087d1d6994c637b5ca07eb579bc9f6735f3bc454c8';
  const estado = document.getElementById('estado-descarga');
  const boton = document.getElementById('boton-descarga');
@@ -81,7 +78,7 @@ footer{padding:24px 0;background:#132d40;color:#ecf2f5}footer a{color:white}
  fetch('https://api.github.com/repos/' + repo + '/releases/tags/' + tag, {headers:{Accept:'application/vnd.github+json'},signal:controller.signal})
  .then(response => {if(!response.ok)throw Error('No publicada');return response.json()})
  .then(release=>{
-   const asset=(release.assets||[]).find(a=>a.state==='uploaded' && descargas.includes(a.browser_download_url) && a.browser_download_url.endsWith('/'+a.name) && a.digest==='sha256:'+sha);
+   const asset=(release.assets||[]).find(a=>a.state==='uploaded' && a.browser_download_url===descarga && a.browser_download_url.endsWith('/'+a.name) && a.digest==='sha256:'+sha);
    if(!release.draft && !release.prerelease && asset){
      boton.href=asset.browser_download_url;boton.removeAttribute('aria-disabled');boton.removeAttribute('tabindex');
      boton.textContent='Descargar Cuadernos Fáciles 3.0 (ZIP)';
