@@ -1,9 +1,9 @@
 {
   "fecha": "2026-11-03",
-  "actualizado": "2026-11-03T06:57:26+00:00",
+  "actualizado": "2026-11-03T19:35:05+00:00",
   "descripcion": "Mínimos de descargas de archivos publicados en GitHub Releases; no son instalaciones ni personas únicas y no incluyen archivos descargados directamente desde GitHub Pages.",
   "conteos": {
-    "cocina-a-punto": 12,
+    "cocina-a-punto": 13,
     "cocina-clara": 11,
     "documentos-de-casa": 5,
     "en-familia": 1,
@@ -21,7 +21,7 @@
   },
   "activos": {
     "cocina-a-punto": {
-      "pastranaalex-glitch/cocina-a-punto:631618206": 12
+      "pastranaalex-glitch/cocina-a-punto:631618206": 13
     },
     "cocina-clara": {
       "pastranaalex-glitch/cocina-clara:629224309": 11
