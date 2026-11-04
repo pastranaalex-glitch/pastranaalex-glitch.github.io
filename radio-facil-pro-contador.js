@@ -17,8 +17,15 @@
         el.textContent = (approximate ? '≥ ' : '') + fmt(value);
         el.title = note || 'Descargas acumuladas de APK en GitHub Releases; no son usuarios únicos.';
       } else {
-        el.textContent = 'No disponible';
-        el.title = note || 'No se pudo consultar GitHub en este momento.';
+        const badge = document.createElement('img');
+        badge.src = 'https://img.shields.io/github/downloads/pastranaalex-glitch/pastranaalex-glitch.github.io/radio-facil-pro-v1.21.0/RadioFacilPRO_1.21.0.apk?label=descargas&style=flat-square&color=187b85';
+        badge.alt = 'Descargas de la APK 1.21.0 según GitHub Releases';
+        badge.width = 148;
+        badge.height = 20;
+        badge.style.cssText = 'display:inline-block;vertical-align:middle;max-width:100%;height:auto;';
+        badge.onerror = () => { el.textContent = 'Consulta no disponible'; };
+        el.replaceChildren(badge);
+        el.title = note || 'Descargas de la APK 1.21.0 a través de GitHub Releases.';
       }
     });
   }
@@ -46,6 +53,24 @@
   }
   async function run() {
     const snapshot = await minimumSnapshot();
+    try {
+      // Un solo lanzamiento y una sola solicitud: más fiable que recorrer
+      // cientos de lanzamientos del repositorio compartido.
+      const url = 'https://api.github.com/repos/' + repo + '/releases/tags/radio-facil-pro-v1.21.0';
+      const release = await withTimeout(url);
+      const asset = (Array.isArray(release.assets) ? release.assets : []).find(a =>
+        a.state === 'uploaded' &&
+        a.name === 'RadioFacilPRO_1.21.0.apk' &&
+        String(a.browser_download_url || '') ===
+          'https://github.com/' + repo + '/releases/download/radio-facil-pro-v1.21.0/RadioFacilPRO_1.21.0.apk'
+      );
+      const n = Number(asset?.download_count);
+      if (asset && Number.isSafeInteger(n) && n >= 0) {
+        if (snapshot && snapshot.value > n) render(snapshot.value, true, 'Mínimo histórico de las versiones publicadas');
+        else render(n, false, 'Descargas verificadas de la APK Radio Fácil PRO 1.21.0 en GitHub Releases');
+        return;
+      }
+    } catch (_) { /* Intentar el historial o mostrar la insignia pública. */ }
     try {
       let count = 0;
       const ids = new Set();
