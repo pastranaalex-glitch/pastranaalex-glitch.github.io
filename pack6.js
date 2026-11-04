@@ -131,6 +131,7 @@ function belongsToApp(asset,release,a,repo){
   case 'mi-dinero-real':return /^MiDineroReal2_[0-9].*\.apk$/i.test(name);
   case 'rutas-a-pie':return /^RutasAPie(?:[._-]|[0-9])/i.test(name);
   case 'cuadernos-faciles':return /^(Cuadernos_Faciles_PUBLICO_WINDOWS_3_0|CuadernosFaciles_3_Publico_Windows)\.zip$/i.test(name);
+  case 'radio-facil-pro':return /^RadioFacilPRO_[0-9][0-9._-]*\.apk$/i.test(name);
   default:return false;
  }
 }
