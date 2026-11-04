@@ -2,6 +2,7 @@ name: Contador de descargas - Radio Facil PRO
 
 on:
   workflow_dispatch:
+  # También se ejecuta al editar este archivo para generar el primer contador.
   schedule:
     - cron: '19 */6 * * *'
   push:
