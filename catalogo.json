@@ -1,417 +1,443 @@
 {
-  "formato": 2,
-  "aplicaciones": [
-    {
-      "nombre": "Lector Fácil",
-      "plataforma": "android",
-      "publicado": true,
-      "version": "1.0.5",
-      "descripcion": "Lee PDF y Word con zoom táctil, lectura adaptable y OCR sin conexión; incluye marcadores, herramientas para exposiciones y avisos de actualizaciones dentro de la app.",
-      "enlace": "https://pastranaalex-glitch.github.io/lector-facil.html",
-      "slug": "lector-facil",
-      "categorias": [
-        "lectura"
-      ],
-      "etiqueta": "LECTURA Y DOCUMENTOS",
-      "eslogan": "Lee a tu manera.",
-      "imagen": "captura-01-inicio.webp",
-      "icono": "icono-lector.svg",
-      "repo": "pastranaalex-glitch/lector-facil",
-      "portada": "lector-facil-portada-realista.webp",
-      "descarga": {
-        "version": "1.0.5",
-        "tag": "v.1.0.5",
-        "archivo": "LectorFacil-v1.0.5.apk",
-        "sha256": "e0d456ca85592f47b13098001142cba6e1a513511b993627e1bf22637d2075e7"
-      },
-      "disponible": true
-    },
-    {
-      "nombre": "Recetario Fácil",
-      "plataforma": "android",
-      "publicado": true,
-      "version": "1.20.0",
-      "descripcion": "52 recetas ilustradas para Android con búsqueda, cantidades ajustables, tiempos y preparación paso a paso.",
-      "enlace": "https://pastranaalex-glitch.github.io/recetario-facil.html",
-      "slug": "recetario-facil",
-      "categorias": [
-        "cocina"
-      ],
-      "etiqueta": "RECETAS PARA TODOS",
-      "eslogan": "El gusto de cocinar.",
-      "imagen": "recetario-01-inicio.webp",
-      "icono": "icono-recetario.svg",
-      "repo": "pastranaalex-glitch/recetario-facil",
-      "portada": "recetario-facil-portada-realista.webp",
-      "descarga": {
-        "version": "1.20.0",
-        "tag": "v1.20.0",
-        "archivo": "RecetarioFacil-v1.20.0.apk",
-        "sha256": "d657d6543f9c2996c3157162391ab9dcdbe808e396828f3b107ab65bab73fd72"
-      }
-    },
-    {
-      "nombre": "Cocina Clara",
-      "plataforma": "windows",
-      "publicado": true,
-      "version": "1.6.0",
-      "descripcion": "Recetario gratuito para Windows con 34 recetas, búsqueda y opciones de impresión.",
-      "enlace": "https://pastranaalex-glitch.github.io/cocina-clara.html",
-      "slug": "cocina-clara",
-      "categorias": [
-        "cocina"
-      ],
-      "etiqueta": "COCINA EN WINDOWS",
-      "eslogan": "Todo más claro.",
-      "imagen": "",
-      "icono": "icono-clara.svg",
-      "repo": "pastranaalex-glitch/cocina-clara",
-      "portada": "cocina-clara-portada-realista.webp",
-      "descarga": {
-        "version": "1.6.0",
-        "tag": "v1.6.0",
-        "archivo": "CocinaClara_Setup_1.6.0.exe",
-        "sha256": "416b13a599a4859650402f57413acf4bd3a2c7e390b48fdc85145bed20610e2e"
-      }
-    },
-    {
-      "nombre": "Cocina a Punto",
-      "plataforma": "android",
-      "publicado": true,
-      "version": "1.4.1",
-      "descripcion": "Cronómetros de cocina simultáneos para Android con atajos personalizables, avisos y vibración.",
-      "enlace": "https://pastranaalex-glitch.github.io/cocina-a-punto.html",
-      "slug": "cocina-a-punto",
-      "categorias": [
-        "cocina",
-        "utilidades"
-      ],
-      "etiqueta": "TEMPORIZADORES",
-      "eslogan": "Todo a su tiempo.",
-      "imagen": "cocina-punto-02-simultaneos.webp",
-      "icono": "icono-punto.svg",
-      "repo": "pastranaalex-glitch/cocina-a-punto",
-      "portada": "cocina-a-punto-portada-realista.webp",
-      "descarga": {
-        "version": "1.4.1",
-        "tag": "v1.4.1",
-        "archivo": "CocinaAPunto-v1.4.1.apk",
-        "sha256": "c6f3357a7b342095d2c50d376239fb71f3b3c1e69a615d8365aedd94f930fe37"
-      }
-    },
-    {
-      "nombre": "Rutas a Pie",
-      "plataforma": "android",
-      "publicado": true,
-      "version": "1.7.0",
-      "descripcion": "400 fichas de senderismo por las 17 comunidades autónomas, con 100 rutas nuevas, mapa integrado, grabación GPS, historial, favoritos, GPX y ayuda senderista.",
-      "enlace": "https://pastranaalex-glitch.github.io/rutas-a-pie.html",
-      "slug": "rutas-a-pie",
-      "categorias": [
-        "rutas"
-      ],
-      "etiqueta": "CAMINA Y DESCUBRE",
-      "eslogan": "Tu próxima ruta.",
-      "imagen": "WhatsApp Image 2026-10-12 at 18.21.56.jpeg",
-      "icono": "icono-rutas.svg",
-      "repo": "pastranaalex-glitch/rutas-a-pie",
-      "portada": "rutas-a-pie-portada-realista.webp",
-      "descarga": {
-        "version": "1.7.0",
-        "tag": "v1.7.0",
-        "archivo": "app-release.8.apk",
-        "sha256": "23ccbe8a22041ca75548d16cf52197d09bb81165fe7c820a237e0f942a2ad9cc"
-      },
-      "estado": "Disponible",
-      "disponible": true
-    },
-    {
-      "nombre": "Documentos de Casa",
-      "plataforma": "android",
-      "publicado": true,
-      "version": "1.7.6",
-      "descripcion": "Escanea con captura automática o manual, mejora imágenes, organiza documentos por carpetas, exporta PDF y protege tus archivos con huella y copias cifradas.",
-      "enlace": "https://pastranaalex-glitch.github.io/documentos-de-casa.html",
-      "slug": "documentos-de-casa",
-      "categorias": [
-        "lectura",
-        "utilidades"
-      ],
-      "etiqueta": "ESCÁNER Y ARCHIVADOR",
-      "eslogan": "Tus documentos, protegidos.",
-      "imagen": "",
-      "icono": "icono-documentos.svg",
-      "repo": "pastranaalex-glitch/documentos-de-casa",
-      "portada": "documentos-de-casa-portada-realista.webp",
-      "descarga": {
-        "version": "1.7.6",
-        "tag": "V1.7.6",
-        "archivo": "DOCUMENTOS.DE.CASA.1.7.6.apk",
-        "sha256": "bb3878f8d68a54adb944aabd915a85892a9e7cae85dd74daec99839343e5c859"
-      }
-    },
-    {
-      "nombre": "Menú y Compra",
-      "plataforma": "android",
-      "publicado": true,
-      "version": "1.4.3",
-      "descripcion": "Planifica menús semanales, guarda recetas y organiza listas de compra con ingredientes agrupados.",
-      "enlace": "https://pastranaalex-glitch.github.io/menu-y-compra.html",
-      "slug": "menu-y-compra",
-      "categorias": [
-        "cocina",
-        "utilidades"
-      ],
-      "etiqueta": "MENÚS Y LISTAS",
-      "eslogan": "Organiza tu semana.",
-      "imagen": "menu-compra-semana.jpg",
-      "icono": "icono-menu.svg",
-      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
-      "portada": "menu-y-compra-portada-realista.webp",
-      "descarga": {
-        "version": "1.4.3",
-        "tag": "v.1.4.3",
-        "archivo": "Menu_y_Compra_1.4.3_Publicacion_Firmada.3.apk",
-        "sha256": "b33d1715d4bdc45a9b493171c590ee8111ce4e740e4ff64d810b9a9687888200"
-      }
-    },
-    {
-      "nombre": "Mi Salud Familiar",
-      "plataforma": "android",
-      "publicado": true,
-      "version": "2.9",
-      "descripcion": "Organiza medicamentos, enfermedades, alergias, tensión arterial e informes en dos perfiles independientes, con copias JSON.",
-      "enlace": "https://pastranaalex-glitch.github.io/mi-salud-familiar.html",
-      "slug": "mi-salud-familiar",
-      "categorias": [
-        "salud",
-        "utilidades"
-      ],
-      "etiqueta": "SALUD FAMILIAR",
-      "eslogan": "Tu salud, organizada.",
-      "imagen": "",
-      "icono": "icono-salud.svg",
-      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
-      "portada": "mi-salud-familiar-salud-organizada.webp",
-      "descarga": {
-        "version": "2.9",
-        "tag": "mi-salud-familiar-v2.9",
-        "archivo": "MiSaludFamiliar_2.9_Publicacion_Firmada.apk",
-        "sha256": "bc749053460064f8a85c9d6bf1af5ef1b4ac34a532e6fc915c3bda4dd276d749"
-      }
-    },
-    {
-      "nombre": "Mi Dinero Real 2",
-      "plataforma": "android",
-      "publicado": true,
-      "version": "2.5.2",
-      "descripcion": "Controla ingresos, gastos, alimentación y presupuestos. Incluye análisis, informes y avisos de nuevas versiones. Gratis y sin anuncios.",
-      "enlace": "https://pastranaalex-glitch.github.io/mi-dinero-real.html",
-      "slug": "mi-dinero-real",
-      "categorias": [
-        "economia",
-        "utilidades"
-      ],
-      "etiqueta": "ECONOMÍA DEL HOGAR",
-      "eslogan": "Tus cuentas, más claras.",
-      "imagen": "",
-      "icono": "icono-mi-dinero-real.svg",
-      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
-      "portada": "mi-dinero-real-portada-realista.webp",
-      "disponible": true,
-      "descargasBloqueadas": false,
-      "estado": "Disponible",
-      "visibleEnCatalogo": true,
-      "descarga": {
-        "version": "2.5.2",
-        "tag": "mi-dinero-real-v2.5.2",
-        "archivo": "MiDineroReal2_2_5_2_FIRMA_PERMANENTE.apk",
-        "sha256": "d0d3e6c0e42b42c956e0e5227bb5bfde35b21c2175324906a71c986d6398ea16"
-      }
-    },
-    {
-      "nombre": "En Familia",
-      "plataforma": "android",
-      "publicado": true,
-      "version": "1.7.2",
-      "descripcion": "Juego educativo y familiar con 500 pruebas de mímica, dibujo, pistas, historias, vocalización y preguntas, con historial entre jornadas y modos cooperativo o por equipos.",
-      "enlace": "https://pastranaalex-glitch.github.io/en-familia.html",
-      "slug": "en-familia",
-      "categorias": [
-        "juegos",
-        "familia"
-      ],
-      "etiqueta": "JUEGO EDUCATIVO",
-      "eslogan": "500 retos para jugar juntos.",
-      "imagen": "",
-      "icono": "icono-en-familia.svg",
-      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
-      "portada": "en-familia-portada-realista.webp",
-      "descarga": {
-        "version": "1.7.2",
-        "tag": "en-familia-v1.7.2",
-        "archivo": "En_Familia_1.7.2_Publicacion_Firmada.apk",
-        "sha256": "ca60248d387a2b928e1745becb0332f576229e23b451759bb61bb4e07a9deb0e"
-      }
-    },
-    {
-      "nombre": "Jardín de Joyas",
-      "plataforma": "android",
-      "publicado": true,
-      "version": "2.0.4",
-      "descripcion": "Juego gratuito y sin anuncios con 500 niveles, Camino de Aventuras y ayudas visuales. Panel renovado, martillo animado y avisos de novedades al iniciar. Juega en vertical u horizontal, en móvil y tablet, o a tu ritmo en modo Relax.",
-      "enlace": "https://pastranaalex-glitch.github.io/jardin-de-joyas.html",
-      "slug": "jardin-de-joyas",
-      "categorias": [
-        "juegos"
-      ],
-      "etiqueta": "JUEGO DE JOYAS",
-      "eslogan": "Un jardín lleno de brillo.",
-      "imagen": "jardin-joyas-portada.png",
-      "icono": "icono-jardin-de-joyas.svg",
-      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
-      "disponible": true,
-      "estado": "Disponible",
-      "descarga": {
-        "version": "2.0.4",
-        "tag": "jardin-de-joyas-v2.0.4",
-        "archivo": "Jardin_de_Joyas_2_0_4_PACK64_FIRMA_EXISTENTE.apk",
-        "sha256": "820a563f116c8157c18904bfdc05fc92ab94fd0b9cc6ad47817a7692b6bb361a"
-      }
-    },
-    {
-      "nombre": "Mente Activa PRO",
-      "plataforma": "android",
-      "publicado": true,
-      "version": "1.9.0",
-      "descripcion": "22 juegos de entretenimiento, con retos de razonamiento, descifrado de códigos y correspondencias por pistas. Portada realista de 5 segundos que puedes saltar o desactivar. Tres dificultades, historial y aviso de actualizaciones. Gratis y sin anuncios; juegos sin conexión.",
-      "enlace": "https://pastranaalex-glitch.github.io/mente-activa-pro.html",
-      "slug": "mente-activa-pro",
-      "categorias": [
-        "juegos"
-      ],
-      "etiqueta": "JUEGOS A TU RITMO",
-      "eslogan": "Dale juego a tu día.",
-      "imagen": "",
-      "icono": "icono-mente-activa-pro.svg",
-      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
-      "descarga": {
-        "version": "1.9.0",
-        "tag": "mente-activa-pro-v1.9.0",
-        "archivo": "Mente_Activa_PRO_1_9_0_PACK10.apk",
-        "sha256": "08d49dc63b0ebf736b3316fee52bbbecf08fe089603ec807b409fa1d8529fe06"
-      },
-      "disponible": true,
-      "estado": "Disponible",
-      "valoracionesDisponibles": false,
-      "portada": "mente-activa-pro-pack10-portada.png"
-    },
-    {
-      "nombre": "Sudoku Vivo",
-      "plataforma": "android",
-      "publicado": true,
-      "disponible": true,
-      "version": "0.7.0",
-      "descripcion": "Sudokus clásicos generados automáticamente, tres mundos de aventura visual con imágenes ocultas y escuela interactiva con diez lecciones y un profesor que enseña lógica paso a paso. Seis temas de color, estadísticas y copias de progreso. Gratis, sin anuncios y jugable sin conexión.",
-      "enlace": "https://pastranaalex-glitch.github.io/sudoku-vivo.html",
-      "slug": "sudoku-vivo",
-      "categorias": [
-        "juegos"
-      ],
-      "etiqueta": "SUDOKU Y LÓGICA",
-      "eslogan": "Aprende, resuelve y descubre.",
-      "imagen": "sudoku-vivo-portada.svg",
-      "portada": "sudoku-vivo-portada.svg",
-      "icono": "icono-sudoku-vivo.svg",
-      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
-      "descarga": {
-        "version": "0.7.0",
-        "tag": "sudoku-vivo-v0.7.0",
-        "archivo": "SudokuVivo_0.7.0_CANDIDATO_FIRMADO.apk",
-        "sha256": "dff3ae105cae60e823bd2daac9ddb50389159962a389bf972b9489d9b10ec426"
-      },
-      "estado": "Disponible previa comprobación de archivo en GitHub"
-    },
-    {
-      "nombre": "Sopa de Letras PRO",
-      "plataforma": "android",
-      "publicado": true,
-      "version": "1.19.0",
-      "descripcion": "Sopa de letras gratuita para Android, con 913 entradas de vocabulario, más palabras con Ñ, partidas ilimitadas, niveles progresivos y Aventura con 40 misterios e imágenes desbloqueables. Incluye álbum, pistas, récords y estadísticas; sin anuncios ni conexión.",
-      "enlace": "https://pastranaalex-glitch.github.io/sopa-de-letras-pro.html",
-      "slug": "sopa-de-letras-pro",
-      "categorias": [
-        "juegos"
-      ],
-      "etiqueta": "AVENTURA Y PALABRAS",
-      "eslogan": "40 misterios y más palabras con Ñ",
-      "imagen": "",
-      "icono": "icono-sopa-de-letras-pro.svg",
-      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
-      "descarga": {
-        "version": "1.19.0",
-        "tag": "sopa-de-letras-pro-v1.19.0",
-        "archivo": "Sopa_de_Letras_PRO_1_19_0_PUBLICACION_FIRMADA.apk",
-        "sha256": "15183f461863ed5da08460116a1d305dd79350ff8f796db429af7108e52d27fd"
-      },
-      "disponible": true,
-      "pendientePublicacion": false,
-      "valoracionesDisponibles": false,
-      "portada": "sopa-de-letras-pro-portada-realista.webp"
-    },
-    {
-      "nombre": "Mi Biblioteca Fácil",
-      "slug": "mi-biblioteca-facil",
-      "plataforma": "android",
-      "publicado": true,
-      "disponible": true,
-      "version": "1.37.1",
-      "descripcion": "Biblioteca digital gratuita con estanterías de madera, cinco libros iniciales, lector PDF y EPUB, portadas y sincronización de nuevos títulos.",
-      "enlace": "https://pastranaalex-glitch.github.io/mi-biblioteca-facil.html",
-      "categorias": [
-        "lectura",
-        "utilidades"
-      ],
-      "etiqueta": "BIBLIOTECA DIGITAL",
-      "eslogan": "Tu rincón de lectura.",
-      "imagen": "mi-biblioteca-facil-promocional.webp",
-      "icono": "mi-biblioteca-facil-portada.svg",
-      "portada": "mi-biblioteca-facil-promocional.webp",
-      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
-      "descarga": {
-        "version": "1.37.1",
-        "tag": "mi-biblioteca-facil-v1.37.1",
-        "archivo": "MiBibliotecaFacil_1.37.1_PUBLICA.apk",
-        "sha256": "74af334ce3790647bcdf935cbae700031f229e4f0d84d6dc6c2dc6f5d9e5101e"
-      }
-    },
-    {
-      "nombre": "Cuadernos Fáciles",
-      "slug": "cuadernos-faciles",
-      "plataforma": "windows",
-      "publicado": true,
-      "disponible": true,
-      "version": "3.0.0",
-      "descripcion": "204 publicaciones y 595 páginas PDF de sudokus, sopas de letras, memoria, lógica y fichas educativas. Descarga e imprime actividades, guarda favoritos y crea tus propios cuadernos. Gratis, sin anuncios ni registro.",
-      "enlace": "https://pastranaalex-glitch.github.io/cuadernos-faciles.html",
-      "categorias": [
-        "utilidades",
-        "educacion"
-      ],
-      "etiqueta": "PASATIEMPOS Y CUADERNOS",
-      "eslogan": "Para ti y para toda la familia.",
-      "imagen": "cuadernos-faciles-proximamente.svg",
-      "portada": "cuadernos-faciles-proximamente.svg",
-      "icono": "cuadernos-faciles-icono.svg",
-      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
-      "descarga": {
-        "version": "3.0.0",
-        "tag": "cuadernos-faciles-publico-v3.0.0",
-        "archivo": "CuadernosFaciles_3_Publico_Windows.zip",
-        "sha256": "62020efa7da3c29ac48fce087d1d6994c637b5ca07eb579bc9f6735f3bc454c8"
-      },
-      "estado": "Publicación condicionada a verificación del archivo en GitHub Releases",
-      "valoracionesDisponibles": false
-    }
-  ]
+    "formato":  2,
+    "aplicaciones":  [
+                         {
+                             "nombre":  "Lector Fácil",
+                             "plataforma":  "android",
+                             "publicado":  true,
+                             "version":  "1.0.5",
+                             "descripcion":  "Lee PDF y Word con zoom táctil, lectura adaptable y OCR sin conexión; incluye marcadores, herramientas para exposiciones y avisos de actualizaciones dentro de la app.",
+                             "enlace":  "https://pastranaalex-glitch.github.io/lector-facil.html",
+                             "slug":  "lector-facil",
+                             "categorias":  [
+                                                "lectura"
+                                            ],
+                             "etiqueta":  "LECTURA Y DOCUMENTOS",
+                             "eslogan":  "Lee a tu manera.",
+                             "imagen":  "captura-01-inicio.webp",
+                             "icono":  "icono-lector.svg",
+                             "repo":  "pastranaalex-glitch/lector-facil",
+                             "portada":  "lector-facil-portada-realista.webp",
+                             "descarga":  {
+                                              "version":  "1.0.5",
+                                              "tag":  "v.1.0.5",
+                                              "archivo":  "LectorFacil-v1.0.5.apk",
+                                              "sha256":  "e0d456ca85592f47b13098001142cba6e1a513511b993627e1bf22637d2075e7"
+                                          },
+                             "disponible":  true
+                         },
+                         {
+                             "nombre":  "Recetario Fácil",
+                             "plataforma":  "android",
+                             "publicado":  true,
+                             "version":  "1.20.0",
+                             "descripcion":  "52 recetas ilustradas para Android con búsqueda, cantidades ajustables, tiempos y preparación paso a paso.",
+                             "enlace":  "https://pastranaalex-glitch.github.io/recetario-facil.html",
+                             "slug":  "recetario-facil",
+                             "categorias":  [
+                                                "cocina"
+                                            ],
+                             "etiqueta":  "RECETAS PARA TODOS",
+                             "eslogan":  "El gusto de cocinar.",
+                             "imagen":  "recetario-01-inicio.webp",
+                             "icono":  "icono-recetario.svg",
+                             "repo":  "pastranaalex-glitch/recetario-facil",
+                             "portada":  "recetario-facil-portada-realista.webp",
+                             "descarga":  {
+                                              "version":  "1.20.0",
+                                              "tag":  "v1.20.0",
+                                              "archivo":  "RecetarioFacil-v1.20.0.apk",
+                                              "sha256":  "d657d6543f9c2996c3157162391ab9dcdbe808e396828f3b107ab65bab73fd72"
+                                          }
+                         },
+                         {
+                             "nombre":  "Cocina Clara",
+                             "plataforma":  "windows",
+                             "publicado":  true,
+                             "version":  "1.6.0",
+                             "descripcion":  "Recetario gratuito para Windows con 34 recetas, búsqueda y opciones de impresión.",
+                             "enlace":  "https://pastranaalex-glitch.github.io/cocina-clara.html",
+                             "slug":  "cocina-clara",
+                             "categorias":  [
+                                                "cocina"
+                                            ],
+                             "etiqueta":  "COCINA EN WINDOWS",
+                             "eslogan":  "Todo más claro.",
+                             "imagen":  "",
+                             "icono":  "icono-clara.svg",
+                             "repo":  "pastranaalex-glitch/cocina-clara",
+                             "portada":  "cocina-clara-portada-realista.webp",
+                             "descarga":  {
+                                              "version":  "1.6.0",
+                                              "tag":  "v1.6.0",
+                                              "archivo":  "CocinaClara_Setup_1.6.0.exe",
+                                              "sha256":  "416b13a599a4859650402f57413acf4bd3a2c7e390b48fdc85145bed20610e2e"
+                                          }
+                         },
+                         {
+                             "nombre":  "Cocina a Punto",
+                             "plataforma":  "android",
+                             "publicado":  true,
+                             "version":  "1.4.1",
+                             "descripcion":  "Cronómetros de cocina simultáneos para Android con atajos personalizables, avisos y vibración.",
+                             "enlace":  "https://pastranaalex-glitch.github.io/cocina-a-punto.html",
+                             "slug":  "cocina-a-punto",
+                             "categorias":  [
+                                                "cocina",
+                                                "utilidades"
+                                            ],
+                             "etiqueta":  "TEMPORIZADORES",
+                             "eslogan":  "Todo a su tiempo.",
+                             "imagen":  "cocina-punto-02-simultaneos.webp",
+                             "icono":  "icono-punto.svg",
+                             "repo":  "pastranaalex-glitch/cocina-a-punto",
+                             "portada":  "cocina-a-punto-portada-realista.webp",
+                             "descarga":  {
+                                              "version":  "1.4.1",
+                                              "tag":  "v1.4.1",
+                                              "archivo":  "CocinaAPunto-v1.4.1.apk",
+                                              "sha256":  "c6f3357a7b342095d2c50d376239fb71f3b3c1e69a615d8365aedd94f930fe37"
+                                          }
+                         },
+                         {
+                             "nombre":  "Rutas a Pie",
+                             "plataforma":  "android",
+                             "publicado":  true,
+                             "version":  "1.7.0",
+                             "descripcion":  "400 fichas de senderismo por las 17 comunidades autónomas, con 100 rutas nuevas, mapa integrado, grabación GPS, historial, favoritos, GPX y ayuda senderista.",
+                             "enlace":  "https://pastranaalex-glitch.github.io/rutas-a-pie.html",
+                             "slug":  "rutas-a-pie",
+                             "categorias":  [
+                                                "rutas"
+                                            ],
+                             "etiqueta":  "CAMINA Y DESCUBRE",
+                             "eslogan":  "Tu próxima ruta.",
+                             "imagen":  "WhatsApp Image 2026-10-12 at 18.21.56.jpeg",
+                             "icono":  "icono-rutas.svg",
+                             "repo":  "pastranaalex-glitch/rutas-a-pie",
+                             "portada":  "rutas-a-pie-portada-realista.webp",
+                             "descarga":  {
+                                              "version":  "1.7.0",
+                                              "tag":  "v1.7.0",
+                                              "archivo":  "app-release.8.apk",
+                                              "sha256":  "23ccbe8a22041ca75548d16cf52197d09bb81165fe7c820a237e0f942a2ad9cc"
+                                          },
+                             "estado":  "Disponible",
+                             "disponible":  true
+                         },
+                         {
+                             "nombre":  "Documentos de Casa",
+                             "plataforma":  "android",
+                             "publicado":  true,
+                             "version":  "1.7.6",
+                             "descripcion":  "Escanea con captura automática o manual, mejora imágenes, organiza documentos por carpetas, exporta PDF y protege tus archivos con huella y copias cifradas.",
+                             "enlace":  "https://pastranaalex-glitch.github.io/documentos-de-casa.html",
+                             "slug":  "documentos-de-casa",
+                             "categorias":  [
+                                                "lectura",
+                                                "utilidades"
+                                            ],
+                             "etiqueta":  "ESCÁNER Y ARCHIVADOR",
+                             "eslogan":  "Tus documentos, protegidos.",
+                             "imagen":  "",
+                             "icono":  "icono-documentos.svg",
+                             "repo":  "pastranaalex-glitch/documentos-de-casa",
+                             "portada":  "documentos-de-casa-portada-realista.webp",
+                             "descarga":  {
+                                              "version":  "1.7.6",
+                                              "tag":  "V1.7.6",
+                                              "archivo":  "DOCUMENTOS.DE.CASA.1.7.6.apk",
+                                              "sha256":  "bb3878f8d68a54adb944aabd915a85892a9e7cae85dd74daec99839343e5c859"
+                                          }
+                         },
+                         {
+                             "nombre":  "Menú y Compra",
+                             "plataforma":  "android",
+                             "publicado":  true,
+                             "version":  "1.4.3",
+                             "descripcion":  "Planifica menús semanales, guarda recetas y organiza listas de compra con ingredientes agrupados.",
+                             "enlace":  "https://pastranaalex-glitch.github.io/menu-y-compra.html",
+                             "slug":  "menu-y-compra",
+                             "categorias":  [
+                                                "cocina",
+                                                "utilidades"
+                                            ],
+                             "etiqueta":  "MENÚS Y LISTAS",
+                             "eslogan":  "Organiza tu semana.",
+                             "imagen":  "menu-compra-semana.jpg",
+                             "icono":  "icono-menu.svg",
+                             "repo":  "pastranaalex-glitch/pastranaalex-glitch.github.io",
+                             "portada":  "menu-y-compra-portada-realista.webp",
+                             "descarga":  {
+                                              "version":  "1.4.3",
+                                              "tag":  "v.1.4.3",
+                                              "archivo":  "Menu_y_Compra_1.4.3_Publicacion_Firmada.3.apk",
+                                              "sha256":  "b33d1715d4bdc45a9b493171c590ee8111ce4e740e4ff64d810b9a9687888200"
+                                          }
+                         },
+                         {
+                             "nombre":  "Mi Salud Familiar",
+                             "plataforma":  "android",
+                             "publicado":  true,
+                             "version":  "2.9",
+                             "descripcion":  "Organiza medicamentos, enfermedades, alergias, tensión arterial e informes en dos perfiles independientes, con copias JSON.",
+                             "enlace":  "https://pastranaalex-glitch.github.io/mi-salud-familiar.html",
+                             "slug":  "mi-salud-familiar",
+                             "categorias":  [
+                                                "salud",
+                                                "utilidades"
+                                            ],
+                             "etiqueta":  "SALUD FAMILIAR",
+                             "eslogan":  "Tu salud, organizada.",
+                             "imagen":  "",
+                             "icono":  "icono-salud.svg",
+                             "repo":  "pastranaalex-glitch/pastranaalex-glitch.github.io",
+                             "portada":  "mi-salud-familiar-salud-organizada.webp",
+                             "descarga":  {
+                                              "version":  "2.9",
+                                              "tag":  "mi-salud-familiar-v2.9",
+                                              "archivo":  "MiSaludFamiliar_2.9_Publicacion_Firmada.apk",
+                                              "sha256":  "bc749053460064f8a85c9d6bf1af5ef1b4ac34a532e6fc915c3bda4dd276d749"
+                                          }
+                         },
+                         {
+                             "nombre":  "Mi Dinero Real 2",
+                             "plataforma":  "android",
+                             "publicado":  true,
+                             "version":  "2.5.2",
+                             "descripcion":  "Controla ingresos, gastos, alimentación y presupuestos. Incluye análisis, informes y avisos de nuevas versiones. Gratis y sin anuncios.",
+                             "enlace":  "https://pastranaalex-glitch.github.io/mi-dinero-real.html",
+                             "slug":  "mi-dinero-real",
+                             "categorias":  [
+                                                "economia",
+                                                "utilidades"
+                                            ],
+                             "etiqueta":  "ECONOMÍA DEL HOGAR",
+                             "eslogan":  "Tus cuentas, más claras.",
+                             "imagen":  "",
+                             "icono":  "icono-mi-dinero-real.svg",
+                             "repo":  "pastranaalex-glitch/pastranaalex-glitch.github.io",
+                             "portada":  "mi-dinero-real-portada-realista.webp",
+                             "disponible":  true,
+                             "descargasBloqueadas":  false,
+                             "estado":  "Disponible",
+                             "visibleEnCatalogo":  true,
+                             "descarga":  {
+                                              "version":  "2.5.2",
+                                              "tag":  "mi-dinero-real-v2.5.2",
+                                              "archivo":  "MiDineroReal2_2_5_2_FIRMA_PERMANENTE.apk",
+                                              "sha256":  "d0d3e6c0e42b42c956e0e5227bb5bfde35b21c2175324906a71c986d6398ea16"
+                                          }
+                         },
+                         {
+                             "nombre":  "En Familia",
+                             "plataforma":  "android",
+                             "publicado":  true,
+                             "version":  "1.7.2",
+                             "descripcion":  "Juego educativo y familiar con 500 pruebas de mímica, dibujo, pistas, historias, vocalización y preguntas, con historial entre jornadas y modos cooperativo o por equipos.",
+                             "enlace":  "https://pastranaalex-glitch.github.io/en-familia.html",
+                             "slug":  "en-familia",
+                             "categorias":  [
+                                                "juegos",
+                                                "familia"
+                                            ],
+                             "etiqueta":  "JUEGO EDUCATIVO",
+                             "eslogan":  "500 retos para jugar juntos.",
+                             "imagen":  "",
+                             "icono":  "icono-en-familia.svg",
+                             "repo":  "pastranaalex-glitch/pastranaalex-glitch.github.io",
+                             "portada":  "en-familia-portada-realista.webp",
+                             "descarga":  {
+                                              "version":  "1.7.2",
+                                              "tag":  "en-familia-v1.7.2",
+                                              "archivo":  "En_Familia_1.7.2_Publicacion_Firmada.apk",
+                                              "sha256":  "ca60248d387a2b928e1745becb0332f576229e23b451759bb61bb4e07a9deb0e"
+                                          }
+                         },
+                         {
+                             "nombre":  "Jardín de Joyas",
+                             "plataforma":  "android",
+                             "publicado":  true,
+                             "version":  "2.0.4",
+                             "descripcion":  "Juego gratuito y sin anuncios con 500 niveles, Camino de Aventuras y ayudas visuales. Panel renovado, martillo animado y avisos de novedades al iniciar. Juega en vertical u horizontal, en móvil y tablet, o a tu ritmo en modo Relax.",
+                             "enlace":  "https://pastranaalex-glitch.github.io/jardin-de-joyas.html",
+                             "slug":  "jardin-de-joyas",
+                             "categorias":  [
+                                                "juegos"
+                                            ],
+                             "etiqueta":  "JUEGO DE JOYAS",
+                             "eslogan":  "Un jardín lleno de brillo.",
+                             "imagen":  "jardin-joyas-portada.png",
+                             "icono":  "icono-jardin-de-joyas.svg",
+                             "repo":  "pastranaalex-glitch/pastranaalex-glitch.github.io",
+                             "disponible":  true,
+                             "estado":  "Disponible",
+                             "descarga":  {
+                                              "version":  "2.0.4",
+                                              "tag":  "jardin-de-joyas-v2.0.4",
+                                              "archivo":  "Jardin_de_Joyas_2_0_4_PACK64_FIRMA_EXISTENTE.apk",
+                                              "sha256":  "820a563f116c8157c18904bfdc05fc92ab94fd0b9cc6ad47817a7692b6bb361a"
+                                          }
+                         },
+                         {
+                             "nombre":  "Mente Activa PRO",
+                             "plataforma":  "android",
+                             "publicado":  true,
+                             "version":  "1.9.0",
+                             "descripcion":  "22 juegos de entretenimiento, con retos de razonamiento, descifrado de códigos y correspondencias por pistas. Portada realista de 5 segundos que puedes saltar o desactivar. Tres dificultades, historial y aviso de actualizaciones. Gratis y sin anuncios; juegos sin conexión.",
+                             "enlace":  "https://pastranaalex-glitch.github.io/mente-activa-pro.html",
+                             "slug":  "mente-activa-pro",
+                             "categorias":  [
+                                                "juegos"
+                                            ],
+                             "etiqueta":  "JUEGOS A TU RITMO",
+                             "eslogan":  "Dale juego a tu día.",
+                             "imagen":  "",
+                             "icono":  "icono-mente-activa-pro.svg",
+                             "repo":  "pastranaalex-glitch/pastranaalex-glitch.github.io",
+                             "descarga":  {
+                                              "version":  "1.9.0",
+                                              "tag":  "mente-activa-pro-v1.9.0",
+                                              "archivo":  "Mente_Activa_PRO_1_9_0_PACK10.apk",
+                                              "sha256":  "08d49dc63b0ebf736b3316fee52bbbecf08fe089603ec807b409fa1d8529fe06"
+                                          },
+                             "disponible":  true,
+                             "estado":  "Disponible",
+                             "valoracionesDisponibles":  false,
+                             "portada":  "mente-activa-pro-pack10-portada.png"
+                         },
+                         {
+                             "nombre":  "Sudoku Vivo",
+                             "plataforma":  "android",
+                             "publicado":  true,
+                             "disponible":  true,
+                             "version":  "0.7.0",
+                             "descripcion":  "Sudokus clásicos generados automáticamente, tres mundos de aventura visual con imágenes ocultas y escuela interactiva con diez lecciones y un profesor que enseña lógica paso a paso. Seis temas de color, estadísticas y copias de progreso. Gratis, sin anuncios y jugable sin conexión.",
+                             "enlace":  "https://pastranaalex-glitch.github.io/sudoku-vivo.html",
+                             "slug":  "sudoku-vivo",
+                             "categorias":  [
+                                                "juegos"
+                                            ],
+                             "etiqueta":  "SUDOKU Y LÓGICA",
+                             "eslogan":  "Aprende, resuelve y descubre.",
+                             "imagen":  "sudoku-vivo-portada.svg",
+                             "portada":  "sudoku-vivo-portada.svg",
+                             "icono":  "icono-sudoku-vivo.svg",
+                             "repo":  "pastranaalex-glitch/pastranaalex-glitch.github.io",
+                             "descarga":  {
+                                              "version":  "0.7.0",
+                                              "tag":  "sudoku-vivo-v0.7.0",
+                                              "archivo":  "SudokuVivo_0.7.0_CANDIDATO_FIRMADO.apk",
+                                              "sha256":  "dff3ae105cae60e823bd2daac9ddb50389159962a389bf972b9489d9b10ec426"
+                                          },
+                             "estado":  "Disponible previa comprobación de archivo en GitHub"
+                         },
+                         {
+                             "nombre":  "Sopa de Letras PRO",
+                             "plataforma":  "android",
+                             "publicado":  true,
+                             "version":  "1.19.0",
+                             "descripcion":  "Sopa de letras gratuita para Android, con 913 entradas de vocabulario, más palabras con Ñ, partidas ilimitadas, niveles progresivos y Aventura con 40 misterios e imágenes desbloqueables. Incluye álbum, pistas, récords y estadísticas; sin anuncios ni conexión.",
+                             "enlace":  "https://pastranaalex-glitch.github.io/sopa-de-letras-pro.html",
+                             "slug":  "sopa-de-letras-pro",
+                             "categorias":  [
+                                                "juegos"
+                                            ],
+                             "etiqueta":  "AVENTURA Y PALABRAS",
+                             "eslogan":  "40 misterios y más palabras con Ñ",
+                             "imagen":  "",
+                             "icono":  "icono-sopa-de-letras-pro.svg",
+                             "repo":  "pastranaalex-glitch/pastranaalex-glitch.github.io",
+                             "descarga":  {
+                                              "version":  "1.19.0",
+                                              "tag":  "sopa-de-letras-pro-v1.19.0",
+                                              "archivo":  "Sopa_de_Letras_PRO_1_19_0_PUBLICACION_FIRMADA.apk",
+                                              "sha256":  "15183f461863ed5da08460116a1d305dd79350ff8f796db429af7108e52d27fd"
+                                          },
+                             "disponible":  true,
+                             "pendientePublicacion":  false,
+                             "valoracionesDisponibles":  false,
+                             "portada":  "sopa-de-letras-pro-portada-realista.webp"
+                         },
+                         {
+                             "nombre":  "Mi Biblioteca Fácil",
+                             "slug":  "mi-biblioteca-facil",
+                             "plataforma":  "android",
+                             "publicado":  true,
+                             "disponible":  true,
+                             "version":  "1.37.1",
+                             "descripcion":  "Biblioteca digital gratuita con estanterías de madera, cinco libros iniciales, lector PDF y EPUB, portadas y sincronización de nuevos títulos.",
+                             "enlace":  "https://pastranaalex-glitch.github.io/mi-biblioteca-facil.html",
+                             "categorias":  [
+                                                "lectura",
+                                                "utilidades"
+                                            ],
+                             "etiqueta":  "BIBLIOTECA DIGITAL",
+                             "eslogan":  "Tu rincón de lectura.",
+                             "imagen":  "mi-biblioteca-facil-promocional.webp",
+                             "icono":  "mi-biblioteca-facil-portada.svg",
+                             "portada":  "mi-biblioteca-facil-promocional.webp",
+                             "repo":  "pastranaalex-glitch/pastranaalex-glitch.github.io",
+                             "descarga":  {
+                                              "version":  "1.37.1",
+                                              "tag":  "mi-biblioteca-facil-v1.37.1",
+                                              "archivo":  "MiBibliotecaFacil_1.37.1_PUBLICA.apk",
+                                              "sha256":  "74af334ce3790647bcdf935cbae700031f229e4f0d84d6dc6c2dc6f5d9e5101e"
+                                          }
+                         },
+                         {
+                             "nombre":  "Cuadernos Fáciles",
+                             "slug":  "cuadernos-faciles",
+                             "plataforma":  "windows",
+                             "publicado":  true,
+                             "disponible":  true,
+                             "version":  "3.0.0",
+                             "descripcion":  "204 publicaciones y 595 páginas PDF de sudokus, sopas de letras, memoria, lógica y fichas educativas. Descarga e imprime actividades, guarda favoritos y crea tus propios cuadernos. Gratis, sin anuncios ni registro.",
+                             "enlace":  "https://pastranaalex-glitch.github.io/cuadernos-faciles.html",
+                             "categorias":  [
+                                                "utilidades",
+                                                "educacion"
+                                            ],
+                             "etiqueta":  "PASATIEMPOS Y CUADERNOS",
+                             "eslogan":  "Para ti y para toda la familia.",
+                             "imagen":  "cuadernos-faciles-proximamente.svg",
+                             "portada":  "cuadernos-faciles-proximamente.svg",
+                             "icono":  "cuadernos-faciles-icono.svg",
+                             "repo":  "pastranaalex-glitch/pastranaalex-glitch.github.io",
+                             "descarga":  {
+                                              "version":  "3.0.0",
+                                              "tag":  "cuadernos-faciles-publico-v3.0.0",
+                                              "archivo":  "CuadernosFaciles_3_Publico_Windows.zip",
+                                              "sha256":  "62020efa7da3c29ac48fce087d1d6994c637b5ca07eb579bc9f6735f3bc454c8"
+                                          },
+                             "estado":  "Publicación condicionada a verificación del archivo en GitHub Releases",
+                             "valoracionesDisponibles":  false
+                         },
+                         {
+                             "nombre":  "Radio Facil PRO",
+                             "eslogan":  "Escucha, habla y conecta.",
+                             "repo":  "pastranaalex-glitch/pastranaalex-glitch.github.io",
+                             "plataforma":  "android",
+                             "enlace":  "https://pastranaalex-glitch.github.io/radio-facil-pro.html",
+                             "icono":  "radio-facil-pro-imagen-real.webp",
+                             "publicado":  true,
+                             "valoracionesDisponibles":  false,
+                             "descripcion":  "Radio por Internet para Android: escucha sin hablar o participa con PTT; canales publicos, comunicacion directa y privada, mapa de zonas aproximadas, moderacion y sonidos de radio. Gratis y sin anuncios.",
+                             "slug":  "radio-facil-pro",
+                             "disponible":  true,
+                             "portada":  "radio-facil-pro-imagen-real.webp",
+                             "descarga":  {
+                                              "sha256":  "831d3927a2e4929998d597ed9f34cc2c0e40a4a615268d5766b4f215f3b1b333",
+                                              "archivo":  "RadioFacilPRO_1.21.0.apk",
+                                              "version":  "1.21.0",
+                                              "tag":  "radio-facil-pro-v1.21.0"
+                                          },
+                             "version":  "1.21.0",
+                             "imagen":  "radio-facil-pro-imagen-real.webp",
+                             "categorias":  [
+                                                "utilidades"
+                                            ],
+                             "etiqueta":  "COMUNICACION POR VOZ"
+                         }
+                     ]
 }
