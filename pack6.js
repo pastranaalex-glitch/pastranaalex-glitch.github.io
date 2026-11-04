@@ -136,6 +136,28 @@ function belongsToApp(asset,release,a,repo){
  }
 }
 async function github(a){
+ // Consulta específica de la APK publicada de Radio Fácil PRO.
+ if(a.slug==='radio-facil-pro' && a.descarga?.tag && a.descarga?.archivo){
+  try{
+   const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),8500);
+   let r;
+   try{r=await fetch('https://api.github.com/repos/'+a.repo+'/releases/tags/'+encodeURIComponent(a.descarga.tag),
+      {headers:{Accept:'application/vnd.github+json'},signal:ctrl.signal});}
+   finally{clearTimeout(timer);}
+   if(r.ok){
+    const release=await r.json();
+    const asset=(Array.isArray(release.assets)?release.assets:[]).find(x=>x.state==='uploaded'
+       &&x.name===a.descarga.archivo &&x.browser_download_url===approvedDownload(a));
+    const n=Number(asset?.download_count);
+    if(asset && Number.isSafeInteger(n) && n>=0){
+      const minimo=Number.isSafeInteger(a.count)&&a.countSnapshotDate?a.count:0;
+      a.count=Math.max(n,minimo);a.countSnapshotDate=a.count>n?a.countSnapshotDate:null;
+      a.countedAssets=1;a.countedRepos=1;a.onlyCurrentVersion=true;a.failed=false;
+      return;
+    }
+   }
+  }catch(_){/* No bloquear el resto del catálogo. */}
+ }
  try{
   const repos=[a.repo,...(extraRepos[a.slug]||[])];
   const sources=await Promise.all(repos.map(async repo=>({repo,releases:await listReleases(repo)})));
@@ -211,17 +233,31 @@ function updateLink(a){
  if(a.disponible===false){a.stat.textContent='—';a.label.textContent='En reparación';a.node.querySelector('.downloads small').textContent='Descarga desactivada';return;}
  if(Number.isFinite(a.count)){
   a.stat.textContent=(a.countSnapshotDate?'≥ ':'')+fmt(a.count);
-  a.label.textContent=a.count===1?'Descarga acumulada':'Descargas acumuladas';
+  a.label.textContent=a.onlyCurrentVersion?'Descargas APK '+a.version:(a.count===1?'Descarga acumulada':'Descargas acumuladas');
   const releases=a.countedAssets;
   a.node.querySelector('.downloads small').textContent=a.countSnapshotDate
    ? 'Mínimo · corte '+a.countSnapshotDate
-   : 'GitHub · '+releases+' archivo'+(releases===1?'':'s')+(a.countedRepos>1?' · '+a.countedRepos+' repos':'');
+   : (a.onlyCurrentVersion?'GitHub · Solo versión '+a.version:'GitHub · '+releases+' archivo'+(releases===1?'':'s')+(a.countedRepos>1?' · '+a.countedRepos+' repos':''));
   a.node.querySelector('.downloads').title=a.countSnapshotDate
    ? 'Mínimo confirmado hasta '+a.countSnapshotDate+'. El total actual puede ser mayor. No incluye descargas directas.'
-   : 'Todas las versiones disponibles en GitHub Releases. No incluye descargas directas desde la web ni publicaciones eliminadas. No son instalaciones únicas.';
+   : (a.onlyCurrentVersion?'Descargas de la APK '+a.version+'. No incluye versiones anteriores ni instalaciones únicas.':'Todas las versiones disponibles en GitHub Releases. No incluye descargas directas desde la web ni publicaciones eliminadas. No son instalaciones únicas.');
  }else{
-  a.stat.textContent='—';a.label.textContent='Contador no disponible';
-  a.node.querySelector('.downloads small').textContent='La descarga sigue disponible';
+  if(a.slug==='radio-facil-pro' && a.descarga?.tag && a.descarga?.archivo){
+    const badge=mk('img');
+    badge.src='https://img.shields.io/github/downloads/'+owner+'/'+owner+'.github.io/'+
+       encodeURIComponent(a.descarga.tag)+'/'+encodeURIComponent(a.descarga.archivo)+
+       '?label=descargas&color=187b85&style=flat-square';
+    badge.alt='Descargas de Radio Fácil PRO '+a.version+' en GitHub Releases';
+    badge.width=148;badge.height=20;badge.loading='lazy';badge.decoding='async';
+    badge.style.cssText='max-width:100%;height:auto;min-height:20px;vertical-align:middle';
+    badge.onerror=()=>{a.stat.textContent='—';a.label.textContent='Ver descargas en GitHub';};
+    a.stat.replaceChildren(badge);
+    a.label.textContent='Versión '+a.version+' · GitHub';
+    a.node.querySelector('.downloads small').textContent='Recuento del archivo APK';
+  }else{
+    a.stat.textContent='—';a.label.textContent='Contador no disponible';
+    a.node.querySelector('.downloads small').textContent='La descarga sigue disponible';
+  }
  }
  const direct=approvedDownload(a);
  if((a.slug==='sudoku-vivo'||a.slug==='cuadernos-faciles')&&a.downloadLink?.tagName==='A'){
