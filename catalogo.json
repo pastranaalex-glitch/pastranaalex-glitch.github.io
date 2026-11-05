@@ -422,17 +422,17 @@
       "icono": "radio-facil-pro-imagen-real.webp",
       "publicado": true,
       "valoracionesDisponibles": false,
-      "descripcion": "Radio por Internet para Android: escucha sin hablar o participa con PTT; canales publicos, comunicacion directa y privada, mapa de zonas aproximadas, moderacion y sonidos de radio. Gratis y sin anuncios.",
+      "descripcion": "Radio por Internet para Android: escucha o habla con PTT; modos Público, Privado y Directo con títulos centrados, icono metálico renovado, zona aproximada de participantes que decidan compartirla, mapa y moderación. Gratis y sin anuncios.",
       "slug": "radio-facil-pro",
       "disponible": true,
       "portada": "radio-facil-pro-imagen-real.webp",
       "descarga": {
-        "sha256": "831d3927a2e4929998d597ed9f34cc2c0e40a4a615268d5766b4f215f3b1b333",
-        "archivo": "RadioFacilPRO_1.21.0.apk",
-        "version": "1.21.0",
-        "tag": "radio-facil-pro-v1.21.0"
+        "sha256": "f91ac9fd12d0213b0997241e3d9d2c81c637d4a6f18eef65d5254cbfd6defddf",
+        "archivo": "RadioFacilPRO_1.22.0_FIRMADA.3.apk",
+        "version": "1.22.0",
+        "tag": "radio-facil-pro-v1.22.0"
       },
-      "version": "1.21.0",
+      "version": "1.22.0",
       "imagen": "radio-facil-pro-imagen-real.webp",
       "categorias": [
         "utilidades"
