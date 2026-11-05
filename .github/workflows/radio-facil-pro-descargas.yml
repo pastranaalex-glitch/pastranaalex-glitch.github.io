@@ -5,6 +5,8 @@ on:
   # También se ejecuta al editar este archivo para generar el primer contador.
   schedule:
     - cron: '19 */6 * * *'
+  release:
+    types: [published]
   push:
     paths:
       - '.github/workflows/radio-facil-pro-descargas.yml'
@@ -70,7 +72,7 @@ jobs:
                           raise RuntimeError(f"Contador invalido para {name}")
                       total += n
                       assets_found += 1
-                      if name == "RadioFacilPRO_1.21.0.apk":
+                      if name == "RadioFacilPRO_1.22.0_FIRMADA.3.apk" and release.get("tag_name") == "radio-facil-pro-v1.22.0":
                           latest_count = n
               if len(releases) < 100:
                   completed = True
@@ -85,7 +87,7 @@ jobs:
               "actualizado": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
               "total_descargas": total,
               "archivos_contabilizados": assets_found,
-              "version_actual": "1.21.0",
+              "version_actual": "1.22.0",
               "descargas_version_actual": latest_count,
               "nota": "Descargas de archivos APK publicadas; no instalaciones ni usuarios unicos."
           }
