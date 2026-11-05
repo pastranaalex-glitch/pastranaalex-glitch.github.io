@@ -89,21 +89,22 @@
       "fechaEstreno": "2026-10-17T00:00:00+02:00",
       "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
       "plataforma": "android",
-      "versionAprobada": "jardin-de-joyas-v1.9.9",
-      "versionVisible": "1.9.9",
+      "versionAprobada": "jardin-de-joyas-v2.0.6",
+      "versionVisible": "2.0.6",
       "revisionAprobada": true,
       "publicacionAutomatica": true,
       "categorias": [
         "juegos"
       ],
-      "descripcion": "Juego gratuito sin anuncios con 200 niveles, objetivos de puntos, gemas y combos, apoyo tras varios intentos y modo Relax. Dificultad revisada con referencia de 1.800 puntos por movimiento y controles ajustados en vertical.",
+      "descripcion": "Juego gratuito sin anuncios con 500 niveles, llaves, cofres con premio a elegir y clasificación voluntaria. Conserva tu partida, disfruta de la música completa y juega en vertical u horizontal, en móvil o tablet, con modo Relax.",
       "etiqueta": "JUEGO DE JOYAS",
       "eslogan": "Un jardín lleno de brillo.",
-      "archivoAprobado": "Jardin_de_Joyas_1_9_9_PACK49_FIRMA_EXISTENTE.apk",
-      "sha256Aprobado": "1e9b51ed96d2477d374f9bc2eca50fe632d21e4b1870561567f42a579777bc9d",
+      "archivoAprobado": "Jardin_de_Joyas_2_0_6_PACK66_FIRMA_EXISTENTE.apk",
+      "sha256Aprobado": "c836871f40ed01b02267b506f9b15e5f4d9efd69632ed7d5693824bdd7f44359",
       "apkSubido": true,
       "icono": "icono-jardin-de-joyas.svg",
-      "versionCodeAprobado": 52
+      "versionCodeAprobado": 59,
+      "releasePublicada": true
     },
     {
       "slug": "mente-activa-pro",
