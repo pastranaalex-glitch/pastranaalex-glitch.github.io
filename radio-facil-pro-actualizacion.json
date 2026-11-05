@@ -1,8 +1,13 @@
 {
   "schema": 1,
-  "published": false,
-  "versionCode": 0,
-  "versionName": "",
-  "releaseUrl": "",
-  "changes": []
+  "published": true,
+  "versionCode": 27,
+  "versionName": "1.22.0",
+  "releaseUrl": "https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/radio-facil-pro-v1.22.0/RadioFacilPRO_1.22.0_FIRMADA.3.apk",
+  "changes": [
+    "Nuevo icono metálico de Radio Fácil PRO.",
+    "Modos PÚBLICO, PRIVADO y DIRECTO con títulos más grandes y centrados.",
+    "Ubicación aproximada del participante cuando decide compartir su zona.",
+    "Ajustes de presentación y compatibilidad con las funciones existentes."
+  ]
 }
