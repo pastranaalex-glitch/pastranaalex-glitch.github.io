@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "actualizado": null,
+  "descripcion": "Contador pendiente de activación. No incluye descargas anteriores de GitHub Pages ni representa instalaciones únicas.",
+  "aplicaciones": {
+    "mis-horas-predicacion": {
+      "descargas": 0,
+      "disponible": false,
+      "enlace": ""
+    },
+    "lector-facil": {
+      "descargas": 0,
+      "disponible": false,
+      "enlace": ""
+    },
+    "panel-del-precursor": {
+      "descargas": 0,
+      "disponible": false,
+      "enlace": ""
+    }
+  },
+  "activos": {
+    "mis-horas-predicacion": {},
+    "lector-facil": {},
+    "panel-del-precursor": {}
+  }
+}
