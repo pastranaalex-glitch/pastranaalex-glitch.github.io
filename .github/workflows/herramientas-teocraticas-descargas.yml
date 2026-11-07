@@ -1,0 +1,76 @@
+name: Herramientas Teocraticas - contar descargas
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/herramientas-teocraticas-descargas.yml'
+  schedule:
+    - cron: '47 */6 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: ht-descargas-main
+  cancel-in-progress: false
+jobs:
+  publicar_release:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          sparse-checkout: |
+            herramientas-teocraticas/descargas
+      - name: Publicar los tres archivos, sin reemplazar versiones anteriores
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag="ht-v11.1"
+          if ! gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$tag" --repo "$GITHUB_REPOSITORY" --title "Herramientas Teocráticas v11.1" --notes "Descargas gratuitas de Herramientas Teocráticas. El contador registra descargas de estos archivos desde su publicación en GitHub Releases; no son instalaciones."
+          fi
+          for path in \
+            herramientas-teocraticas/descargas/MisHorasPredicacion_1.5.0_Pack7.7.apk \
+            herramientas-teocraticas/descargas/LectorFacil-v1.0.5.apk \
+            herramientas-teocraticas/descargas/PanelDelPrecursor_Setup_2.1.1.exe; do
+            test -s "$path"
+            filename="${path##*/}"
+            if gh release view "$tag" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' | grep -Fxq "$filename"; then
+              echo "Ya publicado: $filename"
+            else
+              gh release upload "$tag" "$path" --repo "$GITHUB_REPOSITORY"
+            fi
+          done
+  actualizar_contador:
+    needs: publicar_release
+    if: always() && (needs.publicar_release.result == 'success' || needs.publicar_release.result == 'skipped')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          sparse-checkout: |
+            scripts/actualizar_descargas_teocraticas.py
+            herramientas-teocraticas/descargas-teocraticas.json
+          sparse-checkout-cone-mode: false
+      - name: Consultar contadores de GitHub Releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/actualizar_descargas_teocraticas.py
+      - name: Publicar cifras verificadas si han cambiado
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain -- herramientas-teocraticas/descargas-teocraticas.json)" ]; then
+            echo "Sin cambios de descargas"
+            exit 0
+          fi
+          git config user.name "herramientas-teocraticas[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add herramientas-teocraticas/descargas-teocraticas.json
+          git commit -m "Actualizar descargas registradas de Herramientas Teocráticas"
+          git pull --rebase origin main
+          git push origin HEAD:main
