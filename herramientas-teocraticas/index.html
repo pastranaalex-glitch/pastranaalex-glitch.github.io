@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f5f4ef">
+  <meta name="description" content="Herramientas Teocráticas: aplicaciones gratuitas, sencillas y revisadas para la predicación, las reuniones, la organización y el estudio personal. Proyecto independiente y no oficial.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Herramientas Teocráticas · Aplicaciones gratuitas">
+  <meta property="og:description" content="Herramientas prácticas, gratuitas e independientes. Sin anuncios, sin registros y sin complicaciones.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="catalogo.js"></script>
+  <script defer src="config.js"></script>
+  <script defer src="app.js"></script>
+  <script defer src="sugerencias.js"></script>
+  <title>Herramientas Teocráticas | Biblioteca de programas gratuitos</title>
+</head>
+<body>
+  <div class="offline-banner"><strong>Herramientas gratuitas y no oficiales.</strong> Consulta sus fichas y descarga las versiones disponibles. El envío de sugerencias se activará al conectar el buzón privado.</div>
+  <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="ico-book" viewBox="0 0 24 24"><path d="M12 7v14M3 18V5.5A1.5 1.5 0 0 1 4.5 3H8a4 4 0 0 1 4 4 4 4 0 0 1 4-4h3.5A1.5 1.5 0 0 1 21 4.5V18h-5a4 4 0 0 0-4 3 4 4 0 0 0-4-3H3Z"/></symbol>
+    <symbol id="ico-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+    <symbol id="ico-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v5m10-4v5M3 10h18m-13 6 2 2 5-5"/></symbol>
+    <symbol id="ico-notebook" viewBox="0 0 24 24"><rect x="5" y="3" width="15" height="18" rx="2"/><path d="M9 3v18M12 8h5m-5 4h5m-5 4h3M3 7h4m-4 5h4m-4 5h4"/></symbol>
+    <symbol id="ico-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2H3ZM17 5a3 3 0 0 1 0 6m1 3a5 5 0 0 1 3 5v1h-3"/></symbol>
+    <symbol id="ico-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 17v3h16v-3"/></symbol>
+    <symbol id="ico-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="ico-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="ico-shield" viewBox="0 0 24 24"><path d="m12 2 8 4v6c0 5-3 8-8 10-5-2-8-5-8-10V6l8-4Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+    <symbol id="ico-heart" viewBox="0 0 24 24"><path d="M20.7 5.7a5 5 0 0 0-7.1 0L12 7.3l-1.6-1.6a5 5 0 0 0-7.1 7.1L12 21l8.7-8.2a5 5 0 0 0 0-7.1Z"/></symbol>
+    <symbol id="ico-mobile" viewBox="0 0 24 24"><rect x="6.5" y="2" width="11" height="20" rx="2"/><path d="M10 18.5h4"/></symbol>
+    <symbol id="ico-desktop" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8m-4-4v5"/></symbol>
+    <symbol id="ico-close" viewBox="0 0 24 24"><path d="M5 5 19 19M19 5 5 19"/></symbol>
+    <symbol id="ico-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="ico-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.8 10.6 6.3-4.1m-6.3 8.9 6.3 4.1"/></symbol>
+    <symbol id="ico-message" viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-8.5 8.5 8 8 0 0 1-3.1-.65L3 21l1.65-5.4A8 8 0 1 1 20 11.5Z"/></symbol>
+    <symbol id="ico-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+  </svg>
+  <a class="skip-link" href="#herramientas">Saltar a las aplicaciones</a>
+
+  <header class="site-header" id="inicio">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Herramientas Teocráticas, inicio"><span class="brand-symbol"><svg class="icon"><use href="#ico-book"/></svg></span><span class="brand-title">Herramientas <strong>Teocráticas</strong></span></a>
+      <nav class="primary-nav" aria-label="Navegación principal"><a href="#inicio" aria-current="page">Inicio</a><a href="#herramientas">Aplicaciones</a><a href="#sugerencias">Sugerencias</a></nav>
+      <button id="share-header" type="button" class="header-cta" title="Compartir esta página"><svg class="icon"><use href="#ico-share"/></svg> Compartir</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <h1 id="hero-title">Herramientas <span>Teocráticas</span></h1>
+          <p class="hero-description">Aplicaciones y recursos prácticos para facilitar la predicación, las reuniones y el estudio personal.</p>
+          <p class="independent-note"><svg class="icon"><use href="#ico-shield"/></svg> Proyecto gratuito, independiente y no oficial.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#herramientas"><svg class="icon"><use href="#ico-grid"/></svg> Explorar herramientas <svg class="icon"><use href="#ico-arrow"/></svg></a><button type="button" class="btn btn-secondary" id="share-hero"><svg class="icon"><use href="#ico-share"/></svg> Compartir</button></div>
+        </div>
+        <div class="hero-picture"><img src="hero_escritorio.webp" alt="Mesa luminosa con libro abierto, planta y ordenador portátil" width="764" height="275" fetchpriority="high"></div>
+      </div>
+    </section>
+
+
+    <section class="catalog section" id="herramientas" aria-labelledby="catalog-title">
+      <div class="container">
+        <div class="section-head"><div><span class="section-kicker">BIBLIOTECA DE APLICACIONES</span><h2 id="catalog-title">Nuestras herramientas</h2><p>Consulta las cinco fichas. Hay tres programas disponibles para descargar: Mis Horas de Predicación, Lector Fácil y Panel del Precursor. Los demás siguen en revisión.</p></div><span class="catalog-count" id="catalog-count" aria-live="polite">5 herramientas</span></div>
+        <div class="search-panel"><div class="search-wrap"><svg class="icon"><use href="#ico-search"/></svg><label class="sr-only" for="search">Buscar una herramienta</label><input id="search" type="search" placeholder="Buscar una aplicación por su nombre..." autocomplete="off"></div></div>
+        <div class="card-grid" id="app-grid" aria-live="polite"></div><p class="empty-results" id="empty-results" hidden>No hay resultados. Prueba con otra palabra.</p>
+      </div>
+    </section>
+
+    <section class="values-banner" aria-label="Compromisos del proyecto"><div class="container values-grid"><div><svg class="icon"><use href="#ico-heart"/></svg><span><strong>Siempre gratis</strong><small>Sin anuncios ni donaciones</small></span></div><div><svg class="icon"><use href="#ico-shield"/></svg><span><strong>Probadas antes de publicar</strong><small>Fiabilidad antes que cantidad</small></span></div><div><svg class="icon"><use href="#ico-lock"/></svg><span><strong>Privacidad</strong><small>Sin cuentas ni perfiles públicos</small></span></div></div></section>
+
+    <section class="suggestion-section section" id="sugerencias"><div class="container"><div class="suggestion-banner"><div class="suggestion-symbol"><svg class="icon"><use href="#ico-message"/></svg></div><div class="suggestion-copy"><h2>Sugerencias</h2><p>¿Tienes una mejora, una nueva idea o has detectado un problema? Escríbela de forma sencilla, sin registro ni comentarios públicos.</p><p class="suggestion-state" id="suggestion-state" aria-live="polite">El formulario está disponible. El envío se habilitará al conectar el buzón privado.</p></div><button type="button" class="btn btn-outline" id="suggestion-open">Escribir sugerencia</button></div></div></section>
+
+    <section class="faq section" id="preguntas" aria-labelledby="faq-title"><div class="container faq-layout"><div class="faq-heading"><span class="section-kicker">INFORMACIÓN CLARA</span><h2 id="faq-title">Preguntas frecuentes</h2><p>Sin letra pequeña ni complicaciones.</p></div><div class="faq-items">
+      <details><summary>¿Es una página oficial de jw.org?<span class="expand-sign" aria-hidden="true">+</span></summary><p>No. Es una biblioteca independiente y no oficial. No está afiliada ni respaldada por jw.org ni por sus entidades responsables.</p></details>
+      <details><summary>¿Se pueden descargar ya los programas?<span class="expand-sign" aria-hidden="true">+</span></summary><p>Sí. Puedes descargar dos APK (Mis Horas y Lector Fácil) y un instalador de Windows (Panel del Precursor). El resto sigue en revisión.</p></details>
+      <details><summary>¿Tengo que pagar o registrarme?<span class="expand-sign" aria-hidden="true">+</span></summary><p>No. La biblioteca será gratuita, sin anuncios, donaciones ni registro de usuarios.</p></details>
+      <details><summary>¿La página recoge datos personales?<span class="expand-sign" aria-hidden="true">+</span></summary><p>No solicitamos cuentas ni datos personales para sugerir mejoras. Si el buzón está conectado, el contenido de la propuesta, su categoría, fecha y estado se guardarán de forma privada y se eliminarán periódicamente tras 180 días. Cloudflare puede procesar datos técnicos para servir la web y proteger el formulario. No hay comentarios públicos ni estadísticas personales de uso.</p></details>
+      <details><summary>¿Se publicarán programas de otras personas?<span class="expand-sign" aria-hidden="true">+</span></summary><p>Podremos estudiar propuestas de terceros, pero nunca se publicarán automáticamente. Antes se comprobarán su funcionamiento, seguridad, autorización para distribuirlos y respeto a los derechos de contenido.</p></details>
+    </div></div></section>
+  </main>
+
+  <footer class="footer"><div class="container footer-inner"><div class="footer-name"><svg class="icon"><use href="#ico-book"/></svg><strong>Herramientas Teocráticas</strong></div><p>Proyecto gratuito e independiente. No es una página oficial de jw.org ni utiliza sus logotipos o publicaciones. Información oficial disponible en jw.org cuando haya conexión.</p><span>© <span id="year">2026</span> Herramientas Teocráticas</span></div></footer>
+
+  <dialog id="app-dialog" class="app-dialog" aria-labelledby="dialog-title"><div class="dialog-scroll"><button class="dialog-close" type="button" id="dialog-close" aria-label="Cerrar ficha"><svg class="icon"><use href="#ico-close"/></svg></button><div id="dialog-content"></div></div></dialog>
+  <dialog id="suggestion-dialog" class="app-dialog suggestion-dialog" aria-labelledby="suggestion-title">
+      <div class="dialog-scroll">
+        <button class="dialog-close" type="button" id="suggestion-close" aria-label="Cerrar formulario"><svg class="icon"><use href="#ico-close"/></svg></button>
+        <h2 id="suggestion-title">Enviar una sugerencia</h2>
+        <p class="dialog-lead">No necesitas registrarte. No escribas nombres, direcciones, teléfonos ni otros datos personales. Las propuestas no serán públicas y se eliminarán periódicamente tras 180 días en el buzón.</p>
+        <form id="suggestion-form" autocomplete="off">
+          <label for="suggestion-type">¿De qué se trata?</label>
+          <select id="suggestion-type" required><option value="mejora">Mejora de una herramienta</option><option value="nueva">Nueva herramienta</option><option value="error">Avisar de un problema</option><option value="otra">Otra sugerencia</option></select>
+          <label for="suggestion-subject">Título de tu propuesta</label>
+          <input id="suggestion-subject" type="text" required minlength="5" maxlength="100" placeholder="Por ejemplo: letras más grandes">
+          <label for="suggestion-text">Explica tu sugerencia</label>
+          <textarea id="suggestion-text" required minlength="15" maxlength="1600" rows="5" placeholder="Cuéntanos qué mejorarías y para qué serviría..."></textarea>
+          <div class="ht-honeypot" aria-hidden="true"><label>Dejar vacío <input id="suggestion-website" type="text" tabindex="-1" autocomplete="off"></label></div>
+          <div id="suggestion-captcha" class="ht-captcha" aria-label="Verificación antispam"></div>
+          <p class="ht-privacy">El servicio de recepción y la protección antispam utilizan Cloudflare, que puede procesar datos técnicos de conexión.</p>
+          <div id="suggestion-feedback" class="ht-feedback" role="status" aria-live="polite"></div>
+          <div class="form-footer"><button type="submit" class="btn btn-primary" id="suggestion-submit" disabled>Enviar sugerencia</button></div>
+        </form>
+      </div>
+    </dialog>
+  <p class="sr-only" id="toast" role="status" aria-live="polite"></p>
+</body>
+</html>
