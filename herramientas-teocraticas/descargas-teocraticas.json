@@ -1,29 +1,29 @@
 {
   "activos": {
     "lector-facil": {
-      "722259151": 0
+      "722259151": 1
     },
     "mis-horas-predicacion": {
-      "722259086": 0
+      "722259086": 1
     },
     "panel-del-precursor": {
-      "722259280": 0
+      "722259280": 1
     }
   },
-  "actualizado": "2026-11-07T23:21:54+00:00",
+  "actualizado": "2026-11-08T06:44:26+00:00",
   "aplicaciones": {
     "lector-facil": {
-      "descargas": 0,
+      "descargas": 1,
       "disponible": true,
       "enlace": "https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/ht-v11.1/LectorFacil-v1.0.5.apk"
     },
     "mis-horas-predicacion": {
-      "descargas": 0,
+      "descargas": 1,
       "disponible": true,
       "enlace": "https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/ht-v11.1/MisHorasPredicacion_1.5.0_Pack7.7.apk"
     },
     "panel-del-precursor": {
-      "descargas": 0,
+      "descargas": 1,
       "disponible": true,
       "enlace": "https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/ht-v11.1/PanelDelPrecursor_Setup_2.1.1.exe"
     }
