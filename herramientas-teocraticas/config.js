@@ -3,6 +3,6 @@
    Si ambos están vacíos, el formulario se abre para revisar, pero el envío está inactivo. */
 window.HT_CONFIG = {
   downloadsIncluded: true,
-  suggestionEndpoint: '', // https://nombre-del-worker.nombre-de-cuenta.workers.dev (sin /api/sugerencias)
-  turnstileSiteKey: ''     // SITEKEY PÚBLICA de Cloudflare Turnstile
+  suggestionEndpoint: 'https://herramientas-teocraticas-sugerencias.pastranaalex.workers.dev', // https://nombre-del-worker.nombre-de-cuenta.workers.dev (sin /api/sugerencias)
+  turnstileSiteKey: '0x4AAAAAAF4fjQjGSeoSNGk4'     // SITEKEY PÚBLICA de Cloudflare Turnstile
 };
