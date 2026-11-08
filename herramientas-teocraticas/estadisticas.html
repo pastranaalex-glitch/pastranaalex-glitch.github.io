@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="light">
+  <title>Mis estadísticas privadas · Herramientas Teocráticas</title>
+  <meta name="description" content="Acceso privado a las estadísticas de Herramientas Teocráticas.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="estadisticas.css">
+  <script src="estadisticas.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="header">
+      <div class="brand"><span class="symbol" aria-hidden="true">📊</span><div><span class="eyebrow">Herramientas Teocráticas</span><h1>Mis estadísticas</h1></div></div>
+      <a href="./" class="return">Volver a la página</a>
+    </header>
+    <section class="intro" aria-labelledby="welcome-title"><span class="tag">PANEL PRIVADO</span><h2 id="welcome-title">Las visitas a tu página, de un vistazo.</h2><p>Estos datos son únicamente para el administrador y no se muestran a los visitantes.</p></section>
+    <section class="login" id="login-panel" aria-label="Acceso privado">
+      <form id="access-form" autocomplete="off">
+        <label for="access-token">Token privado de estadísticas</label>
+        <div class="access-line"><input id="access-token" type="password" required autocomplete="off" spellcheck="false" placeholder="Pega aquí el token del panel" aria-describedby="security-note"><button type="submit" id="load-btn">Consultar visitas</button></div>
+        <p id="security-note" class="note">El token se usa solo para consultar los datos y no se guarda en el navegador. Puedes obtenerlo con <strong>ABRIR_ESTADISTICAS.bat</strong> en tu ordenador.</p>
+      </form>
+    </section>
+    <p id="feedback" role="status" aria-live="polite" class="feedback">Introduce tu token para ver las estadísticas.</p>
+    <section id="metrics" class="metrics" aria-label="Resumen de visitas" hidden>
+      <article class="metric"><div class="metric-head">Hoy <span class="glyph" aria-hidden="true">☀️</span></div><strong id="today">0</strong><small>visitas desde las 00:00 de Madrid</small></article>
+      <article class="metric"><div class="metric-head">Últimos 7 días <span class="glyph" aria-hidden="true">📅</span></div><strong id="week">0</strong><small>incluido el día de hoy</small></article>
+      <article class="metric"><div class="metric-head">Total acumulado <span class="glyph" aria-hidden="true">📈</span></div><strong id="total">0</strong><small id="since">desde el inicio de la medición</small></article>
+    </section>
+    <section id="details" class="details" hidden><div><h3>Más información</h3><p id="views"></p><p id="as-of" class="muted"></p><p class="note">Las cifras son estimaciones de Cloudflare Web Analytics. Algunas visitas pueden no contarse si se bloquea el seguimiento; no representan necesariamente personas distintas.</p></div><button id="refresh-btn" class="ghost" type="button">Actualizar datos</button><button id="exit-btn" class="ghost" type="button">Cerrar panel</button></section>
+    <footer>Proyecto independiente y gratuito · Estadísticas privadas · Sin anuncios</footer>
+  </main>
+</body>
+</html>
