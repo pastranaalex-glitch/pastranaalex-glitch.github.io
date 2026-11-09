@@ -63,6 +63,21 @@ window.CATALOGO_HT = [
     version: "1.0.5", pack: "", fecha: "", archivo: "descargas/LectorFacil-v1.0.5.apk"
   },
   {
+    id: "organizador-reuniones-pro", nombre: "Organizador de Reuniones PRO",
+    categoria: "reuniones", plataforma: "windows", estado: "pendiente-publicacion",
+    icono: "calendar", color: "blue",
+    subtitulo: "Organiza reuniones y reparte las asignaciones de forma equilibrada",
+    descripcion: "Programa gratuito para Windows que ayuda a preparar las reuniones de congregación. Permite gestionar participantes y autorizaciones, importar la Guía de actividades en EPUB, elaborar borradores editables y preparar programas finales. Propone asignaciones teniendo en cuenta el historial y las personas elegibles, siempre con revisión manual.",
+    funciones: ["Fichas de participantes, responsabilidades y autorizaciones", "Importación local de la Guía de actividades en EPUB", "Borradores que permiten añadir, quitar y reordenar partes", "Propuestas de reparto con controles de repetición y disponibilidad", "Programación de una o dos salas y fechas especiales", "Programa final, informes, historial y exportación a PDF", "Copias de seguridad y contraseña opcional"],
+    ficha: [
+      {titulo:"Preparar el programa", puntos:["Introduce los datos de los participantes, su disponibilidad y las asignaciones autorizadas.", "Importa la Guía de actividades desde un archivo EPUB local y comprueba sus partes y duraciones.", "Edita el borrador según las circunstancias de cada semana: añade, quita, sustituye o cambia el orden de las partes."]},
+      {titulo:"Repartir las asignaciones", puntos:["Genera propuestas de participantes y ayudantes según los requisitos de cada asignación.", "Consulta el historial para reducir repeticiones excesivamente próximas y procurar un reparto equilibrado.", "Revisa los resultados y cambia manualmente cualquier asignación antes de confirmar el programa."]},
+      {titulo:"Revisar e imprimir", puntos:["Prepara programas con horarios, incluidas reuniones con dos salas cuando corresponda.", "Gestiona fechas especiales y sustituciones sin tener que rehacer todas las semanas.", "Confirma programas, revisa el historial y prepara documentos PDF para imprimir."]},
+      {titulo:"Datos privados y actualizaciones", puntos:["Los datos de participantes y reuniones se guardan localmente en el ordenador.", "Incluye copias de seguridad y una contraseña opcional.", "Las actualizaciones automáticas aún no están activadas. Las nuevas versiones se distribuyen manualmente."]}
+    ],
+    version: "0.8.8.9", pack: "8.8.9", fecha: "", archivo: ""
+  },
+  {
     id: "responsabilidades", nombre: "Mis Responsabilidades Teocráticas",
     categoria: "organizacion", plataforma: "android", estado: "en-revision",
     icono: "calendar", color: "sand",
