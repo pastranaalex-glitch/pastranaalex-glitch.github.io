@@ -19,7 +19,7 @@
     desktop: '<rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/>',
     users: '<circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2H3ZM17 5a3 3 0 0 1 0 6m1 3a5 5 0 0 1 3 5v1h-3"/>'
   };
-  const statuses = {'publicado':'Disponible','en-pruebas':'En pruebas','aprobado':'Pendiente de APK','pruebas-locales':'APK local en pruebas','lista-local':'Disponible en local','en-desarrollo':'En desarrollo','en-revision':'En revisión','idea':'En proyecto'};
+  const statuses = {'publicado':'Disponible','en-pruebas':'En pruebas','aprobado':'Pendiente de APK','pruebas-locales':'APK local en pruebas','lista-local':'Disponible en local','en-desarrollo':'En desarrollo','en-revision':'En revisión','pendiente-publicacion':'Preparando descarga','idea':'En proyecto'};
   const categories = {reuniones:'Reuniones',predicacion:'Predicación',estudio:'Estudio personal',organizacion:'Organización'};
   const escape = str => String(str ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
   const imageIcon = a => typeof a.imagen === 'string' && /^imagenes\/[\w.\-]+\.(png|webp|jpg)$/i.test(a.imagen) ? `<img src="${escape(a.imagen)}" alt="" loading="lazy">` : icon(a.icono);
