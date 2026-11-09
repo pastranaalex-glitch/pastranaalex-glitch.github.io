@@ -1,19 +1,19 @@
 {
   "fecha": "2026-11-09",
-  "actualizado": "2026-11-09T06:48:52+00:00",
+  "actualizado": "2026-11-09T22:29:28+00:00",
   "descripcion": "Mínimos de descargas de archivos publicados en GitHub Releases; no son instalaciones ni personas únicas y no incluyen archivos descargados directamente desde GitHub Pages.",
   "conteos": {
     "cocina-a-punto": 13,
     "cocina-clara": 11,
     "documentos-de-casa": 5,
     "en-familia": 1,
-    "jardin-de-joyas": 54,
+    "jardin-de-joyas": 58,
     "lector-facil": 19,
     "mente-activa-pro": 46,
     "menu-y-compra": 2,
     "mi-biblioteca-facil": 1,
     "mi-dinero-real": 1,
-    "mi-salud-familiar": 71,
+    "mi-salud-familiar": 72,
     "recetario-facil": 22,
     "rutas-a-pie": 31,
     "sopa-de-letras-pro": 10,
@@ -44,7 +44,8 @@
       "pastranaalex-glitch/pastranaalex-glitch.github.io:672181770": 6,
       "pastranaalex-glitch/pastranaalex-glitch.github.io:684920053": 2,
       "pastranaalex-glitch/pastranaalex-glitch.github.io:711499296": 5,
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:717165265": 2
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:717165265": 3,
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:718935552": 3
     },
     "lector-facil": {
       "pastranaalex-glitch/lector-facil:628195428": 1,
@@ -66,7 +67,7 @@
       "pastranaalex-glitch/pastranaalex-glitch.github.io:669324838": 1
     },
     "mi-salud-familiar": {
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:643218063": 71
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:643218063": 72
     },
     "recetario-facil": {
       "pastranaalex-glitch/recetario-facil:630361356": 22
