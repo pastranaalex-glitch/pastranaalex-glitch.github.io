@@ -1,33 +1,7 @@
 {
-  "activos": {
-    "lector-facil": {
-      "722259151": 1
-    },
-    "mis-horas-predicacion": {
-      "722259086": 1
-    },
-    "panel-del-precursor": {
-      "722259280": 1
-    }
-  },
+  "activos": {},
   "actualizado": "2026-11-09T07:15:49+00:00",
-  "aplicaciones": {
-    "lector-facil": {
-      "descargas": 1,
-      "disponible": true,
-      "enlace": "https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/ht-v11.1/LectorFacil-v1.0.5.apk"
-    },
-    "mis-horas-predicacion": {
-      "descargas": 1,
-      "disponible": true,
-      "enlace": "https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/ht-v11.1/MisHorasPredicacion_1.5.0_Pack7.7.apk"
-    },
-    "panel-del-precursor": {
-      "descargas": 1,
-      "disponible": true,
-      "enlace": "https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/ht-v11.1/PanelDelPrecursor_Setup_2.1.1.exe"
-    }
-  },
+  "aplicaciones": {},
   "descripcion": "Descargas registradas en activos de GitHub Releases desde activar el contador. No incluye descargas anteriores desde GitHub Pages ni representa instalaciones únicas.",
   "version": 1
 }
