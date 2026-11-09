@@ -64,7 +64,7 @@ window.CATALOGO_HT = [
   },
   {
     id: "organizador-reuniones-pro", nombre: "Organizador de Reuniones PRO",
-    categoria: "reuniones", plataforma: "windows", estado: "pendiente-publicacion",
+    categoria: "reuniones", plataforma: "windows", estado: "publicado",
     icono: "calendar", color: "blue",
     subtitulo: "Organiza reuniones y reparte las asignaciones de forma equilibrada",
     descripcion: "Programa gratuito para Windows que ayuda a preparar las reuniones de congregación. Permite gestionar participantes y autorizaciones, importar la Guía de actividades en EPUB, elaborar borradores editables y preparar programas finales. Propone asignaciones teniendo en cuenta el historial y las personas elegibles, siempre con revisión manual.",
@@ -75,7 +75,7 @@ window.CATALOGO_HT = [
       {titulo:"Revisar e imprimir", puntos:["Prepara programas con horarios, incluidas reuniones con dos salas cuando corresponda.", "Gestiona fechas especiales y sustituciones sin tener que rehacer todas las semanas.", "Confirma programas, revisa el historial y prepara documentos PDF para imprimir."]},
       {titulo:"Datos privados y actualizaciones", puntos:["Los datos de participantes y reuniones se guardan localmente en el ordenador.", "Incluye copias de seguridad y una contraseña opcional.", "Las actualizaciones automáticas aún no están activadas. Las nuevas versiones se distribuyen manualmente."]}
     ],
-    version: "0.8.8.9", pack: "8.8.9", fecha: "", archivo: ""
+    version: "0.8.8.9", pack: "8.8.9", fecha: "", archivo: "https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/organizador-reuniones-v0.8.8.9/Organizador_Reuniones_PRO_PACK8_8_9_WINDOWS.3.zip"
   },
   {
     id: "responsabilidades", nombre: "Mis Responsabilidades Teocráticas",
