@@ -5,7 +5,8 @@
   const fileNames=Object.freeze({
     'mis-horas-predicacion':'MisHorasPredicacion_1.5.0_Pack7.7.apk',
     'lector-facil':'LectorFacil-v1.0.5.apk',
-    'panel-del-precursor':'PanelDelPrecursor_Setup_2.1.1.exe'
+    'panel-del-precursor':'PanelDelPrecursor_Setup_2.1.1.exe',
+    'organizador-reuniones-pro':'Organizador_Reuniones_PRO_PACK8_8_9_WINDOWS.3.zip'
   });
   const prefix='https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/';
   let data=null;
