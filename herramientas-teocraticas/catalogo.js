@@ -67,7 +67,7 @@ window.CATALOGO_HT = [
     categoria: "reuniones", plataforma: "windows", estado: "publicado",
     icono: "calendar", color: "blue",
     subtitulo: "Organiza reuniones y reparte las asignaciones de forma equilibrada",
-    descripcion: "Programa gratuito para Windows que ayuda a preparar las reuniones de congregación. Permite gestionar participantes y autorizaciones, importar la Guía de actividades en EPUB, elaborar borradores editables y preparar programas finales. Propone asignaciones teniendo en cuenta el historial y las personas elegibles, siempre con revisión manual.",
+    descripcion: "Programa gratuito para Windows que ayuda a preparar las reuniones de entre semana y del fin de semana. Permite gestionar participantes y autorizaciones, consultar el catálogo de 196 números de discursos, importar la Guía de actividades, elaborar borradores editables y preparar programas finales. Propone asignaciones teniendo en cuenta el historial y las personas elegibles, siempre con revisión manual.",
     funciones: ["Fichas de participantes, responsabilidades y autorizaciones", "Importación local de la Guía de actividades en EPUB", "Borradores que permiten añadir, quitar y reordenar partes", "Propuestas de reparto con controles de repetición y disponibilidad", "Programación de una o dos salas y fechas especiales", "Programa final, informes, historial y exportación a PDF", "Copias de seguridad y contraseña opcional"],
     ficha: [
       {titulo:"Preparar el programa", puntos:["Introduce los datos de los participantes, su disponibilidad y las asignaciones autorizadas.", "Importa la Guía de actividades desde un archivo EPUB local y comprueba sus partes y duraciones.", "Edita el borrador según las circunstancias de cada semana: añade, quita, sustituye o cambia el orden de las partes."]},
@@ -75,7 +75,7 @@ window.CATALOGO_HT = [
       {titulo:"Revisar e imprimir", puntos:["Prepara programas con horarios, incluidas reuniones con dos salas cuando corresponda.", "Gestiona fechas especiales y sustituciones sin tener que rehacer todas las semanas.", "Confirma programas, revisa el historial y prepara documentos PDF para imprimir."]},
       {titulo:"Datos privados y actualizaciones", puntos:["Los datos de participantes y reuniones se guardan localmente en el ordenador.", "Incluye copias de seguridad y una contraseña opcional.", "Las actualizaciones automáticas aún no están activadas. Las nuevas versiones se distribuyen manualmente."]}
     ],
-    version: "0.8.9.1", pack: "8.9.1", fecha: "", archivo: "https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/organizador-reuniones-v0.8.9.1/Organizador_Reuniones_PRO_8_9_1_Windows_Canal_Incluido.zip"
+    version: "0.8.9.3", pack: "8.9.3", fecha: "", archivo: "https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/organizador-reuniones-v0.8.9.3/Organizador_Reuniones_PRO_8_9_3_WINDOWS_PARA_WEB.1.zip"
   },
   {
     id: "responsabilidades", nombre: "Mis Responsabilidades Teocráticas",
