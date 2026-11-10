@@ -75,7 +75,7 @@ window.CATALOGO_HT = [
       {titulo:"Revisar e imprimir", puntos:["Prepara programas con horarios, incluidas reuniones con dos salas cuando corresponda.", "Gestiona fechas especiales y sustituciones sin tener que rehacer todas las semanas.", "Confirma programas, revisa el historial y prepara documentos PDF para imprimir."]},
       {titulo:"Datos privados y actualizaciones", puntos:["Los datos de participantes y reuniones se guardan localmente en el ordenador.", "Incluye copias de seguridad y una contraseña opcional.", "Las actualizaciones automáticas aún no están activadas. Las nuevas versiones se distribuyen manualmente."]}
     ],
-    version: "0.8.8.9", pack: "8.8.9", fecha: "", archivo: "https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/organizador-reuniones-v0.8.8.9/Organizador_Reuniones_PRO_PACK8_8_9_WINDOWS.3.zip"
+    version: "0.8.9.1", pack: "8.9.1", fecha: "", archivo: "https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/organizador-reuniones-v0.8.9.1/Organizador_Reuniones_PRO_8_9_1_Windows_Canal_Incluido.zip"
   },
   {
     id: "responsabilidades", nombre: "Mis Responsabilidades Teocráticas",
