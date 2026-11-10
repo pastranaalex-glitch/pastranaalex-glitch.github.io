@@ -27,7 +27,7 @@
   const norm = text => String(text ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('es');
   // Admitir archivos locales y el ZIP concreto, verificado en GitHub Releases.
   // No se aceptan enlaces externos arbitrarios.
-  const organizerDownload = 'https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/organizador-reuniones-v0.8.9.1/Organizador_Reuniones_PRO_8_9_1_Windows_Canal_Incluido.zip';
+  const organizerDownload = 'https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/organizador-reuniones-v0.8.9.3/Organizador_Reuniones_PRO_8_9_3_WINDOWS_PARA_WEB.1.zip';
   const validFile = app => {
     if(!['publicado','pruebas-locales','lista-local'].includes(app.estado) || typeof app.archivo!=='string') return false;
     if(app.id==='organizador-reuniones-pro') return app.archivo===organizerDownload;
