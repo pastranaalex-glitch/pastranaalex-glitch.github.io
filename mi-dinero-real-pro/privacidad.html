@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<meta name="theme-color" content="#16314c">
+<title>Política de privacidad | Mi Dinero Real PRO</title>
+<style>:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#20364b;background:#f0f5f8;font-size:16px}*{box-sizing:border-box}body{margin:0}header{background:#16314c;color:white;padding:24px 20px}header div,main,footer div{max-width:850px;margin:auto}header strong{font-size:1.4rem}header p{color:#c9e9e4;margin:6px 0 0}main{padding:26px 20px 48px}.paper{background:white;border:1px solid #d7e3eb;border-radius:18px;padding:clamp(22px,5vw,45px);box-shadow:0 8px 28px #183b5110}h1{font-size:clamp(1.6rem,4vw,2.1rem);margin:0 0 5px}h2{font-size:1.13rem;margin:31px 0 8px}p,li{line-height:1.7}a{color:#126ca2}nav{margin:18px 0 25px;display:flex;flex-wrap:wrap;gap:14px}nav a{padding:8px 12px;background:#deefeb;border-radius:8px;text-decoration:none;font-weight:600}.muted{color:#607184}.notice{background:#f3f8fb;border-left:4px solid #4d8d9f;padding:12px 16px;border-radius:6px}footer{padding:16px 20px 26px;color:#566a7c;text-align:center;font-size:.9rem}code{word-break:break-word;background:#eff4f7;padding:2px 5px;border-radius:4px}</style>
+</head>
+<body>
+<header><div><strong>Mi Dinero Real PRO</strong><p>Aplicación personal para Windows · Uso no comercial · Solo lectura bancaria</p></div></header>
+<main><article class="paper">
+<h1>Política de privacidad</h1>
+<p class="muted">Última actualización: 12 de noviembre de 2026</p>
+<nav aria-label="Documentos legales"><a href="privacidad.html">Privacidad</a><a href="terminos.html">Condiciones de uso</a></nav>
+
+<p class="notice"><strong>Resumen:</strong> Mi Dinero Real PRO es un programa gratuito de uso personal para Windows. Los movimientos y análisis se guardan en el propio ordenador. La conexión bancaria, si el titular decide activarla, utiliza la API de Enable Banking y la autorización del banco.</p>
+<h2>1. Finalidad y alcance</h2>
+<p>El programa facilita a su titular la consulta, clasificación y análisis de movimientos de sus propias cuentas bancarias. Este documento describe el funcionamiento previsto de la versión Windows 2.1. No se ofrece una plataforma pública de cuentas ni un servicio para clientes.</p>
+<h2>2. Datos utilizados y almacenamiento</h2>
+<p>Los extractos CSV/Excel importados y los movimientos, importes, fechas, descripciones, categorías y reglas se procesan localmente. Los datos persistentes del programa se almacenan en la carpeta <code>%LOCALAPPDATA%\MiDineroRealPRO</code> del ordenador. El almacenamiento local de la aplicación se protege mediante las funciones de cifrado de Windows (DPAPI) vinculadas a la cuenta del usuario.</p>
+<p>Las exportaciones, informes, archivos CSV/JSON y copias de seguridad que el usuario guarde fuera del programa <strong>no están cifrados por la aplicación</strong>. Se recomienda conservarlos en lugares privados y protegidos.</p>
+<h2>3. Conexión opcional con BBVA</h2>
+<p>Si se configura la conexión, el programa consulta la información bancaria autorizada mediante <a href="https://enablebanking.com/" rel="noopener noreferrer">Enable Banking</a>, proveedor externo de conectividad bancaria, y los sistemas de la entidad financiera. La aplicación no solicita ni guarda las contraseñas de acceso a BBVA. Sí conserva localmente, de forma cifrada, la clave de la aplicación API y la información de sesión necesaria para la conexión.</p>
+<p>Al autorizar la conexión, BBVA y Enable Banking tratarán los datos necesarios conforme a sus propios avisos y condiciones. El titular puede revisar los <a href="https://enablebanking.com/terms/" rel="noopener noreferrer">términos de Enable Banking</a> y la información que se le muestre durante el consentimiento bancario.</p>
+<h2>4. Transmisión de información y terceros</h2>
+<p>La aplicación no envía extractos a un servidor propio del desarrollador. Cuando se utiliza la conexión bancaria, comunica las solicitudes y recibe la información desde los sistemas de Enable Banking. No incorpora publicidad, analítica de uso ni rastreadores propios.</p>
+<h2>5. Conservación y control</h2>
+<p>Los movimientos permanecen en el equipo hasta que el usuario los elimina o elimina los archivos del programa. La desconexión desde la aplicación borra su configuración de conexión local, sin necesariamente revocar un permiso que deba revocarse también en BBVA o Enable Banking. Las copias exportadas deben eliminarse por separado.</p>
+<h2>6. Esta página web</h2>
+<p>Esta página es un documento informativo estático: no contiene formularios ni recopila datos bancarios. Está alojada en GitHub Pages; GitHub puede tratar datos técnicos de acceso, como direcciones IP, conforme a sus propias políticas.</p>
+<h2>7. Cambios</h2>
+<p>Este texto podrá actualizarse si cambia el comportamiento del programa, el proveedor bancario o las funciones ofrecidas. No se publicarán movimientos personales, claves ni datos de acceso en esta página.</p>
+
+</article></main>
+<footer><div>Mi Dinero Real PRO · Proyecto personal independiente. No afiliado a BBVA ni a Enable Banking.</div></footer>
+</body>
+</html>
