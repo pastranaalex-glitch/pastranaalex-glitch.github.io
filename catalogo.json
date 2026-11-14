@@ -258,7 +258,7 @@
       "nombre": "Jardín de Joyas",
       "plataforma": "android",
       "publicado": true,
-      "version": "2.0.19",
+      "version": "2.0.21",
       "descripcion": "Juego gratuito sin anuncios con 1.500 niveles, Cumbres de Hielo desde el nivel 1.001 y un valle que recuperas al avanzar. Incluye cofres, modo Relax y juego en vertical u horizontal en móvil y tablet. La clasificación voluntaria cuenta los primeros 500 niveles.",
       "enlace": "https://pastranaalex-glitch.github.io/jardin-de-joyas.html",
       "slug": "jardin-de-joyas",
@@ -273,10 +273,10 @@
       "disponible": true,
       "estado": "Disponible",
       "descarga": {
-        "version": "2.0.19",
-        "tag": "jardin-de-joyas-v2.0.19",
-        "archivo": "Jardin_de_Joyas_2_0_19_PACK79_FIRMA_EXISTENTE.apk",
-        "sha256": "433e12a88871c6ad4d654032370bf82d0fc552fed4581ab24344bdccdca39282"
+        "version": "2.0.21",
+        "tag": "jardin-de-joyas-v2.0.21",
+        "archivo": "Jardin_de_Joyas_2_0_21_PACK81_FIRMA_EXISTENTE.apk",
+        "sha256": "a0d68ad55171245dca906196b3d7d07b87a9f2b7b14b2e7174db4fb23687d7fd"
       }
     },
     {
