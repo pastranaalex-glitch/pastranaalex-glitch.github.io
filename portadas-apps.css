@@ -8,3 +8,7 @@
 .app-promo-cover img{display:block;width:100%;height:auto;max-width:100%;border-radius:20px;box-shadow:0 12px 35px #26203918}
 .app-promo-cover figcaption{font:400 .75rem/1.5 system-ui,sans-serif;color:#696578;text-align:right;padding:7px 3px}
 @media(max-width:700px){.app-promo-wrap{margin-top:15px}.app-promo-cover img{border-radius:13px}}
+
+/* El Paraíso Perdido: protagonista y náufragos visibles en portada e icono. */
+.app-card[data-app-slug="el-paraiso-perdido"] .card-art.is-promo-cover .card-phone img{object-fit:cover;object-position:center top}
+.app-card[data-app-slug="el-paraiso-perdido"] .app-icon{object-fit:cover;object-position:center top;border-radius:12px;background:#cfe9e2}
