@@ -1,0 +1,30 @@
+name: Preparar borrador de lanzamiento El Paraiso Perdido
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/preparar-paraiso-release.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  preparar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Preparar lanzamiento privado para adjuntar APK firmada
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          TAG: el-paraiso-perdido-v0.9.4
+        run: |
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo 'El lanzamiento ya existe; no se modifica.'
+          else
+            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --target main --draft \
+              --title 'El Paraíso Perdido · Primera edición pública (0.9.4)' \
+              --notes 'Primera edición para Android con 100 niveles, cinco capítulos, cofres, construcciones, paisajes tropicales e introducción cinematográfica. Gratis y sin anuncios. Archivo requerido: El_Paraiso_Perdido_PACK9_4.apk (126521633 bytes). SHA-256 esperado: 97cfafe0f42a548fbf220973a79df0df5ea9b36786ac76b7c51a3d648b318f6e. Adjuntar el APK firmado y publicar el borrador después de verificarlo.'
+          fi
