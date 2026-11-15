@@ -44,7 +44,7 @@ function card(a){
  const short={'lector-facil':'Lee PDF y Word, prepara exposiciones y guarda marcadores.','recetario-facil':'52 recetas ilustradas, con búsqueda y preparación paso a paso.','rutas-a-pie':'Explora 400 rutas por España y graba tus recorridos con GPS.'};
  const desc=mk('p','app-description',isHome&&short[a.slug]?short[a.slug]:a.descripcion),meta=mk('div','app-meta');meta.append(mk('span',null,'Versión '+(a.version||'actual')),mk('span',null,a.plataforma==='windows'?'Windows':'Android'));
  const footer=mk('div','card-footer'),stats=mk('div','downloads'),strong=mk('strong',null,'—'),label=mk('span',null,'Consultando descargas'),small=mk('small',null,'GitHub Releases');stats.append(strong,label,small);
- const actions=mk('div','card-actions'),detail=mk('a','button button-outline','Ver aplicación →'),dl=mk(paused?'button':'a','button button-dark',paused?'Descarga suspendida':'Descargar ↓');detail.href=a.enlace;
+ const actions=mk('div','card-actions'),detail=mk('a','button button-outline','Ver aplicación →'),dl=mk(paused?'button':'a','button button-dark',paused?'Descarga suspendida':'Descargar ↓');detail.href=a.slug==='el-paraiso-perdido'?a.enlace+'?v=20261115-protagonistas3':a.enlace;
  const direct=approvedDownload(a);
  if(paused){dl.type='button';dl.disabled=true;dl.setAttribute('aria-disabled','true');dl.title=a.nombre+' en reparación: descarga temporalmente desactivada';dl.style.opacity='0.65';dl.style.cursor='not-allowed';}
  else if(direct){dl.href=direct;dl.title='Descargar la versión '+a.version+(a.descargaDirecta?' desde la Biblioteca':' desde GitHub Releases');}
