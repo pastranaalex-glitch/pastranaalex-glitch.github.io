@@ -1,0 +1,49 @@
+name: Publicar El Paraiso Perdido al aprobar Release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: biblioteca-publicacion-aprobada
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    if: github.event_name == 'workflow_dispatch' || github.event.release.tag_name == 'el-paraiso-perdido-v0.9.4'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verificar el APK real y actualizar la Biblioteca
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/publicar_paraiso_perdido.py
+      - name: Comprobar ficheros publicados
+        run: |
+          python -m json.tool catalogo.json >/dev/null
+          python -m json.tool el-paraiso-perdido-version.json >/dev/null
+          node --check pack6.js
+          git diff --check
+      - name: Guardar la nueva ficha, el catálogo y el manifiesto
+        run: |
+          git add -- catalogo.json pack6.js index.html proximamente.html catalogo.html sitemap.xml el-paraiso-perdido-version.json
+          if git diff --cached --quiet; then
+            echo 'La publicación ya estaba preparada.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publicar El Paraíso Perdido 0.9.4 verificada [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
