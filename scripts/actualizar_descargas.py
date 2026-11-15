@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SHARED = "pastranaalex-glitch/pastranaalex-glitch.github.io"
 API = "https://api.github.com"
 RULES = {
+    "el-paraiso-perdido": r"^El[_-]Paraiso[_-]Perdido[_-]PACK[0-9_]+\.apk$",
     "jardin-de-joyas": r"^Jardin[_-]de[_-]Joyas(?:[._-]|[0-9])",
     "mente-activa-pro": r"^Mente[_-]Activa[_-]PRO(?:[._-]|[0-9])",
     "sudoku-vivo": r"^SudokuVivo_[0-9].*\.apk$",
