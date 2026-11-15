@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#113b35">
+<meta name="description" content="El Paraíso Perdido: videojuego gratuito para Android. Sobrevive a un naufragio, supera 100 niveles, reúne cofres y transforma una isla tropical. Sin anuncios.">
+<link rel="canonical" href="https://pastranaalex-glitch.github.io/el-paraiso-perdido.html">
+<link rel="stylesheet" href="portada.css">
+<title>El Paraíso Perdido · Juego gratis Android · Biblioteca</title>
+<style>
+:root{color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:#f4f8f6;color:#193c39;font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+a{color:#135b54}
+header{background:#102c2a;color:#fff;padding:17px max(16px,calc((100vw - 1060px)/2))}
+header nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+header a{color:white;text-decoration:none;font-weight:650}
+.hero{background:linear-gradient(125deg,#113c38,#17433d 54%,#142f29);padding:40px 16px 46px;color:#fff}
+.wrap{width:min(1020px,100%);margin:auto}
+.hero-grid{display:grid;grid-template-columns:1.25fr .95fr;align-items:center;gap:25px}
+.kicker{font-size:.83rem;letter-spacing:.1em;font-weight:750;color:#eec886;text-transform:uppercase}
+h1{font-size:clamp(2.4rem,5.4vw,4.2rem);margin:8px 0 12px;line-height:1.04}
+.lead{font-size:1.14rem;line-height:1.65;color:#e7f1ea}
+.tagline{color:#f3de9f;font-weight:650}
+.hero img{width:100%;height:auto;max-height:490px;object-fit:cover;border-radius:19px;border:2px solid #d7bd7f;box-shadow:0 12px 26px #061b1a90}
+.status{background:#fff;color:#1a4c46;border:1px solid #bbd9cf;border-radius:18px;padding:21px;margin-top:20px;box-shadow:0 10px 30px #002a2011}
+.status strong{font-size:1.18rem}
+.status p{line-height:1.6}
+.download{display:inline-flex;padding:15px 22px;border-radius:11px;background:#e8c67a;color:#173b35;text-decoration:none;font-weight:800;align-items:center;justify-content:center;min-height:50px}
+.download[hidden]{display:none}
+.badge{display:inline-block;background:#e5f5ec;color:#125a3e;border-radius:30px;padding:7px 12px;font-size:.82rem;font-weight:800}
+section{padding:36px 16px}
+h2{font-size:1.65rem;margin-top:0}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.panel{background:#fff;border:1px solid #d6e3dd;border-radius:15px;padding:22px;line-height:1.6}
+.panel h3{margin-top:0}
+.visuals{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.visuals figure{margin:0}
+.visuals img{width:100%;height:auto;border-radius:13px}
+figcaption{font-size:.88rem;color:#526c65;margin-top:8px}
+.note{font-size:.9rem;color:#44615d}
+.hash{overflow-wrap:anywhere;background:#ecf3ef;border-radius:8px;padding:9px;font-size:.8rem}
+footer{padding:22px 16px;background:#102b29;color:#fff}
+footer a{color:#e1d3a5}
+@media(max-width:730px){.hero-grid,.features,.visuals{grid-template-columns:1fr}.hero{padding-top:26px}.hero img{max-height:300px}}
+</style>
+</head>
+<body>
+<header><nav aria-label="Navegación"><a href="index.html">Biblioteca</a><a href="catalogo.html">Catálogo</a><a href="proximamente.html">Próximamente</a></nav></header>
+<main>
+<section class="hero"><div class="wrap hero-grid">
+<div><p class="kicker">Aventura y construcción · Android</p><h1>El Paraíso Perdido</h1>
+<p class="lead">Dos supervivientes llegan a una isla desconocida tras un naufragio. Reúne recursos, gana cofres, construye su primer hogar y transforma poco a poco el paisaje.</p>
+<p class="tagline">100 expediciones · 5 capítulos · Gratis y sin anuncios</p>
+<p>Primera edición pública · Versión técnica 0.9.4 · Solo Android</p>
+</div>
+<img src="paraiso-isla.webp" alt="Paisaje tropical del juego El Paraíso Perdido, con cabaña junto al mar y cascada" width="900" height="600" loading="eager">
+</div></section>
+<section><div class="wrap">
+<div class="status" id="descarga" aria-live="polite">
+<span class="badge" id="estado">Comprobando publicación</span>
+<h2>Descarga para Android</h2>
+<p id="estado-texto">Comprobando si ya está disponible el APK oficial firmado en GitHub Releases.</p>
+<a class="download" id="descargar-apk" hidden rel="noopener noreferrer">Descargar APK oficial (121 MB)</a>
+<p class="note">La descarga solo se habilita cuando GitHub confirma que el APK se ha publicado. Android puede solicitar permiso para instalar aplicaciones desde el navegador.</p>
+</div>
+</div></section>
+<section><div class="wrap"><h2>Así se juega</h2><div class="features">
+<div class="panel"><h3>Supera expediciones</h3><p>Une cadenas de al menos tres materiales iguales para cumplir los objetivos antes de agotar los movimientos.</p></div>
+<div class="panel"><h3>Consigue cofres</h3><p>Gana un cofre por cada nivel. Completa los 20 niveles de un capítulo para recibir materiales en el almacén.</p></div>
+<div class="panel"><h3>Construye la isla</h3><p>Levanta el refugio, mejora la vivienda y descubre nuevos caminos, el puente, el mirador y las cascadas.</p></div>
+</div></div></section>
+<section><div class="wrap"><h2>Imágenes del juego</h2><div class="visuals">
+<figure><img src="paraiso-tablero.webp" alt="Tablero de expediciones con materiales tropicales" loading="lazy"><figcaption>Reúne recursos superando encargos.</figcaption></figure>
+<figure><img src="paraiso-coral.webp" alt="Paisaje tropical de la isla" loading="lazy"><figcaption>Explora la isla y disfruta de sus paisajes.</figcaption></figure>
+</div></div></section>
+<section><div class="wrap panel"><h2>Instalación y actualizaciones</h2>
+<p>Descarga el APK, ábrelo en Android y confirma la instalación. Las próximas actualizaciones se anunciarán dentro del juego mediante «Buscar actualizaciones», y utilizarán la misma firma de publicación.</p>
+<p>Si tienes una versión antigua de pruebas, firmada con una clave diferente, Android no permitirá instalar esta publicación encima. Desinstalar una versión anterior puede borrar su progreso local.</p>
+<p><strong>Integridad del APK validado:</strong></p><p class="hash"><code>SHA-256: 97cfafe0f42a548fbf220973a79df0df5ea9b36786ac76b7c51a3d648b318f6e</code></p>
+</div></section>
+</main>
+<footer><div class="wrap">Biblioteca de herramientas · Proyectos gratuitos, sin anuncios. <a href="index.html">Volver al inicio</a></div></footer>
+<script>
+(function(){
+  "use strict";
+  const releaseApi="https://api.github.com/repos/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/tags/el-paraiso-perdido-v0.9.4";
+  const assetName="El_Paraiso_Perdido_PACK9_4.apk";
+  const expectedSha="sha256:97cfafe0f42a548fbf220973a79df0df5ea9b36786ac76b7c51a3d648b318f6e";
+  const expectedSize=126521633;
+  const status=document.getElementById("estado");
+  const text=document.getElementById("estado-texto");
+  const link=document.getElementById("descargar-apk");
+  fetch(releaseApi,{headers:{"Accept":"application/vnd.github+json"}})
+    .then(function(r){if(!r.ok)throw new Error("La publicación aún no está disponible");return r.json()})
+    .then(function(r){
+      if(r.draft||r.prerelease)throw new Error("La publicación aún no es pública");
+      const asset=(r.assets||[]).find(function(a){return a.name===assetName&&a.state==="uploaded"&&a.size===expectedSize});
+      if(!asset||!asset.browser_download_url)throw new Error("El APK todavía no está adjuntado");
+      if(asset.digest&&asset.digest!==expectedSha)throw new Error("El APK publicado no coincide con el archivo validado");
+      status.textContent="Disponible para descargar";
+      text.textContent="Versión oficial para Android. 100 niveles y cinco capítulos. Archivo firmado, alojado en GitHub Releases.";
+      link.href=asset.browser_download_url;
+      link.hidden=false;
+    })
+    .catch(function(){status.textContent="Publicación en preparación";text.textContent="El APK está validado, pero su descarga pública todavía se está preparando en GitHub Releases. Prueba de nuevo cuando esté publicado."});
+})();
+</script>
+</body></html>
