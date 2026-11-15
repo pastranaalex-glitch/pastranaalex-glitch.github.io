@@ -60,6 +60,9 @@ class BibliotecaWebTests(unittest.TestCase):
         for url in self.sitemap:
             self.assertTrue(url.startswith(BASE), url)
             filename = url.removeprefix(BASE) or "index.html"
+            # Las URL terminadas en / son carpetas que publican su index.html.
+            if url.endswith("/") and url != BASE:
+                filename += "index.html"
             self.assertTrue((ROOT / filename).is_file(), url)
 
     def test_published_apps_have_public_page_and_sitemap(self):
