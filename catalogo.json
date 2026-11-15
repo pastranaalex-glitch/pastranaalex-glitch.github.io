@@ -438,6 +438,30 @@
         "utilidades"
       ],
       "etiqueta": "COMUNICACION POR VOZ"
+    },
+    {
+      "nombre": "El Paraíso Perdido",
+      "plataforma": "android",
+      "publicado": true,
+      "version": "0.9.4",
+      "descripcion": "Aventura tropical para Android: supera 100 expediciones, consigue cofres y construye un hogar en una isla desolada. Cinco capítulos, introducción cinematográfica y avisos de actualización.",
+      "enlace": "https://pastranaalex-glitch.github.io/el-paraiso-perdido.html",
+      "slug": "el-paraiso-perdido",
+      "categorias": [
+        "juegos"
+      ],
+      "etiqueta": "AVENTURA Y CONSTRUCCIÓN",
+      "eslogan": "Convierte la isla en un paraíso.",
+      "imagen": "paraiso-tablero.webp",
+      "portada": "paraiso-isla.webp",
+      "repo": "pastranaalex-glitch/pastranaalex-glitch.github.io",
+      "descarga": {
+        "version": "0.9.4",
+        "tag": "el-paraiso-perdido-v0.9.4",
+        "archivo": "El_Paraiso_Perdido_PACK9_4.apk",
+        "sha256": "97cfafe0f42a548fbf220973a79df0df5ea9b36786ac76b7c51a3d648b318f6e"
+      },
+      "disponible": true
     }
   ]
 }
