@@ -461,7 +461,8 @@
         "archivo": "El_Paraiso_Perdido_PACK9_4.apk",
         "sha256": "97cfafe0f42a548fbf220973a79df0df5ea9b36786ac76b7c51a3d648b318f6e"
       },
-      "disponible": true
+      "disponible": true,
+      "icono": "el-paraiso-perdido-protagonistas.svg"
     }
   ]
 }
