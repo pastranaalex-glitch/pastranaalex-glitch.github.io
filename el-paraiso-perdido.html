@@ -62,6 +62,7 @@ footer a{color:#e1d3a5}
 <span class="badge" id="estado">Comprobando publicación</span>
 <h2>Descarga para Android</h2>
 <p id="estado-texto">Comprobando si ya está disponible el APK oficial firmado en GitHub Releases.</p>
+<p id="paraiso-descargas-acumuladas" role="status" aria-live="polite">Consultando descargas en GitHub Releases…</p>
 <a class="download" id="descargar-apk" hidden rel="noopener noreferrer">Descargar APK oficial (121 MB)</a>
 <p class="note">La descarga solo se habilita cuando GitHub confirma que el APK se ha publicado. Android puede solicitar permiso para instalar aplicaciones desde el navegador.</p>
 </div>
@@ -107,4 +108,5 @@ footer a{color:#e1d3a5}
     .catch(function(){status.textContent="Publicación en preparación";text.textContent="El APK está validado, pero su descarga pública todavía se está preparando en GitHub Releases. Prueba de nuevo cuando esté publicado."});
 })();
 </script>
+<script src="el-paraiso-perdido-descargas.js?v=20261115-1" defer></script>
 </body></html>
