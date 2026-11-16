@@ -1,6 +1,6 @@
 {
   "fecha": "2026-11-16",
-  "actualizado": "2026-11-16T06:44:35+00:00",
+  "actualizado": "2026-11-16T22:16:30+00:00",
   "descripcion": "Mínimos de descargas de archivos publicados en GitHub Releases; no son instalaciones ni personas únicas y no incluyen archivos descargados directamente desde GitHub Pages.",
   "conteos": {
     "cocina-a-punto": 13,
@@ -8,7 +8,7 @@
     "documentos-de-casa": 5,
     "el-paraiso-perdido": 2,
     "en-familia": 1,
-    "jardin-de-joyas": 76,
+    "jardin-de-joyas": 79,
     "lector-facil": 19,
     "mente-activa-pro": 46,
     "menu-y-compra": 2,
@@ -47,11 +47,11 @@
       "pastranaalex-glitch/pastranaalex-glitch.github.io:670340177": 5,
       "pastranaalex-glitch/pastranaalex-glitch.github.io:672181770": 6,
       "pastranaalex-glitch/pastranaalex-glitch.github.io:684920053": 2,
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:711499296": 5,
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:711499296": 6,
       "pastranaalex-glitch/pastranaalex-glitch.github.io:717165265": 4,
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:718935552": 7,
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:718935552": 8,
       "pastranaalex-glitch/pastranaalex-glitch.github.io:745610987": 2,
-      "pastranaalex-glitch/pastranaalex-glitch.github.io:746808063": 11
+      "pastranaalex-glitch/pastranaalex-glitch.github.io:746808063": 12
     },
     "lector-facil": {
       "pastranaalex-glitch/lector-facil:628195428": 1,
