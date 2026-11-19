@@ -10,12 +10,12 @@ ROOT=Path(__file__).resolve().parents[1]
 DEST=ROOT/'herramientas-teocraticas'/'descargas-teocraticas.json'
 REPO='pastranaalex-glitch/pastranaalex-glitch.github.io'
 TAG='ht-v11.1'
-ORGANIZADOR_TAG='organizador-reuniones-v0.8.8.9'
+ORGANIZADOR_TAG='organizador-reuniones-v0.8.9.5'
 FILES={
  'mis-horas-predicacion':'MisHorasPredicacion_1.5.0_Pack7.7.apk',
  'lector-facil':'LectorFacil-v1.0.5.apk',
  'panel-del-precursor':'PanelDelPrecursor_Setup_2.1.1.exe',
- 'organizador-reuniones-pro':'Organizador_Reuniones_PRO_PACK8_8_9_WINDOWS.3.zip'
+ 'organizador-reuniones-pro':'Organizador_Reuniones_PRO_0_8_9_5_WINDOWS_CON_VIDEOTUTORIALES.zip'
 }
 def fetch_releases():
     result=[]
