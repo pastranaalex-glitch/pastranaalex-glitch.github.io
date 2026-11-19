@@ -6,7 +6,7 @@
     'mis-horas-predicacion':'MisHorasPredicacion_1.5.0_Pack7.7.apk',
     'lector-facil':'LectorFacil-v1.0.5.apk',
     'panel-del-precursor':'PanelDelPrecursor_Setup_2.1.1.exe',
-    'organizador-reuniones-pro':'Organizador_Reuniones_PRO_PACK8_8_9_WINDOWS.3.zip'
+    'organizador-reuniones-pro':'Organizador_Reuniones_PRO_0_8_9_5_WINDOWS_CON_VIDEOTUTORIALES.zip'
   });
   const prefix='https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/';
   let data=null;
@@ -30,17 +30,8 @@
       if(el.textContent!=='📥 '+label) el.textContent='📥 '+label;
       el.title=d ? 'Descargas de GitHub Releases desde la activación del contador. No son instalaciones ni personas únicas.' : 'La descarga sigue disponible mientras se activa el contador.';
     });
-    document.querySelectorAll('a[data-ht-download]').forEach(el=>{
-      const id=el.dataset.htDownload;
-      if (!Object.hasOwn(fileNames,id)) return;
-      const d=record(id);
-      if (d) {
-        el.href=d.enlace;
-        el.removeAttribute('download');
-        el.rel='noopener noreferrer';
-        el.title='Descarga registrada por GitHub Releases';
-      }
-    });
+    // El contador solo presenta estadísticas. Nunca cambia el enlace de descarga,
+    // que procede del catálogo y corresponde a la versión publicada.
   }
   const dialog=document.getElementById('dialog-content');
   if(dialog) new MutationObserver(updateUI).observe(dialog,{childList:true});
