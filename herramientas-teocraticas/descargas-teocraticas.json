@@ -8,13 +8,13 @@
     },
     "organizador-reuniones-pro": {
       "727883283": 6,
-      "731480159": 1
+      "731480159": 2
     },
     "panel-del-precursor": {
       "722259280": 1
     }
   },
-  "actualizado": "2026-11-19T21:39:35.065Z",
+  "actualizado": "2026-11-20T07:49:10+00:00",
   "aplicaciones": {
     "lector-facil": {
       "descargas": 1,
@@ -27,7 +27,7 @@
       "enlace": "https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/ht-v11.1/MisHorasPredicacion_1.5.0_Pack7.7.apk"
     },
     "organizador-reuniones-pro": {
-      "descargas": 7,
+      "descargas": 8,
       "disponible": true,
       "enlace": "https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/organizador-reuniones-v0.8.9.5/Organizador_Reuniones_PRO_0_8_9_5_WINDOWS_CON_VIDEOTUTORIALES.zip"
     },
