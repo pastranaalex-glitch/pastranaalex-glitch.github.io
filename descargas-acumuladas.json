@@ -1,6 +1,6 @@
 {
-  "fecha": "2026-11-23",
-  "actualizado": "2026-11-23T07:51:11+00:00",
+  "fecha": "2026-11-24",
+  "actualizado": "2026-11-24T00:00:45+00:00",
   "descripcion": "Mínimos de descargas de archivos publicados en GitHub Releases; no son instalaciones ni personas únicas y no incluyen archivos descargados directamente desde GitHub Pages.",
   "conteos": {
     "cocina-a-punto": 13,
@@ -15,7 +15,7 @@
     "mi-biblioteca-facil": 1,
     "mi-dinero-real": 1,
     "mi-salud-familiar": 79,
-    "recetario-facil": 22,
+    "recetario-facil": 23,
     "rutas-a-pie": 31,
     "sopa-de-letras-pro": 10,
     "sudoku-vivo": 1
@@ -76,7 +76,7 @@
       "pastranaalex-glitch/pastranaalex-glitch.github.io:643218063": 79
     },
     "recetario-facil": {
-      "pastranaalex-glitch/recetario-facil:630361356": 22
+      "pastranaalex-glitch/recetario-facil:630361356": 23
     },
     "rutas-a-pie": {
       "pastranaalex-glitch/pastranaalex-glitch.github.io:634270904": 13,
