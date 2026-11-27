@@ -6,7 +6,8 @@
     'mis-horas-predicacion':'MisHorasPredicacion_1.5.0_Pack7.7.apk',
     'lector-facil':'LectorFacil-v1.0.5.apk',
     'panel-del-precursor':'PanelDelPrecursor_Setup_2.1.1.exe',
-    'organizador-reuniones-pro':'Organizador_Reuniones_PRO_0_8_9_5_WINDOWS_CON_VIDEOTUTORIALES.zip'
+    'organizador-reuniones-pro':'Organizador_Reuniones_PRO_0_8_9_5_WINDOWS_CON_VIDEOTUTORIALES.zip',
+    'reproductor-jw-facil':'Reproductor_JW_Facil_1.0.0_Setup.exe'
   });
   const prefix='https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/';
   let data=null;
@@ -33,6 +34,8 @@
     // El contador solo presenta estadísticas. Nunca cambia el enlace de descarga,
     // que procede del catálogo y corresponde a la versión publicada.
   }
+  const grid=document.getElementById('app-grid');
+  if(grid) new MutationObserver(updateUI).observe(grid,{childList:true});
   const dialog=document.getElementById('dialog-content');
   if(dialog) new MutationObserver(updateUI).observe(dialog,{childList:true});
   async function load() {
