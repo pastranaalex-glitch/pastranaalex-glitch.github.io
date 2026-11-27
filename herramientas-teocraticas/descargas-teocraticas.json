@@ -12,6 +12,9 @@
     },
     "panel-del-precursor": {
       "722259280": 1
+    },
+    "reproductor-jw-facil": {
+      "801588145": 0
     }
   },
   "actualizado": "2026-11-27T09:08:33+00:00",
@@ -35,6 +38,11 @@
       "descargas": 1,
       "disponible": true,
       "enlace": "https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/ht-v11.1/PanelDelPrecursor_Setup_2.1.1.exe"
+    },
+    "reproductor-jw-facil": {
+      "descargas": 0,
+      "disponible": true,
+      "enlace": "https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/reproductor-jw-facil-v1.0.0/Reproductor_JW_Facil_1.0.0_Setup.exe"
     }
   },
   "descripcion": "Descargas registradas en activos de GitHub Releases desde activar el contador. No incluye descargas anteriores desde GitHub Pages ni representa instalaciones únicas.",

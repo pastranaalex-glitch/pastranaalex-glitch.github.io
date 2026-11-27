@@ -11,11 +11,13 @@ DEST=ROOT/'herramientas-teocraticas'/'descargas-teocraticas.json'
 REPO='pastranaalex-glitch/pastranaalex-glitch.github.io'
 TAG='ht-v11.1'
 ORGANIZADOR_TAG='organizador-reuniones-v0.8.9.5'
+REPRODUCTOR_TAG='reproductor-jw-facil-v1.0.0'
 FILES={
  'mis-horas-predicacion':'MisHorasPredicacion_1.5.0_Pack7.7.apk',
  'lector-facil':'LectorFacil-v1.0.5.apk',
  'panel-del-precursor':'PanelDelPrecursor_Setup_2.1.1.exe',
- 'organizador-reuniones-pro':'Organizador_Reuniones_PRO_0_8_9_5_WINDOWS_CON_VIDEOTUTORIALES.zip'
+ 'organizador-reuniones-pro':'Organizador_Reuniones_PRO_0_8_9_5_WINDOWS_CON_VIDEOTUTORIALES.zip',
+ 'reproductor-jw-facil':'Reproductor_JW_Facil_1.0.0_Setup.exe'
 }
 def fetch_releases():
     result=[]
@@ -34,7 +36,7 @@ def build(releases,prev):
     historic={k:dict(past.get(k,{})) if isinstance(past.get(k),dict) else {} for k in FILES}
     urls={}
     for release in releases:
-        if not isinstance(release,dict) or release.get('draft') or not (str(release.get('tag_name','')).startswith('ht-v') or release.get('tag_name')==ORGANIZADOR_TAG): continue
+        if not isinstance(release,dict) or release.get('draft') or not (str(release.get('tag_name','')).startswith('ht-v') or release.get('tag_name') in (ORGANIZADOR_TAG, REPRODUCTOR_TAG)): continue
         for asset in release.get('assets',[]):
             if not isinstance(asset,dict) or asset.get('state')!='uploaded': continue
             for key,filename in FILES.items():
@@ -43,7 +45,7 @@ def build(releases,prev):
                 if type(number) is not int or number<0 or type(asset_id) is not int or asset_id<1: continue
                 old=historic[key].get(str(asset_id),0)
                 historic[key][str(asset_id)]=max(old,number)
-                expected_tag=ORGANIZADOR_TAG if key=='organizador-reuniones-pro' else TAG
+                expected_tag={'organizador-reuniones-pro':ORGANIZADOR_TAG,'reproductor-jw-facil':REPRODUCTOR_TAG}.get(key,TAG)
                 if release.get('tag_name')==expected_tag and asset.get('size',0)>100000:
                     url=asset.get('browser_download_url')
                     expected='https://github.com/'+REPO+'/releases/download/'+expected_tag+'/'+filename

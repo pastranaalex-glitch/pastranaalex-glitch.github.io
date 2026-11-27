@@ -16,6 +16,7 @@
     notebook: '<rect x="5" y="3" width="15" height="18" rx="2"/><path d="M9 3v18M12 8h5m-4 4h4m-4 4h4"/>',
     book: '<path d="M12 7v14M3 18V4.5A1.5 1.5 0 0 1 4.5 3H8a4 4 0 0 1 4 4 4 4 0 0 1 4-4h3.5A1.5 1.5 0 0 1 21 4.5V18h-5a4 4 0 0 0-4 3 4 4 0 0 0-4-3H3Z"/>',
     mobile: '<rect x="6.5" y="2" width="11" height="20" rx="2"/><path d="M10 18.5h4"/>',
+    video: '<rect x="2.5" y="4" width="19" height="16" rx="3"/><path d="m10 8 6 4-6 4Z"/>',
     desktop: '<rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/>',
     users: '<circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2H3ZM17 5a3 3 0 0 1 0 6m1 3a5 5 0 0 1 3 5v1h-3"/>'
   };
@@ -28,9 +29,11 @@
   // Admitir archivos locales y el ZIP concreto, verificado en GitHub Releases.
   // No se aceptan enlaces externos arbitrarios.
   const organizerDownload = 'https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/organizador-reuniones-v0.8.9.5/Organizador_Reuniones_PRO_0_8_9_5_WINDOWS_CON_VIDEOTUTORIALES.zip';
+  const playerDownload = 'https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/reproductor-jw-facil-v1.0.0/Reproductor_JW_Facil_1.0.0_Setup.exe';
   const validFile = app => {
     if(!['publicado','pruebas-locales','lista-local'].includes(app.estado) || typeof app.archivo!=='string') return false;
     if(app.id==='organizador-reuniones-pro') return app.archivo===organizerDownload;
+    if(app.id==='reproductor-jw-facil') return app.archivo===playerDownload;
     return /^descargas\/[\w.\-%/]+\.(apk|zip|exe|msi)$/i.test(app.archivo) && !app.archivo.includes('..');
   };
   function render(){

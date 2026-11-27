@@ -85,5 +85,60 @@ window.CATALOGO_HT = [
     descripcion: "Herramienta para llevar un control personal de responsabilidades y asignaciones. La ficha está preparada para revisar la versión existente antes de publicarla.",
     funciones: ["Organización personal", "Control de responsabilidades", "Consulta de asignaciones", "Revisión de estabilidad pendiente"],
     version: "", pack: "", fecha: "", archivo: ""
+  },
+  {
+    "id": "reproductor-jw-facil",
+    "nombre": "Reproductor JW Fácil",
+    "categoria": "estudio",
+    "plataforma": "windows",
+    "estado": "publicado",
+    "icono": "video",
+    "color": "blue",
+    "subtitulo": "Descarga las novedades y disfruta de los vídeos seguidos",
+    "descripcion": "Selecciona los últimos vídeos disponibles de JW.ORG, descárgalos al ordenador y reprodúcelos consecutivamente, incluso sin conexión. Incluye perfiles individuales, listas, favoritos y una interfaz compacta con temas claro y oscuro. Aplicación gratuita, independiente y no oficial.",
+    "funciones": [
+      "Selección múltiple y descarga en distintas calidades disponibles",
+      "Reproducción consecutiva sin conexión y modo cine",
+      "Historial, favoritos y listas por perfil",
+      "Reanudación de vídeos y descargas interrumpidas",
+      "Pantalla externa y gestión del almacenamiento",
+      "Copias de seguridad"
+    ],
+    "ficha": [
+      {
+        "titulo": "Descarga y reproduce",
+        "puntos": [
+          "Actualiza el catálogo de últimos vídeos disponibles, marca los que quieras ver y descárgalos directamente desde su fuente original.",
+          "Reproduce los vídeos consecutivamente, incluso sin conexión. Puedes ordenar la cola y reanudar la reproducción."
+        ]
+      },
+      {
+        "titulo": "Personaliza tu experiencia",
+        "puntos": [
+          "Crea perfiles individuales con historial, listas y favoritos, compartiendo los archivos descargados.",
+          "Alterna entre temas claro y oscuro, vista compacta o mosaico y modo cine. La reproducción en pantalla externa depende de la configuración de Windows."
+        ]
+      },
+      {
+        "titulo": "Instalación en Windows",
+        "puntos": [
+          "Requiere Windows 10 u 11 de 64 bits y VLC Media Player de 64 bits. Descarga VLC desde videolan.org si no lo tienes.",
+          "Descarga el instalador EXE, ábrelo y sigue sus instrucciones. No requiere instalar Python.",
+          "El instalador no está firmado digitalmente; Windows puede mostrar un aviso. No se ha realizado un análisis antivirus independiente."
+        ]
+      },
+      {
+        "titulo": "Información y privacidad",
+        "puntos": [
+          "Programa independiente y no oficial, sin afiliación con JW.ORG. Gratuito, sin publicidad ni registro.",
+          "Los vídeos se descargan directamente desde su fuente original al ordenador. El historial y los perfiles se guardan localmente.",
+          "Utiliza la sección Sugerencias de esta web para comunicar problemas."
+        ]
+      }
+    ],
+    "version": "1.0.0",
+    "pack": "10",
+    "fecha": "27/11/2026",
+    "archivo": "https://github.com/pastranaalex-glitch/pastranaalex-glitch.github.io/releases/download/reproductor-jw-facil-v1.0.0/Reproductor_JW_Facil_1.0.0_Setup.exe"
   }
 ];
