@@ -5,13 +5,17 @@
   if (!cards.length) return;
   const pad = n => String(n).padStart(2, '0');
   const known = new Map();
-  // Verde solo cuando una app tiene la publicación habilitada, aprobada y completamente configurada.
+  // La aprobación editorial no garantiza que exista una Release pública y verificada.
+  // Verde solo con el archivo exacto, huella SHA-256 y confirmación explícita de Release publicada.
   const isConfigured = app => !!app
     && app.publicacionAutomatica === true
     && app.revisionAprobada === true
     && typeof app.repo === 'string'
     && (/^pastranaalex-glitch\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(app.repo) || (['mi-salud-familiar', 'mi-dinero-real'].includes(app.slug) && app.repo === 'pastranaalex-glitch/pastranaalex-glitch.github.io'))
     && typeof app.versionAprobada === 'string' && app.versionAprobada.trim() !== ''
+    && typeof app.archivoAprobado === 'string' && app.archivoAprobado.trim() !== ''
+    && typeof app.sha256Aprobado === 'string' && /^[a-f0-9]{64}$/i.test(app.sha256Aprobado)
+    && app.releasePublicada === true
     && ['android', 'windows'].includes(app.plataforma)
     && typeof app.fechaEstreno === 'string'
     && Number.isFinite(Date.parse(app.fechaEstreno));
@@ -20,11 +24,13 @@
     if (!el) return;
     const enabled = isConfigured(app);
     el.dataset.autoStatus = enabled ? 'active' : 'pending';
-    const state = enabled ? 'Publicación automática activada; APK verificado' : (app?.slug === 'mi-salud-familiar' ? (app.apkSubido === true ? 'APK subido a GitHub; verificando su contenido' : 'Programación instalada; pendiente de subir APK a GitHub') : 'Publicación automática pendiente');
+    const state = enabled
+      ? 'Versión pública aprobada y automatización configurada; lanzamiento sujeto a comprobación final'
+      : 'Fecha prevista: publicación pendiente de revisión final de la versión y del archivo descargable';
     el.title = state;
     el.setAttribute('aria-label', state);
     const label = el.querySelector('[data-auto-label]');
-    if (label) label.textContent = enabled ? 'Automatizada' : (app?.slug === 'mi-salud-familiar' ? (app.apkSubido === true ? 'Verificando APK' : 'Esperando APK') : 'Sin automatizar');
+    if (label) label.textContent = enabled ? 'Programada' : 'Revisión pendiente';
   };
   const say = (card, message) => {
     const target = card.querySelector('.pack6-countdown-message');
@@ -50,7 +56,7 @@
         if (el) el.textContent = pad(value);
       });
       if (remaining === 0) {
-        say(card, 'Fecha prevista alcanzada. Pendiente de confirmar la publicación.');
+        say(card, 'Fecha prevista alcanzada. Publicación pendiente de verificación y confirmación.');
       } else {
         const dateText = new Intl.DateTimeFormat('es-ES', {timeZone: 'Europe/Madrid',day: 'numeric',month: 'long',year: 'numeric',hour: '2-digit',minute: '2-digit'}).format(date);
         say(card, 'Lanzamiento previsto: ' + dateText + ' (hora de Madrid)');
